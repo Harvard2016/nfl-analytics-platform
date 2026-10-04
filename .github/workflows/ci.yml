@@ -26,6 +26,9 @@ jobs:
       - run: npm test
       - run: npx playwright install --with-deps chromium
       - run: npm run test:ui
+      # Single opt-in source diagnosis, separate from deterministic regression checks.
+      - run: YOUTUBE_SOURCE_PROBE=1 npx playwright test youtube-probe.spec.ts
+        continue-on-error: true
       - uses: actions/upload-artifact@v4
         if: always()
         with:

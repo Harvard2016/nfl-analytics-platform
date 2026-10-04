@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Badge } from "@/components/ui";
 import { pct } from "@/lib/demo";
 import { type Games, PMODELS, loadPregame, signed } from "@/lib/pregame";
+import ModuleTour from "@/components/ModuleTour";
 import StadiumBackdrop from "@/components/StadiumBackdrop";
 import TeamPortrait from "@/components/TeamPortrait";
 
@@ -44,11 +45,11 @@ export default function Predictions() {
 
   return (
     <div>
-      <header className="prediction-header cinematic-band border-b border-line">
+      <header data-tour="prediction-selectors" className="prediction-header cinematic-band border-b border-line">
         <StadiumBackdrop />
         <div className="mx-auto grid max-w-[1500px] gap-6 px-4 py-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:px-8">
           <div>
-            <p className="kicker">Game prediction</p>
+            <div className="flex items-center gap-4"><p className="kicker">Game prediction</p><ModuleTour module="predictions" /></div>
             <h1 className="display mt-1 text-6xl sm:text-8xl">Before kickoff<span className="text-teal">.</span></h1>
             <p className="mt-3 max-w-[60ch] text-muted">Win probabilities built from team and quarterback performance known 24 hours before kickoff. What you browse here are <strong className="font-semibold text-ink">reconstructed backtests</strong>; forecasts recorded before games are in the <Link className="text-teal underline" href="/predictions/forecasts">live forecast log</Link>.</p>
           </div>
@@ -85,7 +86,7 @@ export default function Predictions() {
       <section key={game.id} aria-label="Selected matchup" className="matchup-stage fade-swap border-b border-line">
         <div className="matchup-grid mx-auto max-w-[1500px]">
           <TeamPortrait team={game.away} side="away" />
-          <div className="matchup-probabilities text-center">
+          <div data-tour="prediction-probabilities" className="matchup-probabilities text-center">
             <p className="mono mx-auto w-fit border border-line px-3 py-1 text-[11px] tracking-[0.2em] text-muted">HISTORICAL BACKTEST · 24 H INPUT CUTOFF</p>
             <p className="kicker mt-5">Win probability, Elo-offset model</p>
             <div className="mt-2 grid grid-cols-[auto_1fr_auto] items-center gap-3">
@@ -107,7 +108,7 @@ export default function Predictions() {
 
       <div className="paper">
         <div className="mx-auto grid max-w-[1500px] grid-cols-[minmax(0,1fr)] gap-10 px-4 py-12 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] lg:px-8">
-          <section aria-labelledby="pg-how">
+          <section data-tour="prediction-breakdown" aria-labelledby="pg-how">
             <p className="kicker">Model breakdown</p>
             <h2 id="pg-how" className="display mt-1 text-5xl sm:text-6xl">From Elo to the forecast<span className="text-teal">.</span></h2>
             <p className="mt-3 max-w-[64ch] text-muted">The model starts at the Elo baseline and adds one term per feature. Each bar is that term in <strong className="font-semibold text-ink">log-odds of a {game.home} win</strong>: a coefficient times a standardized feature. The terms add up on the log-odds scale, not in percentage points, so the running probability is shown beside each step.</p>
@@ -135,7 +136,7 @@ export default function Predictions() {
             </div>
             <p className="mt-2 max-w-[64ch] text-xs text-muted">Contributions describe the fitted model. They do not show that a factor caused the result.</p>
 
-            <details className="mt-6 border border-line p-4" open>
+            <details data-tour="prediction-method" className="mt-6 border border-line p-4" open>
               <summary className="narrow text-xl">How was this calculated?</summary>
               <dl className="mt-3 grid gap-3 text-sm text-muted sm:grid-cols-2">
                 <div><dt className="kicker">Inputs</dt><dd>Every game that kicked off at least 28 hours before this one. Elo before the game: {game.home} {game.elo[0]}, {game.away} {game.elo[1]}.</dd></div>
@@ -146,7 +147,7 @@ export default function Predictions() {
             </details>
           </section>
 
-          <aside aria-label="Observed result and comparisons">
+          <aside data-tour="prediction-results" aria-label="Observed result and comparisons">
             <p className="kicker"><Badge kind="Observed" /> result</p>
             <table className="mt-2 w-full">
               <caption className="mono pb-1 text-right text-xs text-muted">FINAL</caption>

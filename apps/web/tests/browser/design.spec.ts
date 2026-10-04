@@ -1,6 +1,10 @@
 import { test, expect } from "@playwright/test";
 import fs from "node:fs";
 
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => { for (const moduleName of ["coverage", "predictions", "highlights"]) localStorage.setItem(`gridiron-tour:${moduleName}:v1`, "seen"); });
+});
+
 const routes = [
   ["home", "/", "Read the field."],
   ["coverage", "/coverage?model=v2_temporal", "Read the defense."],
@@ -51,7 +55,7 @@ test("candidate click maps time, reuses player, pauses at end, and handles embed
     window.__ytInstances=[];
     window.YT={Player:class {
       constructor(el,config){this.config=config;this.time=0;this.seeks=[];window.__ytInstances.push(this);queueMicrotask(()=>config.events.onReady({target:this}));}
-      cueVideoById(o){this.time=o.startSeconds;}
+      loadVideoById(o){this.time=o.startSeconds;this.seeks.push(o.startSeconds);this.interval=o;this.config.events.onStateChange({target:this,data:1});}
       seekTo(t){this.time=t;this.seeks.push(t);}
       playVideo(){this.config.events.onStateChange({target:this,data:1});}
       pauseVideo(){this.config.events.onStateChange({target:this,data:2});}
@@ -59,6 +63,7 @@ test("candidate click maps time, reuses player, pauses at end, and handles embed
       destroy(){this.destroyed=true;}
     }};window.onYouTubeIframeAPIReady();
   `}));
+  await page.route("https://www.youtube-nocookie.com/embed/**",route => route.fulfill({contentType:"text/html",body:"<html><body>Controlled player fixture</body></html>"}));
   await page.goto("/highlights");
   const candidates = page.locator(".candidate-button");
   await expect(candidates.first()).toBeVisible();
@@ -69,6 +74,10 @@ test("candidate click maps time, reuses player, pauses at end, and handles embed
     return {time:p.time,seeks:p.seeks};
   });
   expect(state.time).toBeCloseTo(435.123448,5);
+  const frame = page.locator(".youtube-host iframe");
+  await expect(frame).toHaveAttribute("allow", /autoplay/);
+  await expect(frame).toHaveAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+  await expect(frame).toHaveAttribute("src", /enablejsapi=1/);
   await candidates.nth(1).click();
   await expect.poll(()=>page.evaluate(()=>(window as unknown as {__ytInstances:{time:number}[]}).__ytInstances[0].time)).toBeCloseTo(1249.123448,5);
   expect(await page.evaluate(()=>(window as unknown as {__ytInstances:unknown[]}).__ytInstances.length)).toBe(1);
@@ -81,5 +90,9 @@ test("candidate click maps time, reuses player, pauses at end, and handles embed
     p.config.events.onError({data:150});
   });
   await expect(page.getByRole("link",{name:"Open source video ↗"})).toBeVisible();
-  await expect(page.locator(".player-status")).toContainText("cannot play here");
+  await expect(page.locator(".player-status")).toContainText("video owner has disabled");
+  await expect(page.getByTestId("youtube-error")).toHaveText("YouTube error 150");
+  await page.getByRole("button",{name:"Retry player",exact:true}).click();
+  await expect(page.locator(".player-status")).toHaveText("Playing source video");
+  expect(await page.evaluate(()=>(window as unknown as {__ytInstances:unknown[]}).__ytInstances.length)).toBe(2);
 });

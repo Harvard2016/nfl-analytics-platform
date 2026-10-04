@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import fs from 'node:fs';
-import { youtubeId, toSourceTime, toTimelineTime, sourceVideoLink } from '../lib/highlightTime.ts';
+import { youtubeEmbedUrl, youtubeErrorMessage, youtubeId, toSourceTime, toTimelineTime, sourceVideoLink } from '../lib/highlightTime.ts';
 
 test('source mapping is per-game, preserves fractions, and round-trips', () => {
   for (const offset of [0, 27.123448, 61.75]) {
@@ -44,4 +44,21 @@ test('all exported candidate intervals map to their saved source times', () => {
     }
   }
   assert.ok(intervals>100);
+});
+
+test("embed URL includes page identity and bounded mapped interval", () => {
+  const source={full_video:"https://www.youtube.com/watch?v=0FF_DbJ3G68",trim_start_s:27.123448};
+  const url=new URL(youtubeEmbedUrl(source,"https://example.com",408,418));
+  assert.equal(url.hostname,"www.youtube-nocookie.com");
+  assert.equal(url.searchParams.get("origin"),"https://example.com");
+  assert.equal(url.searchParams.get("enablejsapi"),"1");
+  assert.equal(url.searchParams.get("start"),"435");
+  assert.equal(url.searchParams.get("end"),"446");
+  assert.throws(()=>youtubeEmbedUrl(source,"file:///bad",408,418));
+});
+test("player errors distinguish owner restrictions, page identity and unavailable sources", () => {
+  assert.match(youtubeErrorMessage(150),/owner has disabled/);
+  assert.equal(youtubeErrorMessage(101),youtubeErrorMessage(150));
+  assert.match(youtubeErrorMessage(153),/referrer/);
+  assert.match(youtubeErrorMessage(100),/unavailable or private/);
 });

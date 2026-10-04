@@ -30,3 +30,27 @@ export function formatClock(seconds: number): string {
   const s = Math.max(0, Math.floor(seconds));
   return `${Math.floor(s / 3600)}:${String(Math.floor((s % 3600) / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
 }
+
+export function youtubeEmbedUrl(source: VideoSource, origin: string, start: number, end: number | null): string {
+  const id = youtubeId(source.full_video);
+  const page = new URL(origin);
+  if (!id || !["http:", "https:"].includes(page.protocol)) throw new Error("Invalid player source or origin");
+  const url = new URL(`https://www.youtube-nocookie.com/embed/${id}`);
+  url.searchParams.set("enablejsapi", "1");
+  url.searchParams.set("origin", page.origin);
+  url.searchParams.set("playsinline", "1");
+  url.searchParams.set("start", String(Math.floor(toSourceTime(source, start))));
+  if (end !== null && end > start) url.searchParams.set("end", String(Math.ceil(toSourceTime(source, end))));
+  return url.toString();
+}
+
+export function youtubeErrorMessage(code: number): string {
+  switch (code) {
+    case 2: return "YouTube rejected this video's playback settings. Retry the player or open the source link.";
+    case 5: return "YouTube could not play this video in this browser. Retry or open the selected moment on YouTube.";
+    case 100: return "This source video is unavailable or private on YouTube. Try another game.";
+    case 101: case 150: return "The video owner has disabled playback on other websites. This interval can only be watched on YouTube; use the source link.";
+    case 153: return "YouTube could not identify this webpage. A browser privacy setting or extension may have removed the page referrer. Retry, or open the source link.";
+    default: return "YouTube could not open this source here. Retry, try another game, or use the source link.";
+  }
+}

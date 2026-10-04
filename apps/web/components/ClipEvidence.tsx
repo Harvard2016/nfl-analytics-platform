@@ -10,7 +10,7 @@ export default function ClipEvidence({ scores, loudness, label, commentary, star
   const lmin = Math.min(-2,...loudness.slice(a,b)), lmax = Math.max(6,...loudness.slice(a,b));
   const rank = scores[Math.max(0,Math.min(scores.length-1,cursor))];
   return (
-    <figure className="clip-evidence">
+    <figure data-tour="highlight-signals" className="clip-evidence">
       <figcaption className="clip-graph-title"><span className="kicker">Signals at this moment</span><span className="mono num">{formatClock(start)} — {formatClock(end)} · <span className="text-amber">rank {rank}</span></span></figcaption>
       <div className="clip-graph-grid">
         <div className="clip-lane-labels" aria-hidden="true"><span>MODEL RANK<small>0–100</small></span><span>AUDIO<small>above background</small></span><span>LABEL<small>evaluation only</small></span><span>SPEECH<small>transcript activity</small></span></div>

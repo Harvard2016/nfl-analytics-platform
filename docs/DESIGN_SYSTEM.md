@@ -80,3 +80,9 @@ tabs, dialog and menu. Not done: a screen-reader (VoiceOver) pass.
 Highlights places an interaction-loaded official YouTube player above `ClipEvidence`: model ranking and observed loudness remain separate lanes, and editorial labels remain evaluation-only. A compact full-game overview supplies navigation. Selected intervals have start/end limits, replay/next controls, a synchronized cursor, and an external source fallback. No graph is described as feature attribution; two-second source bins constrain evidence resolution. Source timestamps use existing trim offsets and are not independently frame-verified.
 
 The new browser regression suite checks desktop/mobile overflow and saved matchup presentation. Its mocked player tests verify seek, reuse, boundary pause, replay and embedding-error states; they do not establish real YouTube embeddability.
+
+## First-visit tours and player resilience
+
+Coverage, Predictions and Highlights have separate five-step tours. A native modal dialog highlights the relevant page area, keeps keyboard focus inside, closes with Escape, and provides Back / Next / Skip / Finish controls. Only a local seen preference is stored per module; Page tour restarts it. No account, analytics or paid dependency is required. Mobile uses a bottom card and respects reduced motion.
+
+YouTube frames are now created with page-origin identification, strict-origin-when-cross-origin referrer policy and autoplay/fullscreen permissions before loading the API. Interval changes use loadVideoById rather than a cue/seek/play race. Failures show the returned code, a specific message and a retry action. Errors 101/150 mean the owner disables embedding; 153 means page identification is missing; these cannot be fixed by bypassing video-owner settings. A manual check of real source availability remains required.

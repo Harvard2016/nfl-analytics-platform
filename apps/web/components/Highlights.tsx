@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Badge } from "@/components/ui";
 import { pct } from "@/lib/demo";
+import ModuleTour from "@/components/ModuleTour";
 import StadiumBackdrop from "@/components/StadiumBackdrop";
 import HighlightPlayer, { type PlaybackRequest } from "@/components/HighlightPlayer";
 import ClipEvidence from "@/components/ClipEvidence";
@@ -101,7 +102,7 @@ export default function Highlights() {
         <StadiumBackdrop />
         <div className="mx-auto grid max-w-[1500px] gap-6 px-4 py-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end lg:px-8">
           <div>
-            <p className="kicker">Highlight intelligence</p>
+            <div className="flex items-center gap-4"><p className="kicker">Highlight intelligence</p><ModuleTour module="highlights" ready={!!g} /></div>
             <h1 className="display mt-1 text-6xl sm:text-8xl">Find the <span className="text-amber">moment.</span></h1>
           </div>
           <div className="max-w-[58ch] text-sm text-muted">
@@ -113,7 +114,7 @@ export default function Highlights() {
       </header>
 
       <div className="mx-auto max-w-[1500px] px-4 py-4 lg:px-8">
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border border-line px-4 py-2 text-sm">
+        <div data-tour="highlight-settings" className="flex flex-wrap items-center gap-x-5 gap-y-2 border border-line px-4 py-2 text-sm">
           <label className="flex min-w-0 items-center gap-2 text-muted">Game
             <select value={gid ?? ""} onChange={(e) => set("game", e.target.value)} className="max-w-[62vw] border border-line bg-surface px-2 text-ink sm:max-w-md">
               {index.games.map((x) => <option key={x.id} value={x.id}>{x.title.slice(0, 64)} ({x.split})</option>)}
@@ -164,7 +165,7 @@ export default function Highlights() {
               <p className="mt-1 text-xs text-muted">Every row is measured data for this game: model score rank, the released editorial label, the model&apos;s {budget} reel, loudness above the local background, and machine-transcribed commentary segments. No play diagram is shown because no tracking exists for these broadcasts.</p>
 
               <h2 className="kicker mt-6">Candidate moments in the 3-minute reel, best first</h2>
-              <ul className="mt-2 flex gap-2 overflow-x-auto pb-2">
+              <ul data-tour="highlight-candidates" className="mt-2 flex gap-2 overflow-x-auto pb-2">
                 {g.candidates.slice(0, 24).map((c) => (
                   <li key={c.start_clip}>
                     <button onClick={() => selectMoment(c.start_s,c.end_s)} aria-current={selectedCandidate === c ? "true" : undefined}
@@ -178,7 +179,7 @@ export default function Highlights() {
               </ul>
             </section>
 
-            <aside aria-label="Selected moment" className="min-w-0 text-sm">
+            <aside data-tour="highlight-review" aria-label="Selected moment" className="min-w-0 text-sm">
               <div role="tablist" aria-label="Moment panels" className="flex border-b border-line">
                 {(["evidence", "missed", "review"] as const).map((k) => (
                   <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className={`narrow -mb-px border-b-2 px-4 py-2 text-lg transition-colors duration-150 ${tab === k ? "border-amber text-amber" : "border-transparent text-muted hover:text-ink"}`}>

@@ -1,17 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { formatClock, sourceVideoLink, toSourceTime, toTimelineTime, youtubeId, type VideoSource } from "@/lib/highlightTime";
+import { formatClock, sourceVideoLink, toSourceTime, toTimelineTime, youtubeId, youtubeEmbedUrl, youtubeErrorMessage, type VideoSource } from "@/lib/highlightTime";
 
 type Player = {
-  cueVideoById(options: { videoId: string; startSeconds: number }): void;
+  loadVideoById(options: { videoId: string; startSeconds: number; endSeconds?: number }): void;
   seekTo(time: number, seekAhead: boolean): void;
   playVideo(): void; pauseVideo(): void; getCurrentTime(): number; destroy(): void;
 };
 type PlayerEvent = { target: Player; data: number };
 type YouTubeAPI = { Player: new (element: HTMLElement, config: {
-  videoId: string; width: string; height: string; host: string;
-  playerVars: Record<string, string | number>;
   events: { onReady(event: PlayerEvent): void; onStateChange(event: PlayerEvent): void; onError(event: PlayerEvent): void; onAutoplayBlocked(): void };
 }) => Player };
 declare global { interface Window { YT?: YouTubeAPI; onYouTubeIframeAPIReady?: () => void } }
@@ -38,6 +36,9 @@ export default function HighlightPlayer({ source, title, duration, request, onTi
   const host = useRef<HTMLDivElement>(null);
   const player = useRef<Player | null>(null);
   const [ready, setReady] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const [errorCode, setErrorCode] = useState<number | null>(null);
+  const pendingStart = useRef<number | null>(null);
   const [status, setStatus] = useState("Select a candidate to watch the source interval.");
   const [failed, setFailed] = useState(false);
   const [playing, setPlaying] = useState(false);
@@ -53,41 +54,59 @@ export default function HighlightPlayer({ source, title, duration, request, onTi
     const container = host.current;
     let disposed = false;
     let instance: Player | null = null;
+    let readyTimer: number | undefined;
+    const frame = document.createElement("iframe");
+    const r = latest.current.request;
+    frame.src = youtubeEmbedUrl(latest.current.source, window.location.origin, r?.start ?? 0, r?.end ?? null);
+    frame.title = `Source video: ${title}`;
+    frame.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = "strict-origin-when-cross-origin";
+    container.appendChild(frame);
     loadYouTube().then((api) => {
       if (disposed) return;
-      const mount = document.createElement("div");
-      container.appendChild(mount);
-      instance = new api.Player(mount, {
-        videoId, width: "100%", height: "100%", host: "https://www.youtube-nocookie.com",
-        playerVars: { origin: window.location.origin, playsinline: 1, controls: 1, autoplay: 0 },
+      readyTimer = window.setTimeout(() => {
+        if (!disposed) { setFailed(true); setStatus("YouTube did not finish opening this video. Retry the player or use the source link."); }
+      }, 15000);
+      // Create the iframe ourselves so permission and referrer attributes are present on its first request.
+      instance = new api.Player(frame, {
         events: {
           onReady: (event) => {
             if (disposed) return;
             player.current = event.target;
-            const r = latest.current.request;
-            event.target.cueVideoById({ videoId, startSeconds: toSourceTime(latest.current.source, r?.start ?? 0) });
+            window.clearTimeout(readyTimer);
             setReady(true); setStatus("Ready. Play the selected interval.");
           },
           onStateChange: (event) => {
             if (disposed) return;
             setPlaying(event.data === 1);
-            if (event.data === 1) setStatus("Playing source video");
+            if (event.data === 1) {
+              if (pendingStart.current !== null && Math.abs(event.target.getCurrentTime() - pendingStart.current) <= 3) pendingStart.current = null;
+              setStatus("Playing source video");
+            }
             else if (event.data === 2) setStatus("Paused");
             else if (event.data === 3) setStatus("Buffering…");
+            else if (event.data === 0 && latest.current.request?.end != null) {
+              setStatus("Interval finished. Replay it or choose the next candidate.");
+              latest.current.onTime(Math.max(latest.current.request.start, latest.current.request.end - .01));
+            }
           },
-          onError: () => { if (!disposed) { setFailed(true); setStatus("This source cannot play here. Watch the selected moment on YouTube."); } },
-          onAutoplayBlocked: () => { if (!disposed) setStatus("Your browser requires another click. Choose Play interval."); },
+          onError: (event) => { if (!disposed) { window.clearTimeout(readyTimer); setFailed(true); setPlaying(false); setErrorCode(event.data); setStatus(youtubeErrorMessage(event.data)); } },
+          onAutoplayBlocked: () => { if (!disposed) { setPlaying(false); setStatus("Your browser blocked automatic playback. Press Play interval or the play button inside the video."); } },
         },
       });
     }).catch(() => { if (!disposed) { setFailed(true); setStatus("Could not connect the player. The source link is still available."); } });
-    return () => { disposed = true; player.current = null; instance?.destroy(); container.replaceChildren(); };
-  }, [enabled, videoId]);
+    return () => { disposed = true; window.clearTimeout(readyTimer); player.current = null; instance?.destroy(); container.replaceChildren(); };
+  }, [enabled, videoId, attempt, title]);
 
   useEffect(() => {
     if (!ready || !request || !player.current || failed) return;
-    player.current.seekTo(toSourceTime(source, request.start), true);
-    player.current.playVideo();
-  }, [ready, request, source, failed]);
+    const startSeconds = toSourceTime(source, request.start);
+    pendingStart.current = startSeconds;
+    previousTime.current = null;
+    // Loading an interval avoids racing seekTo/playVideo against an asynchronous cueVideoById.
+    player.current.loadVideoById({ videoId: videoId!, startSeconds, ...(request.end != null ? { endSeconds: toSourceTime(source, request.end) } : {}) });
+  }, [ready, request, source, failed, videoId]);
 
   useEffect(() => {
     if (!ready || failed) return;
@@ -97,6 +116,11 @@ export default function HighlightPlayer({ source, title, duration, request, onTi
       const current = p.getCurrentTime();
       if (!Number.isFinite(current)) return;
       const { source: s, duration: d, request: r, onTime: notify } = latest.current;
+      // Ignore the old interval's clock until the player has reached the newly requested start.
+      if (pendingStart.current !== null) {
+        if (Math.abs(current - pendingStart.current) > 3) return;
+        pendingStart.current = null;
+      }
       const timeline = toTimelineTime(s, current, d);
       setTime(timeline);
       if (playing || (previousTime.current !== null && Math.abs(current-previousTime.current) > .3)) notify(timeline);
@@ -111,16 +135,17 @@ export default function HighlightPlayer({ source, title, duration, request, onTi
 
   const start = request?.start ?? 0;
   return (
-    <div className="highlight-player">
-      <div className="player-titlebar"><span className="kicker">Source film / {request?.label ?? "candidate preview"}</span><a href={sourceVideoLink(source, start)} target="_blank" rel="noreferrer">Watch on YouTube ↗</a></div>
-      <div className="video-stage">
+    <div data-tour="highlight-player" className="highlight-player">
+      <div className="player-titlebar"><span className="kicker">Source film / {request?.label ?? "candidate preview"}</span><a href={sourceVideoLink(source, start)} target="_blank" rel="noopener">Watch on YouTube ↗</a></div>
+      <div className={`video-stage${failed ? " video-stage--error" : ""}`}>
         <div ref={host} className="youtube-host" hidden={!enabled || failed} />
         {(!enabled || failed || !videoId) && <div className="video-placeholder">
           <span className="player-play-symbol" aria-hidden="true">▶</span>
           <p className="display text-4xl sm:text-5xl">Watch the moment.</p>
           <p className="mt-2 max-w-[42ch] text-sm text-muted">{failed ? status : "Select a candidate below to play its ranked interval with synchronized model and audio evidence."}</p>
           {!failed && videoId && <button className="btn-primary mt-5" onClick={onReplay}>Play selected candidate →</button>}
-          {(failed || !videoId) && <a className="btn-primary mt-5" href={sourceVideoLink(source, start)} target="_blank" rel="noreferrer">Open source video ↗</a>}
+          {(failed || !videoId) && <a className="btn-primary mt-5" href={sourceVideoLink(source, start)} target="_blank" rel="noopener">Open source video ↗</a>}
+          {failed && videoId && <button className="mt-3 text-sm underline" onClick={() => { setReady(false); setFailed(false); setErrorCode(null); setStatus("Retrying YouTube…"); setAttempt(n => n + 1); }}>Retry player</button>}
           <span className="video-source-name">{title}</span>
         </div>}
       </div>
@@ -139,7 +164,7 @@ export default function HighlightPlayer({ source, title, duration, request, onTi
         </div>
         <span className="mono num text-xs text-muted">{formatClock(start)}{request?.end != null ? ` — ${formatClock(request.end)}` : " · source preview"}</span>
       </div>
-      <p className="player-status" role="status">{status}</p>
+      <p className="player-status" role="status">{status}{errorCode !== null && <span className="mono block" data-testid="youtube-error">YouTube error {errorCode}</span>}</p>
       <p className="px-4 pb-3 text-[10px] leading-relaxed text-muted">Official YouTube player when embedding is permitted. Timing uses the dataset&apos;s trim mapping, not independent frame verification. Candidate intervals are selected ranking windows, not full-play boundaries.</p>
     </div>
   );
