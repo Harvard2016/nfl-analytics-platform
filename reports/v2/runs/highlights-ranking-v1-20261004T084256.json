@@ -1,0 +1,159 @@
+{
+  "module": "highlights",
+  "run_id": "highlights-ranking-v1-20261004T084256",
+  "name": "ranking-v1",
+  "results_version": "v2",
+  "started_at": "2026-10-04T08:42:56+00:00",
+  "git_commit": "d11b3c55f521026cba0e601cd7539940c225d252+uncommitted",
+  "seed": 20261004,
+  "config": {},
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {
+    "version": "svh-football-split-v1",
+    "train": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      22,
+      25,
+      28,
+      29,
+      32,
+      33,
+      34,
+      37,
+      38
+    ],
+    "validation": [
+      8,
+      21,
+      27,
+      30,
+      31,
+      39
+    ],
+    "test": [
+      23,
+      24,
+      26,
+      35,
+      36,
+      40
+    ],
+    "rule": "seeded shuffle of the 40 game ids; first 6 test, next 6 validation, remaining 28 training (70/15/15)"
+  },
+  "target": "ranking agreement with editorial highlight selection",
+  "population": "167006 two-second clips in 40 games",
+  "exclusions": null,
+  "input_cutoff": "offline: context on both sides of a clip",
+  "features": {
+    "components_per_modality": 64
+  },
+  "preprocessing": null,
+  "calibration": "Not fitted: 6 validation games are too few held-out groups to fit and check a calibrator.",
+  "hyperparameters": null,
+  "metrics": {
+    "H0 loudness": {
+      "validation_map": 0.31378833899936354,
+      "test_map": 0.24597855451589345
+    },
+    "H1 commentary": {
+      "validation_map": 0.40227330120206944,
+      "test_map": 0.4042559871669085
+    },
+    "H2 visual CLIP, logistic": {
+      "validation_map": 0.3092364008594897,
+      "test_map": 0.29096748170111314
+    },
+    "H2 visual SlowFast, logistic": {
+      "validation_map": 0.3442163122449184,
+      "test_map": 0.3472622437238018
+    },
+    "H2 audio PANN, logistic": {
+      "validation_map": 0.3853653590118664,
+      "test_map": 0.3529491687252702
+    },
+    "H2 all embeddings + loudness, logistic": {
+      "validation_map": 0.5072057918218388,
+      "test_map": 0.46725715237541116
+    },
+    "H2 all embeddings + loudness, boosted trees": {
+      "validation_map": 0.5045014734720095,
+      "test_map": 0.47673369395307597
+    },
+    "H3 temporal fusion": {
+      "validation_map": 0.6879140201155657,
+      "test_map": 0.6192678665389459
+    },
+    "H3 without aud_pann": {
+      "validation_map": 0.6272520336668942,
+      "test_map": 0.536217399986412
+    },
+    "H3 without vid_clip": {
+      "validation_map": 0.6749460297491625,
+      "test_map": 0.6162537822691317
+    },
+    "H3 without vid_slowfast": {
+      "validation_map": 0.6527816109156707,
+      "test_map": 0.582708661084563
+    },
+    "H3 without loudness": {
+      "validation_map": 0.6638829097345063,
+      "test_map": 0.599992513679036
+    },
+    "H3 + commentary (equal-weight z-score sum)": {
+      "validation_map": 0.5951171845586497,
+      "test_map": 0.5726098613097782
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "report": {
+      "path": "reports/v2/highlights_ranking.json",
+      "sha256": "ffaa94bb9a4ca987dba19cb9dcaeb243c53ef7441ff9a4dd46784a3d112c3211"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T08:48:55+00:00",
+  "train_seconds": 359.4,
+  "peak_memory_mb": 1269.5
+}

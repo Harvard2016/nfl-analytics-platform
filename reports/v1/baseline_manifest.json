@@ -1,0 +1,1337 @@
+{
+  "baseline_version": "v1",
+  "frozen_at": "2026-10-04T06:53:56+00:00",
+  "git_commit": "4846cca9c711409b1a681b2e7b62826edd09c5b9+uncommitted",
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "note": "Benchmark v1. The coverage test weeks 15-18 and the pregame 2023-2025 seasons have been examined; any later model compared on them is a comparison on a previously examined benchmark, not a fresh test.",
+  "coverage": {
+    "data": {
+      "source": "bdb2026",
+      "files": [
+        {
+          "name": "input_2023_w01.csv",
+          "bytes": 48950314,
+          "sha256": "68a13183084adf52eb8bba7980a4b57d4131b4178016fb0eb32d307cbd044dc5"
+        },
+        {
+          "name": "input_2023_w02.csv",
+          "bytes": 49485029,
+          "sha256": "140eedd3bedc846918c92c934d47a02a49c5c3984bf325ddb9a607b7b4410d4e"
+        },
+        {
+          "name": "input_2023_w03.csv",
+          "bytes": 51062128,
+          "sha256": "57c58758286b82f9a41d240d9bd09bce47417e9bc1a6f467b14d9c2c1ef04dc6"
+        },
+        {
+          "name": "input_2023_w04.csv",
+          "bytes": 46685806,
+          "sha256": "915ca6f1524316d8cac84a4a8914b14c1221badb81e0dd1731b4d27106d3cdb5"
+        },
+        {
+          "name": "input_2023_w05.csv",
+          "bytes": 43574971,
+          "sha256": "9c4c55b22caaa39657116c8029eba55096fe97b96263829d9e2caec6e9ee29a9"
+        },
+        {
+          "name": "input_2023_w06.csv",
+          "bytes": 46320079,
+          "sha256": "87dd1ec5c2def42a1994ba51ffd9292b8b342784d2e2323278d5fe6a0d904f84"
+        },
+        {
+          "name": "input_2023_w07.csv",
+          "bytes": 39972688,
+          "sha256": "e4e3f50735501114451c306744f7e0257f17b5b4ebe15b8405573084359ef38b"
+        },
+        {
+          "name": "input_2023_w08.csv",
+          "bytes": 48114622,
+          "sha256": "b672e029414ad956cbdf937c58f7d9a3780e451815fd0e34162fd6605118b685"
+        },
+        {
+          "name": "input_2023_w09.csv",
+          "bytes": 43224522,
+          "sha256": "bdf9d37757c0dd916abf18c4846c5c8f0642dad6f878ef202efacd96b9ae0044"
+        },
+        {
+          "name": "input_2023_w10.csv",
+          "bytes": 44660215,
+          "sha256": "f06e97b348815c7712d49d9a25d3b529096698a4127f0fa6797ef4f257b9f7d6"
+        },
+        {
+          "name": "input_2023_w11.csv",
+          "bytes": 41687928,
+          "sha256": "461f0f2cfb57eb58110f522a819c210db6441668a41476c430348d3fdfed8165"
+        },
+        {
+          "name": "input_2023_w12.csv",
+          "bytes": 50591754,
+          "sha256": "cc2a6bfc4874b257117cbb54b30fcefca230e74301010d09f639ed40df1f3774"
+        },
+        {
+          "name": "input_2023_w13.csv",
+          "bytes": 40083483,
+          "sha256": "494424cbb67da50cc126418fd8a76fc2db9c715f6ea1cd7f216eac02cc742b6a"
+        },
+        {
+          "name": "input_2023_w14.csv",
+          "bytes": 48010868,
+          "sha256": "00f0284711f8f3b8a83309ba36622af4b8fa52486f989c615098bd618820a744"
+        },
+        {
+          "name": "input_2023_w15.csv",
+          "bytes": 48234805,
+          "sha256": "28b50a8b52341296b58203767e392da33b6f3954c208e6194202f46443477f0e"
+        },
+        {
+          "name": "input_2023_w16.csv",
+          "bytes": 54152852,
+          "sha256": "474ded452014b53cf0076c63787977ef1c08e62f065f2b9653e5cb37e3fee1ba"
+        },
+        {
+          "name": "input_2023_w17.csv",
+          "bytes": 47524865,
+          "sha256": "c44be941c5072c786cdbdd9f7b1bd66fe3ee64f840ee6f355bc3691dc2def1da"
+        },
+        {
+          "name": "input_2023_w18.csv",
+          "bytes": 43583927,
+          "sha256": "ead5883c9d27d4c7e7c2f9162649d23a06f83a0b7b27a70ad117d4dcc99541f2"
+        },
+        {
+          "name": "output_2023_w01.csv",
+          "bytes": 1149693,
+          "sha256": "b900eaf750f3189ea78b7785f317529fdb8e020ded614b8fc35d3b1d85de2136"
+        },
+        {
+          "name": "output_2023_w02.csv",
+          "bytes": 1151878,
+          "sha256": "2e8700a0f301cc640882a2df46e814575bb2cdc7df8972a91e4205e4b6e5dbf9"
+        },
+        {
+          "name": "output_2023_w03.csv",
+          "bytes": 1290818,
+          "sha256": "28f059362c11ff7ea91de7dd9961e7d2e1b573a0ab8f50609c08e2083daa17d3"
+        },
+        {
+          "name": "output_2023_w04.csv",
+          "bytes": 1079548,
+          "sha256": "0c2936db9933c99268b0b68a1aaec07b848652c831436b4f39e278eb1852b6b9"
+        },
+        {
+          "name": "output_2023_w05.csv",
+          "bytes": 1049295,
+          "sha256": "0db0024b360b1d104a95cef5ab18f4f9d10b8f7a9a1db11617a64751428bcdca"
+        },
+        {
+          "name": "output_2023_w06.csv",
+          "bytes": 1115599,
+          "sha256": "4d3cf3f8be1585dd7a45d4c4e746ae65da7eaf826c408ee746bc61548402fd9f"
+        },
+        {
+          "name": "output_2023_w07.csv",
+          "bytes": 982134,
+          "sha256": "16cd64258b6c31066ce98fa306232352e17cfd9cc523fc2ba0201f56a6c8c9ff"
+        },
+        {
+          "name": "output_2023_w08.csv",
+          "bytes": 1182503,
+          "sha256": "81c67b0313a96e15a5e23d56e220c1fc2024c4f1d1188ef7eb4c3d06fe1ed73b"
+        },
+        {
+          "name": "output_2023_w09.csv",
+          "bytes": 1013617,
+          "sha256": "a68b926f052251c66375f30bdc9893f8ed06664bea5197dc5d355d58793c10e7"
+        },
+        {
+          "name": "output_2023_w10.csv",
+          "bytes": 1038748,
+          "sha256": "f682dac38f090e68c2b0a42f00e7f9235d54ce7743f4c1f6e8b3e4156055f7fc"
+        },
+        {
+          "name": "output_2023_w11.csv",
+          "bytes": 988263,
+          "sha256": "4191bc1b041500bce6b49ff142f36592df157275990e216d305cf601fb6121a8"
+        },
+        {
+          "name": "output_2023_w12.csv",
+          "bytes": 1149533,
+          "sha256": "cf1a84fe1dc273fd694c37dc2bbfaa1e466736a2ab9fa3c75eeb64ccfabeddc7"
+        },
+        {
+          "name": "output_2023_w13.csv",
+          "bytes": 1058825,
+          "sha256": "df96f6c895a685c667a8ace0009d8a415b95b312b2534219e8c7eba93c0b69a7"
+        },
+        {
+          "name": "output_2023_w14.csv",
+          "bytes": 1178663,
+          "sha256": "460942e93c90ece6e91f2d1ee65e5ae05c6a127df8fcf43be0e3027b1b8dc2e3"
+        },
+        {
+          "name": "output_2023_w15.csv",
+          "bytes": 1172906,
+          "sha256": "69fa778947a9502d595dc67b5570c514a28ddeee9bd2d4572c4918a762ca72e1"
+        },
+        {
+          "name": "output_2023_w16.csv",
+          "bytes": 1306552,
+          "sha256": "f121c33addf6b45a5bd39e7c95968200eddebf05a0a818caa3724cff4a149c64"
+        },
+        {
+          "name": "output_2023_w17.csv",
+          "bytes": 1183218,
+          "sha256": "7c9e00893a65633f31ea889433da1f0049505ec0aaf1b82d1e3f2351e37fa983"
+        },
+        {
+          "name": "output_2023_w18.csv",
+          "bytes": 1061178,
+          "sha256": "f41227db6b7499044619acbc49d4018f81f2fdd3bb26d2f5216f226f84c3825d"
+        },
+        {
+          "name": "supplementary_data.csv",
+          "bytes": 7763752,
+          "sha256": "862f5d534dabee4071d8498ba46e5c48c27e56fa2fa81c6150ea2419e66ee98d"
+        }
+      ],
+      "total_bytes": 863837579,
+      "confirmed_counts": {
+        "tracked_plays": 14108,
+        "season": [
+          2023
+        ],
+        "weeks": [
+          1,
+          18
+        ],
+        "labelled": 14105,
+        "man": 4013,
+        "zone": 10092,
+        "unlabelled": 3,
+        "roles_week1": {
+          "Defensive Coverage": 5475,
+          "Targeted Receiver": 819,
+          "Other Route Runner": 2977,
+          "Passer": 818
+        },
+        "has_ball_rows": false,
+        "has_pre_snap_frames": false,
+        "first_frame": 1
+      },
+      "limits": [
+        "Only the passer, route runners and coverage defenders are tracked: no linemen, no pass rushers, no ball.",
+        "Tracking covers the snap to the throw only. There are no pre-snap frames.",
+        "Only pass plays that reached a throw are included. This is not every defensive snap.",
+        "output_*.csv holds positions after the throw for some players; the coverage models do not read it."
+      ]
+    },
+    "split": {
+      "version": "weeks-1-12_13-14_15-18-v1",
+      "weeks": {
+        "train": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "dev": [
+          13,
+          14
+        ],
+        "test": [
+          15,
+          16,
+          17,
+          18
+        ]
+      },
+      "manifest_sha256": "89112d8699c04c37aca025ec2f13e71761023cded2c8bf6ae5f97aab22d745cc",
+      "class_counts": {
+        "train": {
+          "Man": 2576,
+          "Zone": 6548
+        },
+        "dev": {
+          "Man": 404,
+          "Zone": 1016
+        },
+        "test": {
+          "Man": 873,
+          "Zone": 2305
+        }
+      },
+      "eligible_ids": {
+        "train": {
+          "plays": 9124,
+          "games": 180,
+          "ids_sha256": "4df4464e25fc164c21effbd73ef21d64cd9a0ab7585373c51b6f7e67041771ca"
+        },
+        "dev": {
+          "plays": 1420,
+          "games": 28,
+          "ids_sha256": "105d670aa43bcf979582af928fbdec8afec85226f785ff5142f7ca7c1816abed"
+        },
+        "test": {
+          "plays": 3178,
+          "games": 64,
+          "ids_sha256": "7ce28e5975dd15ec731ff74c8aeb318b77eac112b1149239cc1d87a404ad8a49"
+        }
+      }
+    },
+    "features": {
+      "schema": "cov-geo-v3",
+      "lists": {
+        "at_snap": [
+          "depth_max",
+          "depth_2nd",
+          "depth_mean",
+          "depth_std",
+          "n_deep_10",
+          "n_deep_7",
+          "deep2_lateral_sep",
+          "width_std",
+          "y_offset",
+          "n_box",
+          "cov_dist_mean",
+          "cov_dist_min",
+          "cov_dist_max",
+          "press_count",
+          "cover_facing_receiver",
+          "face_backfield",
+          "speed_mean",
+          "speed_max"
+        ],
+        "post_1s": [
+          "depth_max",
+          "depth_2nd",
+          "depth_mean",
+          "depth_std",
+          "n_deep_10",
+          "n_deep_7",
+          "deep2_lateral_sep",
+          "width_std",
+          "y_offset",
+          "n_box",
+          "cov_dist_mean",
+          "cov_dist_min",
+          "cov_dist_max",
+          "press_count",
+          "cover_facing_receiver",
+          "face_backfield",
+          "speed_mean",
+          "speed_max",
+          "d_depth_abs",
+          "d_lateral_abs",
+          "follow_cos",
+          "cov_dist_change",
+          "off_max_lateral",
+          "motion_follow",
+          "snap_depth_max",
+          "snap_depth_2nd",
+          "snap_depth_mean",
+          "snap_depth_std",
+          "snap_n_deep_10",
+          "snap_n_deep_7",
+          "snap_deep2_lateral_sep",
+          "snap_width_std",
+          "snap_y_offset",
+          "snap_n_box",
+          "snap_cov_dist_mean",
+          "snap_cov_dist_min",
+          "snap_cov_dist_max",
+          "snap_press_count",
+          "snap_cover_facing_receiver",
+          "snap_face_backfield",
+          "snap_speed_mean",
+          "snap_speed_max"
+        ],
+        "post_1_5s": [
+          "depth_max",
+          "depth_2nd",
+          "depth_mean",
+          "depth_std",
+          "n_deep_10",
+          "n_deep_7",
+          "deep2_lateral_sep",
+          "width_std",
+          "y_offset",
+          "n_box",
+          "cov_dist_mean",
+          "cov_dist_min",
+          "cov_dist_max",
+          "press_count",
+          "cover_facing_receiver",
+          "face_backfield",
+          "speed_mean",
+          "speed_max",
+          "d_depth_abs",
+          "d_lateral_abs",
+          "follow_cos",
+          "cov_dist_change",
+          "off_max_lateral",
+          "motion_follow",
+          "snap_depth_max",
+          "snap_depth_2nd",
+          "snap_depth_mean",
+          "snap_depth_std",
+          "snap_n_deep_10",
+          "snap_n_deep_7",
+          "snap_deep2_lateral_sep",
+          "snap_width_std",
+          "snap_y_offset",
+          "snap_n_box",
+          "snap_cov_dist_mean",
+          "snap_cov_dist_min",
+          "snap_cov_dist_max",
+          "snap_press_count",
+          "snap_cover_facing_receiver",
+          "snap_face_backfield",
+          "snap_speed_mean",
+          "snap_speed_max"
+        ]
+      },
+      "tables": {
+        "features_at_snap.parquet": "e88520994450ed76682138d3900fc07752f0e7932b182416e2e9fb06c09e22d2",
+        "features_post_1_5s.parquet": "9aee06fba11182e82bf98e53d429ff090965f2c18ce7f871dc1393749aa33cc1",
+        "features_post_1s.parquet": "8515a2d1c2f5c78a75f550b0ad6883319b066ad350db457a9a3e24b21f9bce2b"
+      }
+    },
+    "models": {
+      "at_snap__class_prior.joblib": "f542f1d004670da0180b5ad82d8c03726a887787bcbacbf4eb48e891689f1d1e",
+      "at_snap__context_logit.joblib": "a35615878fb95bc153184704b30c82b6b5bca2e726c7c33c2f72a30b32532470",
+      "at_snap__geometry_gbm.joblib": "419e2e539c7a8e0070c20818c8ad2e7e69bddc2df7a50f01ae7d0be210adedf3",
+      "at_snap__geometry_logit.joblib": "f1e46f563b381c6cb7a1424e9dd7659c5f49be37e58a0461bf7e620043afc259",
+      "post_1_5s__class_prior.joblib": "4a0992cc85655934192243c99d02ba2599153b844587eaf3d80313687a3d0b49",
+      "post_1_5s__context_logit.joblib": "58de39057beaa45b6f34d67eab038fdbdc4a36cc258479e10a21d83549fd21b3",
+      "post_1_5s__geometry_gbm.joblib": "e38a2acadb27bf8db68f11e43ee3b1865c4b409f016c634b4527cb1cc509e8dc",
+      "post_1_5s__geometry_logit.joblib": "cadd2cb4085064e9a7028c2445e6f54f43484bf4d98f3b1651eff3730552404f",
+      "post_1s__class_prior.joblib": "fb98b4d67f6767907b094319a9c1d3f1f3cf315019df2630c8fa52b61d89d22d",
+      "post_1s__context_logit.joblib": "d8de50fd06e9d6af661957b4e52a2fad8366fb1ec5cb47ad4c60d92dc27645cd",
+      "post_1s__geometry_gbm.joblib": "8c4eed0ce723f71f774cad2b26cd6183b2b9f78247f8c643fd8e79cf0bde94fd",
+      "post_1s__geometry_logit.joblib": "4cb73f8cd26d5805198220817984d64283e5964d7494aa5522b95fc57405c26a"
+    },
+    "calibration": "sigmoid (Platt) fitted on weeks 13-14, stored inside each model bundle",
+    "metrics": {
+      "at_snap": {
+        "class_prior": {
+          "version": "cov-at_snap-class_prior-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.7252989301447451,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4203902972825096,
+            "log_loss": 0.588023275547583,
+            "brier": 0.19929862790773514,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.7252989301447451,
+                "recall": 1.0,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  873
+                ],
+                [
+                  0,
+                  2305
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.7068962321730433,
+                0.7444959115331349
+              ],
+              "macro_f1": [
+                0.41414129892350465,
+                0.4267685038407936
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.7252989301447451
+          }
+        },
+        "context_logit": {
+          "version": "cov-at_snap-context_logit-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.7444933920704846,
+            "balanced_accuracy": 0.590800416446144,
+            "macro_f1": 0.5951963235146477,
+            "log_loss": 0.5272462241035355,
+            "brier": 0.1755021323050439,
+            "per_class": {
+              "Man": {
+                "precision": 0.5813333333333334,
+                "recall": 0.24971363115693013,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.7663217980734927,
+                "recall": 0.9318872017353579,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  218,
+                  655
+                ],
+                [
+                  157,
+                  2148
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.7275110879952448,
+                0.7624292996996307
+              ],
+              "macro_f1": [
+                0.5712120169182056,
+                0.6185719778861775
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.7444933920704846
+          }
+        },
+        "geometry_logit": {
+          "version": "cov-at_snap-geometry_logit-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.8149779735682819,
+            "balanced_accuracy": 0.7265658350167596,
+            "macro_f1": 0.7450937061609202,
+            "log_loss": 0.4114701033998813,
+            "brier": 0.1310047140246614,
+            "per_class": {
+              "Man": {
+                "precision": 0.7223088923556942,
+                "recall": 0.5303550973654066,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.8383918013401656,
+                "recall": 0.9227765726681127,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  463,
+                  410
+                ],
+                [
+                  178,
+                  2127
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.799926513828616,
+                0.8306401841493387
+              ],
+              "macro_f1": [
+                0.7259429283346077,
+                0.7652976832663689
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.75,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "test_accepted_fraction": 0.7004405286343612,
+            "test_accepted_accuracy": 0.894429469901168
+          }
+        },
+        "geometry_gbm": {
+          "version": "cov-at_snap-geometry_gbm-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.8310258023914412,
+            "balanced_accuracy": 0.7486590980810182,
+            "macro_f1": 0.768355871064946,
+            "log_loss": 0.3766020418444773,
+            "brier": 0.1191289565646455,
+            "per_class": {
+              "Man": {
+                "precision": 0.7576687116564417,
+                "recall": 0.565864833906071,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.8499604117181314,
+                "recall": 0.9314533622559653,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  494,
+                  379
+                ],
+                [
+                  158,
+                  2147
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.81793481064271,
+                0.8453630649151145
+              ],
+              "macro_f1": [
+                0.7485851791725139,
+                0.7870805457999525
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.75,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "test_accepted_fraction": 0.7495280050346129,
+            "test_accepted_accuracy": 0.9059613769941226
+          }
+        }
+      },
+      "post_1s": {
+        "class_prior": {
+          "version": "cov-post_1s-class_prior-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.7252989301447451,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4203902972825096,
+            "log_loss": 0.588023275547583,
+            "brier": 0.19929862790773514,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.7252989301447451,
+                "recall": 1.0,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  873
+                ],
+                [
+                  0,
+                  2305
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.7068962321730433,
+                0.7444959115331349
+              ],
+              "macro_f1": [
+                0.41414129892350465,
+                0.4267685038407936
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.7252989301447451
+          }
+        },
+        "context_logit": {
+          "version": "cov-post_1s-context_logit-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.7444933920704846,
+            "balanced_accuracy": 0.590800416446144,
+            "macro_f1": 0.5951963235146477,
+            "log_loss": 0.5272462241035355,
+            "brier": 0.1755021323050439,
+            "per_class": {
+              "Man": {
+                "precision": 0.5813333333333334,
+                "recall": 0.24971363115693013,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.7663217980734927,
+                "recall": 0.9318872017353579,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  218,
+                  655
+                ],
+                [
+                  157,
+                  2148
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.7275110879952448,
+                0.7624292996996307
+              ],
+              "macro_f1": [
+                0.5712120169182056,
+                0.6185719778861775
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.7444933920704846
+          }
+        },
+        "geometry_logit": {
+          "version": "cov-post_1s-geometry_logit-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.8606041535556954,
+            "balanced_accuracy": 0.8042755303103717,
+            "macro_f1": 0.8171685378316615,
+            "log_loss": 0.3173283122098212,
+            "brier": 0.0988666270469927,
+            "per_class": {
+              "Man": {
+                "precision": 0.7843915343915344,
+                "recall": 0.6792668957617412,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.884393063583815,
+                "recall": 0.9292841648590021,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  593,
+                  280
+                ],
+                [
+                  163,
+                  2142
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.848503142443095,
+                0.8729695008607617
+              ],
+              "macro_f1": [
+                0.8013213816678797,
+                0.8328048610472275
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.65,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "test_accepted_fraction": 0.8889238514789175,
+            "test_accepted_accuracy": 0.8987610619469026
+          }
+        },
+        "geometry_gbm": {
+          "version": "cov-post_1s-geometry_gbm-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.8697293895531781,
+            "balanced_accuracy": 0.8077196591900172,
+            "macro_f1": 0.8259401432599254,
+            "log_loss": 0.30601571854407056,
+            "brier": 0.09515712454392336,
+            "per_class": {
+              "Man": {
+                "precision": 0.8227848101265823,
+                "recall": 0.6701030927835051,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.8832590190514795,
+                "recall": 0.9453362255965293,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  585,
+                  288
+                ],
+                [
+                  126,
+                  2179
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.8564879634719478,
+                0.8834348992911375
+              ],
+              "macro_f1": [
+                0.8084629142050772,
+                0.8432495984695306
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.65,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "test_accepted_fraction": 0.8898678414096917,
+            "test_accepted_accuracy": 0.8999292786421499
+          }
+        }
+      },
+      "post_1_5s": {
+        "class_prior": {
+          "version": "cov-post_1_5s-class_prior-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.7252989301447451,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4203902972825096,
+            "log_loss": 0.588023275547583,
+            "brier": 0.19929862790773514,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.7252989301447451,
+                "recall": 1.0,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  873
+                ],
+                [
+                  0,
+                  2305
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.7068962321730433,
+                0.7444959115331349
+              ],
+              "macro_f1": [
+                0.41414129892350465,
+                0.4267685038407936
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.7252989301447451
+          }
+        },
+        "context_logit": {
+          "version": "cov-post_1_5s-context_logit-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.7444933920704846,
+            "balanced_accuracy": 0.590800416446144,
+            "macro_f1": 0.5951963235146477,
+            "log_loss": 0.5272462241035355,
+            "brier": 0.1755021323050439,
+            "per_class": {
+              "Man": {
+                "precision": 0.5813333333333334,
+                "recall": 0.24971363115693013,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.7663217980734927,
+                "recall": 0.9318872017353579,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  218,
+                  655
+                ],
+                [
+                  157,
+                  2148
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.7275110879952448,
+                0.7624292996996307
+              ],
+              "macro_f1": [
+                0.5712120169182056,
+                0.6185719778861775
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.7444933920704846
+          }
+        },
+        "geometry_logit": {
+          "version": "cov-post_1_5s-geometry_logit-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.8779106356198867,
+            "balanced_accuracy": 0.8251015646547548,
+            "macro_f1": 0.8395444078467951,
+            "log_loss": 0.2785894041961832,
+            "brier": 0.08663478510724608,
+            "per_class": {
+              "Man": {
+                "precision": 0.8229027962716379,
+                "recall": 0.7079037800687286,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.8949320148331273,
+                "recall": 0.942299349240781,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  618,
+                  255
+                ],
+                [
+                  133,
+                  2172
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.8676011653558412,
+                0.8894090882061069
+              ],
+              "macro_f1": [
+                0.8257789351672904,
+                0.8543118870163207
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.6,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "test_accepted_fraction": 0.9389553178099433,
+            "test_accepted_accuracy": 0.9004691689008043
+          }
+        },
+        "geometry_gbm": {
+          "version": "cov-post_1_5s-geometry_gbm-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+          "test": {
+            "n": 3178,
+            "accuracy": 0.8882945248584015,
+            "balanced_accuracy": 0.8390204570471582,
+            "macro_f1": 0.8534872030027987,
+            "log_loss": 0.25692932308280586,
+            "brier": 0.07907200672524953,
+            "per_class": {
+              "Man": {
+                "precision": 0.8425925925925926,
+                "recall": 0.7296678121420389,
+                "support": 873
+              },
+              "Zone": {
+                "precision": 0.902559867877787,
+                "recall": 0.9483731019522776,
+                "support": 2305
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  637,
+                  236
+                ],
+                [
+                  119,
+                  2186
+                ]
+              ]
+            },
+            "game_bootstrap_95": {
+              "games": 64,
+              "resamples": 500,
+              "accuracy": [
+                0.87602204096105,
+                0.9006522530103869
+              ],
+              "macro_f1": [
+                0.8376923791103188,
+                0.8700372443862155
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.6,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "test_accepted_fraction": 0.9414726242920075,
+            "test_accepted_accuracy": 0.911096256684492
+          }
+        }
+      }
+    },
+    "reports": {
+      "coverage_man_zone.json": "42d8913deca004d18e8d76d984f0b5e58e1eedfe355c4849fe3334e31c643c87",
+      "coverage_studies.json": "aa07a237395d76af950bd47d521f1b49a75aa5f60407b6647f392acd9d5911ea",
+      "coverage_tendencies.json": "c0ef502864003949fbf30711afca558b90c1944b05fea9cd019f979f0dc1656e"
+    },
+    "exports": {
+      "index": "2822d7421f851003aa6cf062f7b3eb7af84315cda87e3b15c966bb57b0490f1a",
+      "plays": 272,
+      "sample": 120,
+      "play_files_sha256": "2a80a034354f4010bc48810d909d4201c07284567c910fac345331ca012ef9eb"
+    },
+    "ui_defaults": {
+      "model": "geometry_gbm",
+      "window": "post_1_5s",
+      "cutoffs": {
+        "geometry_gbm": {
+          "at_snap": 0.75,
+          "post_1s": 0.65,
+          "post_1_5s": 0.6
+        },
+        "geometry_logit": {
+          "at_snap": 0.75,
+          "post_1s": 0.65,
+          "post_1_5s": 0.6
+        }
+      },
+      "main_view": "seeded random sample of 120 eligible test plays",
+      "error_view": "/coverage/errors"
+    }
+  },
+  "pregame": {
+    "data": {
+      "games_csv": {
+        "name": "games.csv",
+        "bytes": 2182454,
+        "sha256": "dd987a0f726862782b6f31e6c85b0cfbd194b696ba89f36c729ed31e3ecb9bce"
+      },
+      "source": "https://github.com/nflverse/nfldata/raw/master/data/games.csv"
+    },
+    "protocol": {
+      "target": "home team wins (ties excluded)",
+      "cutoff": "Only games played on an earlier calendar date feed a game's features.",
+      "games": {
+        "completed_since_2002": 6548,
+        "ties_excluded": 15,
+        "ties": [
+          {
+            "game_id": "2002_10_ATL_PIT",
+            "season": 2002
+          },
+          {
+            "game_id": "2008_11_PHI_CIN",
+            "season": 2008
+          },
+          {
+            "game_id": "2012_10_STL_SF",
+            "season": 2012
+          },
+          {
+            "game_id": "2013_12_MIN_GB",
+            "season": 2013
+          },
+          {
+            "game_id": "2014_06_CAR_CIN",
+            "season": 2014
+          },
+          {
+            "game_id": "2016_07_SEA_ARI",
+            "season": 2016
+          },
+          {
+            "game_id": "2016_08_WAS_CIN",
+            "season": 2016
+          },
+          {
+            "game_id": "2018_01_PIT_CLE",
+            "season": 2018
+          },
+          {
+            "game_id": "2018_02_MIN_GB",
+            "season": 2018
+          },
+          {
+            "game_id": "2019_01_DET_ARI",
+            "season": 2019
+          },
+          {
+            "game_id": "2020_03_CIN_PHI",
+            "season": 2020
+          },
+          {
+            "game_id": "2021_10_DET_PIT",
+            "season": 2021
+          },
+          {
+            "game_id": "2022_01_IND_HOU",
+            "season": 2022
+          },
+          {
+            "game_id": "2022_13_WAS_NYG",
+            "season": 2022
+          },
+          {
+            "game_id": "2025_04_GB_DAL",
+            "season": 2025
+          }
+        ],
+        "elo_warm_up_seasons": [
+          1999,
+          2001
+        ],
+        "train_seasons": [
+          2002,
+          2018
+        ],
+        "train_games": 4530
+      },
+      "features": [
+        "elo_diff",
+        "form_diff",
+        "win_pct_diff",
+        "rest_diff",
+        "home_field",
+        "div_game"
+      ],
+      "elo": {
+        "k": 20.0,
+        "home_field": 55.0,
+        "mean": 1505.0,
+        "offseason_keep": 0.6666666666666666
+      },
+      "locked_seasons": [
+        2023,
+        2025
+      ],
+      "refit": "Before each season, refit on every earlier season since 2002. Settings fixed."
+    },
+    "metrics": {
+      "locked": {
+        "home_prior": {
+          "games": 854,
+          "log_loss": 0.6898243244957507,
+          "brier": 0.24833537109028567,
+          "accuracy": 0.5491803278688525,
+          "auc": 0.5070390164206795
+        },
+        "elo": {
+          "games": 854,
+          "log_loss": 0.63616244743442,
+          "brier": 0.22264943705322038,
+          "accuracy": 0.6405152224824356,
+          "auc": 0.6897793038517985
+        },
+        "logistic": {
+          "games": 854,
+          "log_loss": 0.6354365580664855,
+          "brier": 0.2226715750212947,
+          "accuracy": 0.6370023419203747,
+          "auc": 0.6876747985489988,
+          "vs_elo": {
+            "mean_log_loss_difference": -0.0007258893679344469,
+            "interval_95": [
+              -0.0063781699889991425,
+              0.005173163532706012
+            ],
+            "blocks": 66,
+            "block": "season-week"
+          }
+        },
+        "boosted_trees": {
+          "games": 854,
+          "log_loss": 0.6359411540654537,
+          "brier": 0.22299527847128653,
+          "accuracy": 0.629976580796253,
+          "auc": 0.6846592639769612,
+          "vs_elo": {
+            "mean_log_loss_difference": -0.00022129336896632013,
+            "interval_95": [
+              -0.006833991003107848,
+              0.006053851877541221
+            ],
+            "blocks": 66,
+            "block": "season-week"
+          }
+        }
+      },
+      "by_season": {
+        "2023": {
+          "home_prior": 0.6845172122886332,
+          "elo": 0.6591366497734185,
+          "logistic": 0.6503562352435904,
+          "boosted_trees": 0.6544864351102827
+        },
+        "2024": {
+          "home_prior": 0.6926031886723389,
+          "elo": 0.6112723865409411,
+          "logistic": 0.6227851991789294,
+          "boosted_trees": 0.6203548613719339
+        },
+        "2025": {
+          "home_prior": 0.6923614748080776,
+          "elo": 0.638085051969726,
+          "logistic": 0.633160252740706,
+          "boosted_trees": 0.6329717467410765
+        }
+      }
+    },
+    "report_sha256": "553c1d71faf0a3f9506b7a22aa6cc982b98f1ae07663ca4c1c0da6eb707c6e5f"
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2024_15_BUF_DET",
+  "final": "BUF 48, DET 42",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 12,
+    "interception": 0,
+    "sack": 3,
+    "fumble lost": 1,
+    "turnover": 1,
+    "big play": 17
+  },
+  "events": [
+    {
+      "play_id": 179,
+      "quarter": 1.0,
+      "game_clock": "13:25",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 33.0,
+      "epa": 2.46,
+      "description": "(13:25) (Shotgun) 17-J.Allen pass deep left to 26-Ty.Johnson to DET 35 for 33 yards\u2026"
+    },
+    {
+      "play_id": 249,
+      "quarter": 1.0,
+      "game_clock": "11:49",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 2.66,
+      "description": "(11:49) (Shotgun) 17-J.Allen pass deep middle to 26-Ty.Johnson to DET 6 for 24 yards (31-K.Joseph)\u2026"
+    },
+    {
+      "play_id": 303,
+      "quarter": 1.0,
+      "game_clock": "10:58",
+      "offense": "BUF",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 0.81,
+      "description": "(10:58) (No Huddle) 17-J.Allen up the middle for 1 yard, TOUCHDOWN."
+    },
+    {
+      "play_id": 412,
+      "quarter": 1.0,
+      "game_clock": "09:50",
+      "offense": "DET",
+      "events": [
+        "sack"
+      ],
+      "yards": -8.0,
+      "epa": -1.33,
+      "description": "(9:50) 16-J.Goff sacked at DET 33 for -8 yards (47-C.Benford)."
+    },
+    {
+      "play_id": 457,
+      "quarter": 1.0,
+      "game_clock": "08:37",
+      "offense": "DET",
+      "events": [
+        "sack"
+      ],
+      "yards": -5.0,
+      "epa": -1.5,
+      "description": "(8:37) (Shotgun) 16-J.Goff sacked at DET 30 for -8 yards (91-E.Oliver). FUMBLES (91-E.Oliver)\u2026"
+    },
+    {
+      "play_id": 525,
+      "quarter": 1.0,
+      "game_clock": "07:44",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 28.0,
+      "epa": 1.95,
+      "description": "(7:44) (Shotgun) 17-J.Allen pass deep left to 4-J.Cook to 50 for 28 yards (31-K.Joseph)."
+    },
+    {
+      "play_id": 677,
+      "quarter": 1.0,
+      "game_clock": "03:27",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 13.0,
+      "epa": 1.12,
+      "description": "(3:27) (Shotgun) 4-J.Cook right end to DET 9 for 13 yards (25-J.Adams)."
+    },
+    {
+      "play_id": 721,
+      "quarter": 1.0,
+      "game_clock": "02:05",
+      "offense": "BUF",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 4.0,
+      "epa": 1.46,
+      "description": "(2:05) (Shotgun) 17-J.Allen right tackle for 4 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 869,
+      "quarter": 1.0,
+      "game_clock": "00:22",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 1.15,
+      "description": "(:22) 16-J.Goff pass deep left to 14-A.St. Brown pushed ob at BUF 26 for 24 yards (24-C.Bishop)."
+    },
+    {
+      "play_id": 942,
+      "quarter": 2.0,
+      "game_clock": "14:56",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 13.0,
+      "epa": 1.17,
+      "description": "(14:56) (Shotgun) 26-J.Gibbs left tackle to BUF 13 for 13 yards (24-C.Bishop)."
+    },
+    {
+      "play_id": 1009,
+      "quarter": 2.0,
+      "game_clock": "13:45",
+      "offense": "DET",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 12.0,
+      "epa": 3.04,
+      "description": "(13:45) (Shotgun) 16-J.Goff pass short right to 17-T.Patrick for 12 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1230,
+      "quarter": 2.0,
+      "game_clock": "10:23",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 31.0,
+      "epa": 4.61,
+      "description": "(10:23) (Shotgun) 17-J.Allen pass deep right to 26-Ty.Johnson pushed ob at DET 20 for 31 yards\u2026"
+    },
+    {
+      "play_id": 1307,
+      "quarter": 2.0,
+      "game_clock": "08:19",
+      "offense": "BUF",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 6.0,
+      "epa": 1.43,
+      "description": "(8:19) (Shotgun) 4-J.Cook left end for 6 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1470,
+      "quarter": 2.0,
+      "game_clock": "05:55",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 3.72,
+      "description": "(5:55) (Shotgun) 16-J.Goff pass short middle to 14-A.St. Brown to BUF 25 for 21 yards (39-C.Lewis)."
+    },
+    {
+      "play_id": 1591,
+      "quarter": 2.0,
+      "game_clock": "03:08",
+      "offense": "DET",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 9.0,
+      "epa": 1.95,
+      "description": "(3:08) 70-D.Skipper reported in as eligible. 16-J.Goff pass short left to 70-D.Skipper for 9\u2026"
+    },
+    {
+      "play_id": 1658,
+      "quarter": 2.0,
+      "game_clock": "03:01",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 64.0,
+      "epa": 4.58,
+      "description": "(3:01) 17-J.Allen pass deep right to 0-K.Coleman to DET 6 for 64 yards (30-K.Dorsey; 0-T.Arnold).\u2026"
+    },
+    {
+      "play_id": 1848,
+      "quarter": 2.0,
+      "game_clock": "01:43",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 0.79,
+      "description": "(1:43) (Shotgun) 16-J.Goff pass short middle to 87-S.LaPorta to DET 42 for 22 yards (5-K.Elam)."
+    },
+    {
+      "play_id": 2303,
+      "quarter": 3.0,
+      "game_clock": "13:20",
+      "offense": "BUF",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 41.0,
+      "epa": 3.81,
+      "description": "(13:20) (Shotgun) 4-J.Cook left tackle for 41 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2414,
+      "quarter": 3.0,
+      "game_clock": "12:06",
+      "offense": "DET",
+      "events": [
+        "sack"
+      ],
+      "yards": -8.0,
+      "epa": -2.35,
+      "description": "(12:06) (Shotgun) 16-J.Goff sacked at DET 25 for -8 yards (50-G.Rousseau)."
+    },
+    {
+      "play_id": 2798,
+      "quarter": 3.0,
+      "game_clock": "05:17",
+      "offense": "DET",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 12.0,
+      "epa": -5.76,
+      "description": "(5:17) (Shotgun) 16-J.Goff pass deep middle to 14-A.St. Brown to DET 47 for 18 yards\u2026"
+    },
+    {
+      "play_id": 3011,
+      "quarter": 3.0,
+      "game_clock": "03:34",
+      "offense": "BUF",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 0.84,
+      "description": "(3:34) 70-A.Anderson reported in as eligible. 17-J.Allen pass short middle to 10-K.Shakir for 3\u2026"
+    },
+    {
+      "play_id": 3227,
+      "quarter": 3.0,
+      "game_clock": "01:52",
+      "offense": "DET",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 66.0,
+      "epa": 6.69,
+      "description": "(1:52) (Shotgun) 16-J.Goff pass deep middle to 14-A.St. Brown for 66 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3332,
+      "quarter": 3.0,
+      "game_clock": "00:21",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 29.0,
+      "epa": 2.9,
+      "description": "(:21) (Shotgun) 17-J.Allen pass deep left to 86-D.Kincaid to DET 35 for 29 yards (0-T.Arnold)."
+    },
+    {
+      "play_id": 3561,
+      "quarter": 4.0,
+      "game_clock": "13:04",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 31.0,
+      "epa": 1.87,
+      "description": "(13:04) (Shotgun) 16-J.Goff pass deep right to 87-S.LaPorta to BUF 18 for 31 yards (43-T.Bernard)."
+    },
+    {
+      "play_id": 3611,
+      "quarter": 4.0,
+      "game_clock": "12:09",
+      "offense": "DET",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 12.0,
+      "epa": 1.92,
+      "description": "(12:09) (No Huddle, Shotgun) 16-J.Goff pass short middle to 26-J.Gibbs for 12 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3680,
+      "quarter": 4.0,
+      "game_clock": "11:55",
+      "offense": "BUF",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 5.0,
+      "epa": 1.22,
+      "description": "(11:55) 17-J.Allen pass short right to 22-R.Davis for 5 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 4025,
+      "quarter": 4.0,
+      "game_clock": "08:07",
+      "offense": "DET",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 0.81,
+      "description": "(8:07) (Shotgun) 26-J.Gibbs up the middle for 1 yard, TOUCHDOWN."
+    },
+    {
+      "play_id": 4102,
+      "quarter": 4.0,
+      "game_clock": "07:21",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 1.79,
+      "description": "(7:21) (Shotgun) 70-A.Anderson reported in as eligible. 17-J.Allen pass deep right to 88-D.Knox to\u2026"
+    },
+    {
+      "play_id": 4129,
+      "quarter": 4.0,
+      "game_clock": "06:36",
+      "offense": "BUF",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 1.35,
+      "description": "(6:36) (Shotgun) 17-J.Allen left end to DET 23 for 21 yards (25-J.Adams; 31-K.Joseph)."
+    },
+    {
+      "play_id": 4695,
+      "quarter": 4.0,
+      "game_clock": "00:40",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 3.46,
+      "description": "(:40) (Shotgun) 16-J.Goff pass short right to 14-A.St. Brown to BUF 34 for 2 yards. Lateral to\u2026"
+    },
+    {
+      "play_id": 4820,
+      "quarter": 4.0,
+      "game_clock": "00:16",
+      "offense": "DET",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 2.86,
+      "description": "(:16) (Shotgun) 16-J.Goff pass short left to 9-Ja.Williams for 3 yards, TOUCHDOWN."
+    }
+  ]
+}

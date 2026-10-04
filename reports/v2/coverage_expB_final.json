@@ -1,0 +1,85 @@
+{
+  "chosen": {
+    "config": "gru+reflect",
+    "temporal": "gru",
+    "augment": true,
+    "epochs": 28,
+    "rule": "lowest mean validation log loss over the three chronological folds (averaged over the four prefixes); epochs = median best epoch"
+  },
+  "seeds": {
+    "42": {
+      "platt": {
+        "at_snap": {
+          "a": 0.920322060585022,
+          "b": -0.6735720634460449
+        },
+        "post_0_5s": {
+          "a": 1.0242918729782104,
+          "b": -0.5755631923675537
+        },
+        "post_1s": {
+          "a": 0.962127149105072,
+          "b": -0.7186065912246704
+        },
+        "post_1_5s": {
+          "a": 0.8843854665756226,
+          "b": -1.0587669610977173
+        }
+      },
+      "seconds": 131.8,
+      "final_train_loss": 0.19082140357390076,
+      "parameters": 134689
+    },
+    "7": {
+      "platt": {
+        "at_snap": {
+          "a": 1.100286602973938,
+          "b": -0.2644897699356079
+        },
+        "post_0_5s": {
+          "a": 1.0178745985031128,
+          "b": 0.1534159630537033
+        },
+        "post_1s": {
+          "a": 0.971386194229126,
+          "b": 0.3736611008644104
+        },
+        "post_1_5s": {
+          "a": 0.9015510082244873,
+          "b": 0.24030975997447968
+        }
+      },
+      "seconds": 131.4,
+      "final_train_loss": 0.1896600064678726,
+      "parameters": 134689
+    },
+    "2026": {
+      "platt": {
+        "at_snap": {
+          "a": 0.8064587116241455,
+          "b": -0.5715003609657288
+        },
+        "post_0_5s": {
+          "a": 0.8041237592697144,
+          "b": -0.6923046112060547
+        },
+        "post_1s": {
+          "a": 0.7584271430969238,
+          "b": -0.5554768443107605
+        },
+        "post_1_5s": {
+          "a": 0.710126519203186,
+          "b": -0.6124715209007263
+        }
+      },
+      "seconds": 132.0,
+      "final_train_loss": 0.1799903345213325,
+      "parameters": 134689
+    }
+  },
+  "primary": "seed 42",
+  "secondary": "mean probability of the three seeds",
+  "train_plays": 9397,
+  "calibration_plays": 1462,
+  "calibration": "Platt per horizon on weeks 13-14"
+}

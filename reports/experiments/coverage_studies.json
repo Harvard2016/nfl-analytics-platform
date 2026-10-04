@@ -1,0 +1,3275 @@
+{
+  "source": "bdb2026",
+  "run_at": "2026-10-04T04:59:52+00:00",
+  "synthetic": false,
+  "funnel": {
+    "steps": [
+      {
+        "step": "Pass plays with tracking in the release",
+        "plays": 14108
+      },
+      {
+        "step": "Removed: no released man/zone label (label field empty)",
+        "removed": 3,
+        "plays": 14105,
+        "detail": [
+          {
+            "gameId": 2023112600,
+            "playId": 3981,
+            "week": 12,
+            "coverage_type": null
+          },
+          {
+            "gameId": 2023112600,
+            "playId": 4052,
+            "week": 12,
+            "coverage_type": null
+          },
+          {
+            "gameId": 2023112606,
+            "playId": 4180,
+            "week": 12,
+            "coverage_type": null
+          }
+        ]
+      },
+      {
+        "step": "Removed: fewer than 4 coverage defenders or 3 route runners tracked at the snap",
+        "removed": 130,
+        "plays": 13975,
+        "removed_labels": {
+          "Man": 63,
+          "Zone": 67
+        }
+      },
+      {
+        "step": "Removed: thrown before 1.0 seconds (fewer than 11 frames), or too few tracked players at that frame",
+        "removed": 23,
+        "plays": 13952,
+        "removed_labels": {
+          "Man": 3,
+          "Zone": 20
+        }
+      },
+      {
+        "step": "Removed: thrown before 1.5 seconds (fewer than 16 frames), or too few tracked players at that frame",
+        "removed": 230,
+        "plays": 13722,
+        "removed_labels": {
+          "Man": 94,
+          "Zone": 136
+        }
+      }
+    ],
+    "evaluated_plays": 13722,
+    "matches_split_manifest": true,
+    "by_split": {
+      "train": {
+        "plays": 9124,
+        "Man": 2576,
+        "Zone": 6548
+      },
+      "dev": {
+        "plays": 1420,
+        "Man": 404,
+        "Zone": 1016
+      },
+      "test": {
+        "plays": 3178,
+        "Man": 873,
+        "Zone": 2305
+      }
+    },
+    "rule": "A play is evaluated only if it has features in every window, so every model and window is scored on the same plays. Short sequences are excluded, never padded or extrapolated.",
+    "same_test_plays_for_every_model_and_window": true
+  },
+  "short_throws": {
+    "note": "These plays are in the test weeks but outside the main comparison. They were never used for training, calibration or threshold choice. Each is scored by the latest window it has frames for.",
+    "groups": [
+      {
+        "group": "Thrown between 1.0 and 1.5 seconds: scored with the snap + 1s model",
+        "window": "post_1s",
+        "plays": 38,
+        "man": 15,
+        "zone": 23,
+        "models": {
+          "class_prior": {
+            "accuracy": 0.6052631578947368,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.3770491803278688,
+            "log_loss": 0.7000072704132986,
+            "brier": 0.25155444634011476,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 15
+              },
+              "Zone": {
+                "precision": 0.6052631578947368,
+                "recall": 1.0,
+                "support": 23
+              }
+            }
+          },
+          "context_logit": {
+            "accuracy": 0.5789473684210527,
+            "balanced_accuracy": 0.5246376811594203,
+            "macro_f1": 0.5128205128205128,
+            "log_loss": 0.7674919781389573,
+            "brier": 0.26566724995282853,
+            "per_class": {
+              "Man": {
+                "precision": 0.4444444444444444,
+                "recall": 0.26666666666666666,
+                "support": 15
+              },
+              "Zone": {
+                "precision": 0.6206896551724138,
+                "recall": 0.782608695652174,
+                "support": 23
+              }
+            }
+          },
+          "geometry_logit": {
+            "accuracy": 0.7631578947368421,
+            "balanced_accuracy": 0.7463768115942029,
+            "macro_f1": 0.7490829053558328,
+            "log_loss": 0.43706206580382395,
+            "brier": 0.1547765086341617,
+            "per_class": {
+              "Man": {
+                "precision": 0.7142857142857143,
+                "recall": 0.6666666666666666,
+                "support": 15
+              },
+              "Zone": {
+                "precision": 0.7916666666666666,
+                "recall": 0.8260869565217391,
+                "support": 23
+              }
+            }
+          },
+          "geometry_gbm": {
+            "accuracy": 0.8421052631578947,
+            "balanced_accuracy": 0.8115942028985508,
+            "macro_f1": 0.8246153846153846,
+            "log_loss": 0.4077250191581432,
+            "brier": 0.1298540976238267,
+            "per_class": {
+              "Man": {
+                "precision": 0.9090909090909091,
+                "recall": 0.6666666666666666,
+                "support": 15
+              },
+              "Zone": {
+                "precision": 0.8148148148148148,
+                "recall": 0.9565217391304348,
+                "support": 23
+              }
+            }
+          }
+        }
+      },
+      {
+        "group": "Thrown before 1.0 seconds: scored with the at-snap model",
+        "window": "at_snap",
+        "plays": 1,
+        "man": 0,
+        "zone": 1,
+        "models": {}
+      }
+    ]
+  },
+  "error_analysis": {
+    "split": "test",
+    "note": "Descriptive breakdown of locked-test errors. Read after the models were frozen; not used to change them.",
+    "windows": {
+      "at_snap": {
+        "geometry_logit": {
+          "man_recall": 0.5304,
+          "man_plays": 873,
+          "missed_man": 410,
+          "zone_recall": 0.9228,
+          "zone_plays": 2305,
+          "man_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_1_MAN",
+              "plays": 690,
+              "correct": 364,
+              "rate": 0.5275,
+              "interval_95": [
+                0.4902,
+                0.5645
+              ]
+            },
+            {
+              "group": "COVER_0_MAN",
+              "plays": 125,
+              "correct": 75,
+              "rate": 0.6,
+              "interval_95": [
+                0.5124,
+                0.6817
+              ]
+            },
+            {
+              "group": "COVER_2_MAN",
+              "plays": 58,
+              "correct": 24,
+              "rate": 0.4138,
+              "interval_95": [
+                0.2963,
+                0.542
+              ]
+            }
+          ],
+          "zone_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_3_ZONE",
+              "plays": 1017,
+              "correct": 925,
+              "rate": 0.9095,
+              "interval_95": [
+                0.8903,
+                0.9257
+              ]
+            },
+            {
+              "group": "COVER_4_ZONE",
+              "plays": 545,
+              "correct": 512,
+              "rate": 0.9394,
+              "interval_95": [
+                0.9162,
+                0.9566
+              ]
+            },
+            {
+              "group": "COVER_2_ZONE",
+              "plays": 429,
+              "correct": 388,
+              "rate": 0.9044,
+              "interval_95": [
+                0.8729,
+                0.9288
+              ]
+            },
+            {
+              "group": "COVER_6_ZONE",
+              "plays": 308,
+              "correct": 296,
+              "rate": 0.961,
+              "interval_95": [
+                0.9331,
+                0.9776
+              ]
+            },
+            {
+              "group": "PREVENT",
+              "plays": 6,
+              "correct": 6,
+              "rate": 1.0,
+              "interval_95": [
+                0.6097,
+                1.0
+              ]
+            }
+          ],
+          "man_recall_by_down": [
+            {
+              "group": "3rd or 4th down",
+              "plays": 404,
+              "correct": 258,
+              "rate": 0.6386,
+              "interval_95": [
+                0.5907,
+                0.684
+              ]
+            },
+            {
+              "group": "2nd down",
+              "plays": 247,
+              "correct": 116,
+              "rate": 0.4696,
+              "interval_95": [
+                0.4083,
+                0.5319
+              ]
+            },
+            {
+              "group": "1st down",
+              "plays": 222,
+              "correct": 89,
+              "rate": 0.4009,
+              "interval_95": [
+                0.3386,
+                0.4665
+              ]
+            }
+          ],
+          "man_recall_by_distance": [
+            {
+              "group": "8+ to go",
+              "plays": 459,
+              "correct": 197,
+              "rate": 0.4292,
+              "interval_95": [
+                0.3847,
+                0.4749
+              ]
+            },
+            {
+              "group": "4-7 to go",
+              "plays": 269,
+              "correct": 167,
+              "rate": 0.6208,
+              "interval_95": [
+                0.5615,
+                0.6767
+              ]
+            },
+            {
+              "group": "1-3 to go",
+              "plays": 145,
+              "correct": 99,
+              "rate": 0.6828,
+              "interval_95": [
+                0.6031,
+                0.753
+              ]
+            }
+          ],
+          "missed_man_median_p_man": 0.271,
+          "missed_man_share_near_the_line": 0.293,
+          "missed_vs_caught_man_feature_gaps": [
+            {
+              "feature": "press_count",
+              "missed_man_mean": 0.739,
+              "caught_man_mean": 1.739,
+              "zone_mean": 0.486,
+              "standardized_gap": -1.202
+            },
+            {
+              "feature": "cov_dist_mean",
+              "missed_man_mean": 6.14,
+              "caught_man_mean": 4.462,
+              "zone_mean": 6.629,
+              "standardized_gap": 1.04
+            },
+            {
+              "feature": "cov_dist_max",
+              "missed_man_mean": 9.327,
+              "caught_man_mean": 7.447,
+              "zone_mean": 9.592,
+              "standardized_gap": 0.914
+            },
+            {
+              "feature": "depth_mean",
+              "missed_man_mean": 6.023,
+              "caught_man_mean": 4.741,
+              "zone_mean": 6.58,
+              "standardized_gap": 0.831
+            },
+            {
+              "feature": "n_deep_7",
+              "missed_man_mean": 2.129,
+              "caught_man_mean": 1.339,
+              "zone_mean": 2.548,
+              "standardized_gap": 0.691
+            },
+            {
+              "feature": "depth_2nd",
+              "missed_man_mean": 8.807,
+              "caught_man_mean": 6.755,
+              "zone_mean": 9.937,
+              "standardized_gap": 0.687
+            }
+          ]
+        },
+        "geometry_gbm": {
+          "man_recall": 0.5659,
+          "man_plays": 873,
+          "missed_man": 379,
+          "zone_recall": 0.9315,
+          "zone_plays": 2305,
+          "man_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_1_MAN",
+              "plays": 690,
+              "correct": 371,
+              "rate": 0.5377,
+              "interval_95": [
+                0.5004,
+                0.5746
+              ]
+            },
+            {
+              "group": "COVER_0_MAN",
+              "plays": 125,
+              "correct": 90,
+              "rate": 0.72,
+              "interval_95": [
+                0.6356,
+                0.7912
+              ]
+            },
+            {
+              "group": "COVER_2_MAN",
+              "plays": 58,
+              "correct": 33,
+              "rate": 0.569,
+              "interval_95": [
+                0.4412,
+                0.6882
+              ]
+            }
+          ],
+          "zone_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_3_ZONE",
+              "plays": 1017,
+              "correct": 935,
+              "rate": 0.9194,
+              "interval_95": [
+                0.901,
+                0.9346
+              ]
+            },
+            {
+              "group": "COVER_4_ZONE",
+              "plays": 545,
+              "correct": 520,
+              "rate": 0.9541,
+              "interval_95": [
+                0.9332,
+                0.9687
+              ]
+            },
+            {
+              "group": "COVER_2_ZONE",
+              "plays": 429,
+              "correct": 388,
+              "rate": 0.9044,
+              "interval_95": [
+                0.8729,
+                0.9288
+              ]
+            },
+            {
+              "group": "COVER_6_ZONE",
+              "plays": 308,
+              "correct": 298,
+              "rate": 0.9675,
+              "interval_95": [
+                0.9413,
+                0.9823
+              ]
+            },
+            {
+              "group": "PREVENT",
+              "plays": 6,
+              "correct": 6,
+              "rate": 1.0,
+              "interval_95": [
+                0.6097,
+                1.0
+              ]
+            }
+          ],
+          "man_recall_by_down": [
+            {
+              "group": "3rd or 4th down",
+              "plays": 404,
+              "correct": 268,
+              "rate": 0.6634,
+              "interval_95": [
+                0.6159,
+                0.7077
+              ]
+            },
+            {
+              "group": "2nd down",
+              "plays": 247,
+              "correct": 129,
+              "rate": 0.5223,
+              "interval_95": [
+                0.4601,
+                0.5837
+              ]
+            },
+            {
+              "group": "1st down",
+              "plays": 222,
+              "correct": 97,
+              "rate": 0.4369,
+              "interval_95": [
+                0.3733,
+                0.5027
+              ]
+            }
+          ],
+          "man_recall_by_distance": [
+            {
+              "group": "8+ to go",
+              "plays": 459,
+              "correct": 210,
+              "rate": 0.4575,
+              "interval_95": [
+                0.4125,
+                0.5033
+              ]
+            },
+            {
+              "group": "4-7 to go",
+              "plays": 269,
+              "correct": 177,
+              "rate": 0.658,
+              "interval_95": [
+                0.5994,
+                0.7121
+              ]
+            },
+            {
+              "group": "1-3 to go",
+              "plays": 145,
+              "correct": 107,
+              "rate": 0.7379,
+              "interval_95": [
+                0.6609,
+                0.8027
+              ]
+            }
+          ],
+          "missed_man_median_p_man": 0.257,
+          "missed_man_share_near_the_line": 0.28,
+          "missed_vs_caught_man_feature_gaps": [
+            {
+              "feature": "press_count",
+              "missed_man_mean": 0.778,
+              "caught_man_mean": 1.646,
+              "zone_mean": 0.486,
+              "standardized_gap": -1.043
+            },
+            {
+              "feature": "cov_dist_mean",
+              "missed_man_mean": 6.029,
+              "caught_man_mean": 4.653,
+              "zone_mean": 6.629,
+              "standardized_gap": 0.853
+            },
+            {
+              "feature": "cov_dist_max",
+              "missed_man_mean": 9.273,
+              "caught_man_mean": 7.606,
+              "zone_mean": 9.592,
+              "standardized_gap": 0.811
+            },
+            {
+              "feature": "depth_mean",
+              "missed_man_mean": 6.034,
+              "caught_man_mean": 4.812,
+              "zone_mean": 6.58,
+              "standardized_gap": 0.791
+            },
+            {
+              "feature": "n_deep_7",
+              "missed_man_mean": 2.185,
+              "caught_man_mean": 1.346,
+              "zone_mean": 2.548,
+              "standardized_gap": 0.733
+            },
+            {
+              "feature": "depth_2nd",
+              "missed_man_mean": 8.806,
+              "caught_man_mean": 6.884,
+              "zone_mean": 9.937,
+              "standardized_gap": 0.644
+            }
+          ]
+        }
+      },
+      "post_1s": {
+        "geometry_logit": {
+          "man_recall": 0.6793,
+          "man_plays": 873,
+          "missed_man": 280,
+          "zone_recall": 0.9293,
+          "zone_plays": 2305,
+          "man_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_1_MAN",
+              "plays": 690,
+              "correct": 476,
+              "rate": 0.6899,
+              "interval_95": [
+                0.6544,
+                0.7232
+              ]
+            },
+            {
+              "group": "COVER_0_MAN",
+              "plays": 125,
+              "correct": 94,
+              "rate": 0.752,
+              "interval_95": [
+                0.6695,
+                0.8194
+              ]
+            },
+            {
+              "group": "COVER_2_MAN",
+              "plays": 58,
+              "correct": 23,
+              "rate": 0.3966,
+              "interval_95": [
+                0.2809,
+                0.5251
+              ]
+            }
+          ],
+          "zone_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_3_ZONE",
+              "plays": 1017,
+              "correct": 906,
+              "rate": 0.8909,
+              "interval_95": [
+                0.8702,
+                0.9086
+              ]
+            },
+            {
+              "group": "COVER_4_ZONE",
+              "plays": 545,
+              "correct": 514,
+              "rate": 0.9431,
+              "interval_95": [
+                0.9204,
+                0.9596
+              ]
+            },
+            {
+              "group": "COVER_2_ZONE",
+              "plays": 429,
+              "correct": 417,
+              "rate": 0.972,
+              "interval_95": [
+                0.9517,
+                0.9839
+              ]
+            },
+            {
+              "group": "COVER_6_ZONE",
+              "plays": 308,
+              "correct": 299,
+              "rate": 0.9708,
+              "interval_95": [
+                0.9454,
+                0.9846
+              ]
+            },
+            {
+              "group": "PREVENT",
+              "plays": 6,
+              "correct": 6,
+              "rate": 1.0,
+              "interval_95": [
+                0.6097,
+                1.0
+              ]
+            }
+          ],
+          "man_recall_by_down": [
+            {
+              "group": "3rd or 4th down",
+              "plays": 404,
+              "correct": 305,
+              "rate": 0.755,
+              "interval_95": [
+                0.7107,
+                0.7944
+              ]
+            },
+            {
+              "group": "2nd down",
+              "plays": 247,
+              "correct": 163,
+              "rate": 0.6599,
+              "interval_95": [
+                0.5988,
+                0.7161
+              ]
+            },
+            {
+              "group": "1st down",
+              "plays": 222,
+              "correct": 125,
+              "rate": 0.5631,
+              "interval_95": [
+                0.4973,
+                0.6267
+              ]
+            }
+          ],
+          "man_recall_by_distance": [
+            {
+              "group": "8+ to go",
+              "plays": 459,
+              "correct": 274,
+              "rate": 0.5969,
+              "interval_95": [
+                0.5515,
+                0.6408
+              ]
+            },
+            {
+              "group": "4-7 to go",
+              "plays": 269,
+              "correct": 199,
+              "rate": 0.7398,
+              "interval_95": [
+                0.6842,
+                0.7886
+              ]
+            },
+            {
+              "group": "1-3 to go",
+              "plays": 145,
+              "correct": 120,
+              "rate": 0.8276,
+              "interval_95": [
+                0.7579,
+                0.8804
+              ]
+            }
+          ],
+          "missed_man_median_p_man": 0.27,
+          "missed_man_share_near_the_line": 0.336,
+          "missed_vs_caught_man_feature_gaps": [
+            {
+              "feature": "cov_dist_mean",
+              "missed_man_mean": 5.363,
+              "caught_man_mean": 3.78,
+              "zone_mean": 5.733,
+              "standardized_gap": 0.998
+            },
+            {
+              "feature": "press_count",
+              "missed_man_mean": 1.15,
+              "caught_man_mean": 2.197,
+              "zone_mean": 0.845,
+              "standardized_gap": -0.991
+            },
+            {
+              "feature": "cov_dist_max",
+              "missed_man_mean": 8.742,
+              "caught_man_mean": 6.796,
+              "zone_mean": 9.131,
+              "standardized_gap": 0.868
+            },
+            {
+              "feature": "depth_mean",
+              "missed_man_mean": 6.538,
+              "caught_man_mean": 5.109,
+              "zone_mean": 7.075,
+              "standardized_gap": 0.86
+            },
+            {
+              "feature": "n_deep_7",
+              "missed_man_mean": 2.468,
+              "caught_man_mean": 1.513,
+              "zone_mean": 2.891,
+              "standardized_gap": 0.78
+            },
+            {
+              "feature": "depth_2nd",
+              "missed_man_mean": 9.359,
+              "caught_man_mean": 7.088,
+              "zone_mean": 10.575,
+              "standardized_gap": 0.731
+            }
+          ]
+        },
+        "geometry_gbm": {
+          "man_recall": 0.6701,
+          "man_plays": 873,
+          "missed_man": 288,
+          "zone_recall": 0.9453,
+          "zone_plays": 2305,
+          "man_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_1_MAN",
+              "plays": 690,
+              "correct": 452,
+              "rate": 0.6551,
+              "interval_95": [
+                0.6188,
+                0.6896
+              ]
+            },
+            {
+              "group": "COVER_0_MAN",
+              "plays": 125,
+              "correct": 100,
+              "rate": 0.8,
+              "interval_95": [
+                0.7214,
+                0.8607
+              ]
+            },
+            {
+              "group": "COVER_2_MAN",
+              "plays": 58,
+              "correct": 33,
+              "rate": 0.569,
+              "interval_95": [
+                0.4412,
+                0.6882
+              ]
+            }
+          ],
+          "zone_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_3_ZONE",
+              "plays": 1017,
+              "correct": 944,
+              "rate": 0.9282,
+              "interval_95": [
+                0.9107,
+                0.9425
+              ]
+            },
+            {
+              "group": "COVER_4_ZONE",
+              "plays": 545,
+              "correct": 521,
+              "rate": 0.956,
+              "interval_95": [
+                0.9353,
+                0.9702
+              ]
+            },
+            {
+              "group": "COVER_2_ZONE",
+              "plays": 429,
+              "correct": 411,
+              "rate": 0.958,
+              "interval_95": [
+                0.9347,
+                0.9733
+              ]
+            },
+            {
+              "group": "COVER_6_ZONE",
+              "plays": 308,
+              "correct": 297,
+              "rate": 0.9643,
+              "interval_95": [
+                0.9372,
+                0.9799
+              ]
+            },
+            {
+              "group": "PREVENT",
+              "plays": 6,
+              "correct": 6,
+              "rate": 1.0,
+              "interval_95": [
+                0.6097,
+                1.0
+              ]
+            }
+          ],
+          "man_recall_by_down": [
+            {
+              "group": "3rd or 4th down",
+              "plays": 404,
+              "correct": 307,
+              "rate": 0.7599,
+              "interval_95": [
+                0.7159,
+                0.799
+              ]
+            },
+            {
+              "group": "2nd down",
+              "plays": 247,
+              "correct": 153,
+              "rate": 0.6194,
+              "interval_95": [
+                0.5575,
+                0.6777
+              ]
+            },
+            {
+              "group": "1st down",
+              "plays": 222,
+              "correct": 125,
+              "rate": 0.5631,
+              "interval_95": [
+                0.4973,
+                0.6267
+              ]
+            }
+          ],
+          "man_recall_by_distance": [
+            {
+              "group": "8+ to go",
+              "plays": 459,
+              "correct": 253,
+              "rate": 0.5512,
+              "interval_95": [
+                0.5055,
+                0.5961
+              ]
+            },
+            {
+              "group": "4-7 to go",
+              "plays": 269,
+              "correct": 205,
+              "rate": 0.7621,
+              "interval_95": [
+                0.7077,
+                0.8091
+              ]
+            },
+            {
+              "group": "1-3 to go",
+              "plays": 145,
+              "correct": 127,
+              "rate": 0.8759,
+              "interval_95": [
+                0.8123,
+                0.92
+              ]
+            }
+          ],
+          "missed_man_median_p_man": 0.247,
+          "missed_man_share_near_the_line": 0.267,
+          "missed_vs_caught_man_feature_gaps": [
+            {
+              "feature": "cov_dist_mean",
+              "missed_man_mean": 5.291,
+              "caught_man_mean": 3.794,
+              "zone_mean": 5.733,
+              "standardized_gap": 0.943
+            },
+            {
+              "feature": "press_count",
+              "missed_man_mean": 1.215,
+              "caught_man_mean": 2.179,
+              "zone_mean": 0.845,
+              "standardized_gap": -0.912
+            },
+            {
+              "feature": "depth_mean",
+              "missed_man_mean": 6.546,
+              "caught_man_mean": 5.085,
+              "zone_mean": 7.075,
+              "standardized_gap": 0.879
+            },
+            {
+              "feature": "n_deep_7",
+              "missed_man_mean": 2.517,
+              "caught_man_mean": 1.475,
+              "zone_mean": 2.891,
+              "standardized_gap": 0.851
+            },
+            {
+              "feature": "cov_dist_max",
+              "missed_man_mean": 8.632,
+              "caught_man_mean": 6.824,
+              "zone_mean": 9.131,
+              "standardized_gap": 0.807
+            },
+            {
+              "feature": "depth_2nd",
+              "missed_man_mean": 9.288,
+              "caught_man_mean": 7.092,
+              "zone_mean": 10.575,
+              "standardized_gap": 0.707
+            }
+          ]
+        }
+      },
+      "post_1_5s": {
+        "geometry_logit": {
+          "man_recall": 0.7079,
+          "man_plays": 873,
+          "missed_man": 255,
+          "zone_recall": 0.9423,
+          "zone_plays": 2305,
+          "man_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_1_MAN",
+              "plays": 690,
+              "correct": 494,
+              "rate": 0.7159,
+              "interval_95": [
+                0.6812,
+                0.7483
+              ]
+            },
+            {
+              "group": "COVER_0_MAN",
+              "plays": 125,
+              "correct": 97,
+              "rate": 0.776,
+              "interval_95": [
+                0.6953,
+                0.8402
+              ]
+            },
+            {
+              "group": "COVER_2_MAN",
+              "plays": 58,
+              "correct": 27,
+              "rate": 0.4655,
+              "interval_95": [
+                0.3433,
+                0.592
+              ]
+            }
+          ],
+          "zone_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_3_ZONE",
+              "plays": 1017,
+              "correct": 921,
+              "rate": 0.9056,
+              "interval_95": [
+                0.8861,
+                0.9221
+              ]
+            },
+            {
+              "group": "COVER_4_ZONE",
+              "plays": 545,
+              "correct": 521,
+              "rate": 0.956,
+              "interval_95": [
+                0.9353,
+                0.9702
+              ]
+            },
+            {
+              "group": "COVER_2_ZONE",
+              "plays": 429,
+              "correct": 422,
+              "rate": 0.9837,
+              "interval_95": [
+                0.9667,
+                0.9921
+              ]
+            },
+            {
+              "group": "COVER_6_ZONE",
+              "plays": 308,
+              "correct": 302,
+              "rate": 0.9805,
+              "interval_95": [
+                0.9582,
+                0.991
+              ]
+            },
+            {
+              "group": "PREVENT",
+              "plays": 6,
+              "correct": 6,
+              "rate": 1.0,
+              "interval_95": [
+                0.6097,
+                1.0
+              ]
+            }
+          ],
+          "man_recall_by_down": [
+            {
+              "group": "3rd or 4th down",
+              "plays": 404,
+              "correct": 316,
+              "rate": 0.7822,
+              "interval_95": [
+                0.7394,
+                0.8197
+              ]
+            },
+            {
+              "group": "2nd down",
+              "plays": 247,
+              "correct": 168,
+              "rate": 0.6802,
+              "interval_95": [
+                0.6196,
+                0.7352
+              ]
+            },
+            {
+              "group": "1st down",
+              "plays": 222,
+              "correct": 134,
+              "rate": 0.6036,
+              "interval_95": [
+                0.538,
+                0.6657
+              ]
+            }
+          ],
+          "man_recall_by_distance": [
+            {
+              "group": "8+ to go",
+              "plays": 459,
+              "correct": 283,
+              "rate": 0.6166,
+              "interval_95": [
+                0.5713,
+                0.6599
+              ]
+            },
+            {
+              "group": "4-7 to go",
+              "plays": 269,
+              "correct": 216,
+              "rate": 0.803,
+              "interval_95": [
+                0.7513,
+                0.8461
+              ]
+            },
+            {
+              "group": "1-3 to go",
+              "plays": 145,
+              "correct": 119,
+              "rate": 0.8207,
+              "interval_95": [
+                0.7502,
+                0.8746
+              ]
+            }
+          ],
+          "missed_man_median_p_man": 0.268,
+          "missed_man_share_near_the_line": 0.353,
+          "missed_vs_caught_man_feature_gaps": [
+            {
+              "feature": "cov_dist_mean",
+              "missed_man_mean": 4.38,
+              "caught_man_mean": 3.145,
+              "zone_mean": 4.893,
+              "standardized_gap": 0.842
+            },
+            {
+              "feature": "n_deep_7",
+              "missed_man_mean": 2.812,
+              "caught_man_mean": 1.731,
+              "zone_mean": 3.324,
+              "standardized_gap": 0.82
+            },
+            {
+              "feature": "depth_mean",
+              "missed_man_mean": 7.145,
+              "caught_man_mean": 5.676,
+              "zone_mean": 7.842,
+              "standardized_gap": 0.807
+            },
+            {
+              "feature": "press_count",
+              "missed_man_mean": 1.698,
+              "caught_man_mean": 2.583,
+              "zone_mean": 1.426,
+              "standardized_gap": -0.795
+            },
+            {
+              "feature": "depth_2nd",
+              "missed_man_mean": 10.107,
+              "caught_man_mean": 7.573,
+              "zone_mean": 11.506,
+              "standardized_gap": 0.786
+            },
+            {
+              "feature": "cov_dist_max",
+              "missed_man_mean": 7.721,
+              "caught_man_mean": 6.106,
+              "zone_mean": 8.722,
+              "standardized_gap": 0.613
+            }
+          ]
+        },
+        "geometry_gbm": {
+          "man_recall": 0.7297,
+          "man_plays": 873,
+          "missed_man": 236,
+          "zone_recall": 0.9484,
+          "zone_plays": 2305,
+          "man_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_1_MAN",
+              "plays": 690,
+              "correct": 498,
+              "rate": 0.7217,
+              "interval_95": [
+                0.6871,
+                0.7539
+              ]
+            },
+            {
+              "group": "COVER_0_MAN",
+              "plays": 125,
+              "correct": 102,
+              "rate": 0.816,
+              "interval_95": [
+                0.739,
+                0.8741
+              ]
+            },
+            {
+              "group": "COVER_2_MAN",
+              "plays": 58,
+              "correct": 37,
+              "rate": 0.6379,
+              "interval_95": [
+                0.5093,
+                0.7495
+              ]
+            }
+          ],
+          "zone_recall_by_released_coverage_type": [
+            {
+              "group": "COVER_3_ZONE",
+              "plays": 1017,
+              "correct": 938,
+              "rate": 0.9223,
+              "interval_95": [
+                0.9042,
+                0.9372
+              ]
+            },
+            {
+              "group": "COVER_4_ZONE",
+              "plays": 545,
+              "correct": 522,
+              "rate": 0.9578,
+              "interval_95": [
+                0.9375,
+                0.9717
+              ]
+            },
+            {
+              "group": "COVER_2_ZONE",
+              "plays": 429,
+              "correct": 422,
+              "rate": 0.9837,
+              "interval_95": [
+                0.9667,
+                0.9921
+              ]
+            },
+            {
+              "group": "COVER_6_ZONE",
+              "plays": 308,
+              "correct": 298,
+              "rate": 0.9675,
+              "interval_95": [
+                0.9413,
+                0.9823
+              ]
+            },
+            {
+              "group": "PREVENT",
+              "plays": 6,
+              "correct": 6,
+              "rate": 1.0,
+              "interval_95": [
+                0.6097,
+                1.0
+              ]
+            }
+          ],
+          "man_recall_by_down": [
+            {
+              "group": "3rd or 4th down",
+              "plays": 404,
+              "correct": 319,
+              "rate": 0.7896,
+              "interval_95": [
+                0.7472,
+                0.8265
+              ]
+            },
+            {
+              "group": "2nd down",
+              "plays": 247,
+              "correct": 171,
+              "rate": 0.6923,
+              "interval_95": [
+                0.6322,
+                0.7466
+              ]
+            },
+            {
+              "group": "1st down",
+              "plays": 222,
+              "correct": 147,
+              "rate": 0.6622,
+              "interval_95": [
+                0.5977,
+                0.7212
+              ]
+            }
+          ],
+          "man_recall_by_distance": [
+            {
+              "group": "8+ to go",
+              "plays": 459,
+              "correct": 288,
+              "rate": 0.6275,
+              "interval_95": [
+                0.5823,
+                0.6705
+              ]
+            },
+            {
+              "group": "4-7 to go",
+              "plays": 269,
+              "correct": 221,
+              "rate": 0.8216,
+              "interval_95": [
+                0.7714,
+                0.8627
+              ]
+            },
+            {
+              "group": "1-3 to go",
+              "plays": 145,
+              "correct": 128,
+              "rate": 0.8828,
+              "interval_95": [
+                0.8203,
+                0.9255
+              ]
+            }
+          ],
+          "missed_man_median_p_man": 0.27,
+          "missed_man_share_near_the_line": 0.314,
+          "missed_vs_caught_man_feature_gaps": [
+            {
+              "feature": "cov_dist_mean",
+              "missed_man_mean": 4.487,
+              "caught_man_mean": 3.142,
+              "zone_mean": 4.893,
+              "standardized_gap": 0.917
+            },
+            {
+              "feature": "depth_mean",
+              "missed_man_mean": 7.273,
+              "caught_man_mean": 5.672,
+              "zone_mean": 7.842,
+              "standardized_gap": 0.879
+            },
+            {
+              "feature": "n_deep_7",
+              "missed_man_mean": 2.873,
+              "caught_man_mean": 1.741,
+              "zone_mean": 3.324,
+              "standardized_gap": 0.859
+            },
+            {
+              "feature": "press_count",
+              "missed_man_mean": 1.708,
+              "caught_man_mean": 2.553,
+              "zone_mean": 1.426,
+              "standardized_gap": -0.76
+            },
+            {
+              "feature": "cov_dist_max",
+              "missed_man_mean": 8.017,
+              "caught_man_mean": 6.044,
+              "zone_mean": 8.722,
+              "standardized_gap": 0.749
+            },
+            {
+              "feature": "depth_2nd",
+              "missed_man_mean": 10.027,
+              "caught_man_mean": 7.678,
+              "zone_mean": 11.506,
+              "standardized_gap": 0.729
+            }
+          ]
+        }
+      }
+    }
+  },
+  "team_holdout": {
+    "design": "4 folds of 8 defenses (alphabetical, every 4th team). Weeks 1-14 only: the locked test weeks are not used. All games involving a held-out team, on either side of the ball, are removed from training (weeks 1-12) and calibration (weeks 13-14). Scored on those teams' defensive plays. Same model settings as the main run; nothing tuned.",
+    "folds": [
+      {
+        "held_out": [
+          "ARI",
+          "CAR",
+          "DAL",
+          "HOU",
+          "LA",
+          "MIN",
+          "NYJ",
+          "SF"
+        ],
+        "at_snap": {
+          "train_plays": 5214,
+          "calibration_plays": 761,
+          "scored_plays": 2539
+        },
+        "post_1s": {
+          "train_plays": 5214,
+          "calibration_plays": 761,
+          "scored_plays": 2539
+        },
+        "post_1_5s": {
+          "train_plays": 5214,
+          "calibration_plays": 761,
+          "scored_plays": 2539
+        }
+      },
+      {
+        "held_out": [
+          "ATL",
+          "CHI",
+          "DEN",
+          "IND",
+          "LAC",
+          "NE",
+          "PHI",
+          "TB"
+        ],
+        "at_snap": {
+          "train_plays": 4951,
+          "calibration_plays": 811,
+          "scored_plays": 2808
+        },
+        "post_1s": {
+          "train_plays": 4951,
+          "calibration_plays": 811,
+          "scored_plays": 2808
+        },
+        "post_1_5s": {
+          "train_plays": 4951,
+          "calibration_plays": 811,
+          "scored_plays": 2808
+        }
+      },
+      {
+        "held_out": [
+          "BAL",
+          "CIN",
+          "DET",
+          "JAX",
+          "LV",
+          "NO",
+          "PIT",
+          "TEN"
+        ],
+        "at_snap": {
+          "train_plays": 5272,
+          "calibration_plays": 797,
+          "scored_plays": 2680
+        },
+        "post_1s": {
+          "train_plays": 5272,
+          "calibration_plays": 797,
+          "scored_plays": 2680
+        },
+        "post_1_5s": {
+          "train_plays": 5272,
+          "calibration_plays": 797,
+          "scored_plays": 2680
+        }
+      },
+      {
+        "held_out": [
+          "BUF",
+          "CLE",
+          "GB",
+          "KC",
+          "MIA",
+          "NYG",
+          "SEA",
+          "WAS"
+        ],
+        "at_snap": {
+          "train_plays": 5047,
+          "calibration_plays": 951,
+          "scored_plays": 2517
+        },
+        "post_1s": {
+          "train_plays": 5047,
+          "calibration_plays": 951,
+          "scored_plays": 2517
+        },
+        "post_1_5s": {
+          "train_plays": 5047,
+          "calibration_plays": 951,
+          "scored_plays": 2517
+        }
+      }
+    ],
+    "windows": {
+      "at_snap": {
+        "class_prior": {
+          "n": 10544,
+          "accuracy": 0.7173748103186647,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.4177159266622487,
+          "log_loss": 0.5960298316247049,
+          "brier": 0.20299669176696342,
+          "per_class": {
+            "Man": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.7173748103186647,
+              "recall": 1.0,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.703957246152675,
+              0.7313055722416838
+            ],
+            "macro_f1": [
+              0.41313080549702463,
+              0.42240113436221277
+            ]
+          },
+          "accuracy_by_fold": [
+            0.7448,
+            0.7236,
+            0.7019,
+            0.6992
+          ]
+        },
+        "context_logit": {
+          "n": 10544,
+          "accuracy": 0.7297040971168437,
+          "balanced_accuracy": 0.5565875446747043,
+          "macro_f1": 0.5420084386374766,
+          "log_loss": 0.5527858288740548,
+          "brier": 0.18479925093185146,
+          "per_class": {
+            "Man": {
+              "precision": 0.5798525798525799,
+              "recall": 0.15838926174496645,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.74224049331963,
+              "recall": 0.9547858276044421,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.7183793547827517,
+              0.7419000659854319
+            ],
+            "macro_f1": [
+              0.5307393221930539,
+              0.5549044287847424
+            ]
+          },
+          "accuracy_by_fold": [
+            0.7523,
+            0.7386,
+            0.7172,
+            0.7104
+          ]
+        },
+        "geometry_logit": {
+          "n": 10544,
+          "accuracy": 0.8111722306525038,
+          "balanced_accuracy": 0.7248138480048552,
+          "macro_f1": 0.7434610917163053,
+          "log_loss": 0.4156892888234124,
+          "brier": 0.1322130350681852,
+          "per_class": {
+            "Man": {
+              "precision": 0.7303213786679087,
+              "recall": 0.5261744966442953,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.8318447064427772,
+              "recall": 0.9234531993654151,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.8012173085236037,
+              0.8215235981826051
+            ],
+            "macro_f1": [
+              0.7310645953766054,
+              0.7539497574210928
+            ]
+          },
+          "accuracy_by_fold": [
+            0.8365,
+            0.7999,
+            0.8168,
+            0.7922
+          ]
+        },
+        "geometry_gbm": {
+          "n": 10544,
+          "accuracy": 0.8261570561456753,
+          "balanced_accuracy": 0.7481717531649388,
+          "macro_f1": 0.7667574612255582,
+          "log_loss": 0.3957096391387517,
+          "brier": 0.1245865710744176,
+          "per_class": {
+            "Man": {
+              "precision": 0.7556843513152028,
+              "recall": 0.5687919463087249,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.8451993735694495,
+              "recall": 0.9275515600211528,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.8165167095809825,
+              0.8353865692387012
+            ],
+            "macro_f1": [
+              0.7538441592434273,
+              0.777662418703955
+            ]
+          },
+          "accuracy_by_fold": [
+            0.8373,
+            0.8266,
+            0.8228,
+            0.818
+          ]
+        }
+      },
+      "post_1s": {
+        "class_prior": {
+          "n": 10544,
+          "accuracy": 0.7173748103186647,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.4177159266622487,
+          "log_loss": 0.5960298316247049,
+          "brier": 0.20299669176696342,
+          "per_class": {
+            "Man": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.7173748103186647,
+              "recall": 1.0,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.703957246152675,
+              0.7313055722416838
+            ],
+            "macro_f1": [
+              0.41313080549702463,
+              0.42240113436221277
+            ]
+          },
+          "accuracy_by_fold": [
+            0.7448,
+            0.7236,
+            0.7019,
+            0.6992
+          ]
+        },
+        "context_logit": {
+          "n": 10544,
+          "accuracy": 0.7297040971168437,
+          "balanced_accuracy": 0.5565875446747043,
+          "macro_f1": 0.5420084386374766,
+          "log_loss": 0.5527858288740548,
+          "brier": 0.18479925093185146,
+          "per_class": {
+            "Man": {
+              "precision": 0.5798525798525799,
+              "recall": 0.15838926174496645,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.74224049331963,
+              "recall": 0.9547858276044421,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.7183793547827517,
+              0.7419000659854319
+            ],
+            "macro_f1": [
+              0.5307393221930539,
+              0.5549044287847424
+            ]
+          },
+          "accuracy_by_fold": [
+            0.7523,
+            0.7386,
+            0.7172,
+            0.7104
+          ]
+        },
+        "geometry_logit": {
+          "n": 10544,
+          "accuracy": 0.8650417298937785,
+          "balanced_accuracy": 0.8151334118874641,
+          "macro_f1": 0.8269484328979276,
+          "log_loss": 0.3173631954461137,
+          "brier": 0.09802579851261757,
+          "per_class": {
+            "Man": {
+              "precision": 0.7974780282766527,
+              "recall": 0.7003355704697987,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.8873470417560237,
+              "recall": 0.9299312533051296,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.8560928897789827,
+              0.8728280683732449
+            ],
+            "macro_f1": [
+              0.8167227817325253,
+              0.8364376436835057
+            ]
+          },
+          "accuracy_by_fold": [
+            0.8751,
+            0.8508,
+            0.8713,
+            0.8641
+          ]
+        },
+        "geometry_gbm": {
+          "n": 10544,
+          "accuracy": 0.8572647951441578,
+          "balanced_accuracy": 0.8023918490624966,
+          "macro_f1": 0.815664025175797,
+          "log_loss": 0.32842735951754226,
+          "brier": 0.10196703060086369,
+          "per_class": {
+            "Man": {
+              "precision": 0.7886497064579256,
+              "recall": 0.6761744966442953,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.8792089122543497,
+              "recall": 0.928609201480698,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.8476926740475159,
+              0.8648406599592291
+            ],
+            "macro_f1": [
+              0.8039391452221096,
+              0.824889649274778
+            ]
+          },
+          "accuracy_by_fold": [
+            0.8779,
+            0.8472,
+            0.856,
+            0.849
+          ]
+        }
+      },
+      "post_1_5s": {
+        "class_prior": {
+          "n": 10544,
+          "accuracy": 0.7173748103186647,
+          "balanced_accuracy": 0.5,
+          "macro_f1": 0.4177159266622487,
+          "log_loss": 0.5960298316247049,
+          "brier": 0.20299669176696342,
+          "per_class": {
+            "Man": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.7173748103186647,
+              "recall": 1.0,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.703957246152675,
+              0.7313055722416838
+            ],
+            "macro_f1": [
+              0.41313080549702463,
+              0.42240113436221277
+            ]
+          },
+          "accuracy_by_fold": [
+            0.7448,
+            0.7236,
+            0.7019,
+            0.6992
+          ]
+        },
+        "context_logit": {
+          "n": 10544,
+          "accuracy": 0.7297040971168437,
+          "balanced_accuracy": 0.5565875446747043,
+          "macro_f1": 0.5420084386374766,
+          "log_loss": 0.5527858288740548,
+          "brier": 0.18479925093185146,
+          "per_class": {
+            "Man": {
+              "precision": 0.5798525798525799,
+              "recall": 0.15838926174496645,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.74224049331963,
+              "recall": 0.9547858276044421,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.7183793547827517,
+              0.7419000659854319
+            ],
+            "macro_f1": [
+              0.5307393221930539,
+              0.5549044287847424
+            ]
+          },
+          "accuracy_by_fold": [
+            0.7523,
+            0.7386,
+            0.7172,
+            0.7104
+          ]
+        },
+        "geometry_logit": {
+          "n": 10544,
+          "accuracy": 0.875,
+          "balanced_accuracy": 0.8314289871840829,
+          "macro_f1": 0.8411382214640322,
+          "log_loss": 0.2922553043754211,
+          "brier": 0.09020398146162888,
+          "per_class": {
+            "Man": {
+              "precision": 0.8082344213649851,
+              "recall": 0.7312080536912752,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.8979357798165137,
+              "recall": 0.9316499206768906,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.8668377317585126,
+              0.8825153563386349
+            ],
+            "macro_f1": [
+              0.8318196319085274,
+              0.8505131891081049
+            ]
+          },
+          "accuracy_by_fold": [
+            0.8811,
+            0.864,
+            0.8843,
+            0.8713
+          ]
+        },
+        "geometry_gbm": {
+          "n": 10544,
+          "accuracy": 0.8728186646433991,
+          "balanced_accuracy": 0.8243160821837101,
+          "macro_f1": 0.8367713505800956,
+          "log_loss": 0.2897902225511856,
+          "brier": 0.09002354637053736,
+          "per_class": {
+            "Man": {
+              "precision": 0.8141050210808739,
+              "recall": 0.7127516778523489,
+              "support": 2980
+            },
+            "Zone": {
+              "precision": 0.8921235034656585,
+              "recall": 0.9358804865150714,
+              "support": 7564
+            }
+          },
+          "game_bootstrap_95": {
+            "games": 208,
+            "resamples": 500,
+            "accuracy": [
+              0.8642376807651463,
+              0.8807273036199743
+            ],
+            "macro_f1": [
+              0.8254911665132338,
+              0.8470672129236347
+            ]
+          },
+          "accuracy_by_fold": [
+            0.8842,
+            0.859,
+            0.8799,
+            0.8693
+          ]
+        }
+      }
+    }
+  },
+  "multiclass_dev": {
+    "status": "Development only. Trained on weeks 1-12 and scored on weeks 13-14. The locked test weeks have not been scored for this task, so there is no final multiclass result yet.",
+    "target": "released coverage_type",
+    "classes": [
+      "COVER_0_MAN",
+      "COVER_1_MAN",
+      "COVER_2_ZONE",
+      "COVER_3_ZONE",
+      "COVER_4_ZONE",
+      "COVER_6_ZONE"
+    ],
+    "train_counts": {
+      "COVER_6_ZONE": 910,
+      "COVER_3_ZONE": 2881,
+      "COVER_2_ZONE": 1209,
+      "COVER_4_ZONE": 1523,
+      "COVER_2_MAN": 147,
+      "COVER_0_MAN": 347,
+      "PREVENT": 25,
+      "COVER_1_MAN": 2082
+    },
+    "excluded_classes": {
+      "COVER_2_MAN": 147,
+      "PREVENT": 25
+    },
+    "exclusion_rule": "fewer than 200 training plays",
+    "probabilities": "uncalibrated",
+    "windows": {
+      "at_snap": {
+        "train_plays": 8952,
+        "dev_plays": 1381,
+        "models": {
+          "class_prior": {
+            "accuracy": 0.32150615496017376,
+            "balanced_accuracy": 0.16666666666666666,
+            "macro_f1": 0.0810958904109589,
+            "log_loss": 1.6314580695028693,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.32150615496017376,
+                "recall": 1.0,
+                "f1": 0.4865753424657534,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  48,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  324,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  180,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  444,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  232,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  153,
+                  0,
+                  0
+                ]
+              ]
+            }
+          },
+          "context_logit": {
+            "accuracy": 0.39753801593048516,
+            "balanced_accuracy": 0.2860793631133951,
+            "macro_f1": 0.2772139638275585,
+            "log_loss": 1.481188702320236,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.5217391304347826,
+                "recall": 0.25,
+                "f1": 0.3380281690140845,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.4175531914893617,
+                "recall": 0.4845679012345679,
+                "f1": 0.44857142857142857,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.2962962962962963,
+                "recall": 0.044444444444444446,
+                "f1": 0.07729468599033816,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.40318627450980393,
+                "recall": 0.740990990990991,
+                "f1": 0.5222222222222223,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.34545454545454546,
+                "recall": 0.16379310344827586,
+                "f1": 0.2222222222222222,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.1724137931034483,
+                "recall": 0.032679738562091505,
+                "f1": 0.054945054945054944,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  12,
+                  22,
+                  0,
+                  9,
+                  5,
+                  0
+                ],
+                [
+                  6,
+                  157,
+                  7,
+                  134,
+                  12,
+                  8
+                ],
+                [
+                  0,
+                  52,
+                  8,
+                  101,
+                  14,
+                  5
+                ],
+                [
+                  3,
+                  78,
+                  5,
+                  329,
+                  26,
+                  3
+                ],
+                [
+                  2,
+                  43,
+                  5,
+                  136,
+                  38,
+                  8
+                ],
+                [
+                  0,
+                  24,
+                  2,
+                  107,
+                  15,
+                  5
+                ]
+              ]
+            }
+          },
+          "geometry_logit": {
+            "accuracy": 0.5257060101375814,
+            "balanced_accuracy": 0.48584155910474364,
+            "macro_f1": 0.4788713188982346,
+            "log_loss": 1.1920942226902536,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.6,
+                "recall": 0.6875,
+                "f1": 0.6407766990291263,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.6160714285714286,
+                "recall": 0.6388888888888888,
+                "f1": 0.6272727272727273,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.3711340206185567,
+                "recall": 0.2,
+                "f1": 0.259927797833935,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.5369369369369369,
+                "recall": 0.6711711711711712,
+                "f1": 0.5965965965965966,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.4492753623188406,
+                "recall": 0.5344827586206896,
+                "f1": 0.4881889763779528,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.45161290322580644,
+                "recall": 0.1830065359477124,
+                "f1": 0.26046511627906976,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  33,
+                  6,
+                  0,
+                  7,
+                  2,
+                  0
+                ],
+                [
+                  12,
+                  207,
+                  15,
+                  78,
+                  10,
+                  2
+                ],
+                [
+                  3,
+                  38,
+                  36,
+                  56,
+                  29,
+                  18
+                ],
+                [
+                  7,
+                  50,
+                  15,
+                  298,
+                  68,
+                  6
+                ],
+                [
+                  0,
+                  18,
+                  13,
+                  69,
+                  124,
+                  8
+                ],
+                [
+                  0,
+                  17,
+                  18,
+                  47,
+                  43,
+                  28
+                ]
+              ]
+            }
+          },
+          "geometry_gbm": {
+            "accuracy": 0.5358435916002896,
+            "balanced_accuracy": 0.4795196156828454,
+            "macro_f1": 0.48975180350836683,
+            "log_loss": 1.1577296304272449,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.625,
+                "recall": 0.5208333333333334,
+                "f1": 0.5681818181818182,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.6383647798742138,
+                "recall": 0.6265432098765432,
+                "f1": 0.632398753894081,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.4368932038834951,
+                "recall": 0.25,
+                "f1": 0.31802120141342755,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.5330948121645797,
+                "recall": 0.6711711711711712,
+                "f1": 0.5942173479561316,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.4854014598540146,
+                "recall": 0.5732758620689655,
+                "f1": 0.525691699604743,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.41379310344827586,
+                "recall": 0.23529411764705882,
+                "f1": 0.3,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  25,
+                  8,
+                  1,
+                  10,
+                  4,
+                  0
+                ],
+                [
+                  9,
+                  203,
+                  12,
+                  84,
+                  10,
+                  6
+                ],
+                [
+                  2,
+                  31,
+                  45,
+                  64,
+                  21,
+                  17
+                ],
+                [
+                  4,
+                  47,
+                  19,
+                  298,
+                  62,
+                  14
+                ],
+                [
+                  0,
+                  14,
+                  5,
+                  66,
+                  133,
+                  14
+                ],
+                [
+                  0,
+                  15,
+                  21,
+                  37,
+                  44,
+                  36
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "post_1s": {
+        "train_plays": 8952,
+        "dev_plays": 1381,
+        "models": {
+          "class_prior": {
+            "accuracy": 0.32150615496017376,
+            "balanced_accuracy": 0.16666666666666666,
+            "macro_f1": 0.0810958904109589,
+            "log_loss": 1.6314580695028693,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.32150615496017376,
+                "recall": 1.0,
+                "f1": 0.4865753424657534,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  48,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  324,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  180,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  444,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  232,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  153,
+                  0,
+                  0
+                ]
+              ]
+            }
+          },
+          "context_logit": {
+            "accuracy": 0.39753801593048516,
+            "balanced_accuracy": 0.2860793631133951,
+            "macro_f1": 0.2772139638275585,
+            "log_loss": 1.481188702320236,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.5217391304347826,
+                "recall": 0.25,
+                "f1": 0.3380281690140845,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.4175531914893617,
+                "recall": 0.4845679012345679,
+                "f1": 0.44857142857142857,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.2962962962962963,
+                "recall": 0.044444444444444446,
+                "f1": 0.07729468599033816,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.40318627450980393,
+                "recall": 0.740990990990991,
+                "f1": 0.5222222222222223,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.34545454545454546,
+                "recall": 0.16379310344827586,
+                "f1": 0.2222222222222222,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.1724137931034483,
+                "recall": 0.032679738562091505,
+                "f1": 0.054945054945054944,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  12,
+                  22,
+                  0,
+                  9,
+                  5,
+                  0
+                ],
+                [
+                  6,
+                  157,
+                  7,
+                  134,
+                  12,
+                  8
+                ],
+                [
+                  0,
+                  52,
+                  8,
+                  101,
+                  14,
+                  5
+                ],
+                [
+                  3,
+                  78,
+                  5,
+                  329,
+                  26,
+                  3
+                ],
+                [
+                  2,
+                  43,
+                  5,
+                  136,
+                  38,
+                  8
+                ],
+                [
+                  0,
+                  24,
+                  2,
+                  107,
+                  15,
+                  5
+                ]
+              ]
+            }
+          },
+          "geometry_logit": {
+            "accuracy": 0.6784938450398262,
+            "balanced_accuracy": 0.634847874694618,
+            "macro_f1": 0.6386178914668886,
+            "log_loss": 0.8581352884996439,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.6122448979591837,
+                "recall": 0.625,
+                "f1": 0.6185567010309279,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.7533333333333333,
+                "recall": 0.6975308641975309,
+                "f1": 0.7243589743589743,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.6724137931034483,
+                "recall": 0.65,
+                "f1": 0.6610169491525424,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.6921529175050302,
+                "recall": 0.7747747747747747,
+                "f1": 0.7311370882040382,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.6014234875444839,
+                "recall": 0.728448275862069,
+                "f1": 0.6588693957115009,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.6375,
+                "recall": 0.3333333333333333,
+                "f1": 0.43776824034334766,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  30,
+                  9,
+                  0,
+                  3,
+                  6,
+                  0
+                ],
+                [
+                  12,
+                  226,
+                  4,
+                  67,
+                  12,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  117,
+                  25,
+                  22,
+                  11
+                ],
+                [
+                  4,
+                  42,
+                  12,
+                  344,
+                  35,
+                  7
+                ],
+                [
+                  1,
+                  10,
+                  9,
+                  35,
+                  169,
+                  8
+                ],
+                [
+                  0,
+                  10,
+                  32,
+                  23,
+                  37,
+                  51
+                ]
+              ]
+            }
+          },
+          "geometry_gbm": {
+            "accuracy": 0.6784938450398262,
+            "balanced_accuracy": 0.6517195060171733,
+            "macro_f1": 0.658271121971017,
+            "log_loss": 0.8578888321038517,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.7142857142857143,
+                "recall": 0.7291666666666666,
+                "f1": 0.7216494845360825,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.7352941176470589,
+                "recall": 0.6944444444444444,
+                "f1": 0.7142857142857143,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.6878980891719745,
+                "recall": 0.6,
+                "f1": 0.6409495548961425,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.6812749003984063,
+                "recall": 0.7702702702702703,
+                "f1": 0.7230443974630021,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.625,
+                "recall": 0.7112068965517241,
+                "f1": 0.6653225806451613,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.6019417475728155,
+                "recall": 0.40522875816993464,
+                "f1": 0.484375,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  35,
+                  4,
+                  0,
+                  5,
+                  4,
+                  0
+                ],
+                [
+                  9,
+                  225,
+                  5,
+                  65,
+                  13,
+                  7
+                ],
+                [
+                  2,
+                  8,
+                  108,
+                  32,
+                  13,
+                  17
+                ],
+                [
+                  2,
+                  50,
+                  14,
+                  342,
+                  30,
+                  6
+                ],
+                [
+                  1,
+                  9,
+                  9,
+                  37,
+                  165,
+                  11
+                ],
+                [
+                  0,
+                  10,
+                  21,
+                  21,
+                  39,
+                  62
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "post_1_5s": {
+        "train_plays": 8952,
+        "dev_plays": 1381,
+        "models": {
+          "class_prior": {
+            "accuracy": 0.32150615496017376,
+            "balanced_accuracy": 0.16666666666666666,
+            "macro_f1": 0.0810958904109589,
+            "log_loss": 1.6314580695028693,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.32150615496017376,
+                "recall": 1.0,
+                "f1": 0.4865753424657534,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  0,
+                  0,
+                  0,
+                  48,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  324,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  180,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  444,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  232,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  153,
+                  0,
+                  0
+                ]
+              ]
+            }
+          },
+          "context_logit": {
+            "accuracy": 0.39753801593048516,
+            "balanced_accuracy": 0.2860793631133951,
+            "macro_f1": 0.2772139638275585,
+            "log_loss": 1.481188702320236,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.5217391304347826,
+                "recall": 0.25,
+                "f1": 0.3380281690140845,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.4175531914893617,
+                "recall": 0.4845679012345679,
+                "f1": 0.44857142857142857,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.2962962962962963,
+                "recall": 0.044444444444444446,
+                "f1": 0.07729468599033816,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.40318627450980393,
+                "recall": 0.740990990990991,
+                "f1": 0.5222222222222223,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.34545454545454546,
+                "recall": 0.16379310344827586,
+                "f1": 0.2222222222222222,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.1724137931034483,
+                "recall": 0.032679738562091505,
+                "f1": 0.054945054945054944,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  12,
+                  22,
+                  0,
+                  9,
+                  5,
+                  0
+                ],
+                [
+                  6,
+                  157,
+                  7,
+                  134,
+                  12,
+                  8
+                ],
+                [
+                  0,
+                  52,
+                  8,
+                  101,
+                  14,
+                  5
+                ],
+                [
+                  3,
+                  78,
+                  5,
+                  329,
+                  26,
+                  3
+                ],
+                [
+                  2,
+                  43,
+                  5,
+                  136,
+                  38,
+                  8
+                ],
+                [
+                  0,
+                  24,
+                  2,
+                  107,
+                  15,
+                  5
+                ]
+              ]
+            }
+          },
+          "geometry_logit": {
+            "accuracy": 0.7023895727733527,
+            "balanced_accuracy": 0.6770877664344533,
+            "macro_f1": 0.6741760217608698,
+            "log_loss": 0.768399143404351,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.6491228070175439,
+                "recall": 0.7708333333333334,
+                "f1": 0.7047619047619048,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.7598684210526315,
+                "recall": 0.7129629629629629,
+                "f1": 0.7356687898089171,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.7005649717514124,
+                "recall": 0.6888888888888889,
+                "f1": 0.6946778711484594,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.7142857142857143,
+                "recall": 0.7995495495495496,
+                "f1": 0.7545164718384697,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.637065637065637,
+                "recall": 0.7112068965517241,
+                "f1": 0.6720977596741344,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.6666666666666666,
+                "recall": 0.3790849673202614,
+                "f1": 0.48333333333333334,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  37,
+                  8,
+                  0,
+                  2,
+                  1,
+                  0
+                ],
+                [
+                  12,
+                  231,
+                  1,
+                  67,
+                  12,
+                  1
+                ],
+                [
+                  1,
+                  3,
+                  124,
+                  20,
+                  20,
+                  12
+                ],
+                [
+                  5,
+                  42,
+                  10,
+                  355,
+                  24,
+                  8
+                ],
+                [
+                  2,
+                  14,
+                  12,
+                  31,
+                  165,
+                  8
+                ],
+                [
+                  0,
+                  6,
+                  30,
+                  22,
+                  37,
+                  58
+                ]
+              ]
+            }
+          },
+          "geometry_gbm": {
+            "accuracy": 0.718320057929037,
+            "balanced_accuracy": 0.6929507995712639,
+            "macro_f1": 0.6970580330783959,
+            "log_loss": 0.7528331700858009,
+            "per_class": {
+              "COVER_0_MAN": {
+                "precision": 0.7450980392156863,
+                "recall": 0.7916666666666666,
+                "f1": 0.7676767676767676,
+                "support": 48
+              },
+              "COVER_1_MAN": {
+                "precision": 0.7919463087248322,
+                "recall": 0.7283950617283951,
+                "f1": 0.7588424437299035,
+                "support": 324
+              },
+              "COVER_2_ZONE": {
+                "precision": 0.7305389221556886,
+                "recall": 0.6777777777777778,
+                "f1": 0.7031700288184438,
+                "support": 180
+              },
+              "COVER_3_ZONE": {
+                "precision": 0.7103718199608611,
+                "recall": 0.8175675675675675,
+                "f1": 0.7602094240837697,
+                "support": 444
+              },
+              "COVER_4_ZONE": {
+                "precision": 0.6812749003984063,
+                "recall": 0.7370689655172413,
+                "f1": 0.7080745341614907,
+                "support": 232
+              },
+              "COVER_6_ZONE": {
+                "precision": 0.6019417475728155,
+                "recall": 0.40522875816993464,
+                "f1": 0.484375,
+                "support": 153
+              }
+            },
+            "confusion": {
+              "labels": [
+                "COVER_0_MAN",
+                "COVER_1_MAN",
+                "COVER_2_ZONE",
+                "COVER_3_ZONE",
+                "COVER_4_ZONE",
+                "COVER_6_ZONE"
+              ],
+              "rows_released_cols_predicted": [
+                [
+                  38,
+                  6,
+                  0,
+                  2,
+                  2,
+                  0
+                ],
+                [
+                  8,
+                  236,
+                  3,
+                  66,
+                  9,
+                  2
+                ],
+                [
+                  2,
+                  5,
+                  122,
+                  23,
+                  9,
+                  19
+                ],
+                [
+                  2,
+                  37,
+                  9,
+                  363,
+                  27,
+                  6
+                ],
+                [
+                  1,
+                  7,
+                  6,
+                  33,
+                  171,
+                  14
+                ],
+                [
+                  0,
+                  7,
+                  27,
+                  24,
+                  33,
+                  62
+                ]
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "module": "coverage",
+  "run_id": "coverage-expB-cv-20261004T081741",
+  "name": "expB-cv",
+  "results_version": "v2",
+  "started_at": "2026-10-04T08:17:41+00:00",
+  "git_commit": "4846cca9c711409b1a681b2e7b62826edd09c5b9+uncommitted",
+  "seed": 42,
+  "config": {
+    "folds": [
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ]
+      ]
+    ],
+    "configs": {
+      "gru": {
+        "temporal": "gru",
+        "augment": false
+      },
+      "tcn": {
+        "temporal": "tcn",
+        "augment": false
+      },
+      "gru+reflect": {
+        "temporal": "gru",
+        "augment": true
+      }
+    },
+    "base": {
+      "optimizer": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch": 64,
+      "grad_clip": 1.0,
+      "max_epochs": 50,
+      "patience": 8,
+      "pair_mlp": [
+        64,
+        64
+      ],
+      "pooled": "mean+max over receivers, then defenders",
+      "hidden": 96,
+      "layers": 2,
+      "dropout": 0.1
+    }
+  },
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {
+    "folds": [
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  "target": "released man/zone label",
+  "population": "labelled plays in weeks 1-12 with the prefix available",
+  "exclusions": null,
+  "input_cutoff": {
+    "at_snap": 0,
+    "post_0_5s": 5,
+    "post_1s": 10,
+    "post_1_5s": 15
+  },
+  "features": null,
+  "preprocessing": null,
+  "calibration": null,
+  "hyperparameters": {
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch": 64,
+    "grad_clip": 1.0,
+    "max_epochs": 50,
+    "patience": 8,
+    "pair_mlp": [
+      64,
+      64
+    ],
+    "pooled": "mean+max over receivers, then defenders",
+    "hidden": 96,
+    "layers": 2,
+    "dropout": 0.1
+  },
+  "metrics": {
+    "chosen": {
+      "config": "gru+reflect",
+      "temporal": "gru",
+      "augment": true,
+      "epochs": 28,
+      "rule": "lowest mean validation log loss over the three chronological folds (averaged over the four prefixes); epochs = median best epoch"
+    },
+    "mean_val_loss": 0.2002058525880178
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "cv_report": {
+      "path": "reports/v2/coverage_expB_cv.json",
+      "sha256": "d0c68a6b37368e29816cbf3e5c9b004ea3bb4d4958a363ce04b78f0e2449a228"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T09:07:15+00:00",
+  "train_seconds": 2974.4,
+  "peak_memory_mb": 914.4
+}

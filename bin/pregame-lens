@@ -1,0 +1,4 @@
+#!/bin/sh
+# Game predictor commands: backtest (v2 features, selection, reports, site export), forecast (append-only live records), v1 (preserved benchmark).
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PYTHONPATH="$ROOT/src" exec "$ROOT/.venv/bin/python" -m gridiron_lens.pregame.run_v2 "$@"

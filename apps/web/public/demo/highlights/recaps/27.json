@@ -1,0 +1,254 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2017_17_CIN_BAL",
+  "final": "CIN 31, BAL 27",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 7,
+    "interception": 1,
+    "sack": 2,
+    "fumble lost": 1,
+    "turnover": 2,
+    "big play": 11
+  },
+  "events": [
+    {
+      "play_id": 58,
+      "quarter": 1.0,
+      "game_clock": "14:54",
+      "offense": "CIN",
+      "events": [
+        "big play"
+      ],
+      "yards": 11.0,
+      "epa": 0.87,
+      "description": "(14:54) (Shotgun) 28-J.Mixon right guard to CIN 33 for 11 yards (57-C.Mosley)."
+    },
+    {
+      "play_id": 194,
+      "quarter": 1.0,
+      "game_clock": "11:35",
+      "offense": "CIN",
+      "events": [
+        "big play"
+      ],
+      "yards": 17.0,
+      "epa": 1.21,
+      "description": "(11:35) (No Huddle) 28-J.Mixon right guard to BAL 18 for 17 yards (32-E.Weddle)."
+    },
+    {
+      "play_id": 248,
+      "quarter": 1.0,
+      "game_clock": "10:59",
+      "offense": "CIN",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 0.62,
+      "description": "(10:59) 66-T.Hopkins reported in as eligible. 14-A.Dalton pass short right to 81-T.Kroft for 1\u2026"
+    },
+    {
+      "play_id": 336,
+      "quarter": 1.0,
+      "game_clock": "10:13",
+      "offense": "BAL",
+      "events": [
+        "big play"
+      ],
+      "yards": 16.0,
+      "epa": 1.24,
+      "description": "(10:13) 34-A.Collins left guard pushed ob at BAL 45 for 16 yards (36-S.Williams)."
+    },
+    {
+      "play_id": 1461,
+      "quarter": 2.0,
+      "game_clock": "12:16",
+      "offense": "CIN",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 8.0,
+      "epa": -4.3,
+      "description": "(12:16) (Shotgun) 28-J.Mixon right guard to CIN 29 for 8 yards (57-C.Mosley). FUMBLES\u2026"
+    },
+    {
+      "play_id": 1873,
+      "quarter": 2.0,
+      "game_clock": "07:05",
+      "offense": "CIN",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 1.34,
+      "description": "(7:05) (No Huddle, Shotgun) 25-G.Bernard left tackle pushed ob at BAL 34 for 21 yards\u2026"
+    },
+    {
+      "play_id": 1915,
+      "quarter": 2.0,
+      "game_clock": "06:17",
+      "offense": "CIN",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.33,
+      "description": "(6:17) (No Huddle, Shotgun) 14-A.Dalton pass short left to 81-T.Kroft to BAL 10 for 20 yards\u2026"
+    },
+    {
+      "play_id": 1981,
+      "quarter": 2.0,
+      "game_clock": "04:20",
+      "offense": "CIN",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 5.0,
+      "epa": 2.95,
+      "description": "(4:20) (Shotgun) 14-A.Dalton pass short middle to 81-T.Kroft for 5 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2199,
+      "quarter": 2.0,
+      "game_clock": "02:20",
+      "offense": "CIN",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 1.57,
+      "description": "(2:20) (No Huddle, Shotgun) 14-A.Dalton pass deep left to 11-B.LaFell ran ob at CIN 49 for 22 yards."
+    },
+    {
+      "play_id": 2485,
+      "quarter": 2.0,
+      "game_clock": "00:08",
+      "offense": "BAL",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 6.0,
+      "epa": 3.23,
+      "description": "(:08) (Shotgun) 5-J.Flacco pass short middle to 10-C.Moore for 6 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2802,
+      "quarter": 3.0,
+      "game_clock": "10:36",
+      "offense": "BAL",
+      "events": [
+        "touchdown",
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -11.42,
+      "description": "(10:36) (Shotgun) 5-J.Flacco pass short middle intended for 10-C.Moore INTERCEPTED by 21-D.Dennard\u2026"
+    },
+    {
+      "play_id": 3006,
+      "quarter": 3.0,
+      "game_clock": "08:55",
+      "offense": "BAL",
+      "events": [
+        "big play"
+      ],
+      "yards": 18.0,
+      "epa": 1.76,
+      "description": "(8:55) 37-J.Allen left tackle to CIN 24 for 18 yards (43-G.Iloka)."
+    },
+    {
+      "play_id": 3113,
+      "quarter": 3.0,
+      "game_clock": "06:28",
+      "offense": "BAL",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 17.0,
+      "epa": 4.23,
+      "description": "(6:28) 34-A.Collins left tackle for 17 yards, TOUCHDOWN. Collins runs left and then reverses field\u2026"
+    },
+    {
+      "play_id": 3197,
+      "quarter": 3.0,
+      "game_clock": "05:47",
+      "offense": "CIN",
+      "events": [
+        "big play"
+      ],
+      "yards": 11.0,
+      "epa": 1.28,
+      "description": "(5:47) 28-J.Mixon left guard to CIN 37 for 11 yards (48-P.Onwuasor)."
+    },
+    {
+      "play_id": 4053,
+      "quarter": 4.0,
+      "game_clock": "08:52",
+      "offense": "BAL",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 6.0,
+      "epa": 2.6,
+      "description": "(8:52) (Shotgun) 5-J.Flacco pass short right to 17-M.Wallace for 6 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 4157,
+      "quarter": 4.0,
+      "game_clock": "07:28",
+      "offense": "CIN",
+      "events": [
+        "sack"
+      ],
+      "yards": -9.0,
+      "epa": -2.07,
+      "description": "(7:28) (Shotgun) 14-A.Dalton sacked at CIN 20 for -9 yards (99-M.Judon)."
+    },
+    {
+      "play_id": 4259,
+      "quarter": 4.0,
+      "game_clock": "05:05",
+      "offense": "BAL",
+      "events": [
+        "big play"
+      ],
+      "yards": 19.0,
+      "epa": 1.08,
+      "description": "(5:05) 37-J.Allen left guard to BAL 46 for 19 yards (56-H.Nickerson). CIN-57-V.Rey was injured\u2026"
+    },
+    {
+      "play_id": 4772,
+      "quarter": 4.0,
+      "game_clock": "00:53",
+      "offense": "CIN",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 49.0,
+      "epa": 6.73,
+      "description": "(:53) (Shotgun) 14-A.Dalton pass deep middle to 83-T.Boyd for 49 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 4859,
+      "quarter": 4.0,
+      "game_clock": "00:32",
+      "offense": "BAL",
+      "events": [
+        "sack"
+      ],
+      "yards": -9.0,
+      "epa": -0.33,
+      "description": "(:32) (Shotgun) 5-J.Flacco sacked at BAL 23 for -9 yards (96-C.Dunlap)."
+    }
+  ]
+}

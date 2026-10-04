@@ -1,0 +1,290 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2023_22_SF_KC",
+  "final": "SF 22, KC 25",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 4,
+    "interception": 1,
+    "sack": 4,
+    "fumble lost": 3,
+    "turnover": 4,
+    "big play": 11
+  },
+  "events": [
+    {
+      "play_id": 128,
+      "quarter": 1.0,
+      "game_clock": "13:02",
+      "offense": "SF",
+      "events": [
+        "big play"
+      ],
+      "yards": 11.0,
+      "epa": 0.78,
+      "description": "(13:02) (Shotgun) 23-C.McCaffrey up the middle to KC 29 for 11 yards (21-M.Edwards)."
+    },
+    {
+      "play_id": 150,
+      "quarter": 1.0,
+      "game_clock": "12:24",
+      "offense": "SF",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 2.0,
+      "epa": -5.44,
+      "description": "(12:24) 23-C.McCaffrey right guard to KC 27 for 2 yards (54-L.Chenal; 69-M.Pennel). FUMBLES\u2026"
+    },
+    {
+      "play_id": 504,
+      "quarter": 1.0,
+      "game_clock": "06:28",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 0.57,
+      "description": "(6:28) (Shotgun) 10-I.Pacheco right guard to KC 21 for 10 yards (33-L.Ryan; 27-J.Brown)."
+    },
+    {
+      "play_id": 533,
+      "quarter": 1.0,
+      "game_clock": "05:55",
+      "offense": "KC",
+      "events": [
+        "sack"
+      ],
+      "yards": -4.0,
+      "epa": -1.24,
+      "description": "(5:55) (Shotgun) 15-P.Mahomes sacked at KC 17 for -4 yards (92-C.Young)."
+    },
+    {
+      "play_id": 1013,
+      "quarter": 2.0,
+      "game_clock": "13:01",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 52.0,
+      "epa": 3.27,
+      "description": "(13:01) (Shotgun) 15-P.Mahomes pass deep right to 12-M.Hardman to SF 9 for 52 yards (27-J.Brown)."
+    },
+    {
+      "play_id": 1045,
+      "quarter": 2.0,
+      "game_clock": "12:09",
+      "offense": "KC",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -5.28,
+      "description": "(12:09) 10-I.Pacheco left tackle to SF 9 for no gain (2-D.Lenoir). FUMBLES (2-D.Lenoir), touched\u2026"
+    },
+    {
+      "play_id": 1172,
+      "quarter": 2.0,
+      "game_clock": "10:12",
+      "offense": "SF",
+      "events": [
+        "sack"
+      ],
+      "yards": -4.0,
+      "epa": -1.6,
+      "description": "(10:12) (Shotgun) 13-B.Purdy sacked at SF 29 for -4 yards (sack split by 20-J.Reid and\u2026"
+    },
+    {
+      "play_id": 1507,
+      "quarter": 2.0,
+      "game_clock": "04:32",
+      "offense": "SF",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 2.95,
+      "description": "(4:32) (Shotgun) 15-J.Jennings pass short right to 23-C.McCaffrey for 21 yards, TOUCHDOWN\u2026"
+    },
+    {
+      "play_id": 1692,
+      "quarter": 2.0,
+      "game_clock": "02:00",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 2.28,
+      "description": "(2:00) (Shotgun) 15-P.Mahomes pass short middle to 84-Ju.Watson to SF 39 for 21 yards\u2026"
+    },
+    {
+      "play_id": 1880,
+      "quarter": 2.0,
+      "game_clock": "00:31",
+      "offense": "KC",
+      "events": [
+        "sack"
+      ],
+      "yards": -1.0,
+      "epa": -1.15,
+      "description": "(:31) (Shotgun) 15-P.Mahomes sacked at SF 10 for -1 yards (91-A.Armstead)."
+    },
+    {
+      "play_id": 2072,
+      "quarter": 3.0,
+      "game_clock": "13:38",
+      "offense": "KC",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -2.01,
+      "description": "(13:38) (Shotgun) 15-P.Mahomes pass deep right intended for 11-M.Valdes-Scantling INTERCEPTED by\u2026"
+    },
+    {
+      "play_id": 2525,
+      "quarter": 3.0,
+      "game_clock": "06:40",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 1.48,
+      "description": "(6:40) (Shotgun) 15-P.Mahomes right guard to SF 43 for 22 yards (33-L.Ryan)."
+    },
+    {
+      "play_id": 2828,
+      "quarter": 3.0,
+      "game_clock": "02:42",
+      "offense": "KC",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": 5.93,
+      "description": "(2:42) 5-T.Townsend punts 40 yards to SF 25, Center-41-J.Winchester. 28-D.Luter MUFFS catch,\u2026"
+    },
+    {
+      "play_id": 2858,
+      "quarter": 3.0,
+      "game_clock": "02:32",
+      "offense": "KC",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 16.0,
+      "epa": 2.09,
+      "description": "(2:32) (Shotgun) 15-P.Mahomes pass deep right to 11-M.Valdes-Scantling for 16 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3064,
+      "quarter": 4.0,
+      "game_clock": "15:00",
+      "offense": "SF",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.35,
+      "description": "(15:00) (Shotgun) 13-B.Purdy pass deep middle to 11-B.Aiyuk to KC 22 for 20 yards (21-M.Edwards;\u2026"
+    },
+    {
+      "play_id": 3203,
+      "quarter": 4.0,
+      "game_clock": "11:27",
+      "offense": "SF",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 10.0,
+      "epa": 2.33,
+      "description": "(11:27) (Shotgun) 13-B.Purdy pass short right to 15-J.Jennings for 10 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3396,
+      "quarter": 4.0,
+      "game_clock": "09:17",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 25.0,
+      "epa": 2.02,
+      "description": "(9:17) (Shotgun) 15-P.Mahomes pass deep left to 84-Ju.Watson pushed ob at SF 21 for 25 yards\u2026"
+    },
+    {
+      "play_id": 3510,
+      "quarter": 4.0,
+      "game_clock": "06:35",
+      "offense": "KC",
+      "events": [
+        "sack"
+      ],
+      "yards": -3.0,
+      "epa": -1.75,
+      "description": "(6:35) (Shotgun) 15-P.Mahomes sacked at SF 6 for -3 yards (98-J.Hargrave)."
+    },
+    {
+      "play_id": 3577,
+      "quarter": 4.0,
+      "game_clock": "05:46",
+      "offense": "SF",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 1.51,
+      "description": "(5:46) (Shotgun) 13-B.Purdy pass deep left to 15-J.Jennings to SF 48 for 23 yards (22-T.McDuffie)."
+    },
+    {
+      "play_id": 3966,
+      "quarter": 4.0,
+      "game_clock": "00:16",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 0.76,
+      "description": "(:16) (Shotgun) 15-P.Mahomes pass short left to 87-T.Kelce pushed ob at SF 11 for 22 yards\u2026"
+    },
+    {
+      "play_id": 4348,
+      "quarter": 5.0,
+      "game_clock": "11:12",
+      "offense": "SF",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 1.91,
+      "description": "(11:12) (Shotgun) 13-B.Purdy pass short left to 23-C.McCaffrey pushed ob at KC 26 for 24 yards\u2026"
+    },
+    {
+      "play_id": 4860,
+      "quarter": 5.0,
+      "game_clock": "00:06",
+      "offense": "KC",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 3.1,
+      "description": "(:06) (Shotgun) 15-P.Mahomes pass short right to 12-M.Hardman for 3 yards, TOUCHDOWN."
+    }
+  ]
+}

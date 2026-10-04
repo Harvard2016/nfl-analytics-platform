@@ -1,0 +1,101 @@
+{
+  "module": "coverage",
+  "run_id": "coverage-expC-family-20261004T091815",
+  "name": "expC-family",
+  "results_version": "v2",
+  "started_at": "2026-10-04T09:18:15+00:00",
+  "git_commit": "d11b3c55f521026cba0e601cd7539940c225d252+uncommitted",
+  "seed": 42,
+  "config": {},
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {},
+  "target": "coverage family (released coverage_type)",
+  "population": "v1 train and development cohorts with a family in the class list",
+  "exclusions": [
+    "PREVENT"
+  ],
+  "input_cutoff": {
+    "post_1s": 10,
+    "post_1_5s": 15
+  },
+  "features": null,
+  "preprocessing": null,
+  "calibration": null,
+  "hyperparameters": null,
+  "metrics": {
+    "post_1s": {
+      "boosted_trees_flat": {
+        "accuracy": 0.6956829440905874,
+        "balanced_accuracy": 0.6118085540626108,
+        "macro_f1": 0.6324858832146186,
+        "log_loss": 0.8259098611012542
+      },
+      "class_prior": {
+        "accuracy": 0.31422505307855625,
+        "balanced_accuracy": 0.14285714285714285,
+        "macro_f1": 0.06831294714978076,
+        "log_loss": 1.70385865974517
+      },
+      "temporal_hierarchical": {
+        "accuracy": 0.8365180467091295,
+        "balanced_accuracy": 0.8238060086310593,
+        "macro_f1": 0.8343817110903019,
+        "log_loss": 0.4296528697013855
+      }
+    },
+    "post_1_5s": {
+      "boosted_trees_flat": {
+        "accuracy": 0.7423920736022647,
+        "balanced_accuracy": 0.6690945068269275,
+        "macro_f1": 0.6954581443397952,
+        "log_loss": 0.7055137856001847
+      },
+      "class_prior": {
+        "accuracy": 0.31422505307855625,
+        "balanced_accuracy": 0.14285714285714285,
+        "macro_f1": 0.06831294714978076,
+        "log_loss": 1.70385865974517
+      },
+      "temporal_hierarchical": {
+        "accuracy": 0.8372257607926398,
+        "balanced_accuracy": 0.8169670267920776,
+        "macro_f1": 0.8292716806622318,
+        "log_loss": 0.41500118374824524
+      }
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "report": {
+      "path": "reports/v2/coverage_expC_family.json",
+      "sha256": "4593348486287d538932ea70d740aa76f6d75bbd112ed8011849a7501252e2cd"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T09:20:33+00:00",
+  "train_seconds": 138.1,
+  "peak_memory_mb": 1300.8
+}

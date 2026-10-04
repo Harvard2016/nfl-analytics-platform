@@ -1,0 +1,398 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2018_04_HOU_IND",
+  "final": "HOU 37, IND 34",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 8,
+    "interception": 1,
+    "sack": 11,
+    "fumble lost": 2,
+    "turnover": 3,
+    "big play": 11
+  },
+  "events": [
+    {
+      "play_id": 126,
+      "quarter": 1.0,
+      "game_clock": "13:07",
+      "offense": "IND",
+      "events": [
+        "big play"
+      ],
+      "yards": 40.0,
+      "epa": 2.53,
+      "description": "(13:07) 12-A.Luck pass short right to 13-T.Hilton to HOU 20 for 40 yards (55-B.McKinney).\u2026"
+    },
+    {
+      "play_id": 211,
+      "quarter": 1.0,
+      "game_clock": "11:22",
+      "offense": "IND",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 4.0,
+      "epa": 0.84,
+      "description": "(11:22) (Shotgun) 12-A.Luck pass short right to 14-Z.Pascal for 4 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 315,
+      "quarter": 1.0,
+      "game_clock": "10:08",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 0.97,
+      "description": "(10:08) 28-A.Blue right end to HOU 44 for 10 yards (50-A.Walker)."
+    },
+    {
+      "play_id": 450,
+      "quarter": 1.0,
+      "game_clock": "07:29",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -5.0,
+      "epa": -1.31,
+      "description": "(7:29) (Shotgun) 4-D.Watson sacked at IND 44 for -5 yards (96-D.Autry)."
+    },
+    {
+      "play_id": 469,
+      "quarter": 1.0,
+      "game_clock": "06:44",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -5.0,
+      "epa": -1.3,
+      "description": "(6:44) (Shotgun) 4-D.Watson sacked at IND 49 for -5 yards (53-D.Leonard)."
+    },
+    {
+      "play_id": 584,
+      "quarter": 1.0,
+      "game_clock": "05:30",
+      "offense": "IND",
+      "events": [
+        "touchdown",
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -6.46,
+      "description": "(5:30) (Shotgun) 12-A.Luck Aborted. 78-R.Kelly FUMBLES at IND 0, RECOVERED by HOU-90-J.Clowney at\u2026"
+    },
+    {
+      "play_id": 715,
+      "quarter": 1.0,
+      "game_clock": "04:07",
+      "offense": "IND",
+      "events": [
+        "sack"
+      ],
+      "yards": -9.0,
+      "epa": -1.81,
+      "description": "(4:07) (Shotgun) 12-A.Luck sacked at IND 10 for -9 yards (90-J.Clowney)."
+    },
+    {
+      "play_id": 788,
+      "quarter": 1.0,
+      "game_clock": "02:50",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 30.0,
+      "epa": 1.81,
+      "description": "(2:50) (Shotgun) 4-D.Watson pass deep right to 10-D.Hopkins pushed ob at IND 10 for 30 yards\u2026"
+    },
+    {
+      "play_id": 872,
+      "quarter": 1.0,
+      "game_clock": "01:50",
+      "offense": "HOU",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 2.19,
+      "description": "(1:50) (Shotgun) 4-D.Watson pass short right to 15-W.Fuller for 3 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1209,
+      "quarter": 2.0,
+      "game_clock": "14:12",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 1.36,
+      "description": "(14:12) 4-D.Watson pass deep right to 15-W.Fuller ran ob at HOU 37 for 22 yards [93-J.Sheard].\u2026"
+    },
+    {
+      "play_id": 1681,
+      "quarter": 2.0,
+      "game_clock": "08:47",
+      "offense": "IND",
+      "events": [
+        "sack"
+      ],
+      "yards": -4.0,
+      "epa": -1.54,
+      "description": "(8:47) (Shotgun) 12-A.Luck sacked at IND 5 for -4 yards (99-J.Watt). FUMBLES (99-J.Watt)\u2026"
+    },
+    {
+      "play_id": 1848,
+      "quarter": 2.0,
+      "game_clock": "05:10",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -6.0,
+      "epa": -1.54,
+      "description": "(5:10) (Shotgun) 4-D.Watson sacked at HOU 49 for -6 yards (50-A.Walker)."
+    },
+    {
+      "play_id": 1965,
+      "quarter": 2.0,
+      "game_clock": "02:21",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -8.0,
+      "epa": -1.62,
+      "description": "(2:21) (Shotgun) 4-D.Watson sacked at IND 43 for -8 yards (sack split by 57-K.Turay and\u2026"
+    },
+    {
+      "play_id": 2029,
+      "quarter": 2.0,
+      "game_clock": "01:53",
+      "offense": "IND",
+      "events": [
+        "sack",
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": -4.0,
+      "epa": -5.64,
+      "description": "(1:53) (Shotgun) 12-A.Luck sacked at IND 6 for -6 yards (99-J.Watt). FUMBLES (99-J.Watt),\u2026"
+    },
+    {
+      "play_id": 2079,
+      "quarter": 2.0,
+      "game_clock": "01:13",
+      "offense": "HOU",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 5.0,
+      "epa": 1.82,
+      "description": "(1:13) (Shotgun) 4-D.Watson pass short right to 10-D.Hopkins for 5 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2264,
+      "quarter": 2.0,
+      "game_clock": "00:22",
+      "offense": "IND",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 0.96,
+      "description": "(:22) (Shotgun) 12-A.Luck pass deep left to 11-R.Grant to HOU 30 for 23 yards (20-J.Reid)."
+    },
+    {
+      "play_id": 2633,
+      "quarter": 3.0,
+      "game_clock": "11:13",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -3.0,
+      "epa": -0.93,
+      "description": "(11:13) (Shotgun) 4-D.Watson sacked at IND 41 for -3 yards (51-J.Ward)."
+    },
+    {
+      "play_id": 2824,
+      "quarter": 3.0,
+      "game_clock": "06:45",
+      "offense": "HOU",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 5.0,
+      "epa": 1.59,
+      "description": "(6:45) (Shotgun) 4-D.Watson left end for 5 yards, TOUCHDOWN. The Replay Official reviewed the\u2026"
+    },
+    {
+      "play_id": 3008,
+      "quarter": 3.0,
+      "game_clock": "05:58",
+      "offense": "IND",
+      "events": [
+        "big play"
+      ],
+      "yards": 42.0,
+      "epa": 4.01,
+      "description": "(5:58) (Shotgun) 12-A.Luck pass deep right to 13-T.Hilton ran ob at HOU 19 for 42 yards\u2026"
+    },
+    {
+      "play_id": 3083,
+      "quarter": 3.0,
+      "game_clock": "05:21",
+      "offense": "IND",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 14.0,
+      "epa": 1.68,
+      "description": "(5:21) (Shotgun) 12-A.Luck pass short right to 21-N.Hines for 14 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3174,
+      "quarter": 3.0,
+      "game_clock": "04:41",
+      "offense": "HOU",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -4.83,
+      "description": "(4:41) (Shotgun) 4-D.Watson pass short left intended for 10-D.Hopkins INTERCEPTED by 35-P.Desir at\u2026"
+    },
+    {
+      "play_id": 3426,
+      "quarter": 3.0,
+      "game_clock": "01:06",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 15.0,
+      "epa": 1.2,
+      "description": "(1:06) 26-L.Miller right guard to HOU 41 for 15 yards (26-C.Geathers)."
+    },
+    {
+      "play_id": 3485,
+      "quarter": 4.0,
+      "game_clock": "15:00",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": 0.0,
+      "epa": -0.88,
+      "description": "(15:00) (Shotgun) 4-D.Watson sacked at HOU 41 for 0 yards (96-D.Autry)."
+    },
+    {
+      "play_id": 3961,
+      "quarter": 4.0,
+      "game_clock": "07:45",
+      "offense": "IND",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 5.0,
+      "epa": 1.3,
+      "description": "(7:45) (Shotgun) 12-A.Luck pass short left to 85-E.Ebron for 5 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 4065,
+      "quarter": 4.0,
+      "game_clock": "06:50",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 2.76,
+      "description": "(6:50) (Shotgun) 4-D.Watson pass deep middle to 10-D.Hopkins to IND 49 for 24 yards (41-M.Farley)."
+    },
+    {
+      "play_id": 4319,
+      "quarter": 4.0,
+      "game_clock": "02:06",
+      "offense": "IND",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 1.61,
+      "description": "(2:06) (No Huddle, Shotgun) 12-A.Luck pass deep middle to 80-C.Rogers to IND 44 for 22 yards\u2026"
+    },
+    {
+      "play_id": 4500,
+      "quarter": 4.0,
+      "game_clock": "00:51",
+      "offense": "IND",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 9.0,
+      "epa": 2.29,
+      "description": "(:51) (Shotgun) 12-A.Luck pass short middle to 21-N.Hines for 9 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 4612,
+      "quarter": 4.0,
+      "game_clock": "00:25",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 30.0,
+      "epa": 0.73,
+      "description": "(:25) (No Huddle, Shotgun) 4-D.Watson pass deep right to 10-D.Hopkins to IND 41 for 30 yards\u2026"
+    },
+    {
+      "play_id": 5305,
+      "quarter": 5.0,
+      "game_clock": "02:39",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -1.0,
+      "epa": -0.73,
+      "description": "(2:39) (Shotgun) 4-D.Watson sacked at IND 12 for -1 yards (92-M.Hunt)."
+    },
+    {
+      "play_id": 5525,
+      "quarter": 5.0,
+      "game_clock": "01:15",
+      "offense": "IND",
+      "events": [
+        "sack"
+      ],
+      "yards": -10.0,
+      "epa": -0.69,
+      "description": "(1:15) (Shotgun) 12-A.Luck sacked at IND 26 for -10 yards (90-J.Clowney)."
+    },
+    {
+      "play_id": 5637,
+      "quarter": 5.0,
+      "game_clock": "00:24",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 0.76,
+      "description": "(:24) (Shotgun) 4-D.Watson pass short middle to 10-D.Hopkins to IND 19 for 24 yards (26-C.Geathers)."
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2019_10_SEA_SF",
+  "final": "SEA 27, SF 24",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 5,
+    "interception": 2,
+    "sack": 10,
+    "fumble lost": 5,
+    "turnover": 7,
+    "big play": 5
+  },
+  "events": [
+    {
+      "play_id": 308,
+      "quarter": 1.0,
+      "game_clock": "11:13",
+      "offense": "SF",
+      "events": [
+        "sack"
+      ],
+      "yards": -2.0,
+      "epa": -1.09,
+      "description": "(11:13) (Shotgun) 10-J.Garoppolo sacked at SEA 42 for -2 yards (21-T.Flowers)."
+    },
+    {
+      "play_id": 509,
+      "quarter": 1.0,
+      "game_clock": "07:03",
+      "offense": "SEA",
+      "events": [
+        "sack"
+      ],
+      "yards": -7.0,
+      "epa": -2.46,
+      "description": "(7:03) (Shotgun) 3-R.Wilson sacked at SEA 26 for -7 yards (93-D.Jones)."
+    },
+    {
+      "play_id": 550,
+      "quarter": 1.0,
+      "game_clock": "06:17",
+      "offense": "SF",
+      "events": [
+        "big play"
+      ],
+      "yards": 30.0,
+      "epa": 2.06,
+      "description": "(6:17) (Shotgun) 10-J.Garoppolo pass short middle to 19-D.Samuel to SF 47 for 30 yards\u2026"
+    },
+    {
+      "play_id": 605,
+      "quarter": 1.0,
+      "game_clock": "05:38",
+      "offense": "SF",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 1.2,
+      "description": "(5:38) 26-T.Coleman left tackle to SEA 26 for 22 yards (23-N.Thorpe)."
+    },
+    {
+      "play_id": 773,
+      "quarter": 1.0,
+      "game_clock": "02:07",
+      "offense": "SF",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 10.0,
+      "epa": 3.06,
+      "description": "(2:07) (Shotgun) 10-J.Garoppolo pass short middle to 84-K.Bourne for 10 yards, TOUCHDOWN. Caught\u2026"
+    },
+    {
+      "play_id": 1188,
+      "quarter": 2.0,
+      "game_clock": "11:23",
+      "offense": "SEA",
+      "events": [
+        "sack"
+      ],
+      "yards": -9.0,
+      "epa": -3.1,
+      "description": "(11:23) (No Huddle, Shotgun) 3-R.Wilson sacked at SF 42 for -9 yards (54-F.Warner)."
+    },
+    {
+      "play_id": 1618,
+      "quarter": 2.0,
+      "game_clock": "02:57",
+      "offense": "SF",
+      "events": [
+        "touchdown",
+        "sack",
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": -13.0,
+      "epa": -7.44,
+      "description": "(2:57) (Shotgun) 10-J.Garoppolo sacked at SF 14 for -9 yards (91-J.Reed). FUMBLES (91-J.Reed)\u2026"
+    },
+    {
+      "play_id": 1887,
+      "quarter": 2.0,
+      "game_clock": "01:12",
+      "offense": "SEA",
+      "events": [
+        "fumble lost",
+        "big play",
+        "turnover"
+      ],
+      "yards": 25.0,
+      "epa": -3.2,
+      "description": "(1:12) 3-R.Wilson pass short left to 14-DK.Metcalf to SF 1 for 26 yards (29-J.Tartt;\u2026"
+    },
+    {
+      "play_id": 2244,
+      "quarter": 3.0,
+      "game_clock": "12:09",
+      "offense": "SEA",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -4.91,
+      "description": "(12:09) (Shotgun) 20-R.Penny left guard to SF 47 for no gain (24-K.Williams). FUMBLES\u2026"
+    },
+    {
+      "play_id": 2346,
+      "quarter": 3.0,
+      "game_clock": "10:56",
+      "offense": "SF",
+      "events": [
+        "sack"
+      ],
+      "yards": -5.0,
+      "epa": -1.77,
+      "description": "(10:56) (Shotgun) 10-J.Garoppolo sacked at SEA 42 for -5 yards (sack split by 97-P.Ford and\u2026"
+    },
+    {
+      "play_id": 2525,
+      "quarter": 3.0,
+      "game_clock": "08:02",
+      "offense": "SEA",
+      "events": [
+        "sack"
+      ],
+      "yards": -9.0,
+      "epa": -2.43,
+      "description": "(8:02) (Shotgun) 3-R.Wilson sacked at SEA 43 for -9 yards (54-F.Warner)."
+    },
+    {
+      "play_id": 2710,
+      "quarter": 3.0,
+      "game_clock": "06:19",
+      "offense": "SF",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -7.18,
+      "description": "(6:19) 10-J.Garoppolo pass deep right intended for 84-K.Bourne INTERCEPTED by 37-Q.Diggs at SEA\u2026"
+    },
+    {
+      "play_id": 2794,
+      "quarter": 3.0,
+      "game_clock": "04:44",
+      "offense": "SEA",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 0.92,
+      "description": "(4:44) 3-R.Wilson pass short middle to 48-J.Hollister for 3 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2937,
+      "quarter": 3.0,
+      "game_clock": "03:46",
+      "offense": "SF",
+      "events": [
+        "sack",
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": -8.0,
+      "epa": -5.37,
+      "description": "(3:46) (Shotgun) 10-J.Garoppolo sacked at SF 24 for -8 yards (90-J.Clowney). FUMBLES\u2026"
+    },
+    {
+      "play_id": 3057,
+      "quarter": 3.0,
+      "game_clock": "01:46",
+      "offense": "SEA",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 0.93,
+      "description": "(1:46) 32-C.Carson left guard for 1 yard, TOUCHDOWN."
+    },
+    {
+      "play_id": 3345,
+      "quarter": 4.0,
+      "game_clock": "12:12",
+      "offense": "SEA",
+      "events": [
+        "touchdown",
+        "sack",
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": -12.0,
+      "epa": -7.74,
+      "description": "(12:12) 3-R.Wilson sacked at SEA 25 for -10 yards (sack split by 91-A.Armstead and 24-K.Williams).\u2026"
+    },
+    {
+      "play_id": 3584,
+      "quarter": 4.0,
+      "game_clock": "09:42",
+      "offense": "SF",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 1.73,
+      "description": "(9:42) 10-J.Garoppolo pass short left to 19-D.Samuel to SEA 41 for 24 yards (21-T.Flowers;\u2026"
+    },
+    {
+      "play_id": 3682,
+      "quarter": 4.0,
+      "game_clock": "07:09",
+      "offense": "SF",
+      "events": [
+        "sack"
+      ],
+      "yards": -5.0,
+      "epa": -1.36,
+      "description": "(7:09) (Shotgun) 10-J.Garoppolo sacked at SEA 21 for -5 yards (72-A.Woods)."
+    },
+    {
+      "play_id": 4569,
+      "quarter": 5.0,
+      "game_clock": "09:00",
+      "offense": "SEA",
+      "events": [
+        "sack"
+      ],
+      "yards": -6.0,
+      "epa": -1.54,
+      "description": "(9:00) (Shotgun) 3-R.Wilson sacked at SEA 40 for -6 yards (91-A.Armstead)."
+    },
+    {
+      "play_id": 4597,
+      "quarter": 5.0,
+      "game_clock": "08:12",
+      "offense": "SEA",
+      "events": [
+        "big play"
+      ],
+      "yards": 28.0,
+      "epa": 3.29,
+      "description": "(8:12) (Shotgun) 3-R.Wilson pass deep right to 17-M.Turner to SF 32 for 28 yards (20-J.Ward).\u2026"
+    },
+    {
+      "play_id": 4738,
+      "quarter": 5.0,
+      "game_clock": "05:49",
+      "offense": "SEA",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -7.15,
+      "description": "(5:49) (Shotgun) 3-R.Wilson pass short right intended for 48-J.Hollister INTERCEPTED by\u2026"
+    }
+  ]
+}

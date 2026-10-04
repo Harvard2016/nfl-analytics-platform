@@ -1,0 +1,310 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2024_04_JAX_HOU",
+  "final": "JAX 20, HOU 24",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 5,
+    "interception": 0,
+    "sack": 3,
+    "fumble lost": 1,
+    "turnover": 1,
+    "big play": 15
+  },
+  "events": [
+    {
+      "play_id": 178,
+      "quarter": 1.0,
+      "game_clock": "12:56",
+      "offense": "JAX",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": 7.05,
+      "description": "(12:56) 9-L.Cooke punts 45 yards to HOU 10, Center-46-R.Matiscik. 82-S.Sims MUFFS catch, RECOVERED\u2026"
+    },
+    {
+      "play_id": 208,
+      "quarter": 1.0,
+      "game_clock": "12:48",
+      "offense": "JAX",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 2.0,
+      "epa": 0.66,
+      "description": "(12:48) (Shotgun) 16-T.Lawrence pass short right to 7-B.Thomas for 2 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 455,
+      "quarter": 1.0,
+      "game_clock": "07:29",
+      "offense": "HOU",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 6.0,
+      "epa": 1.85,
+      "description": "(7:29) (Shotgun) 1-S.Diggs scrambles left guard for 6 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 605,
+      "quarter": 1.0,
+      "game_clock": "05:17",
+      "offense": "JAX",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 1.49,
+      "description": "(5:17) (No Huddle, Shotgun) 4-T.Bigsby right end pushed ob at HOU 35 for 22 yards (21-C.Bullock)."
+    },
+    {
+      "play_id": 795,
+      "quarter": 1.0,
+      "game_clock": "02:41",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 28.0,
+      "epa": 1.65,
+      "description": "(2:41) (Shotgun) 7-C.Stroud pass deep left to 1-S.Diggs to JAX 42 for 28 yards (25-R.Darby)."
+    },
+    {
+      "play_id": 1030,
+      "quarter": 2.0,
+      "game_clock": "14:46",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -1.0,
+      "epa": -0.8,
+      "description": "(14:46) (Shotgun) 7-C.Stroud sacked at HOU 25 for -1 yards (99-J.Ledbetter)."
+    },
+    {
+      "play_id": 1088,
+      "quarter": 2.0,
+      "game_clock": "13:45",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 27.0,
+      "epa": 2.69,
+      "description": "(13:45) (Shotgun) 7-C.Stroud pass short middle to 87-C.Stover to HOU 47 for 27 yards (5-A.Cisco)."
+    },
+    {
+      "play_id": 1207,
+      "quarter": 2.0,
+      "game_clock": "10:16",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.16,
+      "description": "(10:16) (Shotgun) 7-C.Stroud pass short left to 1-S.Diggs to JAX 12 for 20 yards (26-A.Johnson,\u2026"
+    },
+    {
+      "play_id": 1389,
+      "quarter": 2.0,
+      "game_clock": "07:23",
+      "offense": "HOU",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 2.27,
+      "description": "(7:23) (Shotgun) 7-C.Stroud pass short middle to 12-N.Collins for 3 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1736,
+      "quarter": 2.0,
+      "game_clock": "02:00",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 2.01,
+      "description": "(2:00) (Shotgun) 7-C.Stroud pass short right to 12-N.Collins to JAX 44 for 23 yards (26-A.Johnson)."
+    },
+    {
+      "play_id": 1928,
+      "quarter": 2.0,
+      "game_clock": "00:19",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 0.74,
+      "description": "(:19) (Shotgun) 7-C.Stroud pass deep left to 86-D.Schultz to JAX 11 for 23 yards (30-M.Brown;\u2026"
+    },
+    {
+      "play_id": 2221,
+      "quarter": 3.0,
+      "game_clock": "14:01",
+      "offense": "JAX",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 0.98,
+      "description": "(14:01) 16-T.Lawrence pass deep right to 13-C.Kirk to JAX 41 for 20 yards (5-J.Pitre)."
+    },
+    {
+      "play_id": 2380,
+      "quarter": 3.0,
+      "game_clock": "12:03",
+      "offense": "JAX",
+      "events": [
+        "sack"
+      ],
+      "yards": -14.0,
+      "epa": -2.2,
+      "description": "(12:03) (Shotgun) 16-T.Lawrence sacked at JAX 32 for -14 yards (23-E.Murray)."
+    },
+    {
+      "play_id": 2526,
+      "quarter": 3.0,
+      "game_clock": "10:16",
+      "offense": "JAX",
+      "events": [
+        "big play"
+      ],
+      "yards": 12.0,
+      "epa": 0.73,
+      "description": "(10:16) 1-T.Etienne right tackle pushed ob at JAX 38 for 12 yards (24-D.Stingley)."
+    },
+    {
+      "play_id": 2582,
+      "quarter": 3.0,
+      "game_clock": "08:57",
+      "offense": "JAX",
+      "events": [
+        "big play"
+      ],
+      "yards": 32.0,
+      "epa": 2.59,
+      "description": "(8:57) (Shotgun) 16-T.Lawrence pass deep left to 7-B.Thomas to HOU 27 for 32 yards (4-K.Lassiter).\u2026"
+    },
+    {
+      "play_id": 2607,
+      "quarter": 3.0,
+      "game_clock": "08:27",
+      "offense": "JAX",
+      "events": [
+        "big play"
+      ],
+      "yards": 13.0,
+      "epa": 0.81,
+      "description": "(8:27) 7-B.Thomas right end to HOU 14 for 13 yards (95-D.Barnett)."
+    },
+    {
+      "play_id": 2720,
+      "quarter": 3.0,
+      "game_clock": "06:21",
+      "offense": "JAX",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 8.0,
+      "epa": 2.46,
+      "description": "(6:21) (Shotgun) 16-T.Lawrence pass short right to 13-C.Kirk for 8 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2931,
+      "quarter": 3.0,
+      "game_clock": "03:55",
+      "offense": "JAX",
+      "events": [
+        "big play"
+      ],
+      "yards": 13.0,
+      "epa": 0.96,
+      "description": "(3:55) (Shotgun) 1-T.Etienne up the middle to JAX 31 for 13 yards (51-W.Anderson)."
+    },
+    {
+      "play_id": 3003,
+      "quarter": 3.0,
+      "game_clock": "01:54",
+      "offense": "JAX",
+      "events": [
+        "big play"
+      ],
+      "yards": 58.0,
+      "epa": 4.95,
+      "description": "(1:54) (Shotgun) 4-T.Bigsby right guard pushed ob at HOU 4 for 58 yards (21-C.Bullock)."
+    },
+    {
+      "play_id": 3184,
+      "quarter": 4.0,
+      "game_clock": "13:42",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 15.0,
+      "epa": 0.89,
+      "description": "(13:42) 22-C.Akers right guard to HOU 41 for 15 yards (56-Y.Abdullah, 48-C.Muma)."
+    },
+    {
+      "play_id": 3333,
+      "quarter": 4.0,
+      "game_clock": "11:21",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 31.0,
+      "epa": 3.71,
+      "description": "(11:21) (Shotgun) 7-C.Stroud pass short right to 33-D.Ogunbowale to JAX 36 for 31 yards\u2026"
+    },
+    {
+      "play_id": 3436,
+      "quarter": 4.0,
+      "game_clock": "09:18",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -10.0,
+      "epa": -1.33,
+      "description": "(9:18) (Shotgun) 7-C.Stroud sacked at HOU 44 for -10 yards (95-R.Robertson-Harris)."
+    },
+    {
+      "play_id": 3992,
+      "quarter": 4.0,
+      "game_clock": "02:47",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 26.0,
+      "epa": 1.57,
+      "description": "(2:47) (Shotgun) 7-C.Stroud pass deep middle to 12-N.Collins to JAX 27 for 26 yards (51-V.Miller)."
+    },
+    {
+      "play_id": 4186,
+      "quarter": 4.0,
+      "game_clock": "00:22",
+      "offense": "HOU",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 2.0,
+      "description": "(:22) 7-C.Stroud pass short right to 33-D.Ogunbowale for 1 yard, TOUCHDOWN."
+    }
+  ]
+}

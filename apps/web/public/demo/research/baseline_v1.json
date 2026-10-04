@@ -1,0 +1,232 @@
+{
+  "frozen_at": "2026-10-04T06:53:56+00:00",
+  "git_commit": "4846cca9c711409b1a681b2e7b62826edd09c5b9+uncommitted",
+  "note": "Benchmark v1. The coverage test weeks 15-18 and the pregame 2023-2025 seasons have been examined; any later model compared on them is a comparison on a previously examined benchmark, not a fresh test.",
+  "coverage": {
+    "counts": {
+      "tracked_plays": 14108,
+      "season": [
+        2023
+      ],
+      "weeks": [
+        1,
+        18
+      ],
+      "labelled": 14105,
+      "man": 4013,
+      "zone": 10092,
+      "unlabelled": 3,
+      "roles_week1": {
+        "Defensive Coverage": 5475,
+        "Targeted Receiver": 819,
+        "Other Route Runner": 2977,
+        "Passer": 818
+      },
+      "has_ball_rows": false,
+      "has_pre_snap_frames": false,
+      "first_frame": 1
+    },
+    "split": {
+      "version": "weeks-1-12_13-14_15-18-v1",
+      "weeks": {
+        "train": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "dev": [
+          13,
+          14
+        ],
+        "test": [
+          15,
+          16,
+          17,
+          18
+        ]
+      },
+      "class_counts": {
+        "train": {
+          "Man": 2576,
+          "Zone": 6548
+        },
+        "dev": {
+          "Man": 404,
+          "Zone": 1016
+        },
+        "test": {
+          "Man": 873,
+          "Zone": 2305
+        }
+      }
+    },
+    "models": {
+      "at_snap__class_prior.joblib": "f542f1d004670da0180b5ad82d8c03726a887787bcbacbf4eb48e891689f1d1e",
+      "at_snap__context_logit.joblib": "a35615878fb95bc153184704b30c82b6b5bca2e726c7c33c2f72a30b32532470",
+      "at_snap__geometry_gbm.joblib": "419e2e539c7a8e0070c20818c8ad2e7e69bddc2df7a50f01ae7d0be210adedf3",
+      "at_snap__geometry_logit.joblib": "f1e46f563b381c6cb7a1424e9dd7659c5f49be37e58a0461bf7e620043afc259",
+      "post_1_5s__class_prior.joblib": "4a0992cc85655934192243c99d02ba2599153b844587eaf3d80313687a3d0b49",
+      "post_1_5s__context_logit.joblib": "58de39057beaa45b6f34d67eab038fdbdc4a36cc258479e10a21d83549fd21b3",
+      "post_1_5s__geometry_gbm.joblib": "e38a2acadb27bf8db68f11e43ee3b1865c4b409f016c634b4527cb1cc509e8dc",
+      "post_1_5s__geometry_logit.joblib": "cadd2cb4085064e9a7028c2445e6f54f43484bf4d98f3b1651eff3730552404f",
+      "post_1s__class_prior.joblib": "fb98b4d67f6767907b094319a9c1d3f1f3cf315019df2630c8fa52b61d89d22d",
+      "post_1s__context_logit.joblib": "d8de50fd06e9d6af661957b4e52a2fad8366fb1ec5cb47ad4c60d92dc27645cd",
+      "post_1s__geometry_gbm.joblib": "8c4eed0ce723f71f774cad2b26cd6183b2b9f78247f8c643fd8e79cf0bde94fd",
+      "post_1s__geometry_logit.joblib": "4cb73f8cd26d5805198220817984d64283e5964d7494aa5522b95fc57405c26a"
+    },
+    "metrics": {
+      "version": "cov-post_1_5s-geometry_gbm-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+      "test": {
+        "n": 3178,
+        "accuracy": 0.8882945248584015,
+        "balanced_accuracy": 0.8390204570471582,
+        "macro_f1": 0.8534872030027987,
+        "log_loss": 0.25692932308280586,
+        "brier": 0.07907200672524953,
+        "per_class": {
+          "Man": {
+            "precision": 0.8425925925925926,
+            "recall": 0.7296678121420389,
+            "support": 873
+          },
+          "Zone": {
+            "precision": 0.902559867877787,
+            "recall": 0.9483731019522776,
+            "support": 2305
+          }
+        },
+        "confusion": {
+          "labels": [
+            "Man",
+            "Zone"
+          ],
+          "rows_charted_cols_predicted": [
+            [
+              637,
+              236
+            ],
+            [
+              119,
+              2186
+            ]
+          ]
+        },
+        "game_bootstrap_95": {
+          "games": 64,
+          "resamples": 500,
+          "accuracy": [
+            0.87602204096105,
+            0.9006522530103869
+          ],
+          "macro_f1": [
+            0.8376923791103188,
+            0.8700372443862155
+          ]
+        }
+      },
+      "abstention": {
+        "threshold": 0.6,
+        "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+        "test_accepted_fraction": 0.9414726242920075,
+        "test_accepted_accuracy": 0.911096256684492
+      }
+    },
+    "ui_defaults": {
+      "model": "geometry_gbm",
+      "window": "post_1_5s",
+      "cutoffs": {
+        "geometry_gbm": {
+          "at_snap": 0.75,
+          "post_1s": 0.65,
+          "post_1_5s": 0.6
+        },
+        "geometry_logit": {
+          "at_snap": 0.75,
+          "post_1s": 0.65,
+          "post_1_5s": 0.6
+        }
+      },
+      "main_view": "seeded random sample of 120 eligible test plays",
+      "error_view": "/coverage/errors"
+    }
+  },
+  "pregame": {
+    "locked": {
+      "home_prior": {
+        "games": 854,
+        "log_loss": 0.6898243244957507,
+        "brier": 0.24833537109028567,
+        "accuracy": 0.5491803278688525,
+        "auc": 0.5070390164206795
+      },
+      "elo": {
+        "games": 854,
+        "log_loss": 0.63616244743442,
+        "brier": 0.22264943705322038,
+        "accuracy": 0.6405152224824356,
+        "auc": 0.6897793038517985
+      },
+      "logistic": {
+        "games": 854,
+        "log_loss": 0.6354365580664855,
+        "brier": 0.2226715750212947,
+        "accuracy": 0.6370023419203747,
+        "auc": 0.6876747985489988,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.0007258893679344469,
+          "interval_95": [
+            -0.0063781699889991425,
+            0.005173163532706012
+          ],
+          "blocks": 66,
+          "block": "season-week"
+        }
+      },
+      "boosted_trees": {
+        "games": 854,
+        "log_loss": 0.6359411540654537,
+        "brier": 0.22299527847128653,
+        "accuracy": 0.629976580796253,
+        "auc": 0.6846592639769612,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.00022129336896632013,
+          "interval_95": [
+            -0.006833991003107848,
+            0.006053851877541221
+          ],
+          "blocks": 66,
+          "block": "season-week"
+        }
+      }
+    },
+    "by_season": {
+      "2023": {
+        "home_prior": 0.6845172122886332,
+        "elo": 0.6591366497734185,
+        "logistic": 0.6503562352435904,
+        "boosted_trees": 0.6544864351102827
+      },
+      "2024": {
+        "home_prior": 0.6926031886723389,
+        "elo": 0.6112723865409411,
+        "logistic": 0.6227851991789294,
+        "boosted_trees": 0.6203548613719339
+      },
+      "2025": {
+        "home_prior": 0.6923614748080776,
+        "elo": 0.638085051969726,
+        "logistic": 0.633160252740706,
+        "boosted_trees": 0.6329717467410765
+      }
+    }
+  }
+}

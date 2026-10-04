@@ -1,0 +1,4062 @@
+{
+  "experiment": "A",
+  "question": "relational features and Man class weights, boosted trees",
+  "cohort": "v1 split manifest, weeks 1-12",
+  "results": [
+    {
+      "horizon": "at_snap",
+      "features": "geometry",
+      "n_features": 18,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8089734874235214,
+          "balanced_accuracy": 0.7300891686688231,
+          "macro_f1": 0.7474585539158034,
+          "man_precision": 0.7341772151898734,
+          "man_recall": 0.5407925407925408,
+          "zone_precision": 0.8294372294372294,
+          "zone_recall": 0.9193857965451055,
+          "log_loss": 0.407184786247515,
+          "brier": 0.1301675954771164,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              232,
+              197,
+              84,
+              958
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8366619115549215,
+          "balanced_accuracy": 0.7629913291930395,
+          "macro_f1": 0.7830388668700732,
+          "man_precision": 0.7906976744186046,
+          "man_recall": 0.5891089108910891,
+          "zone_precision": 0.849227974568574,
+          "zone_recall": 0.93687374749499,
+          "log_loss": 0.38753508250145724,
+          "brier": 0.12091138939211384,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              238,
+              166,
+              63,
+              935
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8511198945981555,
+          "balanced_accuracy": 0.7840996328437917,
+          "macro_f1": 0.8053656245106738,
+          "man_precision": 0.8323353293413174,
+          "man_recall": 0.6205357142857143,
+          "zone_precision": 0.856418918918919,
+          "zone_recall": 0.9476635514018692,
+          "log_loss": 0.37040018299101535,
+          "brier": 0.11536580578945607,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              278,
+              170,
+              56,
+              1014
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.38837335057999584,
+        "brier": 0.12214826355289543,
+        "accuracy": 0.8322517645255328,
+        "balanced_accuracy": 0.7590600435685514,
+        "macro_f1": 0.7786210150988501,
+        "man_recall": 0.5834790553231147,
+        "man_precision": 0.7857367396499318,
+        "zone_recall": 0.9346410318139883,
+        "zone_precision": 0.8450280409749075
+      },
+      "fold_sd": {
+        "log_loss": 0.018406623243092234,
+        "brier": 0.007478010280591943,
+        "accuracy": 0.02141651131832943,
+        "balanced_accuracy": 0.02721899731979249,
+        "macro_f1": 0.029205226705577906,
+        "man_recall": 0.040168580818567404,
+        "man_precision": 0.049266743334385764,
+        "zone_recall": 0.014270480700346023,
+        "zone_precision": 0.013972561449676497
+      }
+    },
+    {
+      "horizon": "at_snap",
+      "features": "geometry",
+      "n_features": 18,
+      "man_weight": 1.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8076138681169273,
+          "balanced_accuracy": 0.7332434040687399,
+          "macro_f1": 0.7487514311390508,
+          "man_precision": 0.7212121212121212,
+          "man_recall": 0.5547785547785548,
+          "zone_precision": 0.8326029798422436,
+          "zone_recall": 0.9117082533589251,
+          "log_loss": 0.40822705639806234,
+          "brier": 0.1312001433043527,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              238,
+              191,
+              92,
+              950
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8388017118402282,
+          "balanced_accuracy": 0.7674408222385365,
+          "macro_f1": 0.7868813645963653,
+          "man_precision": 0.7908496732026143,
+          "man_recall": 0.599009900990099,
+          "zone_precision": 0.8521897810218978,
+          "zone_recall": 0.935871743486974,
+          "log_loss": 0.38738876808465045,
+          "brier": 0.12086593330733289,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              242,
+              162,
+              64,
+              934
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8458498023715415,
+          "balanced_accuracy": 0.7790637516688919,
+          "macro_f1": 0.7991450381679389,
+          "man_precision": 0.8165680473372781,
+          "man_recall": 0.6160714285714286,
+          "zone_precision": 0.8542372881355932,
+          "zone_recall": 0.9420560747663551,
+          "log_loss": 0.36994871613966757,
+          "brier": 0.11535171694441348,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              276,
+              172,
+              62,
+              1008
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.3885215135407934,
+        "brier": 0.12247259785203302,
+        "accuracy": 0.8307551274428989,
+        "balanced_accuracy": 0.7599159926587227,
+        "macro_f1": 0.778259277967785,
+        "man_recall": 0.5899532947800274,
+        "man_precision": 0.776209947250671,
+        "zone_recall": 0.9298786905374182,
+        "zone_precision": 0.8463433496665781
+      },
+      "fold_sd": {
+        "log_loss": 0.019164294076111203,
+        "brier": 0.008045444844196089,
+        "accuracy": 0.02034839815386711,
+        "balanced_accuracy": 0.023818970563473516,
+        "macro_f1": 0.026279919914614577,
+        "man_recall": 0.03163416952411617,
+        "man_precision": 0.049334869451105184,
+        "zone_recall": 0.016036990951748147,
+        "zone_precision": 0.011943466562404376
+      }
+    },
+    {
+      "horizon": "at_snap",
+      "features": "geometry",
+      "n_features": 18,
+      "man_weight": 2.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8110129163834127,
+          "balanced_accuracy": 0.7342713268816916,
+          "macro_f1": 0.7512542579075425,
+          "man_precision": 0.735202492211838,
+          "man_recall": 0.5501165501165501,
+          "zone_precision": 0.8321739130434782,
+          "zone_recall": 0.918426103646833,
+          "log_loss": 0.40919289791435004,
+          "brier": 0.1311206777161251,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              236,
+              193,
+              85,
+              957
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8388017118402282,
+          "balanced_accuracy": 0.7696506875136411,
+          "macro_f1": 0.7880599970033605,
+          "man_precision": 0.7852564102564102,
+          "man_recall": 0.6064356435643564,
+          "zone_precision": 0.8541284403669724,
+          "zone_recall": 0.9328657314629258,
+          "log_loss": 0.3863784789297573,
+          "brier": 0.12042589488385258,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              245,
+              159,
+              67,
+              931
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8451910408432147,
+          "balanced_accuracy": 0.7792452436582109,
+          "macro_f1": 0.7987853682391901,
+          "man_precision": 0.8123167155425219,
+          "man_recall": 0.6183035714285714,
+          "zone_precision": 0.8547153780798641,
+          "zone_recall": 0.9401869158878504,
+          "log_loss": 0.367672097436438,
+          "brier": 0.11485024718268406,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              277,
+              171,
+              64,
+              1006
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.38774782476018177,
+        "brier": 0.12213227326088726,
+        "accuracy": 0.8316685563556185,
+        "balanced_accuracy": 0.7610557526845145,
+        "macro_f1": 0.779366541050031,
+        "man_recall": 0.591618588369826,
+        "man_precision": 0.7775918726702568,
+        "zone_recall": 0.9304929169992032,
+        "zone_precision": 0.8470059104967715
+      },
+      "fold_sd": {
+        "log_loss": 0.02079424317170792,
+        "brier": 0.008268344623326434,
+        "accuracy": 0.018171336722243164,
+        "balanced_accuracy": 0.023686873497636204,
+        "macro_f1": 0.024929575701346653,
+        "man_recall": 0.03642837235356297,
+        "man_precision": 0.03912428545393284,
+        "zone_recall": 0.011072755921930305,
+        "zone_precision": 0.0128482386073181
+      }
+    },
+    {
+      "horizon": "at_snap",
+      "features": "geometry",
+      "n_features": 18,
+      "man_weight": 2.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8089734874235214,
+          "balanced_accuracy": 0.7321461328179178,
+          "macro_f1": 0.7487901419740969,
+          "man_precision": 0.7298136645962733,
+          "man_recall": 0.5477855477855478,
+          "zone_precision": 0.8311575282854656,
+          "zone_recall": 0.9165067178502879,
+          "log_loss": 0.4084012487654888,
+          "brier": 0.13115862943831796,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              235,
+              194,
+              87,
+              955
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8366619115549215,
+          "balanced_accuracy": 0.7652011944681443,
+          "macro_f1": 0.7842530489751183,
+          "man_precision": 0.7850162866449512,
+          "man_recall": 0.5965346534653465,
+          "zone_precision": 0.8511415525114155,
+          "zone_recall": 0.9338677354709419,
+          "log_loss": 0.3864735413989728,
+          "brier": 0.12065378237467182,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              241,
+              163,
+              66,
+              932
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8432147562582345,
+          "balanced_accuracy": 0.7758970293724967,
+          "macro_f1": 0.7957116200169636,
+          "man_precision": 0.8106508875739645,
+          "man_recall": 0.6116071428571429,
+          "zone_precision": 0.8525423728813559,
+          "zone_recall": 0.9401869158878504,
+          "log_loss": 0.3698861897695535,
+          "brier": 0.11530473301560894,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              274,
+              174,
+              64,
+              1006
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.38825365997800504,
+        "brier": 0.12237238160953291,
+        "accuracy": 0.8296167184122258,
+        "balanced_accuracy": 0.7577481188861862,
+        "macro_f1": 0.7762516036553929,
+        "man_recall": 0.585309114702679,
+        "man_precision": 0.7751602796050631,
+        "zone_recall": 0.9301871230696935,
+        "zone_precision": 0.8449471512260791
+      },
+      "fold_sd": {
+        "log_loss": 0.019319137117937108,
+        "brier": 0.008065463126383093,
+        "accuracy": 0.018175317952272233,
+        "balanced_accuracy": 0.022807816402609635,
+        "macro_f1": 0.024462698559954952,
+        "man_recall": 0.03335878504614303,
+        "man_precision": 0.04131004491360409,
+        "zone_recall": 0.012261652641904063,
+        "zone_precision": 0.011962685737760922
+      }
+    },
+    {
+      "horizon": "at_snap",
+      "features": "geometry+relational",
+      "n_features": 61,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8266485384092455,
+          "balanced_accuracy": 0.763134817837313,
+          "macro_f1": 0.7773827179836876,
+          "man_precision": 0.7485714285714286,
+          "man_recall": 0.6107226107226107,
+          "zone_precision": 0.8510258697591436,
+          "zone_recall": 0.9155470249520153,
+          "log_loss": 0.37157131627642376,
+          "brier": 0.11826329229426842,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              262,
+              167,
+              88,
+              954
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8516405135520685,
+          "balanced_accuracy": 0.7875081846862041,
+          "macro_f1": 0.8060037094100334,
+          "man_precision": 0.8081761006289309,
+          "man_recall": 0.6361386138613861,
+          "zone_precision": 0.8643911439114391,
+          "zone_recall": 0.938877755511022,
+          "log_loss": 0.34218616631759213,
+          "brier": 0.10503210248360015,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              257,
+              147,
+              61,
+              937
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.857707509881423,
+          "balanced_accuracy": 0.7985042556742323,
+          "macro_f1": 0.8169928803773914,
+          "man_precision": 0.827683615819209,
+          "man_recall": 0.6540178571428571,
+          "zone_precision": 0.8668384879725086,
+          "zone_recall": 0.9429906542056075,
+          "log_loss": 0.31911776137591996,
+          "brier": 0.09877992732637204,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              293,
+              155,
+              61,
+              1009
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.3442917479899786,
+        "brier": 0.10735844070141354,
+        "accuracy": 0.8453321872809122,
+        "balanced_accuracy": 0.7830490860659164,
+        "macro_f1": 0.8001264359237042,
+        "man_recall": 0.6336263605756179,
+        "man_precision": 0.7948103816731895,
+        "zone_recall": 0.9324718115562151,
+        "zone_precision": 0.8607518338810305
+      },
+      "fold_sd": {
+        "log_loss": 0.02629009245056698,
+        "brier": 0.009947827136908206,
+        "accuracy": 0.016462416665997237,
+        "balanced_accuracy": 0.01810143512553671,
+        "macro_f1": 0.020448667412296753,
+        "man_recall": 0.021756680653913053,
+        "man_precision": 0.04121488050674013,
+        "zone_recall": 0.01480085420224966,
+        "zone_precision": 0.008511354581586025
+      }
+    },
+    {
+      "horizon": "at_snap",
+      "features": "geometry+relational",
+      "n_features": 61,
+      "man_weight": 1.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8286879673691366,
+          "balanced_accuracy": 0.7693739401992761,
+          "macro_f1": 0.7819561432403181,
+          "man_precision": 0.7451523545706371,
+          "man_recall": 0.627039627039627,
+          "zone_precision": 0.8558558558558559,
+          "zone_recall": 0.9117082533589251,
+          "log_loss": 0.3721184713001015,
+          "brier": 0.11806054237671401,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              269,
+              160,
+              92,
+              950
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8502139800285307,
+          "balanced_accuracy": 0.7872428024365563,
+          "macro_f1": 0.8048425456772643,
+          "man_precision": 0.8012422360248447,
+          "man_recall": 0.6386138613861386,
+          "zone_precision": 0.8648148148148148,
+          "zone_recall": 0.935871743486974,
+          "log_loss": 0.3427911003208828,
+          "brier": 0.105311075355012,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              258,
+              146,
+              64,
+              934
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8610013175230566,
+          "balanced_accuracy": 0.8034358311081442,
+          "macro_f1": 0.821655887814561,
+          "man_precision": 0.8319327731092437,
+          "man_recall": 0.6629464285714286,
+          "zone_precision": 0.8699397071490095,
+          "zone_recall": 0.9439252336448598,
+          "log_loss": 0.32038791224346413,
+          "brier": 0.09885024149665769,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              297,
+              151,
+              60,
+              1010
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.3450991612881495,
+        "brier": 0.10740728640946123,
+        "accuracy": 0.8466344216402413,
+        "balanced_accuracy": 0.7866841912479922,
+        "macro_f1": 0.8028181922440479,
+        "man_recall": 0.6428666389990647,
+        "man_precision": 0.7927757879015752,
+        "zone_recall": 0.9305017434969196,
+        "zone_precision": 0.8635367926065601
+      },
+      "fold_sd": {
+        "log_loss": 0.02594239858127091,
+        "brier": 0.00977519772506774,
+        "accuracy": 0.016451385298321842,
+        "balanced_accuracy": 0.017037814939624744,
+        "macro_f1": 0.01992714066121788,
+        "man_recall": 0.018327279861719836,
+        "man_precision": 0.04400534988273523,
+        "zone_recall": 0.016766369004825213,
+        "zone_precision": 0.00712837445603907
+      }
+    },
+    {
+      "horizon": "at_snap",
+      "features": "geometry+relational",
+      "n_features": 61,
+      "man_weight": 2.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8293677770224337,
+          "balanced_accuracy": 0.7698537866484123,
+          "macro_f1": 0.7826471389878361,
+          "man_precision": 0.7472222222222222,
+          "man_recall": 0.627039627039627,
+          "zone_precision": 0.855985598559856,
+          "zone_recall": 0.9126679462571977,
+          "log_loss": 0.37545239121325,
+          "brier": 0.11965585159071192,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              269,
+              160,
+              91,
+              951
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8495007132667618,
+          "balanced_accuracy": 0.7896882874660212,
+          "macro_f1": 0.805471768214294,
+          "man_precision": 0.7915407854984894,
+          "man_recall": 0.6485148514851485,
+          "zone_precision": 0.8674136321195145,
+          "zone_recall": 0.9308617234468938,
+          "log_loss": 0.3430442328548289,
+          "brier": 0.10512196556231686,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              262,
+              142,
+              69,
+              929
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8596837944664032,
+          "balanced_accuracy": 0.8005549065420561,
+          "macro_f1": 0.8193901917904634,
+          "man_precision": 0.8328611898016998,
+          "man_recall": 0.65625,
+          "zone_precision": 0.8678111587982833,
+          "zone_recall": 0.9448598130841122,
+          "log_loss": 0.32217644328296813,
+          "brier": 0.09987962804774385,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              294,
+              154,
+              59,
+              1011
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.346891022450349,
+        "brier": 0.10821914840025754,
+        "accuracy": 0.846184094918533,
+        "balanced_accuracy": 0.7866989935521632,
+        "macro_f1": 0.8025030329975311,
+        "man_recall": 0.6439348261749251,
+        "man_precision": 0.7905413991741371,
+        "zone_recall": 0.9294631609294012,
+        "zone_precision": 0.8637367964925513
+      },
+      "fold_sd": {
+        "log_loss": 0.026845483784273257,
+        "brier": 0.010245445844573426,
+        "accuracy": 0.015427741129751375,
+        "balanced_accuracy": 0.015567324730297866,
+        "macro_f1": 0.018550553196727028,
+        "man_recall": 0.015134197897567522,
+        "man_precision": 0.04282822984654722,
+        "zone_recall": 0.016141439071128385,
+        "zone_precision": 0.006715676355286018
+      }
+    },
+    {
+      "horizon": "at_snap",
+      "features": "geometry+relational",
+      "n_features": 61,
+      "man_weight": 2.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8307273963290279,
+          "balanced_accuracy": 0.7694421701139551,
+          "macro_f1": 0.7833305826629684,
+          "man_precision": 0.7542372881355932,
+          "man_recall": 0.6223776223776224,
+          "zone_precision": 0.8549686660698299,
+          "zone_recall": 0.9165067178502879,
+          "log_loss": 0.3742649101723423,
+          "brier": 0.11862335532597917,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              267,
+              162,
+              87,
+              955
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8523537803138374,
+          "balanced_accuracy": 0.7939021607571579,
+          "macro_f1": 0.8094932383865079,
+          "man_precision": 0.7957957957957958,
+          "man_recall": 0.655940594059406,
+          "zone_precision": 0.8699719363891487,
+          "zone_recall": 0.9318637274549099,
+          "log_loss": 0.34015782817201246,
+          "brier": 0.10412454464527329,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              265,
+              139,
+              68,
+              930
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8583662714097496,
+          "balanced_accuracy": 0.8009178905206942,
+          "macro_f1": 0.8185626775138801,
+          "man_precision": 0.8245125348189415,
+          "man_recall": 0.6607142857142857,
+          "zone_precision": 0.8688524590163934,
+          "zone_recall": 0.9411214953271028,
+          "log_loss": 0.32677164918983226,
+          "brier": 0.10151689656823935,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              296,
+              152,
+              63,
+              1007
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.347064795844729,
+        "brier": 0.10808826551316393,
+        "accuracy": 0.8471491493508716,
+        "balanced_accuracy": 0.7880874071306024,
+        "macro_f1": 0.8037954995211187,
+        "man_recall": 0.6463441673837713,
+        "man_precision": 0.7915152062501102,
+        "zone_recall": 0.9298306468774334,
+        "zone_precision": 0.8645976871584574
+      },
+      "fold_sd": {
+        "log_loss": 0.02448840769654423,
+        "brier": 0.00921634662686236,
+        "accuracy": 0.014535920732015258,
+        "balanced_accuracy": 0.016523884639634775,
+        "macro_f1": 0.01829407822300796,
+        "man_recall": 0.020892426681761736,
+        "man_precision": 0.0353326358943872,
+        "zone_recall": 0.012432693997447274,
+        "zone_precision": 0.008357741485649798
+      }
+    },
+    {
+      "horizon": "at_snap",
+      "features": "relational",
+      "n_features": 43,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8082936777702243,
+          "balanced_accuracy": 0.7309806316524167,
+          "macro_f1": 0.7476751824817518,
+          "man_precision": 0.7289719626168224,
+          "man_recall": 0.5454545454545454,
+          "zone_precision": 0.8304347826086956,
+          "zone_recall": 0.9165067178502879,
+          "log_loss": 0.4183038771558533,
+          "brier": 0.1329858310732264,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              234,
+              195,
+              87,
+              955
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8416547788873039,
+          "balanced_accuracy": 0.7709180737713051,
+          "macro_f1": 0.7906533758424472,
+          "man_precision": 0.7973856209150327,
+          "man_recall": 0.6039603960396039,
+          "zone_precision": 0.8540145985401459,
+          "zone_recall": 0.9378757515030061,
+          "log_loss": 0.3656340652299329,
+          "brier": 0.1132372185928496,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              244,
+              160,
+              62,
+              936
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8511198945981555,
+          "balanced_accuracy": 0.7834508511348465,
+          "macro_f1": 0.8050395526459356,
+          "man_precision": 0.8343373493975904,
+          "man_recall": 0.6183035714285714,
+          "zone_precision": 0.8558178752107926,
+          "zone_recall": 0.9485981308411215,
+          "log_loss": 0.3547160493776464,
+          "brier": 0.10968353111764739,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              277,
+              171,
+              55,
+              1015
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.3795513305878109,
+        "brier": 0.1186355269279078,
+        "accuracy": 0.8336894504185612,
+        "balanced_accuracy": 0.7617831855195227,
+        "macro_f1": 0.7811227036567115,
+        "man_recall": 0.5892395043075737,
+        "man_precision": 0.7868983109764819,
+        "zone_recall": 0.9343268667314719,
+        "zone_precision": 0.846755752119878
+      },
+      "fold_sd": {
+        "log_loss": 0.03400177446353232,
+        "brier": 0.01255410671713497,
+        "accuracy": 0.02249680099835232,
+        "balanced_accuracy": 0.027401927316577607,
+        "macro_f1": 0.029846155955455013,
+        "man_recall": 0.03859110825540901,
+        "man_precision": 0.053459834784402686,
+        "zone_recall": 0.016337399862838695,
+        "zone_precision": 0.014163102980153535
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "geometry",
+      "n_features": 42,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8456832087015635,
+          "balanced_accuracy": 0.7916549221731564,
+          "macro_f1": 0.8043682423624599,
+          "man_precision": 0.7759562841530054,
+          "man_recall": 0.662004662004662,
+          "zone_precision": 0.8687782805429864,
+          "zone_recall": 0.9213051823416507,
+          "log_loss": 0.3425421616909109,
+          "brier": 0.10814596697712318,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              284,
+              145,
+              82,
+              960
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8651925820256776,
+          "balanced_accuracy": 0.8139695232048254,
+          "macro_f1": 0.8278463742410805,
+          "man_precision": 0.8115942028985508,
+          "man_recall": 0.693069306930693,
+          "zone_precision": 0.8826868495742668,
+          "zone_recall": 0.9348697394789579,
+          "log_loss": 0.3048959670131341,
+          "brier": 0.09305581561816888,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              280,
+              124,
+              65,
+              933
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8702239789196311,
+          "balanced_accuracy": 0.815816922563418,
+          "macro_f1": 0.8340148408980026,
+          "man_precision": 0.8476454293628809,
+          "man_recall": 0.6830357142857143,
+          "zone_precision": 0.8772687986171133,
+          "zone_recall": 0.9485981308411215,
+          "log_loss": 0.3063590785278371,
+          "brier": 0.09489157231485322,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              306,
+              142,
+              55,
+              1015
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.31793240241062737,
+        "brier": 0.09869778497004843,
+        "accuracy": 0.8603665898822909,
+        "balanced_accuracy": 0.8071471226471333,
+        "macro_f1": 0.8220764858338477,
+        "man_recall": 0.6793698944070231,
+        "man_precision": 0.8117319721381456,
+        "zone_recall": 0.9349243508872433,
+        "zone_precision": 0.8762446429114554
+      },
+      "fold_sd": {
+        "log_loss": 0.021325228315336744,
+        "brier": 0.00823368739335322,
+        "accuracy": 0.012962638653068348,
+        "balanced_accuracy": 0.01344839870549462,
+        "macro_f1": 0.01564285492983463,
+        "man_recall": 0.01585344497679768,
+        "man_precision": 0.03584477117381538,
+        "zone_recall": 0.013646556204886567,
+        "zone_precision": 0.007010616542540764
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "geometry",
+      "n_features": 42,
+      "man_weight": 1.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8504418762746431,
+          "balanced_accuracy": 0.7956995020334752,
+          "macro_f1": 0.8096442520351983,
+          "man_precision": 0.7894736842105263,
+          "man_recall": 0.6643356643356644,
+          "zone_precision": 0.8702702702702703,
+          "zone_recall": 0.927063339731286,
+          "log_loss": 0.3399069555203469,
+          "brier": 0.10784283170220828,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              285,
+              144,
+              76,
+              966
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.869472182596291,
+          "balanced_accuracy": 0.8199220222623465,
+          "macro_f1": 0.8335935265400314,
+          "man_precision": 0.8184438040345822,
+          "man_recall": 0.7029702970297029,
+          "zone_precision": 0.8862559241706162,
+          "zone_recall": 0.93687374749499,
+          "log_loss": 0.30274465950841106,
+          "brier": 0.09178163072819892,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              284,
+              120,
+              63,
+              935
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8616600790513834,
+          "balanced_accuracy": 0.8052006842456609,
+          "macro_f1": 0.8229220363688075,
+          "man_precision": 0.8305555555555556,
+          "man_recall": 0.6674107142857143,
+          "zone_precision": 0.8713298791018999,
+          "zone_recall": 0.9429906542056075,
+          "log_loss": 0.30780787343691335,
+          "brier": 0.09586892024235022,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              299,
+              149,
+              61,
+              1009
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.31681982948855714,
+        "brier": 0.09849779422425248,
+        "accuracy": 0.8605247126407725,
+        "balanced_accuracy": 0.8069407361804942,
+        "macro_f1": 0.8220532716480123,
+        "man_recall": 0.6782388918836939,
+        "man_precision": 0.8128243479335547,
+        "zone_recall": 0.9356425804772944,
+        "zone_precision": 0.8759520245142621
+      },
+      "fold_sd": {
+        "log_loss": 0.020153673985833308,
+        "brier": 0.008347082004594285,
+        "accuracy": 0.009565821048853878,
+        "balanced_accuracy": 0.012204648995831765,
+        "macro_f1": 0.011998249932054075,
+        "man_recall": 0.021473140977063838,
+        "man_precision": 0.021109565449243986,
+        "zone_recall": 0.008034716283732656,
+        "zone_precision": 0.008939152857803528
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "geometry",
+      "n_features": 42,
+      "man_weight": 2.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8463630183548606,
+          "balanced_accuracy": 0.7914491139059276,
+          "macro_f1": 0.8047650927883486,
+          "man_precision": 0.7796143250688705,
+          "man_recall": 0.6596736596736597,
+          "zone_precision": 0.868231046931408,
+          "zone_recall": 0.9232245681381958,
+          "log_loss": 0.34691203320958824,
+          "brier": 0.1103213634830821,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              283,
+              146,
+              80,
+              962
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8723252496433667,
+          "balanced_accuracy": 0.8256091390702196,
+          "macro_f1": 0.838047624548345,
+          "man_precision": 0.8186968838526912,
+          "man_recall": 0.7153465346534653,
+          "zone_precision": 0.8903717826501429,
+          "zone_recall": 0.935871743486974,
+          "log_loss": 0.30284234617444244,
+          "brier": 0.09156622794392184,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              289,
+              115,
+              64,
+              934
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8682476943346509,
+          "balanced_accuracy": 0.8150638351134847,
+          "macro_f1": 0.8321453766998321,
+          "man_precision": 0.8387978142076503,
+          "man_recall": 0.6852678571428571,
+          "zone_precision": 0.8776041666666666,
+          "zone_recall": 0.9448598130841122,
+          "log_loss": 0.3066464195940619,
+          "brier": 0.09506914485381492,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              307,
+              141,
+              59,
+              1011
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.31880026632603087,
+        "brier": 0.09898557876027296,
+        "accuracy": 0.8623119874442927,
+        "balanced_accuracy": 0.8107073626965441,
+        "macro_f1": 0.8249860313455087,
+        "man_recall": 0.6867626838233273,
+        "man_precision": 0.812369674376404,
+        "zone_recall": 0.9346520415697607,
+        "zone_precision": 0.8787356654160724
+      },
+      "fold_sd": {
+        "log_loss": 0.024419691268156296,
+        "brier": 0.009972091966122684,
+        "accuracy": 0.013961870418595593,
+        "balanced_accuracy": 0.01749174001481667,
+        "macro_f1": 0.017758769650954083,
+        "man_recall": 0.027866523504605882,
+        "man_precision": 0.030094792431210264,
+        "zone_recall": 0.010869071282432126,
+        "zone_precision": 0.011113652037320903
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "geometry",
+      "n_features": 42,
+      "man_weight": 2.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8436437797416724,
+          "balanced_accuracy": 0.7915866922584773,
+          "macro_f1": 0.8028701610459832,
+          "man_precision": 0.7667560321715817,
+          "man_recall": 0.6666666666666666,
+          "zone_precision": 0.8697632058287796,
+          "zone_recall": 0.9165067178502879,
+          "log_loss": 0.34395556624755624,
+          "brier": 0.10953839666577737,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              286,
+              143,
+              87,
+              955
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8708987161198288,
+          "balanced_accuracy": 0.8209240262703625,
+          "macro_f1": 0.8351333001991301,
+          "man_precision": 0.8231884057971014,
+          "man_recall": 0.7029702970297029,
+          "zone_precision": 0.8864711447492905,
+          "zone_recall": 0.938877755511022,
+          "log_loss": 0.30290416216105825,
+          "brier": 0.09183424462068643,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              284,
+              120,
+              61,
+              937
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8669301712779973,
+          "balanced_accuracy": 0.8160756008010681,
+          "macro_f1": 0.831510164250061,
+          "man_precision": 0.8288770053475936,
+          "man_recall": 0.6919642857142857,
+          "zone_precision": 0.8793706293706294,
+          "zone_recall": 0.9401869158878504,
+          "log_loss": 0.3080678278392982,
+          "brier": 0.09599782772936954,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              310,
+              138,
+              64,
+              1006
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.3183091854159709,
+        "brier": 0.09912348967194445,
+        "accuracy": 0.8604908890464995,
+        "balanced_accuracy": 0.8095287731099693,
+        "macro_f1": 0.8231712084983914,
+        "man_recall": 0.6872004164702185,
+        "man_precision": 0.8062738144387588,
+        "zone_recall": 0.9318571297497202,
+        "zone_precision": 0.8785349933162333
+      },
+      "fold_sd": {
+        "log_loss": 0.02235997536063467,
+        "brier": 0.009256704156629957,
+        "accuracy": 0.014724338898130592,
+        "balanced_accuracy": 0.015726268036121364,
+        "macro_f1": 0.01767430831107847,
+        "man_recall": 0.018614758446322113,
+        "man_precision": 0.03434139452175001,
+        "zone_recall": 0.013309952454262815,
+        "zone_precision": 0.008385256194919458
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "geometry+relational",
+      "n_features": 131,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8830727396329028,
+          "balanced_accuracy": 0.8351878447847738,
+          "macro_f1": 0.8511764152275187,
+          "man_precision": 0.8559556786703602,
+          "man_recall": 0.7202797202797203,
+          "zone_precision": 0.8918918918918919,
+          "zone_recall": 0.9500959692898272,
+          "log_loss": 0.2824555014880177,
+          "brier": 0.08718623345855857,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              309,
+              120,
+              52,
+              990
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.9001426533523538,
+          "balanced_accuracy": 0.8598806523938967,
+          "macro_f1": 0.87343861631035,
+          "man_precision": 0.8728813559322034,
+          "man_recall": 0.7648514851485149,
+          "zone_precision": 0.9093511450381679,
+          "zone_recall": 0.9549098196392786,
+          "log_loss": 0.23843276169274566,
+          "brier": 0.07155451978892415,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              309,
+              95,
+              45,
+              953
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8965744400527009,
+          "balanced_accuracy": 0.8565670894526034,
+          "macro_f1": 0.8705146197114687,
+          "man_precision": 0.8740359897172236,
+          "man_recall": 0.7589285714285714,
+          "zone_precision": 0.9043401240035429,
+          "zone_recall": 0.9542056074766355,
+          "log_loss": 0.24174206091742637,
+          "brier": 0.07381192292749311,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              340,
+              108,
+              49,
+              1021
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.25421010803272986,
+        "brier": 0.07751755872499194,
+        "accuracy": 0.8932632776793191,
+        "balanced_accuracy": 0.850545195543758,
+        "macro_f1": 0.8650432170831125,
+        "man_recall": 0.7480199256189355,
+        "man_precision": 0.867624341439929,
+        "zone_recall": 0.9530704654685804,
+        "zone_precision": 0.9018610536445343
+      },
+      "fold_sd": {
+        "log_loss": 0.024517127766576333,
+        "brier": 0.008449048500283184,
+        "accuracy": 0.009003795632651248,
+        "balanced_accuracy": 0.013402652408845467,
+        "macro_f1": 0.012097668548290245,
+        "man_recall": 0.024205566940888653,
+        "man_precision": 0.010121835945954673,
+        "zone_recall": 0.0025999421783121954,
+        "zone_precision": 0.008989756531192827
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "geometry+relational",
+      "n_features": 131,
+      "man_weight": 1.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8817131203263087,
+          "balanced_accuracy": 0.8335424971701364,
+          "macro_f1": 0.8494459084278387,
+          "man_precision": 0.853185595567867,
+          "man_recall": 0.717948717948718,
+          "zone_precision": 0.890990990990991,
+          "zone_recall": 0.9491362763915547,
+          "log_loss": 0.2829215556233124,
+          "brier": 0.08761667290402075,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              308,
+              121,
+              53,
+              989
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8972895863052782,
+          "balanced_accuracy": 0.8586132661362329,
+          "macro_f1": 0.8704650446566061,
+          "man_precision": 0.8611111111111112,
+          "man_recall": 0.7673267326732673,
+          "zone_precision": 0.9097888675623801,
+          "zone_recall": 0.9498997995991983,
+          "log_loss": 0.237339230843623,
+          "brier": 0.0713638763264363,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              310,
+              94,
+              50,
+              948
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8998682476943346,
+          "balanced_accuracy": 0.8614986648865154,
+          "macro_f1": 0.8749154306531355,
+          "man_precision": 0.8775510204081632,
+          "man_recall": 0.7678571428571429,
+          "zone_precision": 0.9076376554174067,
+          "zone_recall": 0.9551401869158879,
+          "log_loss": 0.24271255195594085,
+          "brier": 0.07411215912248455,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              344,
+              104,
+              48,
+              1022
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.2543244461409588,
+        "brier": 0.07769756945098054,
+        "accuracy": 0.892956984775307,
+        "balanced_accuracy": 0.8512181427309615,
+        "macro_f1": 0.8649421279125268,
+        "man_recall": 0.751044197826376,
+        "man_precision": 0.8639492423623804,
+        "zone_recall": 0.951392087635547,
+        "zone_precision": 0.9028058379902593
+      },
+      "fold_sd": {
+        "log_loss": 0.024911124984699325,
+        "brier": 0.00869940943776355,
+        "accuracy": 0.00982246096711215,
+        "balanced_accuracy": 0.01537539319760544,
+        "macro_f1": 0.01360334876483527,
+        "man_recall": 0.02866275326953335,
+        "man_precision": 0.012428182637119756,
+        "zone_recall": 0.00326832190636441,
+        "zone_precision": 0.01028833736010144
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "geometry+relational",
+      "n_features": 131,
+      "man_weight": 2.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8830727396329028,
+          "balanced_accuracy": 0.8379304636502334,
+          "macro_f1": 0.8521186361425953,
+          "man_precision": 0.8482384823848238,
+          "man_recall": 0.7296037296037297,
+          "zone_precision": 0.8947368421052632,
+          "zone_recall": 0.946257197696737,
+          "log_loss": 0.2819565825856565,
+          "brier": 0.08761368679593484,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              313,
+              116,
+              56,
+              986
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.9015691868758916,
+          "balanced_accuracy": 0.8660390087104903,
+          "macro_f1": 0.8764663065548022,
+          "man_precision": 0.8633879781420765,
+          "man_recall": 0.7821782178217822,
+          "zone_precision": 0.915057915057915,
+          "zone_recall": 0.9498997995991983,
+          "log_loss": 0.23717560699139045,
+          "brier": 0.07131032123095508,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              316,
+              88,
+              50,
+              948
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8992094861660079,
+          "balanced_accuracy": 0.8597338117489987,
+          "macro_f1": 0.8738136102920683,
+          "man_precision": 0.8791773778920309,
+          "man_recall": 0.7633928571428571,
+          "zone_precision": 0.9061116031886626,
+          "zone_recall": 0.9560747663551402,
+          "log_loss": 0.2400164931190161,
+          "brier": 0.07311936575136097,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              342,
+              106,
+              47,
+              1023
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.25304956089868763,
+        "brier": 0.07734779125941697,
+        "accuracy": 0.8946171375582673,
+        "balanced_accuracy": 0.8545677613699074,
+        "macro_f1": 0.8674661843298219,
+        "man_recall": 0.7583916015227897,
+        "man_precision": 0.8636012794729769,
+        "zone_recall": 0.9507439212170251,
+        "zone_precision": 0.9053021201172803
+      },
+      "fold_sd": {
+        "log_loss": 0.02507448076442855,
+        "brier": 0.008936420921947774,
+        "accuracy": 0.010067119223215211,
+        "balanced_accuracy": 0.014749190952069375,
+        "macro_f1": 0.013357380951556811,
+        "man_recall": 0.026641670765559705,
+        "man_precision": 0.015470550633212527,
+        "zone_recall": 0.004962919460345619,
+        "zone_precision": 0.01018469187648259
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "geometry+relational",
+      "n_features": 131,
+      "man_weight": 2.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8796736913664174,
+          "balanced_accuracy": 0.8341599219718221,
+          "macro_f1": 0.8479392988318927,
+          "man_precision": 0.8405405405405405,
+          "man_recall": 0.7249417249417249,
+          "zone_precision": 0.8928247048138056,
+          "zone_recall": 0.9433781190019194,
+          "log_loss": 0.2840451715381379,
+          "brier": 0.08871224769817794,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              311,
+              118,
+              59,
+              983
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.9022824536376605,
+          "balanced_accuracy": 0.8658033889561301,
+          "macro_f1": 0.8770631197679948,
+          "man_precision": 0.8677685950413223,
+          "man_recall": 0.7797029702970297,
+          "zone_precision": 0.9143407122232916,
+          "zone_recall": 0.9519038076152304,
+          "log_loss": 0.2355981168005488,
+          "brier": 0.0708061345903457,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              315,
+              89,
+              48,
+              950
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8978919631093544,
+          "balanced_accuracy": 0.8575016688918558,
+          "macro_f1": 0.8719743611368811,
+          "man_precision": 0.8785529715762274,
+          "man_recall": 0.7589285714285714,
+          "zone_precision": 0.9045092838196287,
+          "zone_recall": 0.9560747663551402,
+          "log_loss": 0.24118376280345172,
+          "brier": 0.07363595318444117,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              340,
+              108,
+              47,
+              1023
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.2536090170473795,
+        "brier": 0.0777181118243216,
+        "accuracy": 0.8932827027044774,
+        "balanced_accuracy": 0.8524883266066027,
+        "macro_f1": 0.8656589265789228,
+        "man_recall": 0.754524422222442,
+        "man_precision": 0.8622873690526968,
+        "zone_recall": 0.9504522309907634,
+        "zone_precision": 0.9038915669522419
+      },
+      "fold_sd": {
+        "log_loss": 0.026506027342029632,
+        "brier": 0.009625758984541596,
+        "accuracy": 0.011988452526050691,
+        "balanced_accuracy": 0.016406628274833846,
+        "macro_f1": 0.015555152577889577,
+        "man_recall": 0.027644997664828266,
+        "man_precision": 0.019590025703518123,
+        "zone_recall": 0.0064715932756576194,
+        "zone_precision": 0.010771296315089225
+      }
+    },
+    {
+      "horizon": "post_1s",
+      "features": "relational",
+      "n_features": 89,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8653976886471788,
+          "balanced_accuracy": 0.8110557069290275,
+          "macro_f1": 0.8275682011935208,
+          "man_precision": 0.8271954674220963,
+          "man_recall": 0.6806526806526807,
+          "zone_precision": 0.8774597495527728,
+          "zone_recall": 0.9414587332053743,
+          "log_loss": 0.3040665513020703,
+          "brier": 0.09371201552329664,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              292,
+              137,
+              61,
+              981
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8944365192582026,
+          "balanced_accuracy": 0.8514529058116233,
+          "macro_f1": 0.8657592029501198,
+          "man_precision": 0.8657142857142858,
+          "man_recall": 0.75,
+          "zone_precision": 0.9039923954372624,
+          "zone_recall": 0.9529058116232465,
+          "log_loss": 0.25575652030790363,
+          "brier": 0.07722527293572456,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              303,
+              101,
+              47,
+              951
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8978919631093544,
+          "balanced_accuracy": 0.85555532376502,
+          "macro_f1": 0.8713983306761084,
+          "man_precision": 0.884514435695538,
+          "man_recall": 0.7522321428571429,
+          "zone_precision": 0.9023746701846965,
+          "zone_recall": 0.9588785046728971,
+          "log_loss": 0.24894003990630117,
+          "brier": 0.0749702334586902,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              337,
+              111,
+              44,
+              1026
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.26958770383875835,
+        "brier": 0.08196917397257046,
+        "accuracy": 0.8859087236715787,
+        "balanced_accuracy": 0.8393546455018903,
+        "macro_f1": 0.8549085782732497,
+        "man_recall": 0.7276282745032745,
+        "man_precision": 0.8591413962773067,
+        "zone_recall": 0.951081016500506,
+        "zone_precision": 0.8946089383915773
+      },
+      "fold_sd": {
+        "log_loss": 0.030053440619421688,
+        "brier": 0.010231913140993802,
+        "accuracy": 0.017846902851229716,
+        "balanced_accuracy": 0.02459328976629767,
+        "macro_f1": 0.023844750041126978,
+        "man_recall": 0.04069736390290697,
+        "man_precision": 0.02921931189549163,
+        "zone_recall": 0.008852091132899828,
+        "zone_precision": 0.014873643370738987
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "geometry",
+      "n_features": 42,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8755948334466349,
+          "balanced_accuracy": 0.8264812602624503,
+          "macro_f1": 0.8417852867069737,
+          "man_precision": 0.8397790055248618,
+          "man_recall": 0.7086247086247086,
+          "zone_precision": 0.8872858431018936,
+          "zone_recall": 0.944337811900192,
+          "log_loss": 0.29555387346209283,
+          "brier": 0.09222610947869687,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              304,
+              125,
+              58,
+              984
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.890870185449358,
+          "balanced_accuracy": 0.8467380305164784,
+          "macro_f1": 0.8611074959061851,
+          "man_precision": 0.8595988538681948,
+          "man_recall": 0.7425742574257426,
+          "zone_precision": 0.9012345679012346,
+          "zone_recall": 0.9509018036072144,
+          "log_loss": 0.26165141274132975,
+          "brier": 0.07923596084011923,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              300,
+              104,
+              49,
+              949
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8794466403162056,
+          "balanced_accuracy": 0.8320907042723631,
+          "macro_f1": 0.8477069199457259,
+          "man_precision": 0.8514588859416445,
+          "man_recall": 0.7165178571428571,
+          "zone_precision": 0.8886941279579317,
+          "zone_recall": 0.9476635514018692,
+          "log_loss": 0.28232920708884846,
+          "brier": 0.08794233112724058,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              321,
+              127,
+              56,
+              1014
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.2798448310974237,
+        "brier": 0.08646813381535223,
+        "accuracy": 0.8819705530707328,
+        "balanced_accuracy": 0.8351033316837638,
+        "macro_f1": 0.8501999008529616,
+        "man_recall": 0.7225722743977694,
+        "man_precision": 0.850278915111567,
+        "zone_recall": 0.9476343889697585,
+        "zone_precision": 0.8924048463203533
+      },
+      "fold_sd": {
+        "log_loss": 0.01708722633374992,
+        "brier": 0.006619360520387847,
+        "accuracy": 0.007944287028810289,
+        "balanced_accuracy": 0.010459021379701972,
+        "macro_f1": 0.009899401872709438,
+        "man_recall": 0.017766117813717258,
+        "man_precision": 0.0099624718548187,
+        "zone_recall": 0.0032820930239787468,
+        "zone_precision": 0.007679114789860027
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "geometry",
+      "n_features": 42,
+      "man_weight": 1.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8728755948334467,
+          "balanced_accuracy": 0.825933183898635,
+          "macro_f1": 0.8393482987658979,
+          "man_precision": 0.827027027027027,
+          "man_recall": 0.7132867132867133,
+          "zone_precision": 0.888283378746594,
+          "zone_recall": 0.9385796545105566,
+          "log_loss": 0.2938610832147341,
+          "brier": 0.09182513775211384,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              306,
+              123,
+              64,
+              978
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8858773181169758,
+          "balanced_accuracy": 0.8410211512133177,
+          "macro_f1": 0.8548748140001294,
+          "man_precision": 0.8485714285714285,
+          "man_recall": 0.7351485148514851,
+          "zone_precision": 0.8982889733840305,
+          "zone_recall": 0.9468937875751503,
+          "log_loss": 0.26223872868547116,
+          "brier": 0.07969919448865,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              297,
+              107,
+              53,
+              945
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.880764163372859,
+          "balanced_accuracy": 0.8336740654205608,
+          "macro_f1": 0.8493713251922208,
+          "man_precision": 0.8541114058355438,
+          "man_recall": 0.71875,
+          "zone_precision": 0.8895705521472392,
+          "zone_recall": 0.9485981308411215,
+          "log_loss": 0.2831706288496454,
+          "brier": 0.08853010483973046,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              322,
+              126,
+              55,
+              1015
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.2797568135832835,
+        "brier": 0.08668481236016477,
+        "accuracy": 0.8798390254410938,
+        "balanced_accuracy": 0.8335428001775046,
+        "macro_f1": 0.8478648126527494,
+        "man_recall": 0.7223950760460661,
+        "man_precision": 0.8432366204779997,
+        "zone_recall": 0.9446905243089428,
+        "zone_precision": 0.8920476347592879
+      },
+      "fold_sd": {
+        "log_loss": 0.016085208344881106,
+        "brier": 0.0062700441193457605,
+        "accuracy": 0.006550046734944631,
+        "balanced_accuracy": 0.007544840113962586,
+        "macro_f1": 0.007872125116726393,
+        "man_recall": 0.011377588780166413,
+        "man_precision": 0.014308599753508126,
+        "zone_recall": 0.005360339892365696,
+        "zone_precision": 0.005443338563084206
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "geometry",
+      "n_features": 42,
+      "man_weight": 2.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8735554044867437,
+          "balanced_accuracy": 0.8298413039295957,
+          "macro_f1": 0.8413208588900127,
+          "man_precision": 0.820580474934037,
+          "man_recall": 0.7249417249417249,
+          "zone_precision": 0.891941391941392,
+          "zone_recall": 0.9347408829174664,
+          "log_loss": 0.2935977587893103,
+          "brier": 0.09131190715094292,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              311,
+              118,
+              68,
+              974
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8823109843081313,
+          "balanced_accuracy": 0.8355696541598048,
+          "macro_f1": 0.849961376388553,
+          "man_precision": 0.8443804034582133,
+          "man_recall": 0.7252475247524752,
+          "zone_precision": 0.8947867298578199,
+          "zone_recall": 0.9458917835671342,
+          "log_loss": 0.26004169890299356,
+          "brier": 0.07894279443888844,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              293,
+              111,
+              54,
+              944
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.878129117259552,
+          "balanced_accuracy": 0.8285609979973297,
+          "macro_f1": 0.8453343378918481,
+          "man_precision": 0.8544474393530997,
+          "man_recall": 0.7075892857142857,
+          "zone_precision": 0.8857890148212729,
+          "zone_recall": 0.9495327102803738,
+          "log_loss": 0.28199818180734365,
+          "brier": 0.08842551631683106,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              317,
+              131,
+              54,
+              1016
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.2785458798332158,
+        "brier": 0.0862267393022208,
+        "accuracy": 0.8779985020181424,
+        "balanced_accuracy": 0.8313239853622433,
+        "macro_f1": 0.8455388577234713,
+        "man_recall": 0.7192595118028287,
+        "man_precision": 0.8398027725817833,
+        "zone_recall": 0.9433884589216581,
+        "zone_precision": 0.8908390455401616
+      },
+      "fold_sd": {
+        "log_loss": 0.017042332013663633,
+        "brier": 0.006471066572896678,
+        "accuracy": 0.004379251049910074,
+        "balanced_accuracy": 0.0037321673962978376,
+        "macro_f1": 0.004323887941631967,
+        "man_recall": 0.010107868771375327,
+        "man_precision": 0.017391344055913274,
+        "zone_recall": 0.0077071080759257594,
+        "zone_precision": 0.004599031926498792
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "geometry",
+      "n_features": 42,
+      "man_weight": 2.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.86743711760707,
+          "balanced_accuracy": 0.820723102872815,
+          "macro_f1": 0.8329982760999688,
+          "man_precision": 0.8128342245989305,
+          "man_recall": 0.7086247086247086,
+          "zone_precision": 0.886052871467639,
+          "zone_recall": 0.9328214971209213,
+          "log_loss": 0.2961032668900468,
+          "brier": 0.09238099692677995,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              304,
+              125,
+              70,
+              972
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.8823109843081313,
+          "balanced_accuracy": 0.8399893847100142,
+          "macro_f1": 0.8514528187875935,
+          "man_precision": 0.8328690807799443,
+          "man_recall": 0.7400990099009901,
+          "zone_precision": 0.8993288590604027,
+          "zone_recall": 0.9398797595190381,
+          "log_loss": 0.26404972971540003,
+          "brier": 0.08063387891849245,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              299,
+              105,
+              60,
+              938
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8794466403162056,
+          "balanced_accuracy": 0.8307931408544726,
+          "macro_f1": 0.8472412930330517,
+          "man_precision": 0.8552278820375335,
+          "man_recall": 0.7120535714285714,
+          "zone_precision": 0.8873362445414847,
+          "zone_recall": 0.9495327102803738,
+          "log_loss": 0.2833561024064039,
+          "brier": 0.08847064709963853,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              319,
+              129,
+              54,
+              1016
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.28116969967061695,
+        "brier": 0.08716184098163698,
+        "accuracy": 0.876398247410469,
+        "balanced_accuracy": 0.8305018761457673,
+        "macro_f1": 0.8438974626402048,
+        "man_recall": 0.7202590966514233,
+        "man_precision": 0.8336437291388027,
+        "zone_recall": 0.9407446556401111,
+        "zone_precision": 0.8909059916898422
+      },
+      "fold_sd": {
+        "log_loss": 0.01613823345487071,
+        "brier": 0.005981924896389692,
+        "accuracy": 0.007891609603942907,
+        "balanced_accuracy": 0.009636442824273917,
+        "macro_f1": 0.009671010170837189,
+        "man_recall": 0.0172671912407513,
+        "man_precision": 0.02120744227424224,
+        "zone_recall": 0.008389111710446434,
+        "zone_precision": 0.007322587156750573
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "geometry+relational",
+      "n_features": 131,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8953093133922502,
+          "balanced_accuracy": 0.8595951393456192,
+          "macro_f1": 0.8696156166111825,
+          "man_precision": 0.8534704370179949,
+          "man_recall": 0.7738927738927739,
+          "zone_precision": 0.910351201478743,
+          "zone_recall": 0.9452975047984645,
+          "log_loss": 0.24538519144051485,
+          "brier": 0.0761304998078504,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              332,
+              97,
+              57,
+              985
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.9022824536376605,
+          "balanced_accuracy": 0.8694864977479713,
+          "macro_f1": 0.8780466279232929,
+          "man_precision": 0.8579088471849866,
+          "man_recall": 0.7920792079207921,
+          "zone_precision": 0.9183673469387755,
+          "zone_recall": 0.9468937875751503,
+          "log_loss": 0.21760076450182922,
+          "brier": 0.06592562201655432,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              320,
+              84,
+              53,
+              945
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.9057971014492754,
+          "balanced_accuracy": 0.873489652870494,
+          "macro_f1": 0.8835911419998874,
+          "man_precision": 0.8746928746928747,
+          "man_recall": 0.7946428571428571,
+          "zone_precision": 0.9171917191719172,
+          "zone_recall": 0.9523364485981308,
+          "log_loss": 0.2276033262160045,
+          "brier": 0.06976626682963559,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              356,
+              92,
+              51,
+              1019
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.2301964273861162,
+        "brier": 0.0706074628846801,
+        "accuracy": 0.9011296228263953,
+        "balanced_accuracy": 0.8675237633213615,
+        "macro_f1": 0.877084462178121,
+        "man_recall": 0.7868716129854744,
+        "man_precision": 0.8620240529652854,
+        "zone_recall": 0.9481759136572485,
+        "zone_precision": 0.9153034225298119
+      },
+      "fold_sd": {
+        "log_loss": 0.014072552196976066,
+        "brier": 0.005154181873594378,
+        "accuracy": 0.005338088491381708,
+        "balanced_accuracy": 0.007152175986738702,
+        "macro_f1": 0.007037268622375508,
+        "man_recall": 0.011312858722670686,
+        "man_precision": 0.011193710474042705,
+        "zone_recall": 0.003690469878147308,
+        "zone_precision": 0.00432884455317345
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "geometry+relational",
+      "n_features": 131,
+      "man_weight": 1.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8912304554724677,
+          "balanced_accuracy": 0.8560304059344366,
+          "macro_f1": 0.8649405499701602,
+          "man_precision": 0.8422391857506362,
+          "man_recall": 0.7715617715617715,
+          "zone_precision": 0.9090909090909091,
+          "zone_recall": 0.9404990403071017,
+          "log_loss": 0.24667741199992976,
+          "brier": 0.07584649933098023,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              331,
+              98,
+              62,
+              980
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.9065620542082738,
+          "balanced_accuracy": 0.8754389968054922,
+          "macro_f1": 0.8835721643766146,
+          "man_precision": 0.864,
+          "man_recall": 0.801980198019802,
+          "zone_precision": 0.9221032132424537,
+          "zone_recall": 0.9488977955911824,
+          "log_loss": 0.2149824973096155,
+          "brier": 0.06561453978275687,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              324,
+              80,
+              51,
+              947
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.9110671936758893,
+          "balanced_accuracy": 0.8804718791722297,
+          "macro_f1": 0.8902593601916673,
+          "man_precision": 0.882640586797066,
+          "man_recall": 0.8058035714285714,
+          "zone_precision": 0.9215509467989179,
+          "zone_recall": 0.9551401869158879,
+          "log_loss": 0.226034981308969,
+          "brier": 0.06919872209017439,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              361,
+              87,
+              48,
+              1022
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.22923163020617143,
+        "brier": 0.07021992040130383,
+        "accuracy": 0.9029532344522102,
+        "balanced_accuracy": 0.8706470939707195,
+        "macro_f1": 0.8795906915128141,
+        "man_recall": 0.793115180336715,
+        "man_precision": 0.8629599241825674,
+        "zone_recall": 0.948179007604724,
+        "zone_precision": 0.9175816897107603
+      },
+      "fold_sd": {
+        "log_loss": 0.016087443160290073,
+        "brier": 0.005191857426982176,
+        "accuracy": 0.010399121629329437,
+        "balanced_accuracy": 0.012906128509040434,
+        "macro_f1": 0.013120580489523229,
+        "man_recall": 0.018763438342174345,
+        "man_precision": 0.02022077199090386,
+        "zone_recall": 0.007346991604194198,
+        "zone_precision": 0.007358414653102528
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "geometry+relational",
+      "n_features": 131,
+      "man_weight": 2.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8925900747790618,
+          "balanced_accuracy": 0.8583614082654389,
+          "macro_f1": 0.8668268745931773,
+          "man_precision": 0.8430379746835444,
+          "man_recall": 0.7762237762237763,
+          "zone_precision": 0.9107806691449815,
+          "zone_recall": 0.9404990403071017,
+          "log_loss": 0.2465285446741163,
+          "brier": 0.07602241489074787,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              333,
+              96,
+              62,
+              980
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.9087018544935807,
+          "balanced_accuracy": 0.8769420028175162,
+          "macro_f1": 0.8859675877915371,
+          "man_precision": 0.8709677419354839,
+          "man_recall": 0.801980198019802,
+          "zone_precision": 0.9223300970873787,
+          "zone_recall": 0.9519038076152304,
+          "log_loss": 0.21889927105172888,
+          "brier": 0.06627612954289556,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              324,
+              80,
+              48,
+              950
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.9090909090909091,
+          "balanced_accuracy": 0.8784212283044059,
+          "macro_f1": 0.8878999788090698,
+          "man_precision": 0.8780487804878049,
+          "man_recall": 0.8035714285714286,
+          "zone_precision": 0.9205776173285198,
+          "zone_recall": 0.9532710280373832,
+          "log_loss": 0.22681567316163828,
+          "brier": 0.06935656466158631,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              360,
+              88,
+              50,
+              1020
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.23074782962916116,
+        "brier": 0.07055170303174324,
+        "accuracy": 0.9034609461211839,
+        "balanced_accuracy": 0.8712415464624538,
+        "macro_f1": 0.880231480397928,
+        "man_recall": 0.793925134271669,
+        "man_precision": 0.8640181657022777,
+        "zone_recall": 0.9485579586532383,
+        "zone_precision": 0.9178961278536267
+      },
+      "fold_sd": {
+        "log_loss": 0.014228161549863,
+        "brier": 0.004981845673373092,
+        "accuracy": 0.009416460251742847,
+        "balanced_accuracy": 0.011179020394959258,
+        "macro_f1": 0.011648868028556606,
+        "man_recall": 0.015350458013423555,
+        "man_precision": 0.018511120661153086,
+        "zone_recall": 0.007012627653238258,
+        "zone_precision": 0.006224155428821534
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "geometry+relational",
+      "n_features": 131,
+      "man_weight": 2.5,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8959891230455472,
+          "balanced_accuracy": 0.862817604660215,
+          "macro_f1": 0.8711366857044703,
+          "man_precision": 0.8484848484848485,
+          "man_recall": 0.7832167832167832,
+          "zone_precision": 0.9134883720930232,
+          "zone_recall": 0.9424184261036468,
+          "log_loss": 0.24568266835886712,
+          "brier": 0.0761186007217604,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              336,
+              93,
+              60,
+              982
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.9094151212553495,
+          "balanced_accuracy": 0.8789162483382607,
+          "macro_f1": 0.8871272127925958,
+          "man_precision": 0.8693333333333333,
+          "man_recall": 0.806930693069307,
+          "zone_precision": 0.9240506329113924,
+          "zone_recall": 0.9509018036072144,
+          "log_loss": 0.21891157723844043,
+          "brier": 0.06634944373144284,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              326,
+              78,
+              49,
+              949
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.9051383399209486,
+          "balanced_accuracy": 0.8769150534045393,
+          "macro_f1": 0.8838403591409186,
+          "man_precision": 0.861904761904762,
+          "man_recall": 0.8080357142857143,
+          "zone_precision": 0.9216757741347905,
+          "zone_recall": 0.9457943925233645,
+          "log_loss": 0.22759680141430644,
+          "brier": 0.06991137541387935,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              362,
+              86,
+              58,
+              1012
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.23073034900387132,
+        "brier": 0.0707931399556942,
+        "accuracy": 0.9035141947406151,
+        "balanced_accuracy": 0.872882968801005,
+        "macro_f1": 0.8807014192126615,
+        "man_recall": 0.7993943968572682,
+        "man_precision": 0.8599076479076478,
+        "zone_recall": 0.9463715407447418,
+        "zone_precision": 0.9197382597130687
+      },
+      "fold_sd": {
+        "log_loss": 0.013657861117927586,
+        "brier": 0.004943909243277938,
+        "accuracy": 0.006858771220670937,
+        "balanced_accuracy": 0.008774101763469256,
+        "macro_f1": 0.008444758554507232,
+        "man_recall": 0.014021114623944165,
+        "man_precision": 0.010566748712706122,
+        "zone_recall": 0.004271036000678141,
+        "zone_precision": 0.005541282342526791
+      }
+    },
+    {
+      "horizon": "post_1_5s",
+      "features": "relational",
+      "n_features": 89,
+      "man_weight": 1.0,
+      "folds": [
+        {
+          "fold": 0,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "validate_weeks": [
+            7,
+            8
+          ],
+          "train_plays": 4733,
+          "n": 1471,
+          "man": 429,
+          "zone": 1042,
+          "threshold": 0.5,
+          "accuracy": 0.8891910265125765,
+          "balanced_accuracy": 0.8449917005579193,
+          "macro_f1": 0.859746192744938,
+          "man_precision": 0.8614130434782609,
+          "man_recall": 0.7389277389277389,
+          "zone_precision": 0.898458748866727,
+          "zone_recall": 0.9510556621880998,
+          "log_loss": 0.2706726890934477,
+          "brier": 0.08288935264020703,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              317,
+              112,
+              51,
+              991
+            ]
+          }
+        },
+        {
+          "fold": 1,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "validate_weeks": [
+            9,
+            10
+          ],
+          "train_plays": 6204,
+          "n": 1402,
+          "man": 404,
+          "zone": 998,
+          "threshold": 0.5,
+          "accuracy": 0.905848787446505,
+          "balanced_accuracy": 0.8749379948014842,
+          "macro_f1": 0.8827759197324415,
+          "man_precision": 0.8617021276595744,
+          "man_recall": 0.801980198019802,
+          "zone_precision": 0.9220272904483431,
+          "zone_recall": 0.9478957915831663,
+          "log_loss": 0.22928403908398864,
+          "brier": 0.06987155907346679,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              324,
+              80,
+              52,
+              946
+            ]
+          }
+        },
+        {
+          "fold": 2,
+          "train_weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "validate_weeks": [
+            11,
+            12
+          ],
+          "train_plays": 7606,
+          "n": 1518,
+          "man": 448,
+          "zone": 1070,
+          "threshold": 0.5,
+          "accuracy": 0.8998682476943346,
+          "balanced_accuracy": 0.8640937917222964,
+          "macro_f1": 0.8756424407574765,
+          "man_precision": 0.87,
+          "man_recall": 0.7767857142857143,
+          "zone_precision": 0.9105545617173524,
+          "zone_recall": 0.9514018691588785,
+          "log_loss": 0.23765348601201627,
+          "brier": 0.07249647651327427,
+          "confusion": {
+            "order": "man->man, man->zone, zone->man, zone->zone",
+            "values": [
+              348,
+              100,
+              52,
+              1018
+            ]
+          }
+        }
+      ],
+      "mean": {
+        "log_loss": 0.2458700713964842,
+        "brier": 0.07508579607564936,
+        "accuracy": 0.8983026872178054,
+        "balanced_accuracy": 0.8613411623605666,
+        "macro_f1": 0.8727215177449521,
+        "man_recall": 0.7725645504110851,
+        "man_precision": 0.8643717237126118,
+        "zone_recall": 0.9501177743100482,
+        "zone_precision": 0.9103468670108076
+      },
+      "fold_sd": {
+        "log_loss": 0.021883539337514926,
+        "brier": 0.00688434232034111,
+        "accuracy": 0.0084385119859624,
+        "balanced_accuracy": 0.015161723550864339,
+        "macro_f1": 0.011789441238394557,
+        "man_recall": 0.03173746709697278,
+        "man_precision": 0.004876372923736855,
+        "zone_recall": 0.0019320637270998804,
+        "zone_precision": 0.011785643422802
+      }
+    }
+  ],
+  "chosen": {
+    "features": "geometry+relational",
+    "man_weight": 1.5,
+    "rule": "lowest mean development log loss at +1.5 s across the three chronological folds; the same setting is used at every horizon"
+  }
+}

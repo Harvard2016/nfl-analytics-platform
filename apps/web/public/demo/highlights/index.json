@@ -1,0 +1,1503 @@
+{
+  "generated_at": "2026-10-04T09:23:19+00:00",
+  "module": "highlights",
+  "task": "ranking agreement with editorial highlight selection",
+  "scope": "40 NFL games, seasons 2016-2024, all from the NFL channel",
+  "label": "1 if the clip was matched to the official highlight video by the dataset authors' frame matching; editorial selection, replays included.",
+  "score_meaning": "Ranking score for agreement with editorial selection. Not a calibrated probability.",
+  "calibration": "Not fitted: 6 validation games are too few held-out groups to fit and check a calibrator.",
+  "captions": "Model-generated segment captions were not used by any model here.",
+  "budget_note": "Budget metrics pick the top-scoring 10-second blocks up to 1, 3 or 5 minutes without looking at labels. They differ from benchmark top-K metrics that use the number of true highlight clips.",
+  "selection_rule": "shipped model = highest mean average precision on the 6 validation games",
+  "shipped": "H3 temporal fusion",
+  "split": {
+    "version": "svh-football-split-v1",
+    "train": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      22,
+      25,
+      28,
+      29,
+      32,
+      33,
+      34,
+      37,
+      38
+    ],
+    "validation": [
+      8,
+      21,
+      27,
+      30,
+      31,
+      39
+    ],
+    "test": [
+      23,
+      24,
+      26,
+      35,
+      36,
+      40
+    ],
+    "rule": "seeded shuffle of the 40 game ids; first 6 test, next 6 validation, remaining 28 training (70/15/15)"
+  },
+  "clips": 167006,
+  "positive_share": 0.0948,
+  "run_id": "highlights-ranking-v1-20261004T084256",
+  "attribution": "SVHighlights (Lee, Ki, Kang, Kim; KDD 2026), CC BY-NC 4.0. Features and annotations only; no broadcast video is hosted here.",
+  "source": "https://huggingface.co/datasets/idong1004/SVHighlights",
+  "revision": "fdedf750ddc2524093eda9bca1fbe24d1210724a",
+  "results": {
+    "H0 loudness": {
+      "info": {
+        "inputs": "audio loudness per 2-second clip",
+        "method": "level minus the median of the surrounding 5 minutes",
+        "trained": false
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.31378833899936354,
+        "average_precision_range": [
+          0.17264176067198578,
+          0.4138220723572334
+        ],
+        "hit_at_1": 0.16666666666666666,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.6833333333333335,
+          "recall_of_highlight_time": 0.04814080130912924,
+          "temporal_iou": 0.04703096082580082,
+          "segments_missed_share": 0.9326683291770573
+        },
+        "3 minutes": {
+          "precision": 0.5814814814814815,
+          "recall_of_highlight_time": 0.12258629974403312,
+          "temporal_iou": 0.11269001955570135,
+          "segments_missed_share": 0.8254364089775561
+        },
+        "5 minutes": {
+          "precision": 0.5288888888888889,
+          "recall_of_highlight_time": 0.18609612045402146,
+          "temporal_iou": 0.1592413961579263,
+          "segments_missed_share": 0.7356608478802993
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.24597855451589345,
+        "average_precision_range": [
+          0.0525955971636741,
+          0.3681858471433728
+        ],
+        "hit_at_1": 0.3333333333333333,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.39999999999999997,
+          "recall_of_highlight_time": 0.027506319170834962,
+          "temporal_iou": 0.026584334625021303,
+          "segments_missed_share": 0.968503937007874
+        },
+        "3 minutes": {
+          "precision": 0.4074074074074074,
+          "recall_of_highlight_time": 0.0887217124446522,
+          "temporal_iou": 0.07816039108003768,
+          "segments_missed_share": 0.8858267716535433
+        },
+        "5 minutes": {
+          "precision": 0.38000000000000006,
+          "recall_of_highlight_time": 0.13779898892562456,
+          "temporal_iou": 0.11180232271191541,
+          "segments_missed_share": 0.8169291338582677
+        }
+      }
+    },
+    "H1 commentary": {
+      "info": {
+        "inputs": "WhisperX word timestamps: words from 2 s before to 6 s after the clip, and 6-20 s after",
+        "vocabulary": 30000,
+        "vocabulary_fitted_on": "training games only",
+        "top_positive_terms": [
+          "n_touchdown",
+          "n_caught",
+          "n_complete",
+          "n_throws",
+          "a_touchdown",
+          "n_a n_first",
+          "a_well",
+          "n_oh",
+          "n_kick n_is",
+          "n_tannehill",
+          "n_here's",
+          "n_fires",
+          "a_wow",
+          "n_intercepted",
+          "n_fake",
+          "n_is n_good",
+          "n_inside n_the",
+          "n_down",
+          "n_goes",
+          "a_watch",
+          "a_what a_a",
+          "n_got n_it",
+          "n_what n_a",
+          "n_midfield",
+          "a_oh"
+        ],
+        "top_negative_terms": [
+          "n_just",
+          "n_so",
+          "a_second a_and",
+          "a_on a_first",
+          "n_that",
+          "a_second a_down",
+          "a_five",
+          "n_when",
+          "n_but",
+          "a_third",
+          "a_from a_the",
+          "n_you",
+          "n_really",
+          "a_offense",
+          "n_watch"
+        ],
+        "probes": [
+          {
+            "case": "plain call",
+            "text": "touchdown",
+            "score": 3.146
+          },
+          {
+            "case": "negated",
+            "text": "no touchdown",
+            "score": 3.187
+          },
+          {
+            "case": "ruled out",
+            "text": "it is not a touchdown the pass is incomplete",
+            "score": -0.363
+          },
+          {
+            "case": "historical",
+            "text": "he had a touchdown last week against dallas",
+            "score": -3.433
+          },
+          {
+            "case": "hypothetical",
+            "text": "that would have been a touchdown if he catches it",
+            "score": -4.422
+          },
+          {
+            "case": "replay talk",
+            "text": "let's take another look at that touchdown on the replay",
+            "score": -2.602
+          },
+          {
+            "case": "interception call",
+            "text": "intercepted",
+            "score": 1.335
+          },
+          {
+            "case": "routine",
+            "text": "second down and seven",
+            "score": -1.908
+          }
+        ],
+        "probe_note": "Scores for short phrases placed at the clip. A word is evidence about what the announcers said, not proof of what happened."
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.40227330120206944,
+        "average_precision_range": [
+          0.3465167511817964,
+          0.46217532443975085
+        ],
+        "hit_at_1": 0.6666666666666666,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.7999999999999999,
+          "recall_of_highlight_time": 0.05774125820335346,
+          "temporal_iou": 0.05696238543272466,
+          "segments_missed_share": 0.9226932668329177
+        },
+        "3 minutes": {
+          "precision": 0.6407407407407407,
+          "recall_of_highlight_time": 0.1375262553376653,
+          "temporal_iou": 0.1273888900257594,
+          "segments_missed_share": 0.8129675810473815
+        },
+        "5 minutes": {
+          "precision": 0.5866666666666667,
+          "recall_of_highlight_time": 0.20763306052730335,
+          "temporal_iou": 0.17979442951504954,
+          "segments_missed_share": 0.71571072319202
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.4042559871669085,
+        "average_precision_range": [
+          0.25612698704821263,
+          0.5317216088936759
+        ],
+        "hit_at_1": 0.5,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.5748366013071896,
+          "recall_of_highlight_time": 0.05025887037748117,
+          "temporal_iou": 0.04805071260411755,
+          "segments_missed_share": 0.9429133858267716
+        },
+        "3 minutes": {
+          "precision": 0.6327575688248304,
+          "recall_of_highlight_time": 0.1628053403107344,
+          "temporal_iou": 0.14459671082784378,
+          "segments_missed_share": 0.812992125984252
+        },
+        "5 minutes": {
+          "precision": 0.5871137141725378,
+          "recall_of_highlight_time": 0.2424215778103017,
+          "temporal_iou": 0.19889798554052937,
+          "segments_missed_share": 0.7145669291338582
+        }
+      }
+    },
+    "H2 visual CLIP, logistic": {
+      "info": {
+        "inputs": [
+          "vid_clip"
+        ],
+        "method": "logistic regression on 64 PCA components per modality"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.3092364008594897,
+        "average_precision_range": [
+          0.23012390598384658,
+          0.3827055928088496
+        ],
+        "hit_at_1": 0.5,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.5323232323232323,
+          "recall_of_highlight_time": 0.036767603946909234,
+          "temporal_iou": 0.035626986890602196,
+          "segments_missed_share": 0.9476309226932669
+        },
+        "3 minutes": {
+          "precision": 0.4498805256869773,
+          "recall_of_highlight_time": 0.09507143743540912,
+          "temporal_iou": 0.08476194541908973,
+          "segments_missed_share": 0.85785536159601
+        },
+        "5 minutes": {
+          "precision": 0.4490631808278867,
+          "recall_of_highlight_time": 0.15807177186562063,
+          "temporal_iou": 0.13138068298138675,
+          "segments_missed_share": 0.7655860349127181
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.29096748170111314,
+        "average_precision_range": [
+          0.17263570234055942,
+          0.4153544895297025
+        ],
+        "hit_at_1": 0.3333333333333333,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.46414141414141413,
+          "recall_of_highlight_time": 0.04597486314982618,
+          "temporal_iou": 0.04339753118133268,
+          "segments_missed_share": 0.952755905511811
+        },
+        "3 minutes": {
+          "precision": 0.42437275985663087,
+          "recall_of_highlight_time": 0.1056466500147709,
+          "temporal_iou": 0.08920843063913501,
+          "segments_missed_share": 0.8740157480314961
+        },
+        "5 minutes": {
+          "precision": 0.4174074074074074,
+          "recall_of_highlight_time": 0.1722810284699524,
+          "temporal_iou": 0.13281419403135267,
+          "segments_missed_share": 0.7992125984251969
+        }
+      }
+    },
+    "H2 visual SlowFast, logistic": {
+      "info": {
+        "inputs": [
+          "vid_slowfast"
+        ],
+        "method": "logistic regression on 64 PCA components per modality"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.3442163122449184,
+        "average_precision_range": [
+          0.2561516790052251,
+          0.4039293001082742
+        ],
+        "hit_at_1": 0.8333333333333334,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.8505050505050504,
+          "recall_of_highlight_time": 0.06248322928886407,
+          "temporal_iou": 0.061715322334286414,
+          "segments_missed_share": 0.9177057356608479
+        },
+        "3 minutes": {
+          "precision": 0.6667861409796894,
+          "recall_of_highlight_time": 0.141167798069789,
+          "temporal_iou": 0.1313504571026064,
+          "segments_missed_share": 0.8104738154613467
+        },
+        "5 minutes": {
+          "precision": 0.5964052287581699,
+          "recall_of_highlight_time": 0.2080676908717225,
+          "temporal_iou": 0.18223067372157764,
+          "segments_missed_share": 0.71571072319202
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.3472622437238018,
+        "average_precision_range": [
+          0.16540390085860981,
+          0.5423917777618186
+        ],
+        "hit_at_1": 0.5,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.5722222222222223,
+          "recall_of_highlight_time": 0.0457440617763256,
+          "temporal_iou": 0.04366039773128818,
+          "segments_missed_share": 0.9507874015748031
+        },
+        "3 minutes": {
+          "precision": 0.52610513739546,
+          "recall_of_highlight_time": 0.13075569126037803,
+          "temporal_iou": 0.1131076398627414,
+          "segments_missed_share": 0.8484251968503937
+        },
+        "5 minutes": {
+          "precision": 0.4972331154684096,
+          "recall_of_highlight_time": 0.1980366908470288,
+          "temporal_iou": 0.15830940468324706,
+          "segments_missed_share": 0.7618110236220472
+        }
+      }
+    },
+    "H2 audio PANN, logistic": {
+      "info": {
+        "inputs": [
+          "aud_pann"
+        ],
+        "method": "logistic regression on 64 PCA components per modality"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.3853653590118664,
+        "average_precision_range": [
+          0.32249590949695406,
+          0.4248007134119631
+        ],
+        "hit_at_1": 0.8333333333333334,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.9616161616161616,
+          "recall_of_highlight_time": 0.07069263126345017,
+          "temporal_iou": 0.07053563445746648,
+          "segments_missed_share": 0.9077306733167082
+        },
+        "3 minutes": {
+          "precision": 0.7682795698924733,
+          "recall_of_highlight_time": 0.1686918575661506,
+          "temporal_iou": 0.1606769690961759,
+          "segments_missed_share": 0.7830423940149626
+        },
+        "5 minutes": {
+          "precision": 0.6524183006535947,
+          "recall_of_highlight_time": 0.2354430221413504,
+          "temporal_iou": 0.20836166732466252,
+          "segments_missed_share": 0.6932668329177057
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.3529491687252702,
+        "average_precision_range": [
+          0.1824745239862173,
+          0.4819294925518352
+        ],
+        "hit_at_1": 0.8333333333333334,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.7404040404040405,
+          "recall_of_highlight_time": 0.0632917800921647,
+          "temporal_iou": 0.06099060972683215,
+          "segments_missed_share": 0.9311023622047244
+        },
+        "3 minutes": {
+          "precision": 0.6563918757467144,
+          "recall_of_highlight_time": 0.15976333032437132,
+          "temporal_iou": 0.14226348140604128,
+          "segments_missed_share": 0.8110236220472441
+        },
+        "5 minutes": {
+          "precision": 0.5778213507625272,
+          "recall_of_highlight_time": 0.22785470431074253,
+          "temporal_iou": 0.18808870217460025,
+          "segments_missed_share": 0.7263779527559056
+        }
+      }
+    },
+    "H2 all embeddings + loudness, logistic": {
+      "info": {
+        "inputs": [
+          "vid_clip",
+          "vid_slowfast",
+          "aud_pann",
+          "loudness"
+        ],
+        "method": "logistic regression on 64 PCA components per modality"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.5072057918218388,
+        "average_precision_range": [
+          0.41832727792337443,
+          0.6054204546565564
+        ],
+        "hit_at_1": 1.0,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.9333333333333335,
+          "recall_of_highlight_time": 0.06637580249807708,
+          "temporal_iou": 0.06596052655020693,
+          "segments_missed_share": 0.9152119700748129
+        },
+        "3 minutes": {
+          "precision": 0.8296296296296296,
+          "recall_of_highlight_time": 0.17541183328290763,
+          "temporal_iou": 0.16872871619317112,
+          "segments_missed_share": 0.7780548628428927
+        },
+        "5 minutes": {
+          "precision": 0.778562091503268,
+          "recall_of_highlight_time": 0.27431356121582123,
+          "temporal_iou": 0.25345080691758387,
+          "segments_missed_share": 0.6458852867830424
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.46725715237541116,
+        "average_precision_range": [
+          0.22774883906154947,
+          0.6223115628728405
+        ],
+        "hit_at_1": 0.8333333333333334,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.7611111111111111,
+          "recall_of_highlight_time": 0.06159616353885564,
+          "temporal_iou": 0.05957160397313136,
+          "segments_missed_share": 0.9330708661417323
+        },
+        "3 minutes": {
+          "precision": 0.718757467144564,
+          "recall_of_highlight_time": 0.18043454961259267,
+          "temporal_iou": 0.162601369244992,
+          "segments_missed_share": 0.7913385826771654
+        },
+        "5 minutes": {
+          "precision": 0.6410239651416122,
+          "recall_of_highlight_time": 0.25832712506095823,
+          "temporal_iou": 0.21705763311404616,
+          "segments_missed_share": 0.6929133858267716
+        }
+      }
+    },
+    "H2 all embeddings + loudness, boosted trees": {
+      "info": {
+        "inputs": [
+          "vid_clip",
+          "vid_slowfast",
+          "aud_pann",
+          "loudness"
+        ],
+        "method": "boosted trees, depth 4, 200 rounds"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.5045014734720095,
+        "average_precision_range": [
+          0.4347352703871949,
+          0.5963873600131686
+        ],
+        "hit_at_1": 1.0,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.9555555555555556,
+          "recall_of_highlight_time": 0.06877236542286648,
+          "temporal_iou": 0.06855516900890501,
+          "segments_missed_share": 0.912718204488778
+        },
+        "3 minutes": {
+          "precision": 0.8204771346500929,
+          "recall_of_highlight_time": 0.17596384774891285,
+          "temporal_iou": 0.16861495456316908,
+          "segments_missed_share": 0.7680798004987531
+        },
+        "5 minutes": {
+          "precision": 0.7844334097275274,
+          "recall_of_highlight_time": 0.2773530886125519,
+          "temporal_iou": 0.25667658527515885,
+          "segments_missed_share": 0.6408977556109726
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.47673369395307597,
+        "average_precision_range": [
+          0.22702603041202268,
+          0.6477520238646646
+        ],
+        "hit_at_1": 0.8333333333333334,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.8722222222222222,
+          "recall_of_highlight_time": 0.07444242360007691,
+          "temporal_iou": 0.07282744729138069,
+          "segments_missed_share": 0.9232283464566929
+        },
+        "3 minutes": {
+          "precision": 0.7618876941457587,
+          "recall_of_highlight_time": 0.19099036848368958,
+          "temporal_iou": 0.17384556029415688,
+          "segments_missed_share": 0.7874015748031497
+        },
+        "5 minutes": {
+          "precision": 0.6953812636165577,
+          "recall_of_highlight_time": 0.28289726197619686,
+          "temporal_iou": 0.2408971552773387,
+          "segments_missed_share": 0.6811023622047244
+        }
+      }
+    },
+    "H3 temporal fusion": {
+      "info": {
+        "inputs": [
+          "vid_clip",
+          "vid_slowfast",
+          "aud_pann",
+          "loudness"
+        ],
+        "method": "64-d projection per stream with modality masks, three convolution blocks over 32-clip windows (sees clips on both sides)",
+        "best_epoch": 5,
+        "validation_map": 0.6879140201155657,
+        "seconds": 301.0,
+        "parameters": 343489,
+        "windows": 7096
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.6879140201155657,
+        "average_precision_range": [
+          0.6070269282834322,
+          0.7654738767158964
+        ],
+        "hit_at_1": 1.0,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.9944444444444445,
+          "recall_of_highlight_time": 0.071733894422828,
+          "temporal_iou": 0.0717118738784194,
+          "segments_missed_share": 0.9102244389027432
+        },
+        "3 minutes": {
+          "precision": 0.8759259259259261,
+          "recall_of_highlight_time": 0.18671048000703952,
+          "temporal_iou": 0.18113250187287347,
+          "segments_missed_share": 0.7680798004987531
+        },
+        "5 minutes": {
+          "precision": 0.818888888888889,
+          "recall_of_highlight_time": 0.2909962581751873,
+          "temporal_iou": 0.27214894558852093,
+          "segments_missed_share": 0.6408977556109726
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.6192678665389459,
+        "average_precision_range": [
+          0.42155534743523804,
+          0.7506403562480094
+        ],
+        "hit_at_1": 0.6666666666666666,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.8500000000000001,
+          "recall_of_highlight_time": 0.07209959856445793,
+          "temporal_iou": 0.07041424237341755,
+          "segments_missed_share": 0.9251968503937008
+        },
+        "3 minutes": {
+          "precision": 0.775925925925926,
+          "recall_of_highlight_time": 0.19396650064779894,
+          "temporal_iou": 0.17713899896226548,
+          "segments_missed_share": 0.7854330708661418
+        },
+        "5 minutes": {
+          "precision": 0.746926406926407,
+          "recall_of_highlight_time": 0.30441975867144516,
+          "temporal_iou": 0.26284331191889065,
+          "segments_missed_share": 0.6633858267716536
+        }
+      }
+    },
+    "H3 without aud_pann": {
+      "info": {
+        "inputs": [
+          "vid_clip",
+          "vid_slowfast",
+          "loudness"
+        ],
+        "method": "same trained H3 model with one stream masked at scoring time"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.6272520336668942,
+        "average_precision_range": [
+          0.5468659237232957,
+          0.6850846584331711
+        ],
+        "hit_at_1": 1.0,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.9666666666666667,
+          "recall_of_highlight_time": 0.069826953156619,
+          "temporal_iou": 0.06969707394330718,
+          "segments_missed_share": 0.912718204488778
+        },
+        "3 minutes": {
+          "precision": 0.8244286840031521,
+          "recall_of_highlight_time": 0.1770562744203913,
+          "temporal_iou": 0.169950630137887,
+          "segments_missed_share": 0.770573566084788
+        },
+        "5 minutes": {
+          "precision": 0.7557720057720059,
+          "recall_of_highlight_time": 0.2683128306427314,
+          "temporal_iou": 0.24505740376689464,
+          "segments_missed_share": 0.6483790523690773
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.536217399986412,
+        "average_precision_range": [
+          0.34392609177900346,
+          0.7009507893008514
+        ],
+        "hit_at_1": 0.8333333333333334,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.7666666666666666,
+          "recall_of_highlight_time": 0.06140114071602796,
+          "temporal_iou": 0.059439139260996365,
+          "segments_missed_share": 0.9291338582677166
+        },
+        "3 minutes": {
+          "precision": 0.6992831541218637,
+          "recall_of_highlight_time": 0.17263232694591224,
+          "temporal_iou": 0.154930079060716,
+          "segments_missed_share": 0.8051181102362205
+        },
+        "5 minutes": {
+          "precision": 0.6585838779956427,
+          "recall_of_highlight_time": 0.26845182055990097,
+          "temporal_iou": 0.22433116328803204,
+          "segments_missed_share": 0.6988188976377953
+        }
+      }
+    },
+    "H3 without vid_clip": {
+      "info": {
+        "inputs": [
+          "vid_slowfast",
+          "aud_pann",
+          "loudness"
+        ],
+        "method": "same trained H3 model with one stream masked at scoring time"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.6749460297491625,
+        "average_precision_range": [
+          0.6172100770323345,
+          0.7423840636798366
+        ],
+        "hit_at_1": 1.0,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.9666666666666668,
+          "recall_of_highlight_time": 0.0694755385059355,
+          "temporal_iou": 0.06930255834141376,
+          "segments_missed_share": 0.912718204488778
+        },
+        "3 minutes": {
+          "precision": 0.8703703703703706,
+          "recall_of_highlight_time": 0.18619132057958765,
+          "temporal_iou": 0.18064976278789988,
+          "segments_missed_share": 0.7755610972568578
+        },
+        "5 minutes": {
+          "precision": 0.8211111111111111,
+          "recall_of_highlight_time": 0.2905650822081655,
+          "temporal_iou": 0.2713039611884462,
+          "segments_missed_share": 0.6359102244389028
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.6162537822691317,
+        "average_precision_range": [
+          0.4026163338550625,
+          0.7515602329058974
+        ],
+        "hit_at_1": 0.8333333333333334,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.8555555555555556,
+          "recall_of_highlight_time": 0.07287573162140032,
+          "temporal_iou": 0.07119699287855785,
+          "segments_missed_share": 0.9251968503937008
+        },
+        "3 minutes": {
+          "precision": 0.7722222222222223,
+          "recall_of_highlight_time": 0.19202009296883812,
+          "temporal_iou": 0.1756776406788451,
+          "segments_missed_share": 0.7893700787401575
+        },
+        "5 minutes": {
+          "precision": 0.7311111111111112,
+          "recall_of_highlight_time": 0.29449832057205966,
+          "temporal_iou": 0.2542126913833512,
+          "segments_missed_share": 0.6732283464566929
+        }
+      }
+    },
+    "H3 without vid_slowfast": {
+      "info": {
+        "inputs": [
+          "vid_clip",
+          "aud_pann",
+          "loudness"
+        ],
+        "method": "same trained H3 model with one stream masked at scoring time"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.6527816109156707,
+        "average_precision_range": [
+          0.5593615737086797,
+          0.7670214600166582
+        ],
+        "hit_at_1": 1.0,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.9722222222222223,
+          "recall_of_highlight_time": 0.06941049137595229,
+          "temporal_iou": 0.06919850336938575,
+          "segments_missed_share": 0.912718204488778
+        },
+        "3 minutes": {
+          "precision": 0.827344365642238,
+          "recall_of_highlight_time": 0.17724175694543468,
+          "temporal_iou": 0.17026224104892118,
+          "segments_missed_share": 0.7780548628428927
+        },
+        "5 minutes": {
+          "precision": 0.7844011544011544,
+          "recall_of_highlight_time": 0.27967758727980246,
+          "temporal_iou": 0.25871079890855614,
+          "segments_missed_share": 0.6583541147132169
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.582708661084563,
+        "average_precision_range": [
+          0.3912890104779488,
+          0.7064014760889541
+        ],
+        "hit_at_1": 1.0,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.888888888888889,
+          "recall_of_highlight_time": 0.07525447319512195,
+          "temporal_iou": 0.07373772929579354,
+          "segments_missed_share": 0.9232283464566929
+        },
+        "3 minutes": {
+          "precision": 0.7847911741528764,
+          "recall_of_highlight_time": 0.19830919072841904,
+          "temporal_iou": 0.18129469463618317,
+          "segments_missed_share": 0.7854330708661418
+        },
+        "5 minutes": {
+          "precision": 0.7037373737373738,
+          "recall_of_highlight_time": 0.28379810457633853,
+          "temporal_iou": 0.24150160490586137,
+          "segments_missed_share": 0.6712598425196851
+        }
+      }
+    },
+    "H3 without loudness": {
+      "info": {
+        "inputs": [
+          "vid_clip",
+          "vid_slowfast",
+          "aud_pann"
+        ],
+        "method": "same trained H3 model with one stream masked at scoring time"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.6638829097345063,
+        "average_precision_range": [
+          0.5697545459741237,
+          0.7353424963305993
+        ],
+        "hit_at_1": 1.0,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.9666666666666667,
+          "recall_of_highlight_time": 0.07031906703176972,
+          "temporal_iou": 0.07023749987999334,
+          "segments_missed_share": 0.912718204488778
+        },
+        "3 minutes": {
+          "precision": 0.9037037037037039,
+          "recall_of_highlight_time": 0.19431412620030777,
+          "temporal_iou": 0.1899296711781815,
+          "segments_missed_share": 0.7630922693266833
+        },
+        "5 minutes": {
+          "precision": 0.8044444444444445,
+          "recall_of_highlight_time": 0.28480142821724935,
+          "temporal_iou": 0.2648151159155789,
+          "segments_missed_share": 0.6483790523690773
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.599992513679036,
+        "average_precision_range": [
+          0.41551351420822613,
+          0.735981154300742
+        ],
+        "hit_at_1": 0.6666666666666666,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.8444444444444446,
+          "recall_of_highlight_time": 0.07174194477332775,
+          "temporal_iou": 0.07003600216648355,
+          "segments_missed_share": 0.9271653543307087
+        },
+        "3 minutes": {
+          "precision": 0.7777777777777778,
+          "recall_of_highlight_time": 0.1929624845835419,
+          "temporal_iou": 0.17687072263765113,
+          "segments_missed_share": 0.7893700787401575
+        },
+        "5 minutes": {
+          "precision": 0.7392929292929294,
+          "recall_of_highlight_time": 0.29648343795753307,
+          "temporal_iou": 0.2558568738207451,
+          "segments_missed_share": 0.6673228346456693
+        }
+      }
+    },
+    "H3 + commentary (equal-weight z-score sum)": {
+      "info": {
+        "inputs": [
+          "vid_clip",
+          "vid_slowfast",
+          "aud_pann",
+          "loudness",
+          "commentary"
+        ],
+        "method": "sum of within-game z-scores of H3 and H1; weights fixed in advance"
+      },
+      "validation": {
+        "games": 6,
+        "mean_average_precision": 0.5951171845586497,
+        "average_precision_range": [
+          0.5303966483491287,
+          0.6524440580969825
+        ],
+        "hit_at_1": 0.8333333333333334,
+        "chance_average_precision": 0.10047445392239414,
+        "1 minute": {
+          "precision": 0.8722222222222222,
+          "recall_of_highlight_time": 0.06252983460282689,
+          "temporal_iou": 0.061911763616939876,
+          "segments_missed_share": 0.9201995012468828
+        },
+        "3 minutes": {
+          "precision": 0.8018518518518519,
+          "recall_of_highlight_time": 0.17097737671610588,
+          "temporal_iou": 0.16343001274162092,
+          "segments_missed_share": 0.7830423940149626
+        },
+        "5 minutes": {
+          "precision": 0.7688888888888888,
+          "recall_of_highlight_time": 0.2703555656721692,
+          "temporal_iou": 0.2481516762396766,
+          "segments_missed_share": 0.6458852867830424
+        }
+      },
+      "test": {
+        "games": 6,
+        "mean_average_precision": 0.5726098613097782,
+        "average_precision_range": [
+          0.3691022474324383,
+          0.7089015680633503
+        ],
+        "hit_at_1": 0.5,
+        "chance_average_precision": 0.08848644886005486,
+        "1 minute": {
+          "precision": 0.8055555555555557,
+          "recall_of_highlight_time": 0.0706567398923764,
+          "temporal_iou": 0.06887165483442671,
+          "segments_missed_share": 0.9251968503937008
+        },
+        "3 minutes": {
+          "precision": 0.737037037037037,
+          "recall_of_highlight_time": 0.1797864794314731,
+          "temporal_iou": 0.16340098622466614,
+          "segments_missed_share": 0.7952755905511811
+        },
+        "5 minutes": {
+          "precision": 0.7322222222222221,
+          "recall_of_highlight_time": 0.3000792062092899,
+          "temporal_iou": 0.25837934819511577,
+          "segments_missed_share": 0.6673228346456693
+        }
+      }
+    }
+  },
+  "games": [
+    {
+      "id": 23,
+      "title": "Super Bowl 52 FULL Game: New England Patriots vs. Philadelphia Eagles",
+      "split": "test",
+      "clips": 4464,
+      "average_precision": 0.7319028111485131,
+      "chance": 0.11379928315412187,
+      "three_minute_precision": 0.9222222222222223,
+      "file": "games/23.json"
+    },
+    {
+      "id": 24,
+      "title": "Houston Texans vs. Indianapolis Colts Week 4, 2018 FULL Game",
+      "split": "test",
+      "clips": 5497,
+      "average_precision": 0.692852620134872,
+      "chance": 0.08477351282517737,
+      "three_minute_precision": 0.8777777777777778,
+      "file": "games/24.json"
+    },
+    {
+      "id": 26,
+      "title": "Green Bay Packers vs. Atlanta Falcons 2016 NFC Championship Full Game",
+      "split": "test",
+      "clips": 4454,
+      "average_precision": 0.536271628952929,
+      "chance": 0.06600808262236192,
+      "three_minute_precision": 0.7222222222222222,
+      "file": "games/26.json"
+    },
+    {
+      "id": 35,
+      "title": "FULL GAME!! Jacksonville Jaguars vs. Houston Texans  | NFL 2024 Season Week 4",
+      "split": "test",
+      "clips": 3654,
+      "average_precision": 0.5823844353141138,
+      "chance": 0.09277504105090312,
+      "three_minute_precision": 0.7111111111111111,
+      "file": "games/35.json"
+    },
+    {
+      "id": 36,
+      "title": "One of the most INTENSE Super Bowls ever! 49ers vs. Chiefs Full Game | Super Bowl 58",
+      "split": "test",
+      "clips": 4597,
+      "average_precision": 0.7506403562480094,
+      "chance": 0.13095497063302153,
+      "three_minute_precision": 0.9222222222222223,
+      "file": "games/36.json"
+    },
+    {
+      "id": 40,
+      "title": "The Immaculate Extension: Ravens vs. Steelers 2016, Week 16 FULL GAME",
+      "split": "test",
+      "clips": 3896,
+      "average_precision": 0.42155534743523804,
+      "chance": 0.04260780287474333,
+      "three_minute_precision": 0.5,
+      "file": "games/40.json"
+    },
+    {
+      "id": 8,
+      "title": "Russell Wilson Battles the NFL's Top Defense: Seahawks vs. 49ers Week 10, 2019 FULL Game",
+      "split": "validation",
+      "clips": 5358,
+      "average_precision": 0.7654738767158964,
+      "chance": 0.08734602463605823,
+      "three_minute_precision": 0.9777777777777777,
+      "file": "games/8.json"
+    },
+    {
+      "id": 21,
+      "title": "Mahomes Starts His MVP Campaign: Kansas City Chiefs vs. Los Angeles Chargers Week 1, 2018 Full Game",
+      "split": "validation",
+      "clips": 4036,
+      "average_precision": 0.6536349318976912,
+      "chance": 0.07705649157581763,
+      "three_minute_precision": 0.7777777777777778,
+      "file": "games/21.json"
+    },
+    {
+      "id": 27,
+      "title": "Bengals vs. Ravens Week 17, 2017 FULL Game: The Bengals 4th Down Miracle!",
+      "split": "validation",
+      "clips": 4721,
+      "average_precision": 0.6070269282834322,
+      "chance": 0.07816140648167762,
+      "three_minute_precision": 0.7666666666666667,
+      "file": "games/27.json"
+    },
+    {
+      "id": 30,
+      "title": "Detroit Lions vs. Houston Texans FULL GAME | NFL 2024 Season Week 10",
+      "split": "validation",
+      "clips": 3607,
+      "average_precision": 0.7320498386561725,
+      "chance": 0.11699473246465207,
+      "three_minute_precision": 0.9333333333333333,
+      "file": "games/30.json"
+    },
+    {
+      "id": 31,
+      "title": "Tampa Bay Buccaneers vs. Carolina Panthers FULL GAME | NFL 2024 Season Week 13",
+      "split": "validation",
+      "clips": 4443,
+      "average_precision": 0.6613675395798149,
+      "chance": 0.09835696601395454,
+      "three_minute_precision": 0.8666666666666667,
+      "file": "games/31.json"
+    },
+    {
+      "id": 39,
+      "title": "Buffalo Bills vs. Detroit Lions FULL GAME | NFL 2024 Season Week 15",
+      "split": "validation",
+      "clips": 4064,
+      "average_precision": 0.7079310055603868,
+      "chance": 0.14493110236220472,
+      "three_minute_precision": 0.9333333333333333,
+      "file": "games/39.json"
+    }
+  ],
+  "all_games": [
+    {
+      "id": 1,
+      "title": "Cleveland Browns vs. Baltimore Ravens Week 4, 2019 Full Game",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 4060,
+      "positive_share": 0.084,
+      "full_link": "https://www.youtube.com/watch?v=f5wMgWYZDo8"
+    },
+    {
+      "id": 2,
+      "title": "Buffalo Bills vs. Dallas Cowboys Week 13, 2019 FULL Game",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 3830,
+      "positive_share": 0.099,
+      "full_link": "https://www.youtube.com/watch?v=zRl3W7xWTUs"
+    },
+    {
+      "id": 3,
+      "title": "New York Giants vs. Tampa Bay Buccaneers Week 3, 2019 FULL Game: Danny Dimes' First Start!",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 4363,
+      "positive_share": 0.083,
+      "full_link": "https://www.youtube.com/watch?v=wHaTZebNwvQ"
+    },
+    {
+      "id": 4,
+      "title": "Chargers vs. Titans Week 7, 2019 FULL Game",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 4105,
+      "positive_share": 0.0806,
+      "full_link": "https://www.youtube.com/watch?v=nA7kLzHwFRs"
+    },
+    {
+      "id": 5,
+      "title": "San Francisco 49ers vs. New Orleans Saints Week 14, 2019 FULL Game",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 4450,
+      "positive_share": 0.093,
+      "full_link": "https://www.youtube.com/watch?v=PEtMB7G0mH4"
+    },
+    {
+      "id": 6,
+      "title": "Dwayne Haskins' FIRST WIN! Lions vs. Redskins Week 12, 2019 FULL GAME",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 4222,
+      "positive_share": 0.0625,
+      "full_link": "https://www.youtube.com/watch?v=I-StmK_bFUQ"
+    },
+    {
+      "id": 7,
+      "title": "A Surprising Road Upset! Dolphins vs. Colts Week 10, 2019 FULL GAME",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 3911,
+      "positive_share": 0.0716,
+      "full_link": "https://www.youtube.com/watch?v=dRW3_Pnegqw"
+    },
+    {
+      "id": 8,
+      "title": "Russell Wilson Battles the NFL's Top Defense: Seahawks vs. 49ers Week 10, 2019 FULL Game",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 5358,
+      "positive_share": 0.0873,
+      "full_link": "https://www.youtube.com/watch?v=P-cbw8Ztf3I"
+    },
+    {
+      "id": 9,
+      "title": "Rams vs. Seahawks Week 5, 2019 FULL Game",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "clips": 4618,
+      "positive_share": 0.0922,
+      "full_link": "https://www.youtube.com/watch?v=YyYp92GDwa4"
+    },
+    {
+      "id": 10,
+      "title": "Super Bowl 54 FULL Game: Kansas City Chiefs vs. San Francisco 49ers",
+      "league": "NFL",
+      "season_in_title": null,
+      "clips": 3757,
+      "positive_share": 0.1067,
+      "full_link": "https://www.youtube.com/watch?v=jQ1l5zenaKY"
+    },
+    {
+      "id": 11,
+      "title": "Baker Mayfield's First Career Start With the Browns vs. Raiders | Full Game | NFL 2018 Season Week 4",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "clips": 5003,
+      "positive_share": 0.0971,
+      "full_link": "https://www.youtube.com/watch?v=pA_xAsb5hbA"
+    },
+    {
+      "id": 12,
+      "title": "Tampa Bay Buccaneers vs. Detroit Lions Full Game | NFL 2024 Season Week 2",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 3453,
+      "positive_share": 0.135,
+      "full_link": "https://www.youtube.com/watch?v=Xv4-lEDPbJA"
+    },
+    {
+      "id": 13,
+      "title": "Baltimore Ravens vs. Kansas City Chiefs Full Game | Week 1 | NFL 2024 Season",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 3494,
+      "positive_share": 0.0704,
+      "full_link": "https://www.youtube.com/watch?v=FT8IxVV8vFM"
+    },
+    {
+      "id": 14,
+      "title": "2016 NFC Divisional FULL Game: Green Bay Packers vs. Dallas Cowboys",
+      "league": "NFL",
+      "season_in_title": 2016,
+      "clips": 4249,
+      "positive_share": 0.0793,
+      "full_link": "https://www.youtube.com/watch?v=Hlar7oGAIZI"
+    },
+    {
+      "id": 15,
+      "title": "Kansas City Chiefs vs. Los Angeles Rams Week 11, 2018 FULL Game: The Greatest MNF Game Ever?",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "clips": 5119,
+      "positive_share": 0.0965,
+      "full_link": "https://www.youtube.com/watch?v=nTyk2Hngugw"
+    },
+    {
+      "id": 16,
+      "title": "Highest Scoring TNF Game EVER: Rams vs. 49ers Week 3, 2017 FULL GAME",
+      "league": "NFL",
+      "season_in_title": 2017,
+      "clips": 4510,
+      "positive_share": 0.0789,
+      "full_link": "https://www.youtube.com/watch?v=EJHUOmFQ17c"
+    },
+    {
+      "id": 17,
+      "title": "Pittsburgh Steelers vs. New Orleans Saints Week 16, 2018 FULL Game",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "clips": 4421,
+      "positive_share": 0.1167,
+      "full_link": "https://www.youtube.com/watch?v=T2G0vIuD1cE"
+    },
+    {
+      "id": 18,
+      "title": "New England Patriots vs. Miami Dolphins Week 14, 2018 FULL Game: The Miami Miracle!",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "clips": 3975,
+      "positive_share": 0.0795,
+      "full_link": "https://www.youtube.com/watch?v=1fg1LfX9If0"
+    },
+    {
+      "id": 19,
+      "title": "Dallas Cowboys vs. Pittsburgh Steelers Week 10, 2016 FULL Game",
+      "league": "NFL",
+      "season_in_title": 2016,
+      "clips": 4264,
+      "positive_share": 0.0495,
+      "full_link": "https://www.youtube.com/watch?v=9n5UzEek6X8"
+    },
+    {
+      "id": 20,
+      "title": "A Playoff Matchup Worth the Hype: Seahawks vs. Cowboys 2018 NFC Wild Card FULL GAME",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "clips": 3379,
+      "positive_share": 0.0814,
+      "full_link": "https://www.youtube.com/watch?v=pzlYd6aXF4g"
+    },
+    {
+      "id": 21,
+      "title": "Mahomes Starts His MVP Campaign: Kansas City Chiefs vs. Los Angeles Chargers Week 1, 2018 Full Game",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "clips": 4036,
+      "positive_share": 0.0771,
+      "full_link": "https://www.youtube.com/watch?v=pJJvCojYnK4"
+    },
+    {
+      "id": 22,
+      "title": "Cincinnati Bengals vs. Atlanta Falcons Week 4, 2018 Full Game",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "clips": 4617,
+      "positive_share": 0.0853,
+      "full_link": "https://www.youtube.com/watch?v=m32oyj0ISv8"
+    },
+    {
+      "id": 23,
+      "title": "Super Bowl 52 FULL Game: New England Patriots vs. Philadelphia Eagles",
+      "league": "NFL",
+      "season_in_title": null,
+      "clips": 4464,
+      "positive_share": 0.1138,
+      "full_link": "https://www.youtube.com/watch?v=0FF_DbJ3G68"
+    },
+    {
+      "id": 24,
+      "title": "Houston Texans vs. Indianapolis Colts Week 4, 2018 FULL Game",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "clips": 5497,
+      "positive_share": 0.0848,
+      "full_link": "https://www.youtube.com/watch?v=2mps2wlZ9-c"
+    },
+    {
+      "id": 25,
+      "title": "2017 NFC Divisional Round FULL Game: New Orleans Saints vs. Minnesota Vikings",
+      "league": "NFL",
+      "season_in_title": 2017,
+      "clips": 4330,
+      "positive_share": 0.1229,
+      "full_link": "https://www.youtube.com/watch?v=A7g9v0BSsvA"
+    },
+    {
+      "id": 26,
+      "title": "Green Bay Packers vs. Atlanta Falcons 2016 NFC Championship Full Game",
+      "league": "NFL",
+      "season_in_title": 2016,
+      "clips": 4454,
+      "positive_share": 0.066,
+      "full_link": "https://www.youtube.com/watch?v=gkaqsTS_Qa8"
+    },
+    {
+      "id": 27,
+      "title": "Bengals vs. Ravens Week 17, 2017 FULL Game: The Bengals 4th Down Miracle!",
+      "league": "NFL",
+      "season_in_title": 2017,
+      "clips": 4721,
+      "positive_share": 0.0782,
+      "full_link": "https://www.youtube.com/watch?v=CJjHhwdlJtE"
+    },
+    {
+      "id": 28,
+      "title": "GAME OF THE WEEK! Miami Dolphins vs. Buffalo Bills FULL GAME | NFL 2024 Season Week 9",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 3330,
+      "positive_share": 0.1228,
+      "full_link": "https://www.youtube.com/watch?v=iIlNNJy1VJw"
+    },
+    {
+      "id": 29,
+      "title": "ULTIMATE BELIEF!! Baltimore Ravens vs. Cleveland Browns FULL GAME | NFL 2024 Season Week 8",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 3717,
+      "positive_share": 0.1146,
+      "full_link": "https://www.youtube.com/watch?v=LcJs3GlwL-w"
+    },
+    {
+      "id": 30,
+      "title": "Detroit Lions vs. Houston Texans FULL GAME | NFL 2024 Season Week 10",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 3607,
+      "positive_share": 0.117,
+      "full_link": "https://www.youtube.com/watch?v=fCdtMRGe9CI"
+    },
+    {
+      "id": 31,
+      "title": "Tampa Bay Buccaneers vs. Carolina Panthers FULL GAME | NFL 2024 Season Week 13",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 4443,
+      "positive_share": 0.0984,
+      "full_link": "https://www.youtube.com/watch?v=M6atHwIP2qc"
+    },
+    {
+      "id": 32,
+      "title": "A WILD Battle In Week 11! Cincinnati Bengals vs. Los Angeles Chargers FULL GAME | NFL 2024 Season",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 4184,
+      "positive_share": 0.1274,
+      "full_link": "https://www.youtube.com/watch?v=ea4ej65-ONU"
+    },
+    {
+      "id": 33,
+      "title": "San Francisco 49ers vs. Los Angeles Rams Full Game | NFL 2024 Season Week 3",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 3586,
+      "positive_share": 0.1157,
+      "full_link": "https://www.youtube.com/watch?v=2jxjaPm64Lk"
+    },
+    {
+      "id": 34,
+      "title": "Tom Brady's SEVENTH Super Bowl Win | Kansas City Chiefs vs Tampa Bay Buccaneers FULL GAME | NFL 2020",
+      "league": "NFL",
+      "season_in_title": 2020,
+      "clips": 3716,
+      "positive_share": 0.095,
+      "full_link": "https://www.youtube.com/watch?v=arcwCWZBY8Q"
+    },
+    {
+      "id": 35,
+      "title": "FULL GAME!! Jacksonville Jaguars vs. Houston Texans  | NFL 2024 Season Week 4",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 3654,
+      "positive_share": 0.0928,
+      "full_link": "https://www.youtube.com/watch?v=Bc4srv6rZj0"
+    },
+    {
+      "id": 36,
+      "title": "One of the most INTENSE Super Bowls ever! 49ers vs. Chiefs Full Game | Super Bowl 58",
+      "league": "NFL",
+      "season_in_title": null,
+      "clips": 4597,
+      "positive_share": 0.131,
+      "full_link": "https://www.youtube.com/watch?v=O5yGFznv5KE"
+    },
+    {
+      "id": 37,
+      "title": "Kansas City Chiefs vs. Philadelphia Eagles Super Bowl LVII FULL GAME | Super Bowl NFL 2022 Season",
+      "league": "NFL",
+      "season_in_title": 2022,
+      "clips": 3822,
+      "positive_share": 0.1321,
+      "full_link": "https://www.youtube.com/watch?v=UrOzwTlD2_w"
+    },
+    {
+      "id": 38,
+      "title": "Super Bowl LIII: New England Patriots vs. Los Angeles Rams | FULL GAME",
+      "league": "NFL",
+      "season_in_title": null,
+      "clips": 3730,
+      "positive_share": 0.1067,
+      "full_link": "https://www.youtube.com/watch?v=4kRSu_Eb4L4"
+    },
+    {
+      "id": 39,
+      "title": "Buffalo Bills vs. Detroit Lions FULL GAME | NFL 2024 Season Week 15",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "clips": 4064,
+      "positive_share": 0.1449,
+      "full_link": "https://www.youtube.com/watch?v=hfBFVWYPV2U"
+    },
+    {
+      "id": 40,
+      "title": "The Immaculate Extension: Ravens vs. Steelers 2016, Week 16 FULL GAME",
+      "league": "NFL",
+      "season_in_title": 2016,
+      "clips": 3896,
+      "positive_share": 0.0426,
+      "full_link": "https://www.youtube.com/watch?v=Tcf_3l2edBk"
+    }
+  ],
+  "event_extension": {
+    "status": "blocked",
+    "needs": "Verified video-time to play alignment (scoreboard clock reading or manual anchors) and authorized footage for visual review. Without them no event label or event metric is reported.",
+    "what_exists": "Game identities are verified from source titles. Ranking, evidence and missed-highlight review work without video."
+  }
+}

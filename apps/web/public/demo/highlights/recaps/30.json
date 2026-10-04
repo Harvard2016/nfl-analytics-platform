@@ -1,0 +1,365 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2024_10_DET_HOU",
+  "final": "DET 26, HOU 23",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 5,
+    "interception": 7,
+    "sack": 4,
+    "fumble lost": 0,
+    "turnover": 7,
+    "big play": 13
+  },
+  "events": [
+    {
+      "play_id": 191,
+      "quarter": 1.0,
+      "game_clock": "13:01",
+      "offense": "DET",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -5.44,
+      "description": "(13:01) (Shotgun) 16-J.Goff pass short right intended for 26-J.Gibbs INTERCEPTED by 20-J.Ward\u2026"
+    },
+    {
+      "play_id": 390,
+      "quarter": 1.0,
+      "game_clock": "07:50",
+      "offense": "HOU",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 8.0,
+      "epa": 1.92,
+      "description": "(7:50) (Shotgun) 28-J.Mixon left end for 8 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 659,
+      "quarter": 1.0,
+      "game_clock": "04:26",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 36.0,
+      "epa": 3.25,
+      "description": "(4:26) (Shotgun) 7-C.Stroud pass short left to 28-J.Mixon to DET 3 for 36 yards (0-T.Arnold;\u2026"
+    },
+    {
+      "play_id": 765,
+      "quarter": 1.0,
+      "game_clock": "02:56",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -5.0,
+      "epa": -1.1,
+      "description": "(2:56) (Shotgun) 7-C.Stroud sacked at DET 16 for -5 yards (41-J.Houston)."
+    },
+    {
+      "play_id": 879,
+      "quarter": 1.0,
+      "game_clock": "01:21",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 3.39,
+      "description": "(1:21) (Shotgun) 16-J.Goff pass deep left to 9-J.Williams to DET 47 for 23 yards (21-C.Bullock;\u2026"
+    },
+    {
+      "play_id": 1086,
+      "quarter": 2.0,
+      "game_clock": "10:58",
+      "offense": "DET",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 2.61,
+      "description": "(10:58) (Shotgun) 16-J.Goff pass deep right to 87-S.LaPorta for 20 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1372,
+      "quarter": 2.0,
+      "game_clock": "07:42",
+      "offense": "DET",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -5.52,
+      "description": "(7:42) 72-J.Jones reported in as eligible. 16-J.Goff pass short middle intended for 87-S.LaPorta\u2026"
+    },
+    {
+      "play_id": 1724,
+      "quarter": 2.0,
+      "game_clock": "03:15",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -12.0,
+      "epa": -1.63,
+      "description": "(3:15) 7-C.Stroud sacked at HOU 21 for -12 yards (95-P.O'Connor)."
+    },
+    {
+      "play_id": 1967,
+      "quarter": 2.0,
+      "game_clock": "00:36",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 25.0,
+      "epa": 1.72,
+      "description": "(:36) (No Huddle, Shotgun) 7-C.Stroud pass deep middle to 8-J.Metchie to DET 32 for 25 yards\u2026"
+    },
+    {
+      "play_id": 2070,
+      "quarter": 2.0,
+      "game_clock": "00:16",
+      "offense": "HOU",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 15.0,
+      "epa": 3.84,
+      "description": "(:16) (Shotgun) 7-C.Stroud pass short middle to 8-J.Metchie for 15 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2178,
+      "quarter": 2.0,
+      "game_clock": "00:02",
+      "offense": "DET",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -0.29,
+      "description": "(:02) (Shotgun) 16-J.Goff pass deep left INTERCEPTED by 4-K.Lassiter at HOU 2. 4-K.Lassiter to HOU\u2026"
+    },
+    {
+      "play_id": 2252,
+      "quarter": 3.0,
+      "game_clock": "15:00",
+      "offense": "HOU",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -5.77,
+      "description": "(15:00) (Shotgun) 7-C.Stroud pass short left intended for 3-T.Dell INTERCEPTED by 23-C.Davis at\u2026"
+    },
+    {
+      "play_id": 2279,
+      "quarter": 3.0,
+      "game_clock": "14:56",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 12.0,
+      "epa": 0.79,
+      "description": "(14:56) 5-D.Montgomery right end to HOU 19 for 12 yards (23-E.Murray)."
+    },
+    {
+      "play_id": 2323,
+      "quarter": 3.0,
+      "game_clock": "13:44",
+      "offense": "DET",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -3.59,
+      "description": "(13:44) (Shotgun) 16-J.Goff pass deep right intended for 87-S.LaPorta INTERCEPTED by 4-K.Lassiter\u2026"
+    },
+    {
+      "play_id": 2486,
+      "quarter": 3.0,
+      "game_clock": "12:17",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 37.0,
+      "epa": 3.27,
+      "description": "(12:17) 16-J.Goff pass deep left to 87-S.LaPorta to HOU 3 for 37 yards (23-E.Murray)."
+    },
+    {
+      "play_id": 2518,
+      "quarter": 3.0,
+      "game_clock": "11:36",
+      "offense": "DET",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 0.84,
+      "description": "(11:36) (Shotgun) 5-D.Montgomery left guard for 3 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2610,
+      "quarter": 3.0,
+      "game_clock": "10:12",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 32.0,
+      "epa": 3.3,
+      "description": "(10:12) (Shotgun) 7-C.Stroud pass short left to 86-D.Schultz to DET 36 for 32 yards (34-A.Anzalone)."
+    },
+    {
+      "play_id": 2661,
+      "quarter": 3.0,
+      "game_clock": "09:02",
+      "offense": "HOU",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -4.79,
+      "description": "(9:02) 7-C.Stroud pass deep right intended for 3-T.Dell INTERCEPTED by 23-C.Davis at DET -3.\u2026"
+    },
+    {
+      "play_id": 2684,
+      "quarter": 3.0,
+      "game_clock": "08:55",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 12.0,
+      "epa": 0.86,
+      "description": "(8:55) (Shotgun) 26-J.Gibbs right end ran ob at DET 32 for 12 yards (39-H.To'oTo'o).\u2026"
+    },
+    {
+      "play_id": 2718,
+      "quarter": 3.0,
+      "game_clock": "08:26",
+      "offense": "DET",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -2.67,
+      "description": "(8:26) 16-J.Goff pass deep left intended for 9-J.Williams INTERCEPTED by 21-C.Bullock at HOU 22.\u2026"
+    },
+    {
+      "play_id": 2861,
+      "quarter": 3.0,
+      "game_clock": "05:51",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -10.0,
+      "epa": -1.55,
+      "description": "(5:51) 7-C.Stroud sacked at HOU 13 for -10 yards (54-A.McNeill). DET-54-A.McNeill was injured\u2026"
+    },
+    {
+      "play_id": 2906,
+      "quarter": 3.0,
+      "game_clock": "04:43",
+      "offense": "HOU",
+      "events": [
+        "big play"
+      ],
+      "yards": 11.0,
+      "epa": -0.25,
+      "description": "(4:43) (Shotgun) 33-D.Ogunbowale left guard to HOU 28 for 11 yards (32-B.Branch)."
+    },
+    {
+      "play_id": 3043,
+      "quarter": 3.0,
+      "game_clock": "03:13",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 33.0,
+      "epa": 3.39,
+      "description": "(3:13) (Shotgun) 16-J.Goff pass short right to 26-J.Gibbs to DET 44 for 33 yards (52-J.Hughes)."
+    },
+    {
+      "play_id": 3421,
+      "quarter": 4.0,
+      "game_clock": "12:24",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 1.46,
+      "description": "(12:24) 16-J.Goff pass short left to 5-D.Montgomery ran ob at HOU 9 for 24 yards (32-K.Hollman)."
+    },
+    {
+      "play_id": 3446,
+      "quarter": 4.0,
+      "game_clock": "11:43",
+      "offense": "DET",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 9.0,
+      "epa": 1.78,
+      "description": "(11:43) 16-J.Goff pass short right to 14-A.St. Brown for 9 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3604,
+      "quarter": 4.0,
+      "game_clock": "09:21",
+      "offense": "HOU",
+      "events": [
+        "sack"
+      ],
+      "yards": -13.0,
+      "epa": -2.25,
+      "description": "(9:21) (Shotgun) 7-C.Stroud sacked at HOU 37 for -10 yards (93-J.Paschal). FUMBLES (93-J.Paschal)\u2026"
+    },
+    {
+      "play_id": 3668,
+      "quarter": 4.0,
+      "game_clock": "08:21",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 15.0,
+      "epa": 1.15,
+      "description": "(8:21) 26-J.Gibbs right tackle ran ob at DET 32 for 15 yards (32-K.Hollman). ** Injury Update:\u2026"
+    },
+    {
+      "play_id": 3725,
+      "quarter": 4.0,
+      "game_clock": "07:15",
+      "offense": "DET",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.01,
+      "description": "(7:15) 26-J.Gibbs right end pushed ob at HOU 39 for 20 yards (21-C.Bullock)."
+    }
+  ]
+}

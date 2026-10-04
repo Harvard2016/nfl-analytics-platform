@@ -1,0 +1,374 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2018_01_KC_LAC",
+  "final": "KC 38, LAC 28",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 8,
+    "interception": 1,
+    "sack": 2,
+    "fumble lost": 1,
+    "turnover": 2,
+    "big play": 20
+  },
+  "events": [
+    {
+      "play_id": 117,
+      "quarter": 1.0,
+      "game_clock": "13:24",
+      "offense": "LAC",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 0.0,
+      "epa": -7.05,
+      "description": "(13:24) 8-D.Kaser punts 57 yards to KC 9, Center-47-M.Windt. 10-T.Hill for 91 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 284,
+      "quarter": 1.0,
+      "game_clock": "11:10",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 19.0,
+      "epa": 1.07,
+      "description": "(11:10) 12-T.Benjamin left end ran ob at KC 33 for 19 yards (23-K.Fuller). Penalty on\u2026"
+    },
+    {
+      "play_id": 507,
+      "quarter": 1.0,
+      "game_clock": "06:50",
+      "offense": "KC",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 58.0,
+      "epa": 5.17,
+      "description": "(6:50) (Shotgun) 15-P.Mahomes pass short middle to 10-T.Hill for 58 yards, TOUCHDOWN [92-B.Mebane]."
+    },
+    {
+      "play_id": 558,
+      "quarter": 1.0,
+      "game_clock": "06:39",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 30.0,
+      "epa": 2.75,
+      "description": "(6:39) (Shotgun) 17-P.Rivers pass deep left to 30-A.Ekeler to KC 45 for 30 yards (38-R.Parker).\u2026"
+    },
+    {
+      "play_id": 636,
+      "quarter": 1.0,
+      "game_clock": "05:31",
+      "offense": "LAC",
+      "events": [
+        "sack"
+      ],
+      "yards": -6.0,
+      "epa": -2.09,
+      "description": "(5:31) (Shotgun) 17-P.Rivers sacked at KC 36 for -6 yards (55-D.Ford). LAC-72-J.Barksdale was\u2026"
+    },
+    {
+      "play_id": 778,
+      "quarter": 1.0,
+      "game_clock": "04:02",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 18.0,
+      "epa": 1.08,
+      "description": "(4:02) 28-M.Gordon right tackle to KC 42 for 18 yards (20-S.Nelson)."
+    },
+    {
+      "play_id": 943,
+      "quarter": 1.0,
+      "game_clock": "00:21",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 30.0,
+      "epa": 1.89,
+      "description": "(:21) 15-P.Mahomes pass deep left to 10-T.Hill to LAC 45 for 30 yards (44-K.White) [54-M.Ingram]."
+    },
+    {
+      "play_id": 1028,
+      "quarter": 2.0,
+      "game_clock": "14:49",
+      "offense": "KC",
+      "events": [
+        "sack"
+      ],
+      "yards": 0.0,
+      "epa": -1.65,
+      "description": "(14:49) (Shotgun) 15-P.Mahomes sacked at LAC 45 for 0 yards (33-D.James)."
+    },
+    {
+      "play_id": 1208,
+      "quarter": 2.0,
+      "game_clock": "11:07",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 25.0,
+      "epa": 1.55,
+      "description": "(11:07) 17-P.Rivers pass short right to 28-M.Gordon pushed ob at KC 34 for 25 yards (20-S.Nelson)."
+    },
+    {
+      "play_id": 1334,
+      "quarter": 2.0,
+      "game_clock": "08:46",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 11.0,
+      "epa": 0.59,
+      "description": "(8:46) 28-M.Gordon up the middle to KC 13 for 11 yards (38-R.Parker)."
+    },
+    {
+      "play_id": 1394,
+      "quarter": 2.0,
+      "game_clock": "07:54",
+      "offense": "LAC",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 13.0,
+      "epa": 2.59,
+      "description": "(7:54) (Shotgun) 17-P.Rivers pass short left to 30-A.Ekeler for 13 yards, TOUCHDOWN [55-D.Ford]."
+    },
+    {
+      "play_id": 1598,
+      "quarter": 2.0,
+      "game_clock": "03:53",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 13.0,
+      "epa": 0.81,
+      "description": "(3:53) (Shotgun) 27-K.Hunt right end pushed ob at LAC 36 for 13 yards (33-D.James)."
+    },
+    {
+      "play_id": 1872,
+      "quarter": 2.0,
+      "game_clock": "00:51",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 27.0,
+      "epa": 0.71,
+      "description": "(:51) (Shotgun) 32-S.Ware right tackle to KC 37 for 27 yards (20-D.King, 31-A.Phillips)."
+    },
+    {
+      "play_id": 1933,
+      "quarter": 2.0,
+      "game_clock": "00:38",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 0.84,
+      "description": "(:38) (Shotgun) 15-P.Mahomes pass deep left to 10-T.Hill to LAC 38 for 20 yards (37-J.Addae)\u2026"
+    },
+    {
+      "play_id": 2068,
+      "quarter": 3.0,
+      "game_clock": "15:00",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 1.5,
+      "description": "(15:00) (Shotgun) 15-P.Mahomes pass short middle to 10-T.Hill ran ob at KC 46 for 21 yards."
+    },
+    {
+      "play_id": 2331,
+      "quarter": 3.0,
+      "game_clock": "09:29",
+      "offense": "KC",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 0.62,
+      "description": "(9:29) (Shotgun) 15-P.Mahomes pass short middle to 13-D.Thomas for 1 yard, TOUCHDOWN."
+    },
+    {
+      "play_id": 2413,
+      "quarter": 3.0,
+      "game_clock": "08:38",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.41,
+      "description": "(8:38) 17-P.Rivers pass short left to 28-M.Gordon to LAC 40 for 20 yards (38-R.Parker)."
+    },
+    {
+      "play_id": 2578,
+      "quarter": 3.0,
+      "game_clock": "04:21",
+      "offense": "LAC",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -3.69,
+      "description": "(4:21) (Shotgun) 17-P.Rivers pass short left intended for 16-Ty.Williams INTERCEPTED by\u2026"
+    },
+    {
+      "play_id": 2688,
+      "quarter": 3.0,
+      "game_clock": "02:54",
+      "offense": "KC",
+      "events": [
+        "big play"
+      ],
+      "yards": 34.0,
+      "epa": 3.92,
+      "description": "(2:54) (Shotgun) 15-P.Mahomes pass deep right to 10-T.Hill to KC 45 for 34 yards (20-D.King)."
+    },
+    {
+      "play_id": 2762,
+      "quarter": 3.0,
+      "game_clock": "00:55",
+      "offense": "KC",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 36.0,
+      "epa": 3.54,
+      "description": "(:55) (Shotgun) 15-P.Mahomes pass deep left to 42-A.Sherman for 36 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2831,
+      "quarter": 3.0,
+      "game_clock": "00:42",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.33,
+      "description": "(:42) (Shotgun) 17-P.Rivers pass short left to 13-K.Allen to LAC 29 for 20 yards (21-E.Murray;\u2026"
+    },
+    {
+      "play_id": 2918,
+      "quarter": 4.0,
+      "game_clock": "14:57",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 25.0,
+      "epa": 2.63,
+      "description": "(14:57) (Shotgun) 17-P.Rivers pass deep middle to 81-M.Williams to KC 41 for 25 yards\u2026"
+    },
+    {
+      "play_id": 3043,
+      "quarter": 4.0,
+      "game_clock": "12:09",
+      "offense": "LAC",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 2.93,
+      "description": "(12:09) (Shotgun) 17-P.Rivers pass deep right to 13-K.Allen for 20 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3163,
+      "quarter": 4.0,
+      "game_clock": "10:35",
+      "offense": "KC",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": 7.37,
+      "description": "(10:35) 2-D.Colquitt punts 59 yards to LAC 14, Center-41-J.Winchester. 89-J.Jones MUFFS catch, and\u2026"
+    },
+    {
+      "play_id": 3257,
+      "quarter": 4.0,
+      "game_clock": "09:47",
+      "offense": "KC",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 1.36,
+      "description": "(9:47) (Shotgun) 15-P.Mahomes pass short middle to 10-T.Hill for 1 yard, TOUCHDOWN."
+    },
+    {
+      "play_id": 3384,
+      "quarter": 4.0,
+      "game_clock": "08:36",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 2.35,
+      "description": "(8:36) (Shotgun) 17-P.Rivers pass deep left to 81-M.Williams to LAC 39 for 23 yards (21-E.Murray)."
+    },
+    {
+      "play_id": 3456,
+      "quarter": 4.0,
+      "game_clock": "07:13",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 0.58,
+      "description": "(7:13) (Shotgun) 30-A.Ekeler up the middle to KC 35 for 10 yards (38-R.Parker, 92-T.Kpassagnon)."
+    },
+    {
+      "play_id": 3545,
+      "quarter": 4.0,
+      "game_clock": "05:52",
+      "offense": "LAC",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 3.68,
+      "description": "(5:52) (Shotgun) 17-P.Rivers pass short right to 13-K.Allen pushed ob at KC 4 for 23 yards\u2026"
+    },
+    {
+      "play_id": 3569,
+      "quarter": 4.0,
+      "game_clock": "05:08",
+      "offense": "LAC",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 4.0,
+      "epa": 1.14,
+      "description": "(5:08) (Shotgun) 17-P.Rivers pass short right to 16-Ty.Williams for 4 yards, TOUCHDOWN."
+    }
+  ]
+}

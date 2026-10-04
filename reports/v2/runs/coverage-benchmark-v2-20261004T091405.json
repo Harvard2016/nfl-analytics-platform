@@ -1,0 +1,221 @@
+{
+  "module": "coverage",
+  "run_id": "coverage-benchmark-v2-20261004T091405",
+  "name": "benchmark-v2",
+  "results_version": "v2",
+  "started_at": "2026-10-04T09:14:05+00:00",
+  "git_commit": "d11b3c55f521026cba0e601cd7539940c225d252+uncommitted",
+  "seed": 20261004,
+  "config": {},
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {
+    "weeks": {
+      "train": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "dev": [
+        13,
+        14
+      ],
+      "test": [
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    "manifest": "data/manifests/bdb2026_splits.json"
+  },
+  "target": "released man/zone label",
+  "population": "v1 common cohort and operational test-week plays",
+  "exclusions": null,
+  "input_cutoff": {
+    "at_snap": 0,
+    "post_0_5s": 5,
+    "post_1s": 10,
+    "post_1_5s": 15
+  },
+  "features": null,
+  "preprocessing": null,
+  "calibration": "Platt per model and horizon on weeks 13-14",
+  "hyperparameters": null,
+  "metrics": {
+    "v1_gbm": {
+      "at_snap": {
+        "accuracy": 0.8310258023914412,
+        "macro_f1": 0.768355871064946,
+        "log_loss": 0.3766020418444773,
+        "brier": 0.1191289565646455,
+        "man_recall": 0.565864833906071,
+        "zone_recall": 0.9314533622559653
+      },
+      "post_1s": {
+        "accuracy": 0.8697293895531781,
+        "macro_f1": 0.8259401432599254,
+        "log_loss": 0.30601571854407056,
+        "brier": 0.09515712454392336,
+        "man_recall": 0.6701030927835051,
+        "zone_recall": 0.9453362255965293
+      },
+      "post_1_5s": {
+        "accuracy": 0.8882945248584015,
+        "macro_f1": 0.8534872030027987,
+        "log_loss": 0.25692932308280586,
+        "brier": 0.07907200672524953,
+        "man_recall": 0.7296678121420389,
+        "zone_recall": 0.9483731019522776
+      }
+    },
+    "v2_gbm_rel": {
+      "at_snap": {
+        "accuracy": 0.8530522341095028,
+        "macro_f1": 0.8047234235551188,
+        "log_loss": 0.3333888851628482,
+        "brier": 0.10402982393891365,
+        "man_recall": 0.6471935853379153,
+        "zone_recall": 0.9310195227765726
+      },
+      "post_0_5s": {
+        "accuracy": 0.8741346758967904,
+        "macro_f1": 0.8360304721218266,
+        "log_loss": 0.29182213090583536,
+        "brier": 0.08984790518978132,
+        "man_recall": 0.713631156930126,
+        "zone_recall": 0.9349240780911063
+      },
+      "post_1s": {
+        "accuracy": 0.8939584644430459,
+        "macro_f1": 0.8627725509224919,
+        "log_loss": 0.2454995177742944,
+        "brier": 0.07543735857225868,
+        "man_recall": 0.7594501718213058,
+        "zone_recall": 0.9449023861171366
+      },
+      "post_1_5s": {
+        "accuracy": 0.9056010069225928,
+        "macro_f1": 0.8776964758523018,
+        "log_loss": 0.21825748629461872,
+        "brier": 0.06649681796331786,
+        "man_recall": 0.7789232531500573,
+        "zone_recall": 0.9535791757049892
+      }
+    },
+    "v2_temporal": {
+      "at_snap": {
+        "accuracy": 0.8961611076148521,
+        "macro_f1": 0.8657791474798875,
+        "log_loss": 0.24949369133274793,
+        "brier": 0.07591206900934705,
+        "man_recall": 0.7651775486827033,
+        "zone_recall": 0.9457700650759219
+      },
+      "post_0_5s": {
+        "accuracy": 0.9222781623662681,
+        "macro_f1": 0.9008650373729739,
+        "log_loss": 0.19499127903714142,
+        "brier": 0.05832714591193086,
+        "man_recall": 0.8327605956471936,
+        "zone_recall": 0.956182212581345
+      },
+      "post_1s": {
+        "accuracy": 0.9414726242920075,
+        "macro_f1": 0.9258155411012233,
+        "log_loss": 0.14688282900408767,
+        "brier": 0.0432621975762976,
+        "man_recall": 0.8774341351660939,
+        "zone_recall": 0.9657266811279827
+      },
+      "post_1_5s": {
+        "accuracy": 0.9518565135305224,
+        "macro_f1": 0.939133063569705,
+        "log_loss": 0.1276576451182837,
+        "brier": 0.03752779921233201,
+        "man_recall": 0.9003436426116839,
+        "zone_recall": 0.9713665943600868
+      }
+    },
+    "v2_temporal_3seed": {
+      "at_snap": {
+        "accuracy": 0.9005663939584645,
+        "macro_f1": 0.870464072976243,
+        "log_loss": 0.23551732693412417,
+        "brier": 0.07094806665129896,
+        "man_recall": 0.7617411225658648,
+        "zone_recall": 0.9531453362255965
+      },
+      "post_0_5s": {
+        "accuracy": 0.9282567652611705,
+        "macro_f1": 0.9079732067333703,
+        "log_loss": 0.18148750315626677,
+        "brier": 0.053806416767761996,
+        "man_recall": 0.8350515463917526,
+        "zone_recall": 0.9635574837310196
+      },
+      "post_1s": {
+        "accuracy": 0.9433606041535557,
+        "macro_f1": 0.9281558958283096,
+        "log_loss": 0.13807597006796316,
+        "brier": 0.040844977669374886,
+        "man_recall": 0.8797250859106529,
+        "zone_recall": 0.9674620390455532
+      },
+      "post_1_5s": {
+        "accuracy": 0.9543738200125865,
+        "macro_f1": 0.9422314740119357,
+        "log_loss": 0.11657660263249749,
+        "brier": 0.03442289793615039,
+        "man_recall": 0.9026345933562429,
+        "zone_recall": 0.9739696312364425
+      }
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "report": {
+      "path": "reports/v2/coverage_benchmark_v2.json",
+      "sha256": "0194a22e5a640e66b2a77f83bde303325ac51378119df2ca40ef77de536a67c8"
+    },
+    "predictions": {
+      "path": "reports/v2/coverage_predictions_v2.parquet",
+      "sha256": "d44a450979d501733f815f2374411215f91cb4cfa447e82156d7956c54a8bc48"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T09:17:50+00:00",
+  "train_seconds": 225.3,
+  "peak_memory_mb": 509.1
+}

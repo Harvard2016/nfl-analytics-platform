@@ -1,0 +1,356 @@
+{
+  "module": "pregame",
+  "run_id": "pregame-v2-backtest-20261004T075359",
+  "name": "v2-backtest",
+  "results_version": "v2",
+  "started_at": "2026-10-04T07:53:59+00:00",
+  "git_commit": "4846cca9c711409b1a681b2e7b62826edd09c5b9+uncommitted",
+  "seed": 20261004,
+  "config": {},
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {
+    "games": {
+      "path": "data/raw/nflverse/games.csv",
+      "sha256": "e8f2599fc331dd5ee735876d4cd38b72d0a7a36e5378abb967d10db2fd8d1f0e"
+    }
+  },
+  "split": {
+    "development": [
+      2012,
+      2022
+    ],
+    "previously_examined": [
+      2023,
+      2025
+    ],
+    "refit": "before each season on all earlier seasons"
+  },
+  "target": "home team wins (ties excluded, playoffs included)",
+  "population": "decided games 2002-2026",
+  "exclusions": "ties",
+  "input_cutoff": "24 hours before scheduled kickoff. A finished game counts only if it kicked off at least 28 hours before the target kickoff.",
+  "features": [
+    "rest_diff",
+    "home_short_week",
+    "away_short_week",
+    "home_off_bye",
+    "away_off_bye",
+    "div_game",
+    "form_diff",
+    "win_pct_diff",
+    "d_off_epa_w4",
+    "d_def_off_epa_w4",
+    "d_pass_epa_w4",
+    "d_def_pass_epa_w4",
+    "d_rush_epa_w4",
+    "d_def_rush_epa_w4",
+    "d_success_w4",
+    "d_def_success_w4",
+    "d_sack_rate_w4",
+    "d_def_sack_rate_w4",
+    "d_turnover_rate_w4",
+    "d_def_turnover_rate_w4",
+    "d_explosive_w4",
+    "d_def_explosive_w4",
+    "d_qb_epa_shrunk",
+    "d_qb_log_dropbacks"
+  ],
+  "preprocessing": null,
+  "calibration": null,
+  "hyperparameters": {
+    "chosen": {
+      "elo_offset": {
+        "key": "elo_offset|all|w4|0.1",
+        "model": "elo_offset",
+        "groups": "all",
+        "window": "w4",
+        "penalty": 0.1,
+        "log_loss": 0.6278107807872588,
+        "brier": 0.21922510180990487,
+        "vs_elo": -0.002242312949742642,
+        "seasons_better_than_elo": 8,
+        "by_season_vs_elo": {
+          "2012": -0.004920163620156459,
+          "2013": 0.006486491622759938,
+          "2014": 0.0016849398495324408,
+          "2015": -0.002195399324399716,
+          "2016": -0.004140399320407773,
+          "2017": -0.0019961259935603604,
+          "2018": -0.011130723633935413,
+          "2019": -0.001272599815045794,
+          "2020": -0.007293082953415686,
+          "2021": 0.0010767654903865997,
+          "2022": -0.0012529325530563629
+        }
+      },
+      "margin": {
+        "key": "margin|rest+efficiency+rates+qb|w4|10.0",
+        "model": "margin",
+        "groups": "rest+efficiency+rates+qb",
+        "window": "w4",
+        "penalty": 10.0,
+        "log_loss": 0.6263465114828887,
+        "brier": 0.21865862810077336,
+        "vs_elo": -0.0037065822541128,
+        "seasons_better_than_elo": 9,
+        "by_season_vs_elo": {
+          "2012": -0.006427852981988558,
+          "2013": 0.006430248361807944,
+          "2014": 0.012721417369275567,
+          "2015": -0.006287007338420247,
+          "2016": -0.0005803923052851712,
+          "2017": -0.0035790203613212945,
+          "2018": -0.019109098867767016,
+          "2019": -0.0032599657905276747,
+          "2020": -0.009082096953240137,
+          "2021": -0.009698654456505973,
+          "2022": -0.0016167217087060815
+        }
+      }
+    },
+    "blend": {
+      "weight_elo_offset": 0.25,
+      "log_loss": 0.6259344204373676
+    },
+    "elo": {
+      "k": 20.0,
+      "home_field": 55.0,
+      "mean": 1505.0,
+      "offseason_keep": 0.6666666666666666
+    },
+    "elo_clip": [
+      0.02,
+      0.98
+    ]
+  },
+  "metrics": {
+    "development": {
+      "home_prior": {
+        "log_loss": 0.6860101545777063,
+        "brier": 0.24643779156017637,
+        "accuracy": 0.5584064821066846
+      },
+      "elo": {
+        "log_loss": 0.6300530937370015,
+        "brier": 0.2201264739081809,
+        "accuracy": 0.6485482781904118
+      },
+      "v1_logistic": {
+        "log_loss": 0.6294700880890285,
+        "brier": 0.21991130171431417,
+        "accuracy": 0.6444969615124916
+      },
+      "v1_boosted_trees": {
+        "log_loss": 0.6324200880366242,
+        "brier": 0.22119615892103678,
+        "accuracy": 0.6390952059419311
+      },
+      "elo_offset": {
+        "log_loss": 0.6278107807872588,
+        "brier": 0.21922510180990487,
+        "accuracy": 0.6465226198514518
+      },
+      "margin": {
+        "log_loss": 0.6263465114828887,
+        "brier": 0.21865862810077336,
+        "accuracy": 0.6404456448345712
+      },
+      "blend": {
+        "log_loss": 0.6259344204373676,
+        "brier": 0.21848498582891007,
+        "accuracy": 0.6411208642808913
+      }
+    },
+    "previously_examined": {
+      "home_prior": {
+        "log_loss": 0.6898243244957507,
+        "brier": 0.24833537109028567,
+        "accuracy": 0.5491803278688525
+      },
+      "elo": {
+        "log_loss": 0.63616244743442,
+        "brier": 0.22264943705322038,
+        "accuracy": 0.6405152224824356
+      },
+      "v1_logistic": {
+        "log_loss": 0.6354365580664855,
+        "brier": 0.2226715750212947,
+        "accuracy": 0.6370023419203747,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.0007258893679344469,
+          "interval_95": [
+            -0.0063781699889991425,
+            0.005173163532706012
+          ],
+          "share_of_resamples_better": 0.5865,
+          "blocks": 66,
+          "block": "season-week"
+        }
+      },
+      "v1_boosted_trees": {
+        "log_loss": 0.6359411540654537,
+        "brier": 0.22299527847128653,
+        "accuracy": 0.629976580796253,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.00022129336896632013,
+          "interval_95": [
+            -0.006833991003107848,
+            0.006053851877541221
+          ],
+          "share_of_resamples_better": 0.5075,
+          "blocks": 66,
+          "block": "season-week"
+        }
+      },
+      "elo_offset": {
+        "log_loss": 0.6349386532248618,
+        "brier": 0.22209683658541793,
+        "accuracy": 0.6381733021077284,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.001223794209558232,
+          "interval_95": [
+            -0.0063764700331205215,
+            0.003700093729824391
+          ],
+          "share_of_resamples_better": 0.681,
+          "blocks": 66,
+          "block": "season-week"
+        }
+      },
+      "margin": {
+        "log_loss": 0.6319180339692884,
+        "brier": 0.2210355346680924,
+        "accuracy": 0.6440281030444965,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.004244413465131519,
+          "interval_95": [
+            -0.011479305637116927,
+            0.0030438124523619594
+          ],
+          "share_of_resamples_better": 0.868,
+          "blocks": 66,
+          "block": "season-week"
+        }
+      },
+      "blend": {
+        "log_loss": 0.6320643767755092,
+        "brier": 0.22105927795767272,
+        "accuracy": 0.6440281030444965,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.004098070658910709,
+          "interval_95": [
+            -0.010536626362622667,
+            0.0023896321157097574
+          ],
+          "share_of_resamples_better": 0.886,
+          "blocks": 66,
+          "block": "season-week"
+        }
+      }
+    }
+  },
+  "uncertainty": {},
+  "ablations": {
+    "feature_groups": [
+      {
+        "groups": "rest",
+        "window": null,
+        "penalty": 0.1,
+        "log_loss": 0.6300539657373717,
+        "vs_elo": 8.720003702444856e-07,
+        "seasons_better_than_elo": 5
+      },
+      {
+        "groups": "form",
+        "window": null,
+        "penalty": 0.1,
+        "log_loss": 0.6300786716085143,
+        "vs_elo": 2.5577871512805217e-05,
+        "seasons_better_than_elo": 6
+      },
+      {
+        "groups": "efficiency",
+        "window": "w4",
+        "penalty": 0.1,
+        "log_loss": 0.6289285580684074,
+        "vs_elo": -0.001124535668594051,
+        "seasons_better_than_elo": 8
+      },
+      {
+        "groups": "rates",
+        "window": "w4",
+        "penalty": 0.1,
+        "log_loss": 0.6286570735592276,
+        "vs_elo": -0.001396020177773849,
+        "seasons_better_than_elo": 8
+      },
+      {
+        "groups": "qb",
+        "window": null,
+        "penalty": 0.1,
+        "log_loss": 0.6287802626540163,
+        "vs_elo": -0.0012728310829851486,
+        "seasons_better_than_elo": 9
+      },
+      {
+        "groups": "efficiency+qb",
+        "window": "w4",
+        "penalty": 0.1,
+        "log_loss": 0.6285739909753365,
+        "vs_elo": -0.0014791027616649632,
+        "seasons_better_than_elo": 8
+      },
+      {
+        "groups": "rest+efficiency+rates+qb",
+        "window": "w4",
+        "penalty": 0.1,
+        "log_loss": 0.6281996591801211,
+        "vs_elo": -0.0018534345568803623,
+        "seasons_better_than_elo": 8
+      },
+      {
+        "groups": "all",
+        "window": "w4",
+        "penalty": 0.1,
+        "log_loss": 0.6278107807872588,
+        "vs_elo": -0.002242312949742642,
+        "seasons_better_than_elo": 8
+      }
+    ]
+  },
+  "outputs": {
+    "report": {
+      "path": "reports/v2/pregame_backtest_v2.json",
+      "sha256": "e27fc69612170e01d26d89adb2cc886de551e2a9297af78284f34607f82c48e4"
+    },
+    "predictions": {
+      "path": "reports/v2/pregame_predictions_v2.parquet",
+      "sha256": "da34f849c4940b73b624a0bac5d24205fc5acf2c82f80c35107734e69acc5439"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T07:55:28+00:00",
+  "train_seconds": 89.1,
+  "peak_memory_mb": 335.7
+}

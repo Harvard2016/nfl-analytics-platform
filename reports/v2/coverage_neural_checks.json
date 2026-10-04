@@ -1,0 +1,15 @@
+{
+  "gru": {
+    "player_order_max_abs_diff": 1.4901161193847656e-08,
+    "future_frames_max_abs_diff_on_earlier_outputs": 0.0,
+    "later_outputs_do_change": true,
+    "masked_slots_max_abs_diff": 0.0
+  },
+  "tcn": {
+    "player_order_max_abs_diff": 7.450580596923828e-09,
+    "future_frames_max_abs_diff_on_earlier_outputs": 0.0,
+    "later_outputs_do_change": true,
+    "masked_slots_max_abs_diff": 0.0
+  },
+  "reflection_max_abs_diff": 3.552713678800501e-15
+}

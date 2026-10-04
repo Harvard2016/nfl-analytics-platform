@@ -1,0 +1,203 @@
+{
+  "module": "coverage",
+  "run_id": "coverage-expA-cv-20261004T081739",
+  "name": "expA-cv",
+  "results_version": "v2",
+  "started_at": "2026-10-04T08:17:39+00:00",
+  "git_commit": "4846cca9c711409b1a681b2e7b62826edd09c5b9+uncommitted",
+  "seed": 20261004,
+  "config": {
+    "folds": [
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ]
+      ]
+    ],
+    "weights": [
+      1.0,
+      1.5,
+      2.0,
+      2.5
+    ],
+    "horizons": [
+      "at_snap",
+      "post_1s",
+      "post_1_5s"
+    ],
+    "gbm": {
+      "max_depth": 3,
+      "learning_rate": 0.06,
+      "max_iter": 250,
+      "l2_regularization": 1.0,
+      "random_state": 20261004
+    }
+  },
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {
+    "folds": [
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  "target": "released man/zone label (Man = 1)",
+  "population": "train split of the v1 manifest",
+  "exclusions": null,
+  "input_cutoff": {
+    "at_snap": 0,
+    "post_0_5s": 5,
+    "post_1s": 10,
+    "post_1_5s": 15
+  },
+  "features": null,
+  "preprocessing": null,
+  "calibration": "Platt on out-of-fold training scores, unweighted",
+  "hyperparameters": {
+    "max_depth": 3,
+    "learning_rate": 0.06,
+    "max_iter": 250,
+    "l2_regularization": 1.0,
+    "random_state": 20261004
+  },
+  "metrics": {
+    "chosen": {
+      "features": "geometry+relational",
+      "man_weight": 1.5,
+      "rule": "lowest mean development log loss at +1.5 s across the three chronological folds; the same setting is used at every horizon"
+    },
+    "chosen_mean": {
+      "log_loss": 0.22923163020617143,
+      "brier": 0.07021992040130383,
+      "accuracy": 0.9029532344522102,
+      "balanced_accuracy": 0.8706470939707195,
+      "macro_f1": 0.8795906915128141,
+      "man_recall": 0.793115180336715,
+      "man_precision": 0.8629599241825674,
+      "zone_recall": 0.948179007604724,
+      "zone_precision": 0.9175816897107603
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "cv_report": {
+      "path": "reports/v2/coverage_expA_cv.json",
+      "sha256": "674ab77f53a5b963dd00da46a04e83687f9bad42a5029ca51e1eb49b6df28ac7"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T08:42:46+00:00",
+  "train_seconds": 1506.6,
+  "peak_memory_mb": 278.2
+}

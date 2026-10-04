@@ -1,0 +1,4 @@
+#!/bin/sh
+# Highlight ranking commands: audit, run (features, H0-H3, evaluation), export.
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PYTHONPATH="$ROOT/src" exec "$ROOT/.venv/bin/python" -m gridiron_lens.highlights.cli "$@"

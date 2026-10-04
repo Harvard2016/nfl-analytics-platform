@@ -1,0 +1,685 @@
+{
+  "rule": "a source video maps to a schedule row only when the two teams named in its title and its\nseason, week, round or Super Bowl number leave exactly one game. Anything else stays unmapped with the reason.",
+  "games": [
+    {
+      "id": 1,
+      "source_id": "american_football_1",
+      "title": "Cleveland Browns vs. Baltimore Ravens Week 4, 2019 Full Game",
+      "teams_in_title": [
+        "BAL",
+        "CLE"
+      ],
+      "game_id": "2019_04_CLE_BAL",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 4,
+      "game_type": "REG",
+      "home": "BAL",
+      "away": "CLE",
+      "final": "CLE 40, BAL 25"
+    },
+    {
+      "id": 2,
+      "source_id": "american_football_2",
+      "title": "Buffalo Bills vs. Dallas Cowboys Week 13, 2019 FULL Game",
+      "teams_in_title": [
+        "BUF",
+        "DAL"
+      ],
+      "game_id": "2019_13_BUF_DAL",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 13,
+      "game_type": "REG",
+      "home": "DAL",
+      "away": "BUF",
+      "final": "BUF 26, DAL 15"
+    },
+    {
+      "id": 3,
+      "source_id": "american_football_3",
+      "title": "New York Giants vs. Tampa Bay Buccaneers Week 3, 2019 FULL Game: Danny Dimes' First Start!",
+      "teams_in_title": [
+        "NYG",
+        "TB"
+      ],
+      "game_id": "2019_03_NYG_TB",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 3,
+      "game_type": "REG",
+      "home": "TB",
+      "away": "NYG",
+      "final": "NYG 32, TB 31"
+    },
+    {
+      "id": 4,
+      "source_id": "american_football_4",
+      "title": "Chargers vs. Titans Week 7, 2019 FULL Game",
+      "teams_in_title": [
+        "LAC",
+        "TEN"
+      ],
+      "game_id": "2019_07_LAC_TEN",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 7,
+      "game_type": "REG",
+      "home": "TEN",
+      "away": "LAC",
+      "final": "LAC 20, TEN 23"
+    },
+    {
+      "id": 5,
+      "source_id": "american_football_5",
+      "title": "San Francisco 49ers vs. New Orleans Saints Week 14, 2019 FULL Game",
+      "teams_in_title": [
+        "NO",
+        "SF"
+      ],
+      "game_id": "2019_14_SF_NO",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 14,
+      "game_type": "REG",
+      "home": "NO",
+      "away": "SF",
+      "final": "SF 48, NO 46"
+    },
+    {
+      "id": 6,
+      "source_id": "american_football_6",
+      "title": "Dwayne Haskins' FIRST WIN! Lions vs. Redskins Week 12, 2019 FULL GAME",
+      "teams_in_title": [
+        "DET",
+        "WAS"
+      ],
+      "game_id": "2019_12_DET_WAS",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 12,
+      "game_type": "REG",
+      "home": "WAS",
+      "away": "DET",
+      "final": "DET 16, WAS 19"
+    },
+    {
+      "id": 7,
+      "source_id": "american_football_7",
+      "title": "A Surprising Road Upset! Dolphins vs. Colts Week 10, 2019 FULL GAME",
+      "teams_in_title": [
+        "IND",
+        "MIA"
+      ],
+      "game_id": "2019_10_MIA_IND",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 10,
+      "game_type": "REG",
+      "home": "IND",
+      "away": "MIA",
+      "final": "MIA 16, IND 12"
+    },
+    {
+      "id": 8,
+      "source_id": "american_football_8",
+      "title": "Russell Wilson Battles the NFL's Top Defense: Seahawks vs. 49ers Week 10, 2019 FULL Game",
+      "teams_in_title": [
+        "SEA",
+        "SF"
+      ],
+      "game_id": "2019_10_SEA_SF",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 10,
+      "game_type": "REG",
+      "home": "SF",
+      "away": "SEA",
+      "final": "SEA 27, SF 24"
+    },
+    {
+      "id": 9,
+      "source_id": "american_football_9",
+      "title": "Rams vs. Seahawks Week 5, 2019 FULL Game",
+      "teams_in_title": [
+        "LA",
+        "SEA"
+      ],
+      "game_id": "2019_05_LA_SEA",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 5,
+      "game_type": "REG",
+      "home": "SEA",
+      "away": "LA",
+      "final": "LA 29, SEA 30"
+    },
+    {
+      "id": 10,
+      "source_id": "american_football_10",
+      "title": "Super Bowl 54 FULL Game: Kansas City Chiefs vs. San Francisco 49ers",
+      "teams_in_title": [
+        "KC",
+        "SF"
+      ],
+      "game_id": "2019_21_SF_KC",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2019,
+      "week": 21,
+      "game_type": "SB",
+      "home": "KC",
+      "away": "SF",
+      "final": "SF 20, KC 31"
+    },
+    {
+      "id": 11,
+      "source_id": "american_football_11",
+      "title": "Baker Mayfield's First Career Start With the Browns vs. Raiders | Full Game | NFL 2018 Season Week 4",
+      "teams_in_title": [
+        "CLE",
+        "LV"
+      ],
+      "game_id": "2018_04_CLE_OAK",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 4,
+      "game_type": "REG",
+      "home": "OAK",
+      "away": "CLE",
+      "final": "CLE 42, OAK 45"
+    },
+    {
+      "id": 12,
+      "source_id": "american_football_12",
+      "title": "Tampa Bay Buccaneers vs. Detroit Lions Full Game | NFL 2024 Season Week 2",
+      "teams_in_title": [
+        "DET",
+        "TB"
+      ],
+      "game_id": "2024_02_TB_DET",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 2,
+      "game_type": "REG",
+      "home": "DET",
+      "away": "TB",
+      "final": "TB 20, DET 16"
+    },
+    {
+      "id": 13,
+      "source_id": "american_football_13",
+      "title": "Baltimore Ravens vs. Kansas City Chiefs Full Game | Week 1 | NFL 2024 Season",
+      "teams_in_title": [
+        "BAL",
+        "KC"
+      ],
+      "game_id": "2024_01_BAL_KC",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 1,
+      "game_type": "REG",
+      "home": "KC",
+      "away": "BAL",
+      "final": "BAL 20, KC 27"
+    },
+    {
+      "id": 14,
+      "source_id": "american_football_14",
+      "title": "2016 NFC Divisional FULL Game: Green Bay Packers vs. Dallas Cowboys",
+      "teams_in_title": [
+        "DAL",
+        "GB"
+      ],
+      "game_id": "2016_19_GB_DAL",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2016,
+      "week": 19,
+      "game_type": "DIV",
+      "home": "DAL",
+      "away": "GB",
+      "final": "GB 34, DAL 31"
+    },
+    {
+      "id": 15,
+      "source_id": "american_football_15",
+      "title": "Kansas City Chiefs vs. Los Angeles Rams Week 11, 2018 FULL Game: The Greatest MNF Game Ever?",
+      "teams_in_title": [
+        "KC",
+        "LA"
+      ],
+      "game_id": "2018_11_KC_LA",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 11,
+      "game_type": "REG",
+      "home": "LA",
+      "away": "KC",
+      "final": "KC 51, LA 54"
+    },
+    {
+      "id": 16,
+      "source_id": "american_football_16",
+      "title": "Highest Scoring TNF Game EVER: Rams vs. 49ers Week 3, 2017 FULL GAME",
+      "teams_in_title": [
+        "LA",
+        "SF"
+      ],
+      "game_id": "2017_03_LA_SF",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2017,
+      "week": 3,
+      "game_type": "REG",
+      "home": "SF",
+      "away": "LA",
+      "final": "LA 41, SF 39"
+    },
+    {
+      "id": 17,
+      "source_id": "american_football_17",
+      "title": "Pittsburgh Steelers vs. New Orleans Saints Week 16, 2018 FULL Game",
+      "teams_in_title": [
+        "NO",
+        "PIT"
+      ],
+      "game_id": "2018_16_PIT_NO",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 16,
+      "game_type": "REG",
+      "home": "NO",
+      "away": "PIT",
+      "final": "PIT 28, NO 31"
+    },
+    {
+      "id": 18,
+      "source_id": "american_football_18",
+      "title": "New England Patriots vs. Miami Dolphins Week 14, 2018 FULL Game: The Miami Miracle!",
+      "teams_in_title": [
+        "MIA",
+        "NE"
+      ],
+      "game_id": "2018_14_NE_MIA",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 14,
+      "game_type": "REG",
+      "home": "MIA",
+      "away": "NE",
+      "final": "NE 33, MIA 34"
+    },
+    {
+      "id": 19,
+      "source_id": "american_football_19",
+      "title": "Dallas Cowboys vs. Pittsburgh Steelers Week 10, 2016 FULL Game",
+      "teams_in_title": [
+        "DAL",
+        "PIT"
+      ],
+      "game_id": "2016_10_DAL_PIT",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2016,
+      "week": 10,
+      "game_type": "REG",
+      "home": "PIT",
+      "away": "DAL",
+      "final": "DAL 35, PIT 30"
+    },
+    {
+      "id": 20,
+      "source_id": "american_football_20",
+      "title": "A Playoff Matchup Worth the Hype: Seahawks vs. Cowboys 2018 NFC Wild Card FULL GAME",
+      "teams_in_title": [
+        "DAL",
+        "SEA"
+      ],
+      "game_id": "2018_18_SEA_DAL",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 18,
+      "game_type": "WC",
+      "home": "DAL",
+      "away": "SEA",
+      "final": "SEA 22, DAL 24"
+    },
+    {
+      "id": 21,
+      "source_id": "american_football_21",
+      "title": "Mahomes Starts His MVP Campaign: Kansas City Chiefs vs. Los Angeles Chargers Week 1, 2018 Full Game",
+      "teams_in_title": [
+        "KC",
+        "LAC"
+      ],
+      "game_id": "2018_01_KC_LAC",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 1,
+      "game_type": "REG",
+      "home": "LAC",
+      "away": "KC",
+      "final": "KC 38, LAC 28"
+    },
+    {
+      "id": 22,
+      "source_id": "american_football_22",
+      "title": "Cincinnati Bengals vs. Atlanta Falcons Week 4, 2018 Full Game",
+      "teams_in_title": [
+        "ATL",
+        "CIN"
+      ],
+      "game_id": "2018_04_CIN_ATL",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 4,
+      "game_type": "REG",
+      "home": "ATL",
+      "away": "CIN",
+      "final": "CIN 37, ATL 36"
+    },
+    {
+      "id": 23,
+      "source_id": "american_football_23",
+      "title": "Super Bowl 52 FULL Game: New England Patriots vs. Philadelphia Eagles",
+      "teams_in_title": [
+        "NE",
+        "PHI"
+      ],
+      "game_id": "2017_21_PHI_NE",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2017,
+      "week": 21,
+      "game_type": "SB",
+      "home": "NE",
+      "away": "PHI",
+      "final": "PHI 41, NE 33"
+    },
+    {
+      "id": 24,
+      "source_id": "american_football_24",
+      "title": "Houston Texans vs. Indianapolis Colts Week 4, 2018 FULL Game",
+      "teams_in_title": [
+        "HOU",
+        "IND"
+      ],
+      "game_id": "2018_04_HOU_IND",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 4,
+      "game_type": "REG",
+      "home": "IND",
+      "away": "HOU",
+      "final": "HOU 37, IND 34"
+    },
+    {
+      "id": 25,
+      "source_id": "american_football_25",
+      "title": "2017 NFC Divisional Round FULL Game: New Orleans Saints vs. Minnesota Vikings",
+      "teams_in_title": [
+        "MIN",
+        "NO"
+      ],
+      "game_id": "2017_19_NO_MIN",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2017,
+      "week": 19,
+      "game_type": "DIV",
+      "home": "MIN",
+      "away": "NO",
+      "final": "NO 24, MIN 29"
+    },
+    {
+      "id": 26,
+      "source_id": "american_football_26",
+      "title": "Green Bay Packers vs. Atlanta Falcons 2016 NFC Championship Full Game",
+      "teams_in_title": [
+        "ATL",
+        "GB"
+      ],
+      "game_id": "2016_20_GB_ATL",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2016,
+      "week": 20,
+      "game_type": "CON",
+      "home": "ATL",
+      "away": "GB",
+      "final": "GB 21, ATL 44"
+    },
+    {
+      "id": 27,
+      "source_id": "american_football_27",
+      "title": "Bengals vs. Ravens Week 17, 2017 FULL Game: The Bengals 4th Down Miracle!",
+      "teams_in_title": [
+        "BAL",
+        "CIN"
+      ],
+      "game_id": "2017_17_CIN_BAL",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2017,
+      "week": 17,
+      "game_type": "REG",
+      "home": "BAL",
+      "away": "CIN",
+      "final": "CIN 31, BAL 27"
+    },
+    {
+      "id": 28,
+      "source_id": "american_football_28",
+      "title": "GAME OF THE WEEK! Miami Dolphins vs. Buffalo Bills FULL GAME | NFL 2024 Season Week 9",
+      "teams_in_title": [
+        "BUF",
+        "MIA"
+      ],
+      "game_id": "2024_09_MIA_BUF",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 9,
+      "game_type": "REG",
+      "home": "BUF",
+      "away": "MIA",
+      "final": "MIA 27, BUF 30"
+    },
+    {
+      "id": 29,
+      "source_id": "american_football_29",
+      "title": "ULTIMATE BELIEF!! Baltimore Ravens vs. Cleveland Browns FULL GAME | NFL 2024 Season Week 8",
+      "teams_in_title": [
+        "BAL",
+        "CLE"
+      ],
+      "game_id": "2024_08_BAL_CLE",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 8,
+      "game_type": "REG",
+      "home": "CLE",
+      "away": "BAL",
+      "final": "BAL 24, CLE 29"
+    },
+    {
+      "id": 30,
+      "source_id": "american_football_30",
+      "title": "Detroit Lions vs. Houston Texans FULL GAME | NFL 2024 Season Week 10",
+      "teams_in_title": [
+        "DET",
+        "HOU"
+      ],
+      "game_id": "2024_10_DET_HOU",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 10,
+      "game_type": "REG",
+      "home": "HOU",
+      "away": "DET",
+      "final": "DET 26, HOU 23"
+    },
+    {
+      "id": 31,
+      "source_id": "american_football_31",
+      "title": "Tampa Bay Buccaneers vs. Carolina Panthers FULL GAME | NFL 2024 Season Week 13",
+      "teams_in_title": [
+        "CAR",
+        "TB"
+      ],
+      "game_id": "2024_13_TB_CAR",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 13,
+      "game_type": "REG",
+      "home": "CAR",
+      "away": "TB",
+      "final": "TB 26, CAR 23"
+    },
+    {
+      "id": 32,
+      "source_id": "american_football_32",
+      "title": "A WILD Battle In Week 11! Cincinnati Bengals vs. Los Angeles Chargers FULL GAME | NFL 2024 Season",
+      "teams_in_title": [
+        "CIN",
+        "LAC"
+      ],
+      "game_id": "2024_11_CIN_LAC",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 11,
+      "game_type": "REG",
+      "home": "LAC",
+      "away": "CIN",
+      "final": "CIN 27, LAC 34"
+    },
+    {
+      "id": 33,
+      "source_id": "american_football_33",
+      "title": "San Francisco 49ers vs. Los Angeles Rams Full Game | NFL 2024 Season Week 3",
+      "teams_in_title": [
+        "LA",
+        "SF"
+      ],
+      "game_id": "2024_03_SF_LA",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 3,
+      "game_type": "REG",
+      "home": "LA",
+      "away": "SF",
+      "final": "SF 24, LA 27"
+    },
+    {
+      "id": 34,
+      "source_id": "american_football_34",
+      "title": "Tom Brady's SEVENTH Super Bowl Win | Kansas City Chiefs vs Tampa Bay Buccaneers FULL GAME | NFL 2020",
+      "teams_in_title": [
+        "KC",
+        "TB"
+      ],
+      "game_id": "2020_21_KC_TB",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2020,
+      "week": 21,
+      "game_type": "SB",
+      "home": "TB",
+      "away": "KC",
+      "final": "KC 9, TB 31"
+    },
+    {
+      "id": 35,
+      "source_id": "american_football_35",
+      "title": "FULL GAME!! Jacksonville Jaguars vs. Houston Texans  | NFL 2024 Season Week 4",
+      "teams_in_title": [
+        "HOU",
+        "JAX"
+      ],
+      "game_id": "2024_04_JAX_HOU",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 4,
+      "game_type": "REG",
+      "home": "HOU",
+      "away": "JAX",
+      "final": "JAX 20, HOU 24"
+    },
+    {
+      "id": 36,
+      "source_id": "american_football_36",
+      "title": "One of the most INTENSE Super Bowls ever! 49ers vs. Chiefs Full Game | Super Bowl 58",
+      "teams_in_title": [
+        "KC",
+        "SF"
+      ],
+      "game_id": "2023_22_SF_KC",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2023,
+      "week": 22,
+      "game_type": "SB",
+      "home": "KC",
+      "away": "SF",
+      "final": "SF 22, KC 25"
+    },
+    {
+      "id": 37,
+      "source_id": "american_football_37",
+      "title": "Kansas City Chiefs vs. Philadelphia Eagles Super Bowl LVII FULL GAME | Super Bowl NFL 2022 Season",
+      "teams_in_title": [
+        "KC",
+        "PHI"
+      ],
+      "game_id": "2022_22_KC_PHI",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2022,
+      "week": 22,
+      "game_type": "SB",
+      "home": "PHI",
+      "away": "KC",
+      "final": "KC 38, PHI 35"
+    },
+    {
+      "id": 38,
+      "source_id": "american_football_38",
+      "title": "Super Bowl LIII: New England Patriots vs. Los Angeles Rams | FULL GAME",
+      "teams_in_title": [
+        "LA",
+        "NE"
+      ],
+      "game_id": "2018_21_NE_LA",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2018,
+      "week": 21,
+      "game_type": "SB",
+      "home": "LA",
+      "away": "NE",
+      "final": "NE 13, LA 3"
+    },
+    {
+      "id": 39,
+      "source_id": "american_football_39",
+      "title": "Buffalo Bills vs. Detroit Lions FULL GAME | NFL 2024 Season Week 15",
+      "teams_in_title": [
+        "BUF",
+        "DET"
+      ],
+      "game_id": "2024_15_BUF_DET",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2024,
+      "week": 15,
+      "game_type": "REG",
+      "home": "DET",
+      "away": "BUF",
+      "final": "BUF 48, DET 42"
+    },
+    {
+      "id": 40,
+      "source_id": "american_football_40",
+      "title": "The Immaculate Extension: Ravens vs. Steelers 2016, Week 16 FULL GAME",
+      "teams_in_title": [
+        "BAL",
+        "PIT"
+      ],
+      "game_id": "2016_16_BAL_PIT",
+      "reason": "unique match on teams plus season, week, round or Super Bowl number in the title",
+      "season": 2016,
+      "week": 16,
+      "game_type": "REG",
+      "home": "PIT",
+      "away": "BAL",
+      "final": "BAL 27, PIT 31"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+data/
+models/
+artifacts/
+logs/
+notebooks/
+.venv/
+reports/
+docs/
+src/
+tests/

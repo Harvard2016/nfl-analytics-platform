@@ -1,0 +1,302 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2016_16_BAL_PIT",
+  "final": "BAL 27, PIT 31",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 6,
+    "interception": 3,
+    "sack": 2,
+    "fumble lost": 0,
+    "turnover": 3,
+    "big play": 14
+  },
+  "events": [
+    {
+      "play_id": 162,
+      "quarter": 1.0,
+      "game_clock": "12:29",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 0.71,
+      "description": "(12:29) (Shotgun) 26-L.Bell right tackle to PIT 23 for 10 yards (57-C.Mosley; 21-L.Webb)."
+    },
+    {
+      "play_id": 347,
+      "quarter": 1.0,
+      "game_clock": "08:03",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 0.58,
+      "description": "(8:03) 26-L.Bell right tackle to BAL 20 for 10 yards (57-C.Mosley)."
+    },
+    {
+      "play_id": 368,
+      "quarter": 1.0,
+      "game_clock": "07:18",
+      "offense": "PIT",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 2.34,
+      "description": "(7:18) (Shotgun) 7-B.Roethlisberger pass deep middle to 85-X.Grimble for 20 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 426,
+      "quarter": 1.0,
+      "game_clock": "07:08",
+      "offense": "BAL",
+      "events": [
+        "big play"
+      ],
+      "yards": 44.0,
+      "epa": 4.18,
+      "description": "(7:08) 5-J.Flacco pass short middle to 89-S.Smith pushed ob at PIT 37 for 44 yards (25-A.Burns).\u2026"
+    },
+    {
+      "play_id": 779,
+      "quarter": 1.0,
+      "game_clock": "02:56",
+      "offense": "BAL",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 2.2,
+      "description": "(2:56) 12-M.Campanaro left end to PIT 36 for 23 yards (28-S.Davis)."
+    },
+    {
+      "play_id": 917,
+      "quarter": 2.0,
+      "game_clock": "15:00",
+      "offense": "BAL",
+      "events": [
+        "sack"
+      ],
+      "yards": -10.0,
+      "epa": -1.35,
+      "description": "(15:00) 5-J.Flacco sacked at PIT 27 for -10 yards (94-L.Timmons)."
+    },
+    {
+      "play_id": 1233,
+      "quarter": 2.0,
+      "game_clock": "09:42",
+      "offense": "BAL",
+      "events": [
+        "big play"
+      ],
+      "yards": 17.0,
+      "epa": 0.86,
+      "description": "(9:42) 30-K.Dixon right tackle to PIT 43 for 17 yards (31-R.Cockrell, 23-M.Mitchell)."
+    },
+    {
+      "play_id": 1308,
+      "quarter": 2.0,
+      "game_clock": "08:36",
+      "offense": "BAL",
+      "events": [
+        "sack"
+      ],
+      "yards": -6.0,
+      "epa": -1.02,
+      "description": "(8:36) (Shotgun) 5-J.Flacco sacked at BAL 44 for -6 yards (48-B.Dupree)."
+    },
+    {
+      "play_id": 1986,
+      "quarter": 3.0,
+      "game_clock": "14:56",
+      "offense": "PIT",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -5.9,
+      "description": "(14:56) 7-B.Roethlisberger pass short middle intended for 82-D.Johnson INTERCEPTED by 54-Z.Orr at\u2026"
+    },
+    {
+      "play_id": 2054,
+      "quarter": 3.0,
+      "game_clock": "13:32",
+      "offense": "BAL",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 18.0,
+      "epa": 3.44,
+      "description": "(13:32) (Shotgun) 5-J.Flacco pass deep middle to 89-S.Smith for 18 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2178,
+      "quarter": 3.0,
+      "game_clock": "11:32",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 39.0,
+      "epa": 2.56,
+      "description": "(11:32) (Shotgun) 7-B.Roethlisberger pass deep middle to 17-E.Rogers pushed ob at BAL 26 for 39\u2026"
+    },
+    {
+      "play_id": 2670,
+      "quarter": 3.0,
+      "game_clock": "00:49",
+      "offense": "PIT",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -6.12,
+      "description": "(:49) 7-B.Roethlisberger pass short right intended for 81-J.James INTERCEPTED by 57-C.Mosley at\u2026"
+    },
+    {
+      "play_id": 2849,
+      "quarter": 4.0,
+      "game_clock": "13:41",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 2.21,
+      "description": "(13:41) (Shotgun) 7-B.Roethlisberger pass short middle to 81-J.James to PIT 44 for 21 yards\u2026"
+    },
+    {
+      "play_id": 2954,
+      "quarter": 4.0,
+      "game_clock": "11:48",
+      "offense": "PIT",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 7.0,
+      "epa": 1.56,
+      "description": "(11:48) (Shotgun) 26-L.Bell left tackle for 7 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3085,
+      "quarter": 4.0,
+      "game_clock": "10:05",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 1.43,
+      "description": "(10:05) 26-L.Bell right tackle ran ob at PIT 33 for 23 yards."
+    },
+    {
+      "play_id": 3128,
+      "quarter": 4.0,
+      "game_clock": "09:26",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 13.0,
+      "epa": 1.38,
+      "description": "(9:26) (Shotgun) 26-L.Bell right guard to PIT 46 for 13 yards (21-L.Webb)."
+    },
+    {
+      "play_id": 3149,
+      "quarter": 4.0,
+      "game_clock": "08:51",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 1.2,
+      "description": "(8:51) (No Huddle, Shotgun) 7-B.Roethlisberger pass short middle to 84-A.Brown to BAL 33 for 21\u2026"
+    },
+    {
+      "play_id": 3173,
+      "quarter": 4.0,
+      "game_clock": "08:08",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 26.0,
+      "epa": 1.67,
+      "description": "(8:08) (No Huddle, Shotgun) 7-B.Roethlisberger pass short left to 84-A.Brown to BAL 7 for 26 yards\u2026"
+    },
+    {
+      "play_id": 3197,
+      "quarter": 4.0,
+      "game_clock": "07:27",
+      "offense": "PIT",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 7.0,
+      "epa": 1.63,
+      "description": "(7:27) (Shotgun) 7-B.Roethlisberger pass short right to 26-L.Bell for 7 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3603,
+      "quarter": 4.0,
+      "game_clock": "01:25",
+      "offense": "BAL",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 2.56,
+      "description": "(1:25) (Shotgun) 44-K.Juszczyk up the middle for 10 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3774,
+      "quarter": 4.0,
+      "game_clock": "00:57",
+      "offense": "PIT",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.35,
+      "description": "(:57) (Shotgun) 7-B.Roethlisberger pass deep right to 17-E.Rogers to BAL 19 for 20 yards\u2026"
+    },
+    {
+      "play_id": 3907,
+      "quarter": 4.0,
+      "game_clock": "00:13",
+      "offense": "PIT",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 4.0,
+      "epa": 2.84,
+      "description": "(:13) (Shotgun) 7-B.Roethlisberger pass short left to 84-A.Brown for 4 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 4060,
+      "quarter": 4.0,
+      "game_clock": "00:04",
+      "offense": "BAL",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -0.15,
+      "description": "(:04) (Shotgun) 5-J.Flacco pass short middle intended for 17-M.Wallace INTERCEPTED by 50-R.Shazier\u2026"
+    }
+  ]
+}

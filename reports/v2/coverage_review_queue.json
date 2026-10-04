@@ -1,0 +1,916 @@
+{
+  "purpose": "Error-review queue on development weeks 13-14 (not the benchmark). Reviewer alternatives go into a separate annotation version with the reviewer's evidence basis and uncertainty; the released labels and the benchmark are never relabelled because a model disagrees.",
+  "model": "v2_temporal seed 42, +1.5 s",
+  "plays_available": 1420,
+  "disagreements_available": 76,
+  "queues": {
+    "confident_disagreements": [
+      {
+        "key": "2023120307:233",
+        "week": 13,
+        "defense": "DEN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.9858,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120301:3000",
+        "week": 13,
+        "defense": "NO",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0162,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120310:1000",
+        "week": 13,
+        "defense": "KC",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.9805,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121001:1032",
+        "week": 14,
+        "defense": "BAL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.9727,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120309:1330",
+        "week": 13,
+        "defense": "PHI",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.9716,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120700:2934",
+        "week": 14,
+        "defense": "NE",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.9613,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121007:1103",
+        "week": 14,
+        "defense": "LV",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0401,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120304:1218",
+        "week": 13,
+        "defense": "TB",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0546,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120700:236",
+        "week": 14,
+        "defense": "PIT",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.9073,
+        "lean": "Man"
+      },
+      {
+        "key": "2023113000:2407",
+        "week": 13,
+        "defense": "DAL",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0938,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120300:3139",
+        "week": 13,
+        "defense": "NE",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.9061,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120300:3522",
+        "week": 13,
+        "defense": "LAC",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0962,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120302:1545",
+        "week": 13,
+        "defense": "ATL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.903,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121000:2793",
+        "week": 14,
+        "defense": "ATL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_6_ZONE",
+        "p_man": 0.9024,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121000:1875",
+        "week": 14,
+        "defense": "TB",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.9016,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120400:970",
+        "week": 13,
+        "defense": "JAX",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0987,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121101:3843",
+        "week": 14,
+        "defense": "NYG",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.8811,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120307:2798",
+        "week": 13,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1218,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121011:1214",
+        "week": 14,
+        "defense": "DAL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.8723,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121010:4016",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1341,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121005:1999",
+        "week": 14,
+        "defense": "NO",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1362,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120305:2914",
+        "week": 13,
+        "defense": "TEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1623,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120308:3974",
+        "week": 13,
+        "defense": "LA",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.164,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120305:2891",
+        "week": 13,
+        "defense": "TEN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.8341,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121003:1453",
+        "week": 14,
+        "defense": "CIN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.8274,
+        "lean": "Man"
+      }
+    ],
+    "uncertain": [
+      {
+        "key": "2023120400:215",
+        "week": 13,
+        "defense": "JAX",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_2_MAN",
+        "p_man": 0.4954,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121007:401",
+        "week": 14,
+        "defense": "LV",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.5048,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121003:239",
+        "week": 14,
+        "defense": "CIN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.493,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120305:1755",
+        "week": 13,
+        "defense": "TEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_0_MAN",
+        "p_man": 0.4855,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121009:2855",
+        "week": 14,
+        "defense": "BUF",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.5178,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120700:794",
+        "week": 14,
+        "defense": "PIT",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.4763,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121010:1362",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.4735,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120301:806",
+        "week": 13,
+        "defense": "NO",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.4709,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120307:1975",
+        "week": 13,
+        "defense": "DEN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_6_ZONE",
+        "p_man": 0.4663,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120400:4323",
+        "week": 13,
+        "defense": "CIN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.4659,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023113000:2455",
+        "week": 13,
+        "defense": "DAL",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_2_MAN",
+        "p_man": 0.4652,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121011:2658",
+        "week": 14,
+        "defense": "DAL",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.5385,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121010:4141",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_2_MAN",
+        "p_man": 0.4574,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121000:972",
+        "week": 14,
+        "defense": "TB",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_6_ZONE",
+        "p_man": 0.4555,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121004:1293",
+        "week": 14,
+        "defense": "JAX",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.5467,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120302:1391",
+        "week": 13,
+        "defense": "ATL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.4512,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120300:1410",
+        "week": 13,
+        "defense": "LAC",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.4505,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120300:1681",
+        "week": 13,
+        "defense": "NE",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.5522,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121003:759",
+        "week": 14,
+        "defense": "CIN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.5602,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121000:4142",
+        "week": 14,
+        "defense": "ATL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_6_ZONE",
+        "p_man": 0.4395,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120308:1178",
+        "week": 13,
+        "defense": "LA",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.5612,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120308:2370",
+        "week": 13,
+        "defense": "CLE",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.5689,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120310:3542",
+        "week": 13,
+        "defense": "KC",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.426,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121006:3308",
+        "week": 14,
+        "defense": "HOU",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_0_MAN",
+        "p_man": 0.4234,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120700:107",
+        "week": 14,
+        "defense": "PIT",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.5771,
+        "lean": "Man"
+      }
+    ],
+    "minority_class_misses": [
+      {
+        "key": "2023120300:1410",
+        "week": 13,
+        "defense": "LAC",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.4505,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120300:2111",
+        "week": 13,
+        "defense": "NE",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.3971,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120300:3522",
+        "week": 13,
+        "defense": "LAC",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0962,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120302:1001",
+        "week": 13,
+        "defense": "NYJ",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.3183,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120304:1218",
+        "week": 13,
+        "defense": "TB",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0546,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120305:2914",
+        "week": 13,
+        "defense": "TEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1623,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120307:2798",
+        "week": 13,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1218,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120308:3974",
+        "week": 13,
+        "defense": "LA",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.164,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120400:970",
+        "week": 13,
+        "defense": "JAX",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.0987,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120400:3708",
+        "week": 13,
+        "defense": "JAX",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_2_MAN",
+        "p_man": 0.3799,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120400:3901",
+        "week": 13,
+        "defense": "CIN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.3738,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120400:4323",
+        "week": 13,
+        "defense": "CIN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.4659,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120700:2333",
+        "week": 14,
+        "defense": "NE",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1851,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121000:1428",
+        "week": 14,
+        "defense": "TB",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.2848,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121000:2024",
+        "week": 14,
+        "defense": "TB",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_0_MAN",
+        "p_man": 0.2753,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121005:1154",
+        "week": 14,
+        "defense": "NO",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.3621,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121005:2503",
+        "week": 14,
+        "defense": "NO",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.2417,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121006:2583",
+        "week": 14,
+        "defense": "HOU",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.2946,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121008:3074",
+        "week": 14,
+        "defense": "SF",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.4011,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121010:1362",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.4735,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121010:3311",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.3492,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121010:4016",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1341,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121011:292",
+        "week": 14,
+        "defense": "PHI",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1843,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121011:1788",
+        "week": 14,
+        "defense": "DAL",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.3841,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121100:2573",
+        "week": 14,
+        "defense": "MIA",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_2_MAN",
+        "p_man": 0.3239,
+        "lean": "Zone"
+      }
+    ],
+    "random_control": [
+      {
+        "key": "2023120301:385",
+        "week": 13,
+        "defense": "NO",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.8691,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120302:1545",
+        "week": 13,
+        "defense": "ATL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.903,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120302:3858",
+        "week": 13,
+        "defense": "NYJ",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.999,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120303:771",
+        "week": 13,
+        "defense": "ARI",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.0005,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120303:1646",
+        "week": 13,
+        "defense": "PIT",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_2_ZONE",
+        "p_man": 0.0001,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120303:1999",
+        "week": 13,
+        "defense": "PIT",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.9903,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120305:1985",
+        "week": 13,
+        "defense": "TEN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.2296,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120307:3411",
+        "week": 13,
+        "defense": "HOU",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.0021,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120308:4030",
+        "week": 13,
+        "defense": "CLE",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.1985,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023120309:637",
+        "week": 13,
+        "defense": "SF",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_0_MAN",
+        "p_man": 0.9957,
+        "lean": "Man"
+      },
+      {
+        "key": "2023120400:942",
+        "week": 13,
+        "defense": "JAX",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_6_ZONE",
+        "p_man": 0.0264,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121001:1563",
+        "week": 14,
+        "defense": "BAL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_6_ZONE",
+        "p_man": 0.0014,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121001:2160",
+        "week": 14,
+        "defense": "LA",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.0033,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121001:4266",
+        "week": 14,
+        "defense": "LA",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.0121,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121001:4859",
+        "week": 14,
+        "defense": "BAL",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.0023,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121003:3266",
+        "week": 14,
+        "defense": "CIN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.0098,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121007:2732",
+        "week": 14,
+        "defense": "LV",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_2_ZONE",
+        "p_man": 0.0009,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121007:3442",
+        "week": 14,
+        "defense": "MIN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_2_ZONE",
+        "p_man": 0.0059,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121009:153",
+        "week": 14,
+        "defense": "BUF",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_2_ZONE",
+        "p_man": 0.0005,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121009:4231",
+        "week": 14,
+        "defense": "KC",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.9588,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121010:1104",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.0107,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121010:3062",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_4_ZONE",
+        "p_man": 0.0004,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121010:4141",
+        "week": 14,
+        "defense": "DEN",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_2_MAN",
+        "p_man": 0.4574,
+        "lean": "Zone"
+      },
+      {
+        "key": "2023121011:1315",
+        "week": 14,
+        "defense": "DAL",
+        "released_label": "Man",
+        "released_coverage_type": "COVER_1_MAN",
+        "p_man": 0.9706,
+        "lean": "Man"
+      },
+      {
+        "key": "2023121101:3201",
+        "week": 14,
+        "defense": "NYG",
+        "released_label": "Zone",
+        "released_coverage_type": "COVER_3_ZONE",
+        "p_man": 0.0006,
+        "lean": "Zone"
+      }
+    ]
+  }
+}

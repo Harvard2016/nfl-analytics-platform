@@ -1,0 +1,341 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2017_21_PHI_NE",
+  "final": "PHI 41, NE 33",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 9,
+    "interception": 1,
+    "sack": 1,
+    "fumble lost": 1,
+    "turnover": 2,
+    "big play": 20
+  },
+  "events": [
+    {
+      "play_id": 526,
+      "quarter": 1.0,
+      "game_clock": "07:15",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 28.0,
+      "epa": 1.85,
+      "description": "(7:15) 12-T.Brady pass short left to 15-C.Hogan to PHI 27 for 28 yards (24-C.Graham; 23-R.McLeod)."
+    },
+    {
+      "play_id": 733,
+      "quarter": 1.0,
+      "game_clock": "03:31",
+      "offense": "PHI",
+      "events": [
+        "big play"
+      ],
+      "yards": 36.0,
+      "epa": 2.67,
+      "description": "(3:31) (Shotgun) 29-L.Blount up the middle to NE 34 for 36 yards (30-D.Harmon)."
+    },
+    {
+      "play_id": 754,
+      "quarter": 1.0,
+      "game_clock": "02:41",
+      "offense": "PHI",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 34.0,
+      "epa": 3.28,
+      "description": "(2:41) 9-N.Foles pass deep left to 17-A.Jeffery for 34 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 881,
+      "quarter": 1.0,
+      "game_clock": "01:41",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 50.0,
+      "epa": 4.75,
+      "description": "(1:41) (Shotgun) 12-T.Brady pass deep left to 80-D.Amendola to PHI 29 for 50 yards (41-R.Darby)."
+    },
+    {
+      "play_id": 1113,
+      "quarter": 2.0,
+      "game_clock": "13:11",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 1.61,
+      "description": "(13:11) 12-T.Brady pass deep left to 14-B.Cooks to PHI 40 for 23 yards (27-M.Jenkins)\u2026"
+    },
+    {
+      "play_id": 1319,
+      "quarter": 2.0,
+      "game_clock": "09:40",
+      "offense": "PHI",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 2.06,
+      "description": "(9:40) (Shotgun) 9-N.Foles pass deep right to 17-A.Jeffery to NE 21 for 22 yards (24-S.Gilmore)."
+    },
+    {
+      "play_id": 1343,
+      "quarter": 2.0,
+      "game_clock": "08:55",
+      "offense": "PHI",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 2.45,
+      "description": "(8:55) 73-I.Seumalo reported in as eligible. 29-L.Blount left end for 21 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1391,
+      "quarter": 2.0,
+      "game_clock": "08:48",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 46.0,
+      "epa": 2.86,
+      "description": "(8:48) 12-T.Brady pass short right to 34-R.Burkhead to PHI 29 for 46 yards (24-C.Graham) [91-F.Cox]."
+    },
+    {
+      "play_id": 1585,
+      "quarter": 2.0,
+      "game_clock": "05:55",
+      "offense": "PHI",
+      "events": [
+        "big play"
+      ],
+      "yards": 26.0,
+      "epa": 2.43,
+      "description": "(5:55) (Shotgun) 36-J.Ajayi right tackle to NE 43 for 26 yards (92-J.Harrison)."
+    },
+    {
+      "play_id": 1606,
+      "quarter": 2.0,
+      "game_clock": "05:15",
+      "offense": "PHI",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -3.12,
+      "description": "(5:15) (No Huddle, Shotgun) 9-N.Foles pass deep right intended for 17-A.Jeffery INTERCEPTED by\u2026"
+    },
+    {
+      "play_id": 1772,
+      "quarter": 2.0,
+      "game_clock": "02:55",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 43.0,
+      "epa": 2.89,
+      "description": "(2:55) (Shotgun) 12-T.Brady pass deep right to 15-C.Hogan to PHI 26 for 43 yards (31-J.Mills)."
+    },
+    {
+      "play_id": 1796,
+      "quarter": 2.0,
+      "game_clock": "02:12",
+      "offense": "NE",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 26.0,
+      "epa": 3.14,
+      "description": "(2:12) 28-J.White left guard for 26 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1914,
+      "quarter": 2.0,
+      "game_clock": "01:46",
+      "offense": "PHI",
+      "events": [
+        "big play"
+      ],
+      "yards": 55.0,
+      "epa": 4.33,
+      "description": "(1:46) (Shotgun) 9-N.Foles pass short right to 30-C.Clement to NE 8 for 55 yards (23-P.Chung)."
+    },
+    {
+      "play_id": 2053,
+      "quarter": 2.0,
+      "game_clock": "00:38",
+      "offense": "PHI",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 3.14,
+      "description": "(:38) (Shotgun) 88-T.Burton pass short right to 9-N.Foles for 1 yard, TOUCHDOWN. PHI 9-N.Foles\u2026"
+    },
+    {
+      "play_id": 2231,
+      "quarter": 2.0,
+      "game_clock": "00:03",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": -0.39,
+      "description": "(:03) (Shotgun) 12-T.Brady pass short right to 80-D.Amendola to PHI 27 for 23 yards (24-C.Graham)."
+    },
+    {
+      "play_id": 2309,
+      "quarter": 3.0,
+      "game_clock": "14:57",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 25.0,
+      "epa": 2.4,
+      "description": "(14:57) (Shotgun) 12-T.Brady pass deep right to 87-R.Gronkowski pushed ob at 50 for 25 yards\u2026"
+    },
+    {
+      "play_id": 2333,
+      "quarter": 3.0,
+      "game_clock": "14:33",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 1.75,
+      "description": "(14:33) (Shotgun) 12-T.Brady pass deep right to 87-R.Gronkowski to PHI 26 for 24 yards\u2026"
+    },
+    {
+      "play_id": 2445,
+      "quarter": 3.0,
+      "game_clock": "12:19",
+      "offense": "NE",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 5.0,
+      "epa": 1.64,
+      "description": "(12:19) (Shotgun) 12-T.Brady pass short left to 87-R.Gronkowski for 5 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2604,
+      "quarter": 3.0,
+      "game_clock": "10:10",
+      "offense": "PHI",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 1.02,
+      "description": "(10:10) (Shotgun) 29-L.Blount left guard to NE 49 for 10 yards (90-M.Brown)."
+    },
+    {
+      "play_id": 2764,
+      "quarter": 3.0,
+      "game_clock": "07:25",
+      "offense": "PHI",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 3.37,
+      "description": "(7:25) (Shotgun) 9-N.Foles pass deep left to 30-C.Clement for 22 yards, TOUCHDOWN. The Replay\u2026"
+    },
+    {
+      "play_id": 3030,
+      "quarter": 3.0,
+      "game_clock": "03:29",
+      "offense": "NE",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 26.0,
+      "epa": 2.69,
+      "description": "(3:29) 12-T.Brady pass deep right to 15-C.Hogan for 26 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3085,
+      "quarter": 3.0,
+      "game_clock": "03:23",
+      "offense": "PHI",
+      "events": [
+        "big play"
+      ],
+      "yards": 24.0,
+      "epa": 1.58,
+      "description": "(3:23) (Shotgun) 9-N.Foles pass deep right to 13-N.Agholor pushed ob at PHI 49 for 24 yards\u2026"
+    },
+    {
+      "play_id": 3432,
+      "quarter": 4.0,
+      "game_clock": "11:24",
+      "offense": "NE",
+      "events": [
+        "big play"
+      ],
+      "yards": 30.0,
+      "epa": 2.07,
+      "description": "(11:24) 12-T.Brady pass short left to 80-D.Amendola pushed ob at PHI 17 for 30 yards (23-R.McLeod)."
+    },
+    {
+      "play_id": 3529,
+      "quarter": 4.0,
+      "game_clock": "09:26",
+      "offense": "NE",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 4.0,
+      "epa": 1.48,
+      "description": "(9:26) (Shotgun) 12-T.Brady pass short left to 87-R.Gronkowski for 4 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3932,
+      "quarter": 4.0,
+      "game_clock": "02:25",
+      "offense": "PHI",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 11.0,
+      "epa": 3.36,
+      "description": "(2:25) (Shotgun) 9-N.Foles pass short left to 86-Z.Ertz for 11 yards, TOUCHDOWN. The Replay\u2026"
+    },
+    {
+      "play_id": 4039,
+      "quarter": 4.0,
+      "game_clock": "02:16",
+      "offense": "NE",
+      "events": [
+        "sack",
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": -5.0,
+      "epa": -4.84,
+      "description": "(2:16) (Shotgun) 12-T.Brady sacked at NE 26 for -7 yards (55-B.Graham). FUMBLES (55-B.Graham)\u2026"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "source": "synthetic_bdb",
+  "source_url": null,
+  "audited_at": "2026-10-04T03:46:31+00:00",
+  "raw_dir": "data/raw/synthetic_bdb",
+  "synthetic": true,
+  "files": [
+    {
+      "name": "games.csv",
+      "bytes": 516,
+      "sha256": "9fbb01fbd7b401c084ae1c23b6802179d74348237d0ad4d61f8df052d57de53f"
+    },
+    {
+      "name": "players.csv",
+      "bytes": 2399,
+      "sha256": "d5bcb9080f558b2b04aa4e019b24718cad2f6398810ea2062b5ba96dd9d44300"
+    },
+    {
+      "name": "plays.csv",
+      "bytes": 53850,
+      "sha256": "a0aad0dee967335969ecc9d19a86a283f98b0fc52491c100ba5a69f131463bae"
+    },
+    {
+      "name": "tracking_week_1.csv",
+      "bytes": 9332603,
+      "sha256": "5c2eb6825bf8832e32998038e4e14d519c33927de2977555811741f28dc56598"
+    },
+    {
+      "name": "tracking_week_2.csv",
+      "bytes": 9371776,
+      "sha256": "fa9fc018bb0c547ae3e35e90124da68faa810aa85f47d9a021fb33bb07cc5765"
+    },
+    {
+      "name": "tracking_week_3.csv",
+      "bytes": 9380005,
+      "sha256": "791f405cc3dd5b8eb3a7a1a32b52b517260335c076c661aab0514a9c37f8113f"
+    },
+    {
+      "name": "tracking_week_4.csv",
+      "bytes": 9308740,
+      "sha256": "9b11fdb6c59bfa6b5a02e995266b5ff617b4e1711e94728f1facd73c0a738c45"
+    },
+    {
+      "name": "tracking_week_5.csv",
+      "bytes": 9307261,
+      "sha256": "7857580671cda1cf4037921cb35b98c79df025f6b1351724a023f76b3f492be7"
+    },
+    {
+      "name": "tracking_week_6.csv",
+      "bytes": 9322030,
+      "sha256": "1a6eeac7e69364077876ef6f8acbb9537d3146c72317417916e0c58daa0a3d42"
+    },
+    {
+      "name": "tracking_week_7.csv",
+      "bytes": 9099875,
+      "sha256": "b4be45272356a366926d6d70d20441fe7f45122ebe4478d6d6485fc632bf18c7"
+    },
+    {
+      "name": "tracking_week_8.csv",
+      "bytes": 9256357,
+      "sha256": "bfd81ef23c27ff948629cdb62b69793798bd32834d534cde7efdfdbe4699112d"
+    },
+    {
+      "name": "tracking_week_9.csv",
+      "bytes": 9228999,
+      "sha256": "379ec28f7085947bad58c56f7addfb098a26593573b9db0572ed239eed9da742"
+    }
+  ],
+  "total_bytes": 83664411,
+  "rights": "Synthetic, no restriction.",
+  "plays": {
+    "rows": 720,
+    "duplicate_game_play": 0,
+    "labels": {
+      "pff_manZone": {
+        "Zone": 508,
+        "Man": 212
+      },
+      "pff_passCoverage": {
+        "Cover-3": 508,
+        "Cover-1": 212
+      }
+    }
+  },
+  "games": {
+    "rows": 18,
+    "seasons": {
+      "2099": 18
+    }
+  }
+}

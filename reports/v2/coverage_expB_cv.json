@@ -1,0 +1,1176 @@
+{
+  "experiment": "B",
+  "device": "cpu",
+  "device_note": "Apple MPS was benchmarked at about half the CPU speed for this small model, so CPU is used.",
+  "base_settings": {
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch": 64,
+    "grad_clip": 1.0,
+    "max_epochs": 50,
+    "patience": 8,
+    "pair_mlp": [
+      64,
+      64
+    ],
+    "pooled": "mean+max over receivers, then defenders",
+    "hidden": 96,
+    "layers": 2,
+    "dropout": 0.1
+  },
+  "pair_features": [
+    "rel_x",
+    "rel_y",
+    "sep",
+    "rel_vx",
+    "rel_vy",
+    "closing",
+    "dircos",
+    "facing",
+    "d_depth",
+    "d_lateral",
+    "d_vx",
+    "d_vy",
+    "d_speed",
+    "r_depth",
+    "r_lateral",
+    "r_vx",
+    "r_vy",
+    "r_speed"
+  ],
+  "results": [
+    {
+      "config": "gru",
+      "temporal": "gru",
+      "augment": false,
+      "folds": [
+        {
+          "fold": 0,
+          "train_plays": 4887,
+          "validate_plays": 1520,
+          "best_epoch": 31,
+          "epochs_run": 39,
+          "val_loss": 0.228157177567482,
+          "seconds": 1585.2,
+          "seconds_per_epoch": 40.65,
+          "plays_per_second": 120,
+          "parameters": 134689,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1520,
+              "man": 451,
+              "zone": 1069,
+              "threshold": 0.5,
+              "accuracy": 0.868421052631579,
+              "balanced_accuracy": 0.8244167933642939,
+              "macro_f1": 0.8362178388943842,
+              "man_precision": 0.8177215189873418,
+              "man_recall": 0.7161862527716186,
+              "zone_precision": 0.8862222222222222,
+              "zone_recall": 0.9326473339569691,
+              "log_loss": 0.31431037187576294,
+              "brier": 0.0961567610502243,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  323,
+                  128,
+                  72,
+                  997
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1520,
+              "man": 451,
+              "zone": 1069,
+              "threshold": 0.5,
+              "accuracy": 0.8921052631578947,
+              "balanced_accuracy": 0.8636871809656952,
+              "macro_f1": 0.8688552188552188,
+              "man_precision": 0.8344988344988346,
+              "man_recall": 0.7937915742793792,
+              "zone_precision": 0.9147571035747021,
+              "zone_recall": 0.9335827876520112,
+              "log_loss": 0.2502408027648926,
+              "brier": 0.07453369349241257,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  358,
+                  93,
+                  71,
+                  998
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1517,
+              "man": 450,
+              "zone": 1067,
+              "threshold": 0.5,
+              "accuracy": 0.9235332893869479,
+              "balanced_accuracy": 0.9038789961470374,
+              "macro_f1": 0.9075353838522684,
+              "man_precision": 0.8830275229357798,
+              "man_recall": 0.8555555555555555,
+              "zone_precision": 0.9398704902867715,
+              "zone_recall": 0.9522024367385192,
+              "log_loss": 0.1816435605287552,
+              "brier": 0.05554387345910072,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  385,
+                  65,
+                  51,
+                  1016
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1486,
+              "man": 436,
+              "zone": 1050,
+              "threshold": 0.5,
+              "accuracy": 0.9320323014804845,
+              "balanced_accuracy": 0.9170336391437309,
+              "macro_f1": 0.9178739123844669,
+              "man_precision": 0.8868360277136259,
+              "man_recall": 0.8807339449541285,
+              "zone_precision": 0.9506172839506173,
+              "zone_recall": 0.9533333333333334,
+              "log_loss": 0.16492779552936554,
+              "brier": 0.049882255494594574,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  384,
+                  52,
+                  49,
+                  1001
+                ]
+              }
+            }
+          }
+        },
+        {
+          "fold": 1,
+          "train_plays": 6407,
+          "validate_plays": 1432,
+          "best_epoch": 23,
+          "epochs_run": 31,
+          "val_loss": 0.22429248690605164,
+          "seconds": 169.4,
+          "seconds_per_epoch": 5.47,
+          "plays_per_second": 1172,
+          "parameters": 134689,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1432,
+              "man": 420,
+              "zone": 1012,
+              "threshold": 0.5,
+              "accuracy": 0.8589385474860335,
+              "balanced_accuracy": 0.8270750988142292,
+              "macro_f1": 0.8289010448213203,
+              "man_precision": 0.7645631067961165,
+              "man_recall": 0.75,
+              "zone_precision": 0.8970588235294118,
+              "zone_recall": 0.9041501976284585,
+              "log_loss": 0.31162965297698975,
+              "brier": 0.09652816504240036,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  315,
+                  105,
+                  97,
+                  915
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1432,
+              "man": 420,
+              "zone": 1012,
+              "threshold": 0.5,
+              "accuracy": 0.8987430167597765,
+              "balanced_accuracy": 0.8796113306982872,
+              "macro_f1": 0.8782923176568165,
+              "man_precision": 0.8235294117647058,
+              "man_recall": 0.8333333333333334,
+              "zone_precision": 0.9304865938430983,
+              "zone_recall": 0.9258893280632411,
+              "log_loss": 0.23807169497013092,
+              "brier": 0.07321938872337341,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  350,
+                  70,
+                  75,
+                  937
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1427,
+              "man": 419,
+              "zone": 1008,
+              "threshold": 0.5,
+              "accuracy": 0.9292221443587947,
+              "balanced_accuracy": 0.9157337955070652,
+              "macro_f1": 0.9148655026513157,
+              "man_precision": 0.8767772511848341,
+              "man_recall": 0.883054892601432,
+              "zone_precision": 0.9512437810945273,
+              "zone_recall": 0.9484126984126984,
+              "log_loss": 0.17843493819236755,
+              "brier": 0.05262204632163048,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  370,
+                  49,
+                  52,
+                  956
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1411,
+              "man": 410,
+              "zone": 1001,
+              "threshold": 0.5,
+              "accuracy": 0.9340892983699504,
+              "balanced_accuracy": 0.9225859506347311,
+              "macro_f1": 0.9204644016328609,
+              "man_precision": 0.8800959232613909,
+              "man_recall": 0.8951219512195122,
+              "zone_precision": 0.9567404426559356,
+              "zone_recall": 0.9500499500499501,
+              "log_loss": 0.16804875433444977,
+              "brier": 0.05038173869252205,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  367,
+                  43,
+                  50,
+                  951
+                ]
+              }
+            }
+          }
+        },
+        {
+          "fold": 2,
+          "train_plays": 7839,
+          "validate_plays": 1558,
+          "best_epoch": 18,
+          "epochs_run": 26,
+          "val_loss": 0.19575317203998566,
+          "seconds": 162.9,
+          "seconds_per_epoch": 6.26,
+          "plays_per_second": 1251,
+          "parameters": 134689,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1558,
+              "man": 464,
+              "zone": 1094,
+              "threshold": 0.5,
+              "accuracy": 0.8780487804878049,
+              "balanced_accuracy": 0.8449024459433903,
+              "macro_f1": 0.8513779744989869,
+              "man_precision": 0.815668202764977,
+              "man_recall": 0.7629310344827587,
+              "zone_precision": 0.902135231316726,
+              "zone_recall": 0.926873857404022,
+              "log_loss": 0.2738334536552429,
+              "brier": 0.08453851193189621,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  354,
+                  110,
+                  80,
+                  1014
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1558,
+              "man": 464,
+              "zone": 1094,
+              "threshold": 0.5,
+              "accuracy": 0.9075738125802311,
+              "balanced_accuracy": 0.8727522379121225,
+              "macro_f1": 0.8855059535352752,
+              "man_precision": 0.8902439024390244,
+              "man_recall": 0.7866379310344828,
+              "zone_precision": 0.9137630662020906,
+              "zone_recall": 0.9588665447897623,
+              "log_loss": 0.21011994779109955,
+              "brier": 0.0644274428486824,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  365,
+                  99,
+                  45,
+                  1049
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1555,
+              "man": 464,
+              "zone": 1091,
+              "threshold": 0.5,
+              "accuracy": 0.9382636655948553,
+              "balanced_accuracy": 0.9194654935364581,
+              "macro_f1": 0.9252412831576544,
+              "man_precision": 0.916289592760181,
+              "man_recall": 0.8728448275862069,
+              "zone_precision": 0.9469901168014375,
+              "zone_recall": 0.9660861594867094,
+              "log_loss": 0.1563657969236374,
+              "brier": 0.04678182676434517,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  405,
+                  59,
+                  37,
+                  1054
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1528,
+              "man": 453,
+              "zone": 1075,
+              "threshold": 0.5,
+              "accuracy": 0.9404450261780105,
+              "balanced_accuracy": 0.9238266851481082,
+              "macro_f1": 0.9279176159853604,
+              "man_precision": 0.91324200913242,
+              "man_recall": 0.8830022075055187,
+              "zone_precision": 0.9513761467889909,
+              "zone_recall": 0.9646511627906976,
+              "log_loss": 0.14157432317733765,
+              "brier": 0.04286967217922211,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  400,
+                  53,
+                  38,
+                  1037
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "mean_val_loss": 0.2160676121711731,
+      "val_loss_sd": 0.01769862471662236,
+      "median_best_epoch": 23,
+      "mean_by_horizon": {
+        "at_snap": {
+          "log_loss": 0.29992449283599854,
+          "accuracy": 0.8684694602018057,
+          "balanced_accuracy": 0.8321314460406377,
+          "man_recall": 0.7430390957514591,
+          "macro_f1": 0.8388322860715638
+        },
+        "post_0_5s": {
+          "log_loss": 0.23281081517537436,
+          "accuracy": 0.8994740308326342,
+          "balanced_accuracy": 0.8720169165253684,
+          "man_recall": 0.8045876128823984,
+          "macro_f1": 0.8775511633491035
+        },
+        "post_1s": {
+          "log_loss": 0.1721480985482534,
+          "accuracy": 0.9303396997801993,
+          "balanced_accuracy": 0.9130260950635202,
+          "man_recall": 0.8704850919143982,
+          "macro_f1": 0.9158807232204129
+        },
+        "post_1_5s": {
+          "log_loss": 0.158183624347051,
+          "accuracy": 0.9355222086761484,
+          "balanced_accuracy": 0.9211487583088567,
+          "man_recall": 0.8862860345597198,
+          "macro_f1": 0.9220853100008961
+        }
+      }
+    },
+    {
+      "config": "tcn",
+      "temporal": "tcn",
+      "augment": false,
+      "folds": [
+        {
+          "fold": 0,
+          "train_plays": 4887,
+          "validate_plays": 1520,
+          "best_epoch": 31,
+          "epochs_run": 39,
+          "val_loss": 0.22532919049263,
+          "seconds": 193.8,
+          "seconds_per_epoch": 4.97,
+          "plays_per_second": 983,
+          "parameters": 106177,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1520,
+              "man": 451,
+              "zone": 1069,
+              "threshold": 0.5,
+              "accuracy": 0.8736842105263158,
+              "balanced_accuracy": 0.8262358463366928,
+              "macro_f1": 0.8411371237458194,
+              "man_precision": 0.8398950131233596,
+              "man_recall": 0.7095343680709535,
+              "zone_precision": 0.8849868305531168,
+              "zone_recall": 0.9429373246024322,
+              "log_loss": 0.30316442251205444,
+              "brier": 0.09185390174388885,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  320,
+                  131,
+                  61,
+                  1008
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1520,
+              "man": 451,
+              "zone": 1069,
+              "threshold": 0.5,
+              "accuracy": 0.8980263157894737,
+              "balanced_accuracy": 0.8621284371700763,
+              "macro_f1": 0.873707525712794,
+              "man_precision": 0.8681592039800995,
+              "man_recall": 0.7738359201773836,
+              "zone_precision": 0.9087656529516994,
+              "zone_recall": 0.950420954162769,
+              "log_loss": 0.24317429959774017,
+              "brier": 0.07172959297895432,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  349,
+                  102,
+                  53,
+                  1016
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1517,
+              "man": 450,
+              "zone": 1067,
+              "threshold": 0.5,
+              "accuracy": 0.9274884640738299,
+              "balanced_accuracy": 0.9034780797667396,
+              "macro_f1": 0.9113657127074171,
+              "man_precision": 0.9047619047619048,
+              "man_recall": 0.8444444444444444,
+              "zone_precision": 0.9361896080218779,
+              "zone_recall": 0.9625117150890347,
+              "log_loss": 0.18579013645648956,
+              "brier": 0.05561058968305588,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  380,
+                  70,
+                  40,
+                  1027
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1486,
+              "man": 436,
+              "zone": 1050,
+              "threshold": 0.5,
+              "accuracy": 0.9340511440107672,
+              "balanced_accuracy": 0.9084032328527741,
+              "macro_f1": 0.9184474849022455,
+              "man_precision": 0.9225,
+              "man_recall": 0.8463302752293578,
+              "zone_precision": 0.9383057090239411,
+              "zone_recall": 0.9704761904761905,
+              "log_loss": 0.16782350838184357,
+              "brier": 0.04999539628624916,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  369,
+                  67,
+                  31,
+                  1019
+                ]
+              }
+            }
+          }
+        },
+        {
+          "fold": 1,
+          "train_plays": 6407,
+          "validate_plays": 1432,
+          "best_epoch": 22,
+          "epochs_run": 30,
+          "val_loss": 0.2250789850950241,
+          "seconds": 169.8,
+          "seconds_per_epoch": 5.66,
+          "plays_per_second": 1132,
+          "parameters": 106177,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1432,
+              "man": 420,
+              "zone": 1012,
+              "threshold": 0.5,
+              "accuracy": 0.8736033519553073,
+              "balanced_accuracy": 0.8318793525315265,
+              "macro_f1": 0.8424225843615395,
+              "man_precision": 0.8186666666666667,
+              "man_recall": 0.7309523809523809,
+              "zone_precision": 0.8930936613055819,
+              "zone_recall": 0.932806324110672,
+              "log_loss": 0.3055511713027954,
+              "brier": 0.09318290650844574,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  307,
+                  113,
+                  68,
+                  944
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1432,
+              "man": 420,
+              "zone": 1012,
+              "threshold": 0.5,
+              "accuracy": 0.9029329608938548,
+              "balanced_accuracy": 0.879093732354602,
+              "macro_f1": 0.882011718923661,
+              "man_precision": 0.843520782396088,
+              "man_recall": 0.8214285714285714,
+              "zone_precision": 0.9266862170087976,
+              "zone_recall": 0.9367588932806324,
+              "log_loss": 0.22970175743103027,
+              "brier": 0.06950964778661728,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  345,
+                  75,
+                  64,
+                  948
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1427,
+              "man": 419,
+              "zone": 1008,
+              "threshold": 0.5,
+              "accuracy": 0.9215136650315346,
+              "balanced_accuracy": 0.9074883035951056,
+              "macro_f1": 0.9057885925821132,
+              "man_precision": 0.8611764705882353,
+              "man_recall": 0.8735083532219571,
+              "zone_precision": 0.9471057884231537,
+              "zone_recall": 0.941468253968254,
+              "log_loss": 0.1942087709903717,
+              "brier": 0.05798356980085373,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  366,
+                  53,
+                  59,
+                  949
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1411,
+              "man": 410,
+              "zone": 1001,
+              "threshold": 0.5,
+              "accuracy": 0.9340892983699504,
+              "balanced_accuracy": 0.9204259155478668,
+              "macro_f1": 0.9201233731489918,
+              "man_precision": 0.8856447688564477,
+              "man_recall": 0.8878048780487805,
+              "zone_precision": 0.954,
+              "zone_recall": 0.9530469530469531,
+              "log_loss": 0.16993780434131622,
+              "brier": 0.05005018040537834,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  364,
+                  46,
+                  47,
+                  954
+                ]
+              }
+            }
+          }
+        },
+        {
+          "fold": 2,
+          "train_plays": 7839,
+          "validate_plays": 1558,
+          "best_epoch": 33,
+          "epochs_run": 41,
+          "val_loss": 0.18038368225097656,
+          "seconds": 278.0,
+          "seconds_per_epoch": 6.78,
+          "plays_per_second": 1156,
+          "parameters": 106177,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1558,
+              "man": 464,
+              "zone": 1094,
+              "threshold": 0.5,
+              "accuracy": 0.8902439024390244,
+              "balanced_accuracy": 0.8486217928512891,
+              "macro_f1": 0.8629775980423167,
+              "man_precision": 0.8671679197994987,
+              "man_recall": 0.7456896551724138,
+              "zone_precision": 0.8981880931837791,
+              "zone_recall": 0.9515539305301646,
+              "log_loss": 0.2536214590072632,
+              "brier": 0.07764007896184921,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  346,
+                  118,
+                  53,
+                  1041
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1558,
+              "man": 464,
+              "zone": 1094,
+              "threshold": 0.5,
+              "accuracy": 0.9191270860077022,
+              "balanced_accuracy": 0.8940104330832755,
+              "macro_f1": 0.9014401304572228,
+              "man_precision": 0.8894009216589862,
+              "man_recall": 0.8318965517241379,
+              "zone_precision": 0.9306049822064056,
+              "zone_recall": 0.9561243144424132,
+              "log_loss": 0.19875425100326538,
+              "brier": 0.05967342108488083,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  386,
+                  78,
+                  48,
+                  1046
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1555,
+              "man": 464,
+              "zone": 1091,
+              "threshold": 0.5,
+              "accuracy": 0.9421221864951769,
+              "balanced_accuracy": 0.9271695929074876,
+              "macro_f1": 0.9303628793095899,
+              "man_precision": 0.9137168141592921,
+              "man_recall": 0.8900862068965517,
+              "zone_precision": 0.9537624660018132,
+              "zone_recall": 0.9642529789184234,
+              "log_loss": 0.14503264427185059,
+              "brier": 0.04261275380849838,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  413,
+                  51,
+                  39,
+                  1052
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1528,
+              "man": 453,
+              "zone": 1075,
+              "threshold": 0.5,
+              "accuracy": 0.9482984293193717,
+              "balanced_accuracy": 0.9345171723394425,
+              "macro_f1": 0.9375873470537901,
+              "man_precision": 0.9230769230769231,
+              "man_recall": 0.9006622516556292,
+              "zone_precision": 0.9585635359116023,
+              "zone_recall": 0.9683720930232558,
+              "log_loss": 0.12295248359441757,
+              "brier": 0.036929335445165634,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  408,
+                  45,
+                  34,
+                  1041
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "mean_val_loss": 0.2102639526128769,
+      "val_loss_sd": 0.025877375608056592,
+      "median_best_epoch": 31,
+      "mean_by_horizon": {
+        "at_snap": {
+          "log_loss": 0.28744568427403766,
+          "accuracy": 0.8791771549735491,
+          "balanced_accuracy": 0.8355789972398361,
+          "man_recall": 0.7287254680652494,
+          "macro_f1": 0.8488457687165584
+        },
+        "post_0_5s": {
+          "log_loss": 0.22387676934401193,
+          "accuracy": 0.9066954542303436,
+          "balanced_accuracy": 0.8784108675359846,
+          "man_recall": 0.809053681110031,
+          "macro_f1": 0.8857197916978926
+        },
+        "post_1s": {
+          "log_loss": 0.17501051723957062,
+          "accuracy": 0.9303747718668472,
+          "balanced_accuracy": 0.9127119920897776,
+          "man_recall": 0.8693463348543178,
+          "macro_f1": 0.9158390615330401
+        },
+        "post_1_5s": {
+          "log_loss": 0.15357126543919244,
+          "accuracy": 0.9388129572333631,
+          "balanced_accuracy": 0.9211154402466946,
+          "man_recall": 0.8782658016445892,
+          "macro_f1": 0.9253860683683426
+        }
+      }
+    },
+    {
+      "config": "gru+reflect",
+      "temporal": "gru",
+      "augment": true,
+      "folds": [
+        {
+          "fold": 0,
+          "train_plays": 4887,
+          "validate_plays": 1520,
+          "best_epoch": 49,
+          "epochs_run": 50,
+          "val_loss": 0.21051771938800812,
+          "seconds": 137.5,
+          "seconds_per_epoch": 2.75,
+          "plays_per_second": 1778,
+          "parameters": 134689,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1520,
+              "man": 451,
+              "zone": 1069,
+              "threshold": 0.5,
+              "accuracy": 0.8861842105263158,
+              "balanced_accuracy": 0.8524275127095178,
+              "macro_f1": 0.860423961685592,
+              "man_precision": 0.8341346153846154,
+              "man_recall": 0.7694013303769401,
+              "zone_precision": 0.9057971014492754,
+              "zone_recall": 0.9354536950420954,
+              "log_loss": 0.28363892436027527,
+              "brier": 0.08700079470872879,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  347,
+                  104,
+                  69,
+                  1000
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1520,
+              "man": 451,
+              "zone": 1069,
+              "threshold": 0.5,
+              "accuracy": 0.9085526315789474,
+              "balanced_accuracy": 0.8817895581796196,
+              "macro_f1": 0.888469811943253,
+              "man_precision": 0.8679245283018868,
+              "man_recall": 0.8159645232815964,
+              "zone_precision": 0.9242700729927007,
+              "zone_recall": 0.9476145930776426,
+              "log_loss": 0.22757282853126526,
+              "brier": 0.06809980422258377,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  368,
+                  83,
+                  56,
+                  1013
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1517,
+              "man": 450,
+              "zone": 1067,
+              "threshold": 0.5,
+              "accuracy": 0.9215557020435069,
+              "balanced_accuracy": 0.8902655420181194,
+              "macro_f1": 0.9028261865402617,
+              "man_precision": 0.912718204488778,
+              "man_recall": 0.8133333333333334,
+              "zone_precision": 0.9247311827956989,
+              "zone_recall": 0.9671977507029054,
+              "log_loss": 0.17937695980072021,
+              "brier": 0.0547986701130867,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  366,
+                  84,
+                  35,
+                  1032
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1486,
+              "man": 436,
+              "zone": 1050,
+              "threshold": 0.5,
+              "accuracy": 0.9313593539703903,
+              "balanced_accuracy": 0.9051572739187418,
+              "macro_f1": 0.9151188108166228,
+              "man_precision": 0.9175,
+              "man_recall": 0.841743119266055,
+              "zone_precision": 0.93646408839779,
+              "zone_recall": 0.9685714285714285,
+              "log_loss": 0.15006855130195618,
+              "brier": 0.04649213328957558,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  367,
+                  69,
+                  33,
+                  1017
+                ]
+              }
+            }
+          }
+        },
+        {
+          "fold": 1,
+          "train_plays": 6407,
+          "validate_plays": 1432,
+          "best_epoch": 28,
+          "epochs_run": 36,
+          "val_loss": 0.21092109382152557,
+          "seconds": 124.2,
+          "seconds_per_epoch": 3.45,
+          "plays_per_second": 1857,
+          "parameters": 134689,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1432,
+              "man": 420,
+              "zone": 1012,
+              "threshold": 0.5,
+              "accuracy": 0.8854748603351955,
+              "balanced_accuracy": 0.853510257858084,
+              "macro_f1": 0.8594707414215687,
+              "man_precision": 0.8232323232323232,
+              "man_recall": 0.7761904761904762,
+              "zone_precision": 0.9092664092664092,
+              "zone_recall": 0.9308300395256917,
+              "log_loss": 0.2930998206138611,
+              "brier": 0.08966603875160217,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  326,
+                  94,
+                  70,
+                  942
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1432,
+              "man": 420,
+              "zone": 1012,
+              "threshold": 0.5,
+              "accuracy": 0.9113128491620112,
+              "balanced_accuracy": 0.8892010163749294,
+              "macro_f1": 0.8921977575777335,
+              "man_precision": 0.8581907090464548,
+              "man_recall": 0.8357142857142857,
+              "zone_precision": 0.9325513196480938,
+              "zone_recall": 0.9426877470355731,
+              "log_loss": 0.2205200046300888,
+              "brier": 0.06620790809392929,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  351,
+                  69,
+                  58,
+                  954
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1427,
+              "man": 419,
+              "zone": 1008,
+              "threshold": 0.5,
+              "accuracy": 0.9369306236860546,
+              "balanced_accuracy": 0.9267684301246353,
+              "macro_f1": 0.9243981520725608,
+              "man_precision": 0.8852459016393442,
+              "man_recall": 0.9021479713603818,
+              "zone_precision": 0.959,
+              "zone_recall": 0.9513888888888888,
+              "log_loss": 0.16694578528404236,
+              "brier": 0.048059992492198944,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  378,
+                  41,
+                  49,
+                  959
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1411,
+              "man": 410,
+              "zone": 1001,
+              "threshold": 0.5,
+              "accuracy": 0.9340892983699504,
+              "balanced_accuracy": 0.925465997417217,
+              "macro_f1": 0.9209092635062035,
+              "man_precision": 0.8729411764705882,
+              "man_recall": 0.9048780487804878,
+              "zone_precision": 0.960446247464503,
+              "zone_recall": 0.9460539460539461,
+              "log_loss": 0.16225145757198334,
+              "brier": 0.04756107181310654,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  371,
+                  39,
+                  54,
+                  947
+                ]
+              }
+            }
+          }
+        },
+        {
+          "fold": 2,
+          "train_plays": 7839,
+          "validate_plays": 1558,
+          "best_epoch": 27,
+          "epochs_run": 35,
+          "val_loss": 0.17917874455451965,
+          "seconds": 146.7,
+          "seconds_per_epoch": 4.19,
+          "plays_per_second": 1870,
+          "parameters": 134689,
+          "by_horizon": {
+            "at_snap": {
+              "n": 1558,
+              "man": 464,
+              "zone": 1094,
+              "threshold": 0.5,
+              "accuracy": 0.8966623876765083,
+              "balanced_accuracy": 0.8649825852612999,
+              "macro_f1": 0.8734723010378441,
+              "man_precision": 0.8548009367681498,
+              "man_recall": 0.7866379310344828,
+              "zone_precision": 0.9124668435013262,
+              "zone_recall": 0.943327239488117,
+              "log_loss": 0.24663376808166504,
+              "brier": 0.07433319836854935,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  365,
+                  99,
+                  62,
+                  1032
+                ]
+              }
+            },
+            "post_0_5s": {
+              "n": 1558,
+              "man": 464,
+              "zone": 1094,
+              "threshold": 0.5,
+              "accuracy": 0.9184852374839538,
+              "balanced_accuracy": 0.8941739425077224,
+              "macro_f1": 0.9008545809396633,
+              "man_precision": 0.88558352402746,
+              "man_recall": 0.834051724137931,
+              "zone_precision": 0.9313113291703836,
+              "zone_recall": 0.9542961608775137,
+              "log_loss": 0.2019227296113968,
+              "brier": 0.06029525771737099,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  387,
+                  77,
+                  50,
+                  1044
+                ]
+              }
+            },
+            "post_1s": {
+              "n": 1555,
+              "man": 464,
+              "zone": 1091,
+              "threshold": 0.5,
+              "accuracy": 0.9466237942122186,
+              "balanced_accuracy": 0.929758367837163,
+              "macro_f1": 0.9354068147024129,
+              "man_precision": 0.9300225733634312,
+              "man_recall": 0.8879310344827587,
+              "zone_precision": 0.9532374100719424,
+              "zone_recall": 0.9715857011915674,
+              "log_loss": 0.14132165908813477,
+              "brier": 0.04198404774069786,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  412,
+                  52,
+                  31,
+                  1060
+                ]
+              }
+            },
+            "post_1_5s": {
+              "n": 1528,
+              "man": 453,
+              "zone": 1075,
+              "threshold": 0.5,
+              "accuracy": 0.9515706806282722,
+              "balanced_accuracy": 0.934926844293855,
+              "macro_f1": 0.9411098055881937,
+              "man_precision": 0.9396751740139211,
+              "man_recall": 0.8940397350993378,
+              "zone_precision": 0.9562443026435734,
+              "zone_recall": 0.9758139534883721,
+              "log_loss": 0.12573473155498505,
+              "brier": 0.0372283011674881,
+              "confusion": {
+                "order": "man->man, man->zone, zone->man, zone->zone",
+                "values": [
+                  405,
+                  48,
+                  26,
+                  1049
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "mean_val_loss": 0.2002058525880178,
+      "val_loss_sd": 0.018211126596745876,
+      "median_best_epoch": 28,
+      "mean_by_horizon": {
+        "at_snap": {
+          "log_loss": 0.2744575043519338,
+          "accuracy": 0.8894404861793399,
+          "balanced_accuracy": 0.8569734519429671,
+          "man_recall": 0.7774099125339663,
+          "macro_f1": 0.8644556680483348
+        },
+        "post_0_5s": {
+          "log_loss": 0.21667185425758362,
+          "accuracy": 0.9127835727416375,
+          "balanced_accuracy": 0.8883881723540905,
+          "man_recall": 0.8285768443779378,
+          "macro_f1": 0.8938407168202166
+        },
+        "post_1s": {
+          "log_loss": 0.1625481347242991,
+          "accuracy": 0.93503670664726,
+          "balanced_accuracy": 0.9155974466599726,
+          "man_recall": 0.8678041130588247,
+          "macro_f1": 0.9208770511050784
+        },
+        "post_1_5s": {
+          "log_loss": 0.1460182468096415,
+          "accuracy": 0.939006444322871,
+          "balanced_accuracy": 0.9218500385432712,
+          "man_recall": 0.8802203010486269,
+          "macro_f1": 0.9257126266370067
+        }
+      }
+    }
+  ],
+  "chosen": {
+    "config": "gru+reflect",
+    "temporal": "gru",
+    "augment": true,
+    "epochs": 28,
+    "rule": "lowest mean validation log loss over the three chronological folds (averaged over the four prefixes); epochs = median best epoch"
+  },
+  "structural_checks": {
+    "gru": {
+      "player_order_max_abs_diff": 1.4901161193847656e-08,
+      "future_frames_max_abs_diff_on_earlier_outputs": 0.0,
+      "later_outputs_do_change": true,
+      "masked_slots_max_abs_diff": 0.0
+    },
+    "tcn": {
+      "player_order_max_abs_diff": 7.450580596923828e-09,
+      "future_frames_max_abs_diff_on_earlier_outputs": 0.0,
+      "later_outputs_do_change": true,
+      "masked_slots_max_abs_diff": 0.0
+    },
+    "reflection_max_abs_diff": 3.552713678800501e-15
+  }
+}

@@ -1,0 +1,1041 @@
+{
+  "source": "bdb2026",
+  "source_url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-analytics/data",
+  "audited_at": "2026-10-04T03:44:27+00:00",
+  "raw_dir": "data/raw/bdb2026",
+  "synthetic": false,
+  "files": [
+    {
+      "name": "input_2023_w01.csv",
+      "bytes": 48950314,
+      "sha256": "68a13183084adf52eb8bba7980a4b57d4131b4178016fb0eb32d307cbd044dc5"
+    },
+    {
+      "name": "input_2023_w02.csv",
+      "bytes": 49485029,
+      "sha256": "140eedd3bedc846918c92c934d47a02a49c5c3984bf325ddb9a607b7b4410d4e"
+    },
+    {
+      "name": "input_2023_w03.csv",
+      "bytes": 51062128,
+      "sha256": "57c58758286b82f9a41d240d9bd09bce47417e9bc1a6f467b14d9c2c1ef04dc6"
+    },
+    {
+      "name": "input_2023_w04.csv",
+      "bytes": 46685806,
+      "sha256": "915ca6f1524316d8cac84a4a8914b14c1221badb81e0dd1731b4d27106d3cdb5"
+    },
+    {
+      "name": "input_2023_w05.csv",
+      "bytes": 43574971,
+      "sha256": "9c4c55b22caaa39657116c8029eba55096fe97b96263829d9e2caec6e9ee29a9"
+    },
+    {
+      "name": "input_2023_w06.csv",
+      "bytes": 46320079,
+      "sha256": "87dd1ec5c2def42a1994ba51ffd9292b8b342784d2e2323278d5fe6a0d904f84"
+    },
+    {
+      "name": "input_2023_w07.csv",
+      "bytes": 39972688,
+      "sha256": "e4e3f50735501114451c306744f7e0257f17b5b4ebe15b8405573084359ef38b"
+    },
+    {
+      "name": "input_2023_w08.csv",
+      "bytes": 48114622,
+      "sha256": "b672e029414ad956cbdf937c58f7d9a3780e451815fd0e34162fd6605118b685"
+    },
+    {
+      "name": "input_2023_w09.csv",
+      "bytes": 43224522,
+      "sha256": "bdf9d37757c0dd916abf18c4846c5c8f0642dad6f878ef202efacd96b9ae0044"
+    },
+    {
+      "name": "input_2023_w10.csv",
+      "bytes": 44660215,
+      "sha256": "f06e97b348815c7712d49d9a25d3b529096698a4127f0fa6797ef4f257b9f7d6"
+    },
+    {
+      "name": "input_2023_w11.csv",
+      "bytes": 41687928,
+      "sha256": "461f0f2cfb57eb58110f522a819c210db6441668a41476c430348d3fdfed8165"
+    },
+    {
+      "name": "input_2023_w12.csv",
+      "bytes": 50591754,
+      "sha256": "cc2a6bfc4874b257117cbb54b30fcefca230e74301010d09f639ed40df1f3774"
+    },
+    {
+      "name": "input_2023_w13.csv",
+      "bytes": 40083483,
+      "sha256": "494424cbb67da50cc126418fd8a76fc2db9c715f6ea1cd7f216eac02cc742b6a"
+    },
+    {
+      "name": "input_2023_w14.csv",
+      "bytes": 48010868,
+      "sha256": "00f0284711f8f3b8a83309ba36622af4b8fa52486f989c615098bd618820a744"
+    },
+    {
+      "name": "input_2023_w15.csv",
+      "bytes": 48234805,
+      "sha256": "28b50a8b52341296b58203767e392da33b6f3954c208e6194202f46443477f0e"
+    },
+    {
+      "name": "input_2023_w16.csv",
+      "bytes": 54152852,
+      "sha256": "474ded452014b53cf0076c63787977ef1c08e62f065f2b9653e5cb37e3fee1ba"
+    },
+    {
+      "name": "input_2023_w17.csv",
+      "bytes": 47524865,
+      "sha256": "c44be941c5072c786cdbdd9f7b1bd66fe3ee64f840ee6f355bc3691dc2def1da"
+    },
+    {
+      "name": "input_2023_w18.csv",
+      "bytes": 43583927,
+      "sha256": "ead5883c9d27d4c7e7c2f9162649d23a06f83a0b7b27a70ad117d4dcc99541f2"
+    },
+    {
+      "name": "output_2023_w01.csv",
+      "bytes": 1149693,
+      "sha256": "b900eaf750f3189ea78b7785f317529fdb8e020ded614b8fc35d3b1d85de2136"
+    },
+    {
+      "name": "output_2023_w02.csv",
+      "bytes": 1151878,
+      "sha256": "2e8700a0f301cc640882a2df46e814575bb2cdc7df8972a91e4205e4b6e5dbf9"
+    },
+    {
+      "name": "output_2023_w03.csv",
+      "bytes": 1290818,
+      "sha256": "28f059362c11ff7ea91de7dd9961e7d2e1b573a0ab8f50609c08e2083daa17d3"
+    },
+    {
+      "name": "output_2023_w04.csv",
+      "bytes": 1079548,
+      "sha256": "0c2936db9933c99268b0b68a1aaec07b848652c831436b4f39e278eb1852b6b9"
+    },
+    {
+      "name": "output_2023_w05.csv",
+      "bytes": 1049295,
+      "sha256": "0db0024b360b1d104a95cef5ab18f4f9d10b8f7a9a1db11617a64751428bcdca"
+    },
+    {
+      "name": "output_2023_w06.csv",
+      "bytes": 1115599,
+      "sha256": "4d3cf3f8be1585dd7a45d4c4e746ae65da7eaf826c408ee746bc61548402fd9f"
+    },
+    {
+      "name": "output_2023_w07.csv",
+      "bytes": 982134,
+      "sha256": "16cd64258b6c31066ce98fa306232352e17cfd9cc523fc2ba0201f56a6c8c9ff"
+    },
+    {
+      "name": "output_2023_w08.csv",
+      "bytes": 1182503,
+      "sha256": "81c67b0313a96e15a5e23d56e220c1fc2024c4f1d1188ef7eb4c3d06fe1ed73b"
+    },
+    {
+      "name": "output_2023_w09.csv",
+      "bytes": 1013617,
+      "sha256": "a68b926f052251c66375f30bdc9893f8ed06664bea5197dc5d355d58793c10e7"
+    },
+    {
+      "name": "output_2023_w10.csv",
+      "bytes": 1038748,
+      "sha256": "f682dac38f090e68c2b0a42f00e7f9235d54ce7743f4c1f6e8b3e4156055f7fc"
+    },
+    {
+      "name": "output_2023_w11.csv",
+      "bytes": 988263,
+      "sha256": "4191bc1b041500bce6b49ff142f36592df157275990e216d305cf601fb6121a8"
+    },
+    {
+      "name": "output_2023_w12.csv",
+      "bytes": 1149533,
+      "sha256": "cf1a84fe1dc273fd694c37dc2bbfaa1e466736a2ab9fa3c75eeb64ccfabeddc7"
+    },
+    {
+      "name": "output_2023_w13.csv",
+      "bytes": 1058825,
+      "sha256": "df96f6c895a685c667a8ace0009d8a415b95b312b2534219e8c7eba93c0b69a7"
+    },
+    {
+      "name": "output_2023_w14.csv",
+      "bytes": 1178663,
+      "sha256": "460942e93c90ece6e91f2d1ee65e5ae05c6a127df8fcf43be0e3027b1b8dc2e3"
+    },
+    {
+      "name": "output_2023_w15.csv",
+      "bytes": 1172906,
+      "sha256": "69fa778947a9502d595dc67b5570c514a28ddeee9bd2d4572c4918a762ca72e1"
+    },
+    {
+      "name": "output_2023_w16.csv",
+      "bytes": 1306552,
+      "sha256": "f121c33addf6b45a5bd39e7c95968200eddebf05a0a818caa3724cff4a149c64"
+    },
+    {
+      "name": "output_2023_w17.csv",
+      "bytes": 1183218,
+      "sha256": "7c9e00893a65633f31ea889433da1f0049505ec0aaf1b82d1e3f2351e37fa983"
+    },
+    {
+      "name": "output_2023_w18.csv",
+      "bytes": 1061178,
+      "sha256": "f41227db6b7499044619acbc49d4018f81f2fdd3bb26d2f5216f226f84c3825d"
+    },
+    {
+      "name": "supplementary_data.csv",
+      "bytes": 7763752,
+      "sha256": "862f5d534dabee4071d8498ba46e5c48c27e56fa2fa81c6150ea2419e66ee98d"
+    }
+  ],
+  "total_bytes": 863837579,
+  "rights": "UNVERIFIED by this project. Downloaded by the owner after accepting the competition rules. Public display or redistribution has not been checked against those rules.",
+  "supplementary": {
+    "columns": [
+      "game_id",
+      "season",
+      "week",
+      "game_date",
+      "game_time_eastern",
+      "home_team_abbr",
+      "visitor_team_abbr",
+      "play_id",
+      "play_description",
+      "quarter",
+      "game_clock",
+      "down",
+      "yards_to_go",
+      "possession_team",
+      "defensive_team",
+      "yardline_side",
+      "yardline_number",
+      "pre_snap_home_score",
+      "pre_snap_visitor_score",
+      "play_nullified_by_penalty",
+      "pass_result",
+      "pass_length",
+      "offense_formation",
+      "receiver_alignment",
+      "route_of_targeted_receiver",
+      "play_action",
+      "dropback_type",
+      "dropback_distance",
+      "pass_location_type",
+      "defenders_in_the_box",
+      "team_coverage_man_zone",
+      "team_coverage_type",
+      "penalty_yards",
+      "pre_penalty_yards_gained",
+      "yards_gained",
+      "expected_points",
+      "expected_points_added",
+      "pre_snap_home_team_win_probability",
+      "pre_snap_visitor_team_win_probability",
+      "home_team_win_probability_added",
+      "visitor_team_win_probility_added"
+    ],
+    "rows": 18009,
+    "duplicate_game_play": 0,
+    "play_id_reused_across_games": 13538,
+    "seasons": {
+      "2023": 14108,
+      "2024": 3901
+    },
+    "games": 349,
+    "labels_all_rows": {
+      "team_coverage_man_zone": {
+        "ZONE_COVERAGE": 12783,
+        "MAN_COVERAGE": 5221,
+        "<missing>": 5
+      },
+      "team_coverage_type": {
+        "COVER_3_ZONE": 5664,
+        "COVER_1_MAN": 4108,
+        "COVER_4_ZONE": 2860,
+        "COVER_2_ZONE": 2518,
+        "COVER_6_ZONE": 1693,
+        "COVER_0_MAN": 781,
+        "COVER_2_MAN": 332,
+        "PREVENT": 48,
+        "<missing>": 5
+      }
+    },
+    "rows_without_tracking": 3901
+  },
+  "tracked_plays": {
+    "plays": 14108,
+    "seasons": {
+      "2023": 14108
+    },
+    "labels": {
+      "team_coverage_man_zone": {
+        "ZONE_COVERAGE": 10092,
+        "MAN_COVERAGE": 4013,
+        "<missing>": 3
+      },
+      "team_coverage_type": {
+        "COVER_3_ZONE": 4482,
+        "COVER_1_MAN": 3175,
+        "COVER_4_ZONE": 2346,
+        "COVER_2_ZONE": 1837,
+        "COVER_6_ZONE": 1388,
+        "COVER_0_MAN": 601,
+        "COVER_2_MAN": 237,
+        "PREVENT": 39,
+        "<missing>": 3
+      }
+    },
+    "man_zone_by_week": [
+      {
+        "week": 1,
+        "label": "MAN_COVERAGE",
+        "plays": 225
+      },
+      {
+        "week": 1,
+        "label": "ZONE_COVERAGE",
+        "plays": 594
+      },
+      {
+        "week": 2,
+        "label": "MAN_COVERAGE",
+        "plays": 219
+      },
+      {
+        "week": 2,
+        "label": "ZONE_COVERAGE",
+        "plays": 631
+      },
+      {
+        "week": 3,
+        "label": "MAN_COVERAGE",
+        "plays": 293
+      },
+      {
+        "week": 3,
+        "label": "ZONE_COVERAGE",
+        "plays": 611
+      },
+      {
+        "week": 4,
+        "label": "MAN_COVERAGE",
+        "plays": 196
+      },
+      {
+        "week": 4,
+        "label": "ZONE_COVERAGE",
+        "plays": 583
+      },
+      {
+        "week": 5,
+        "label": "MAN_COVERAGE",
+        "plays": 219
+      },
+      {
+        "week": 5,
+        "label": "ZONE_COVERAGE",
+        "plays": 523
+      },
+      {
+        "week": 6,
+        "label": "MAN_COVERAGE",
+        "plays": 198
+      },
+      {
+        "week": 6,
+        "label": "ZONE_COVERAGE",
+        "plays": 595
+      },
+      {
+        "week": 7,
+        "label": "MAN_COVERAGE",
+        "plays": 196
+      },
+      {
+        "week": 7,
+        "label": "ZONE_COVERAGE",
+        "plays": 497
+      },
+      {
+        "week": 8,
+        "label": "MAN_COVERAGE",
+        "plays": 255
+      },
+      {
+        "week": 8,
+        "label": "ZONE_COVERAGE",
+        "plays": 572
+      },
+      {
+        "week": 9,
+        "label": "MAN_COVERAGE",
+        "plays": 198
+      },
+      {
+        "week": 9,
+        "label": "ZONE_COVERAGE",
+        "plays": 513
+      },
+      {
+        "week": 10,
+        "label": "MAN_COVERAGE",
+        "plays": 222
+      },
+      {
+        "week": 10,
+        "label": "ZONE_COVERAGE",
+        "plays": 499
+      },
+      {
+        "week": 11,
+        "label": "MAN_COVERAGE",
+        "plays": 191
+      },
+      {
+        "week": 11,
+        "label": "ZONE_COVERAGE",
+        "plays": 516
+      },
+      {
+        "week": 12,
+        "label": "<missing>",
+        "plays": 3
+      },
+      {
+        "week": 12,
+        "label": "MAN_COVERAGE",
+        "plays": 273
+      },
+      {
+        "week": 12,
+        "label": "ZONE_COVERAGE",
+        "plays": 578
+      },
+      {
+        "week": 13,
+        "label": "MAN_COVERAGE",
+        "plays": 203
+      },
+      {
+        "week": 13,
+        "label": "ZONE_COVERAGE",
+        "plays": 463
+      },
+      {
+        "week": 14,
+        "label": "MAN_COVERAGE",
+        "plays": 222
+      },
+      {
+        "week": 14,
+        "label": "ZONE_COVERAGE",
+        "plays": 574
+      },
+      {
+        "week": 15,
+        "label": "MAN_COVERAGE",
+        "plays": 210
+      },
+      {
+        "week": 15,
+        "label": "ZONE_COVERAGE",
+        "plays": 581
+      },
+      {
+        "week": 16,
+        "label": "MAN_COVERAGE",
+        "plays": 263
+      },
+      {
+        "week": 16,
+        "label": "ZONE_COVERAGE",
+        "plays": 633
+      },
+      {
+        "week": 17,
+        "label": "MAN_COVERAGE",
+        "plays": 235
+      },
+      {
+        "week": 17,
+        "label": "ZONE_COVERAGE",
+        "plays": 574
+      },
+      {
+        "week": 18,
+        "label": "MAN_COVERAGE",
+        "plays": 195
+      },
+      {
+        "week": 18,
+        "label": "ZONE_COVERAGE",
+        "plays": 555
+      }
+    ]
+  },
+  "tracking_columns": [
+    "game_id",
+    "play_id",
+    "player_to_predict",
+    "nfl_id",
+    "frame_id",
+    "play_direction",
+    "absolute_yardline_number",
+    "player_name",
+    "player_height",
+    "player_weight",
+    "player_birth_date",
+    "player_position",
+    "player_side",
+    "player_role",
+    "x",
+    "y",
+    "s",
+    "a",
+    "dir",
+    "o",
+    "num_frames_output",
+    "ball_land_x",
+    "ball_land_y"
+  ],
+  "tracking_columns_never_used_as_features": [
+    "player_to_predict",
+    "num_frames_output",
+    "ball_land_x",
+    "ball_land_y",
+    "player_role value 'Targeted Receiver'"
+  ],
+  "known_limits": [
+    "Only the passer, route runners and coverage defenders are tracked: no linemen, no pass rushers, no ball.",
+    "Tracking covers the snap to the throw only. There are no pre-snap frames.",
+    "Only pass plays that reached a throw are included. This is not every defensive snap.",
+    "output_*.csv holds positions after the throw for some players; the coverage models do not read it."
+  ],
+  "weeks": [
+    {
+      "file": "input_2023_w01.csv",
+      "rows": 285714,
+      "plays": 819,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 9,
+        "median": 27.0,
+        "max": 74
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 8
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w02.csv",
+      "rows": 288586,
+      "plays": 850,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 8,
+        "median": 26.0,
+        "max": 63
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 10
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w03.csv",
+      "rows": 297757,
+      "plays": 904,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 9,
+        "median": 26.0,
+        "max": 83
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 4,
+        "median": 7.0,
+        "max": 11
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w04.csv",
+      "rows": 272475,
+      "plays": 779,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 10,
+        "median": 27.0,
+        "max": 84
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 4,
+        "median": 7.0,
+        "max": 8
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w05.csv",
+      "rows": 254779,
+      "plays": 742,
+      "games": 14,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 10,
+        "median": 26.0,
+        "max": 81
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 4,
+        "median": 7.0,
+        "max": 8
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w06.csv",
+      "rows": 270676,
+      "plays": 793,
+      "games": 15,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 10,
+        "median": 26.0,
+        "max": 106
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 8
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w07.csv",
+      "rows": 233597,
+      "plays": 693,
+      "games": 13,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 11,
+        "median": 26.0,
+        "max": 92
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 8
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w08.csv",
+      "rows": 281011,
+      "plays": 827,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 10,
+        "median": 26.0,
+        "max": 98
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 4,
+        "median": 7.0,
+        "max": 9
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w09.csv",
+      "rows": 252796,
+      "plays": 711,
+      "games": 14,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 9,
+        "median": 27.0,
+        "max": 72
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 11
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w10.csv",
+      "rows": 260372,
+      "plays": 721,
+      "games": 14,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 9,
+        "median": 27.0,
+        "max": 123
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 4,
+        "median": 7.0,
+        "max": 9
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w11.csv",
+      "rows": 243413,
+      "plays": 707,
+      "games": 14,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 9,
+        "median": 26.0,
+        "max": 86
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 4,
+        "median": 7.0,
+        "max": 9
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w12.csv",
+      "rows": 294940,
+      "plays": 854,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 8,
+        "median": 26.0,
+        "max": 107
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 0,
+        "median": 7.0,
+        "max": 11
+      },
+      "offense_per_play": {
+        "min": 1,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w13.csv",
+      "rows": 233755,
+      "plays": 666,
+      "games": 13,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 10,
+        "median": 27.0,
+        "max": 100
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 9
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w14.csv",
+      "rows": 279972,
+      "plays": 796,
+      "games": 15,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 9,
+        "median": 27.0,
+        "max": 70
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 9
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w15.csv",
+      "rows": 281820,
+      "plays": 791,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 9,
+        "median": 27.0,
+        "max": 97
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 9
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w16.csv",
+      "rows": 316417,
+      "plays": 896,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 13,
+        "median": 27.0,
+        "max": 93
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 3,
+        "median": 7.0,
+        "max": 11
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w17.csv",
+      "rows": 277582,
+      "plays": 809,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 11,
+        "median": 26.0,
+        "max": 81
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 4,
+        "median": 7.0,
+        "max": 8
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    },
+    {
+      "file": "input_2023_w18.csv",
+      "rows": 254917,
+      "plays": 750,
+      "games": 16,
+      "first_frame_values": [
+        1
+      ],
+      "frames_per_play": {
+        "min": 11,
+        "median": 26.0,
+        "max": 79
+      },
+      "plays_with_frame_gaps": 0,
+      "plays_with_mixed_direction": 0,
+      "defenders_per_play": {
+        "min": 4,
+        "median": 7.0,
+        "max": 8
+      },
+      "offense_per_play": {
+        "min": 3,
+        "median": 6.0,
+        "max": 6
+      },
+      "null_position_rows": 0,
+      "duplicate_player_frame_rows": 0,
+      "plays_missing_from_supplementary": 0
+    }
+  ]
+}

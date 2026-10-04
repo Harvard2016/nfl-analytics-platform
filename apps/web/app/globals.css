@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* Gridiron Lens design tokens. Documented in docs/DESIGN_SYSTEM.md.
+   Utilities read these as CSS variables, so a `.paper` section can flip the whole scheme to the ivory surface. */
+@theme {
+  --color-bg: #101713;        /* midnight charcoal: film-room background */
+  --color-surface: #18221c;   /* raised panel on charcoal */
+  --color-line: #2b3a30;      /* hairlines and control borders */
+  --color-ink: #f2efe5;       /* warm ivory text */
+  --color-muted: #9ba89d;     /* muted sage: secondary text */
+  --color-teal: #d8f16e;      /* chartreuse: primary action, selected state, coverage emphasis (token name kept from v1) */
+  --color-defense: #8ebaf1;   /* powder blue: defenders, secondary series, prediction comparisons */
+  --color-amber: #e8ad66;     /* amber: audio, timeline selection, highlights, abstention note */
+  --color-coral: #f0806f;     /* restrained warning / disagreement */
+  --color-turf: #1c3527;      /* field surface */
+  --color-paper: #f2efe5;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-barlow), "Arial Narrow", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html { background: var(--color-bg); scroll-padding-top: 5rem; }
+body { background: var(--color-bg); color: var(--color-ink); font-family: var(--font-sans); }
+
+/* Ivory editorial surface: same utilities, flipped tokens. Chartreuse is darkened for text contrast on ivory. */
+.paper {
+  --color-bg: #f2efe5; --color-surface: #e8e4d6; --color-line: #cfcab8; --color-ink: #101713; --color-muted: #4f5b52;
+  --color-teal: #55700a; --color-defense: #2b5d9c; --color-amber: #99601b; --color-coral: #b23f2e; --color-turf: #1c3527;
+  background: var(--color-bg); color: var(--color-ink);
+}
+.paper .btn-primary, .paper .on-accent { --color-teal: #d8f16e; }
+
+.display { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; line-height: 0.92; }
+.narrow { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.01em; }
+.kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-muted); }
+.mono { font-family: var(--font-mono); }
+.num { font-variant-numeric: tabular-nums; }
+.outline-text { color: transparent; -webkit-text-stroke: 1.5px var(--color-ink); }
+
+.btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: #d8f16e; color: #101713; font-family: var(--font-display); font-weight: 700;
+  font-size: 1.15rem; padding: 0.7rem 1.4rem; transition: transform 180ms ease, background-color 180ms ease; }
+.btn-primary:hover { background: #e6f79a; transform: translateY(-1px); }
+.btn-quiet { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; border-bottom: 2px solid var(--color-teal); padding-bottom: 0.15rem; transition: color 180ms ease; }
+.btn-quiet:hover { color: var(--color-teal); }
+
+:focus-visible { outline: 2px solid var(--color-teal); outline-offset: 2px; border-radius: 2px; }
+input[type="range"] { accent-color: var(--color-teal); min-height: 2.5rem; }
+select, button { min-height: 2.5rem; }
+select { border-radius: 0; }
+input[type="checkbox"] { width: 1.25rem; height: 1.25rem; accent-color: var(--color-teal); }
+.sr-only-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+details > summary { cursor: pointer; list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after { content: "+"; float: right; font-family: var(--font-mono); color: var(--color-muted); }
+details[open] > summary::after { content: "−"; }
+
+/* subtle paper/film grain, used sparingly on hero bands only */
+.grain { position: relative; isolation: isolate; }
+.grain::after { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0.07; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* ---- motion: transform and opacity only; everything is visible by default without JavaScript ---- */
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes page-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+.page-in { animation: page-in 220ms ease-out both; }
+.rise { animation: rise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.route { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1400ms ease-out forwards; animation-delay: var(--d, 600ms); }
+.marker { animation: pop 320ms ease-out both; animation-delay: var(--d, 400ms); transform-box: fill-box; transform-origin: center; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 600ms ease, transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.is-in { opacity: 1; transform: none; }
+.fade-swap { animation: page-in 200ms ease-out both; }
+@media (max-width: 640px) { .reveal { transform: translateY(10px); transition-duration: 350ms; } }
+@media (prefers-reduced-motion: reduce) {
+  .rise, .page-in, .fade-swap, .marker { animation: none; }
+  .route { animation: none; stroke-dashoffset: 0; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .parallax { transform: none !important; }
+  html { scroll-behavior: auto; }
+  .btn-primary { transition: none; }
+}

@@ -1,0 +1,1576 @@
+{
+  "source": "https://huggingface.co/datasets/idong1004/SVHighlights",
+  "revision": "fdedf750ddc2524093eda9bca1fbe24d1210724a",
+  "audited_at": "2026-10-04T08:42:59+00:00",
+  "license": "CC BY-NC 4.0 (dataset card)",
+  "videos": 40,
+  "leagues": [
+    "NFL"
+  ],
+  "seasons_in_titles": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2022,
+    2024
+  ],
+  "duplicate_source_links": 0,
+  "duplicate_titles": 0,
+  "clips": 167006,
+  "positive_clips": 15837,
+  "positive_share": 0.0948,
+  "clip_seconds": 2.0,
+  "feature_dims": {
+    "vid_clip": 512,
+    "vid_slowfast": 2304,
+    "aud_pann": 2048
+  },
+  "time_coordinate": "Clip i covers seconds [2i, 2i+2) of the trimmed broadcast. Original video time = trim_start_s + trimmed time.",
+  "label_definition": "1 if the clip was matched to the official highlight video by the dataset authors' frame matching; editorial selection, replays included.",
+  "not_downloaded": [
+    "other seven sports",
+    "alignment.tar (label-generation intermediates)",
+    "source or highlight videos"
+  ],
+  "not_used_as_inputs": [
+    "label.json",
+    "all_filtered_frame_idx.json",
+    "segment_caption.json (model-generated captions)",
+    "txt_clip (one query embedding, not per-clip)"
+  ],
+  "problems": [
+    "video 6: one extra trailing loudness/feature value beyond the 4222 labelled clips; cut to the label length",
+    "video 13: one extra trailing loudness/feature value beyond the 3494 labelled clips; cut to the label length",
+    "video 17: one extra trailing loudness/feature value beyond the 4421 labelled clips; cut to the label length",
+    "video 18: one extra trailing loudness/feature value beyond the 3975 labelled clips; cut to the label length",
+    "video 21: one extra trailing loudness/feature value beyond the 4036 labelled clips; cut to the label length",
+    "video 32: one extra trailing loudness/feature value beyond the 4184 labelled clips; cut to the label length",
+    "video 33: one extra trailing loudness/feature value beyond the 3586 labelled clips; cut to the label length",
+    "video 36: one extra trailing loudness/feature value beyond the 4597 labelled clips; cut to the label length",
+    "video 37: one extra trailing loudness/feature value beyond the 3822 labelled clips; cut to the label length"
+  ],
+  "games": [
+    {
+      "id": 1,
+      "source_id": "american_football_1",
+      "title": "Cleveland Browns vs. Baltimore Ravens Week 4, 2019 Full Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 4,
+      "full_link": "https://www.youtube.com/watch?v=f5wMgWYZDo8",
+      "highlight_link": "https://www.youtube.com/watch?v=KXkkYwa0jh8",
+      "full_length_s": 8201.0,
+      "trim_start_s": 60.767742,
+      "trim_end_s": 8180.337744,
+      "highlight_length_s": 704.0,
+      "clips": 4060,
+      "positive_clips": 341,
+      "positive_share": 0.084,
+      "loudness_values": 4060,
+      "feature_shapes": {
+        "vid_clip": [
+          4060,
+          512
+        ],
+        "vid_slowfast": [
+          4060,
+          2304
+        ],
+        "aud_pann": [
+          4060,
+          2048
+        ]
+      },
+      "transcript_words": 18965,
+      "last_word_s": 8119.6,
+      "trimmed_duration_s": 8119.6,
+      "clips_times_2s": 8120.0,
+      "positive_seconds": 682
+    },
+    {
+      "id": 2,
+      "source_id": "american_football_2",
+      "title": "Buffalo Bills vs. Dallas Cowboys Week 13, 2019 FULL Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 13,
+      "full_link": "https://www.youtube.com/watch?v=zRl3W7xWTUs",
+      "highlight_link": "https://www.youtube.com/watch?v=hmVut-6Acp4",
+      "full_length_s": 7811.0,
+      "trim_start_s": 87.825772,
+      "trim_end_s": 7746.528536,
+      "highlight_length_s": 781.0,
+      "clips": 3830,
+      "positive_clips": 379,
+      "positive_share": 0.099,
+      "loudness_values": 3830,
+      "feature_shapes": {
+        "vid_clip": [
+          3830,
+          512
+        ],
+        "vid_slowfast": [
+          3830,
+          2304
+        ],
+        "aud_pann": [
+          3830,
+          2048
+        ]
+      },
+      "transcript_words": 20318,
+      "last_word_s": 7658.8,
+      "trimmed_duration_s": 7658.7,
+      "clips_times_2s": 7660.0,
+      "positive_seconds": 758
+    },
+    {
+      "id": 3,
+      "source_id": "american_football_3",
+      "title": "New York Giants vs. Tampa Bay Buccaneers Week 3, 2019 FULL Game: Danny Dimes' First Start!",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 3,
+      "full_link": "https://www.youtube.com/watch?v=wHaTZebNwvQ",
+      "highlight_link": "https://www.youtube.com/watch?v=zcnpuqYHKXI",
+      "full_length_s": 8831.0,
+      "trim_start_s": 26.972543,
+      "trim_end_s": 8752.18501,
+      "highlight_length_s": 765.0,
+      "clips": 4363,
+      "positive_clips": 362,
+      "positive_share": 0.083,
+      "loudness_values": 4363,
+      "feature_shapes": {
+        "vid_clip": [
+          4363,
+          512
+        ],
+        "vid_slowfast": [
+          4363,
+          2304
+        ],
+        "aud_pann": [
+          4363,
+          2048
+        ]
+      },
+      "transcript_words": 23538,
+      "last_word_s": 8725.3,
+      "trimmed_duration_s": 8725.2,
+      "clips_times_2s": 8726.0,
+      "positive_seconds": 724
+    },
+    {
+      "id": 4,
+      "source_id": "american_football_4",
+      "title": "Chargers vs. Titans Week 7, 2019 FULL Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 7,
+      "full_link": "https://www.youtube.com/watch?v=nA7kLzHwFRs",
+      "highlight_link": "https://www.youtube.com/watch?v=7rvsXjKMa0w",
+      "full_length_s": 8331.0,
+      "trim_start_s": 42.715816,
+      "trim_end_s": 8252.517984,
+      "highlight_length_s": 677.0,
+      "clips": 4105,
+      "positive_clips": 331,
+      "positive_share": 0.0806,
+      "loudness_values": 4105,
+      "feature_shapes": {
+        "vid_clip": [
+          4105,
+          512
+        ],
+        "vid_slowfast": [
+          4105,
+          2304
+        ],
+        "aud_pann": [
+          4105,
+          2048
+        ]
+      },
+      "transcript_words": 17793,
+      "last_word_s": 8209.9,
+      "trimmed_duration_s": 8209.8,
+      "clips_times_2s": 8210.0,
+      "positive_seconds": 662
+    },
+    {
+      "id": 5,
+      "source_id": "american_football_5",
+      "title": "San Francisco 49ers vs. New Orleans Saints Week 14, 2019 FULL Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 14,
+      "full_link": "https://www.youtube.com/watch?v=PEtMB7G0mH4",
+      "highlight_link": "https://www.youtube.com/watch?v=i01R1fA6gos",
+      "full_length_s": 9059.0,
+      "trim_start_s": 62.904537,
+      "trim_end_s": 8961.584005,
+      "highlight_length_s": 854.0,
+      "clips": 4450,
+      "positive_clips": 414,
+      "positive_share": 0.093,
+      "loudness_values": 4450,
+      "feature_shapes": {
+        "vid_clip": [
+          4450,
+          512
+        ],
+        "vid_slowfast": [
+          4450,
+          2304
+        ],
+        "aud_pann": [
+          4450,
+          2048
+        ]
+      },
+      "transcript_words": 24258,
+      "last_word_s": 8898.7,
+      "trimmed_duration_s": 8898.7,
+      "clips_times_2s": 8900.0,
+      "positive_seconds": 828
+    },
+    {
+      "id": 6,
+      "source_id": "american_football_6",
+      "title": "Dwayne Haskins' FIRST WIN! Lions vs. Redskins Week 12, 2019 FULL GAME",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 12,
+      "full_link": "https://www.youtube.com/watch?v=I-StmK_bFUQ",
+      "highlight_link": "https://www.youtube.com/watch?v=H8k_9VdC5Es",
+      "full_length_s": 8523.0,
+      "trim_start_s": 54.95445,
+      "trim_end_s": 8499.035824,
+      "highlight_length_s": 539.0,
+      "clips": 4222,
+      "positive_clips": 264,
+      "positive_share": 0.0625,
+      "loudness_values": 4223,
+      "feature_shapes": {
+        "vid_clip": [
+          4223,
+          512
+        ],
+        "vid_slowfast": [
+          4223,
+          2304
+        ],
+        "aud_pann": [
+          4222,
+          2048
+        ]
+      },
+      "transcript_words": 20410,
+      "last_word_s": 8444.1,
+      "trimmed_duration_s": 8444.1,
+      "clips_times_2s": 8444.0,
+      "positive_seconds": 528
+    },
+    {
+      "id": 7,
+      "source_id": "american_football_7",
+      "title": "A Surprising Road Upset! Dolphins vs. Colts Week 10, 2019 FULL GAME",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 10,
+      "full_link": "https://www.youtube.com/watch?v=dRW3_Pnegqw",
+      "highlight_link": "https://www.youtube.com/watch?v=1KzBOdZPSDw",
+      "full_length_s": 7914.0,
+      "trim_start_s": 28.782096,
+      "trim_end_s": 7849.968264,
+      "highlight_length_s": 585.0,
+      "clips": 3911,
+      "positive_clips": 280,
+      "positive_share": 0.0716,
+      "loudness_values": 3911,
+      "feature_shapes": {
+        "vid_clip": [
+          3911,
+          512
+        ],
+        "vid_slowfast": [
+          3911,
+          2304
+        ],
+        "aud_pann": [
+          3911,
+          2048
+        ]
+      },
+      "transcript_words": 19672,
+      "last_word_s": 7821.2,
+      "trimmed_duration_s": 7821.2,
+      "clips_times_2s": 7822.0,
+      "positive_seconds": 560
+    },
+    {
+      "id": 8,
+      "source_id": "american_football_8",
+      "title": "Russell Wilson Battles the NFL's Top Defense: Seahawks vs. 49ers Week 10, 2019 FULL Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 10,
+      "full_link": "https://www.youtube.com/watch?v=P-cbw8Ztf3I",
+      "highlight_link": "https://www.youtube.com/watch?v=S-OtHWvL8K0",
+      "full_length_s": 10890.0,
+      "trim_start_s": 57.860144,
+      "trim_end_s": 10772.67519,
+      "highlight_length_s": 969.0,
+      "clips": 5358,
+      "positive_clips": 468,
+      "positive_share": 0.0873,
+      "loudness_values": 5358,
+      "feature_shapes": {
+        "vid_clip": [
+          5358,
+          512
+        ],
+        "vid_slowfast": [
+          5358,
+          2304
+        ],
+        "aud_pann": [
+          5358,
+          2048
+        ]
+      },
+      "transcript_words": 25273,
+      "last_word_s": 10714.9,
+      "trimmed_duration_s": 10714.8,
+      "clips_times_2s": 10716.0,
+      "positive_seconds": 936
+    },
+    {
+      "id": 9,
+      "source_id": "american_football_9",
+      "title": "Rams vs. Seahawks Week 5, 2019 FULL Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2019,
+      "week_in_title": 5,
+      "full_link": "https://www.youtube.com/watch?v=YyYp92GDwa4",
+      "highlight_link": "https://www.youtube.com/watch?v=kSmUmga1cuo",
+      "full_length_s": 9414.0,
+      "trim_start_s": 153.912065,
+      "trim_end_s": 9388.548718,
+      "highlight_length_s": 880.0,
+      "clips": 4618,
+      "positive_clips": 426,
+      "positive_share": 0.0922,
+      "loudness_values": 4618,
+      "feature_shapes": {
+        "vid_clip": [
+          4618,
+          512
+        ],
+        "vid_slowfast": [
+          4618,
+          2304
+        ],
+        "aud_pann": [
+          4618,
+          2048
+        ]
+      },
+      "transcript_words": 20385,
+      "last_word_s": 9225.0,
+      "trimmed_duration_s": 9234.6,
+      "clips_times_2s": 9236.0,
+      "positive_seconds": 852
+    },
+    {
+      "id": 10,
+      "source_id": "american_football_10",
+      "title": "Super Bowl 54 FULL Game: Kansas City Chiefs vs. San Francisco 49ers",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": null,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=jQ1l5zenaKY",
+      "highlight_link": "https://www.youtube.com/watch?v=UVV80kTudSM",
+      "full_length_s": 7571.0,
+      "trim_start_s": 0.0,
+      "trim_end_s": 7513.456411,
+      "highlight_length_s": 813.0,
+      "clips": 3757,
+      "positive_clips": 401,
+      "positive_share": 0.1067,
+      "loudness_values": 3757,
+      "feature_shapes": {
+        "vid_clip": [
+          3757,
+          512
+        ],
+        "vid_slowfast": [
+          3757,
+          2304
+        ],
+        "aud_pann": [
+          3757,
+          2048
+        ]
+      },
+      "transcript_words": 16924,
+      "last_word_s": 7513.5,
+      "trimmed_duration_s": 7513.5,
+      "clips_times_2s": 7514.0,
+      "positive_seconds": 802
+    },
+    {
+      "id": 11,
+      "source_id": "american_football_11",
+      "title": "Baker Mayfield's First Career Start With the Browns vs. Raiders | Full Game | NFL 2018 Season Week 4",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "week_in_title": 4,
+      "full_link": "https://www.youtube.com/watch?v=pA_xAsb5hbA",
+      "highlight_link": "https://www.youtube.com/watch?v=zMYy67B0gDA",
+      "full_length_s": 10101.0,
+      "trim_start_s": 59.820786,
+      "trim_end_s": 10064.36546,
+      "highlight_length_s": 1020.0,
+      "clips": 5003,
+      "positive_clips": 486,
+      "positive_share": 0.0971,
+      "loudness_values": 5003,
+      "feature_shapes": {
+        "vid_clip": [
+          5003,
+          512
+        ],
+        "vid_slowfast": [
+          5003,
+          2304
+        ],
+        "aud_pann": [
+          5003,
+          2048
+        ]
+      },
+      "transcript_words": 23832,
+      "last_word_s": 10004.6,
+      "trimmed_duration_s": 10004.5,
+      "clips_times_2s": 10006.0,
+      "positive_seconds": 972
+    },
+    {
+      "id": 12,
+      "source_id": "american_football_12",
+      "title": "Tampa Bay Buccaneers vs. Detroit Lions Full Game | NFL 2024 Season Week 2",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 2,
+      "full_link": "https://www.youtube.com/watch?v=Xv4-lEDPbJA",
+      "highlight_link": "https://www.youtube.com/watch?v=CQkUdaIJfpA",
+      "full_length_s": 7093.0,
+      "trim_start_s": 102.362718,
+      "trim_end_s": 7007.335659,
+      "highlight_length_s": 954.0,
+      "clips": 3453,
+      "positive_clips": 466,
+      "positive_share": 0.135,
+      "loudness_values": 3453,
+      "feature_shapes": {
+        "vid_clip": [
+          3453,
+          512
+        ],
+        "vid_slowfast": [
+          3453,
+          2304
+        ],
+        "aud_pann": [
+          3453,
+          2048
+        ]
+      },
+      "transcript_words": 19261,
+      "last_word_s": 6905.0,
+      "trimmed_duration_s": 6905.0,
+      "clips_times_2s": 6906.0,
+      "positive_seconds": 932
+    },
+    {
+      "id": 13,
+      "source_id": "american_football_13",
+      "title": "Baltimore Ravens vs. Kansas City Chiefs Full Game | Week 1 | NFL 2024 Season",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 1,
+      "full_link": "https://www.youtube.com/watch?v=FT8IxVV8vFM",
+      "highlight_link": "https://www.youtube.com/watch?v=IENArFXpQD8",
+      "full_length_s": 7414.0,
+      "trim_start_s": 360.362688,
+      "trim_end_s": 7348.682892,
+      "highlight_length_s": 949.0,
+      "clips": 3494,
+      "positive_clips": 246,
+      "positive_share": 0.0704,
+      "loudness_values": 3495,
+      "feature_shapes": {
+        "vid_clip": [
+          3495,
+          512
+        ],
+        "vid_slowfast": [
+          3495,
+          2304
+        ],
+        "aud_pann": [
+          3495,
+          2048
+        ]
+      },
+      "transcript_words": 17667,
+      "last_word_s": 6987.6,
+      "trimmed_duration_s": 6988.3,
+      "clips_times_2s": 6988.0,
+      "positive_seconds": 492
+    },
+    {
+      "id": 14,
+      "source_id": "american_football_14",
+      "title": "2016 NFC Divisional FULL Game: Green Bay Packers vs. Dallas Cowboys",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2016,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=Hlar7oGAIZI",
+      "highlight_link": "https://www.youtube.com/watch?v=HBuW3TmVe30",
+      "full_length_s": 8550.0,
+      "trim_start_s": 23.598881,
+      "trim_end_s": 8521.05061,
+      "highlight_length_s": 692.0,
+      "clips": 4249,
+      "positive_clips": 337,
+      "positive_share": 0.0793,
+      "loudness_values": 4249,
+      "feature_shapes": {
+        "vid_clip": [
+          4249,
+          512
+        ],
+        "vid_slowfast": [
+          4249,
+          2304
+        ],
+        "aud_pann": [
+          4249,
+          2048
+        ]
+      },
+      "transcript_words": 18941,
+      "last_word_s": 8497.5,
+      "trimmed_duration_s": 8497.5,
+      "clips_times_2s": 8498.0,
+      "positive_seconds": 674
+    },
+    {
+      "id": 15,
+      "source_id": "american_football_15",
+      "title": "Kansas City Chiefs vs. Los Angeles Rams Week 11, 2018 FULL Game: The Greatest MNF Game Ever?",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "week_in_title": 11,
+      "full_link": "https://www.youtube.com/watch?v=nTyk2Hngugw",
+      "highlight_link": "https://www.youtube.com/watch?v=AkMUXct0kEc",
+      "full_length_s": 10505.0,
+      "trim_start_s": 77.053129,
+      "trim_end_s": 10313.86644,
+      "highlight_length_s": 1003.0,
+      "clips": 5119,
+      "positive_clips": 494,
+      "positive_share": 0.0965,
+      "loudness_values": 5119,
+      "feature_shapes": {
+        "vid_clip": [
+          5119,
+          512
+        ],
+        "vid_slowfast": [
+          5119,
+          2304
+        ],
+        "aud_pann": [
+          5119,
+          2048
+        ]
+      },
+      "transcript_words": 25310,
+      "last_word_s": 10236.9,
+      "trimmed_duration_s": 10236.8,
+      "clips_times_2s": 10238.0,
+      "positive_seconds": 988
+    },
+    {
+      "id": 16,
+      "source_id": "american_football_16",
+      "title": "Highest Scoring TNF Game EVER: Rams vs. 49ers Week 3, 2017 FULL GAME",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2017,
+      "week_in_title": 3,
+      "full_link": "https://www.youtube.com/watch?v=EJHUOmFQ17c",
+      "highlight_link": "https://www.youtube.com/watch?v=H0okA2gPt_Q",
+      "full_length_s": 9112.0,
+      "trim_start_s": 74.223027,
+      "trim_end_s": 9093.654918,
+      "highlight_length_s": 729.0,
+      "clips": 4510,
+      "positive_clips": 356,
+      "positive_share": 0.0789,
+      "loudness_values": 4510,
+      "feature_shapes": {
+        "vid_clip": [
+          4510,
+          512
+        ],
+        "vid_slowfast": [
+          4510,
+          2304
+        ],
+        "aud_pann": [
+          4510,
+          2048
+        ]
+      },
+      "transcript_words": 23886,
+      "last_word_s": 9019.5,
+      "trimmed_duration_s": 9019.4,
+      "clips_times_2s": 9020.0,
+      "positive_seconds": 712
+    },
+    {
+      "id": 17,
+      "source_id": "american_football_17",
+      "title": "Pittsburgh Steelers vs. New Orleans Saints Week 16, 2018 FULL Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "week_in_title": 16,
+      "full_link": "https://www.youtube.com/watch?v=T2G0vIuD1cE",
+      "highlight_link": "https://www.youtube.com/watch?v=qRjusXyV5o8",
+      "full_length_s": 8886.0,
+      "trim_start_s": 27.961181,
+      "trim_end_s": 8870.024693,
+      "highlight_length_s": 1067.0,
+      "clips": 4421,
+      "positive_clips": 516,
+      "positive_share": 0.1167,
+      "loudness_values": 4422,
+      "feature_shapes": {
+        "vid_clip": [
+          4422,
+          512
+        ],
+        "vid_slowfast": [
+          4422,
+          2304
+        ],
+        "aud_pann": [
+          4421,
+          2048
+        ]
+      },
+      "transcript_words": 21307,
+      "last_word_s": 8842.1,
+      "trimmed_duration_s": 8842.1,
+      "clips_times_2s": 8842.0,
+      "positive_seconds": 1032
+    },
+    {
+      "id": 18,
+      "source_id": "american_football_18",
+      "title": "New England Patriots vs. Miami Dolphins Week 14, 2018 FULL Game: The Miami Miracle!",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "week_in_title": 14,
+      "full_link": "https://www.youtube.com/watch?v=1fg1LfX9If0",
+      "highlight_link": "https://www.youtube.com/watch?v=NjCXGo6oHyY",
+      "full_length_s": 8259.0,
+      "trim_start_s": 61.776988,
+      "trim_end_s": 8012.115958,
+      "highlight_length_s": 692.0,
+      "clips": 3975,
+      "positive_clips": 316,
+      "positive_share": 0.0795,
+      "loudness_values": 3976,
+      "feature_shapes": {
+        "vid_clip": [
+          3976,
+          512
+        ],
+        "vid_slowfast": [
+          3976,
+          2304
+        ],
+        "aud_pann": [
+          3976,
+          2048
+        ]
+      },
+      "transcript_words": 17113,
+      "last_word_s": 7946.1,
+      "trimmed_duration_s": 7950.3,
+      "clips_times_2s": 7950.0,
+      "positive_seconds": 632
+    },
+    {
+      "id": 19,
+      "source_id": "american_football_19",
+      "title": "Dallas Cowboys vs. Pittsburgh Steelers Week 10, 2016 FULL Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2016,
+      "week_in_title": 10,
+      "full_link": "https://www.youtube.com/watch?v=9n5UzEek6X8",
+      "highlight_link": "https://www.youtube.com/watch?v=bK4vn07W1lk",
+      "full_length_s": 8597.0,
+      "trim_start_s": 32.668968,
+      "trim_end_s": 8559.395644,
+      "highlight_length_s": 589.0,
+      "clips": 4264,
+      "positive_clips": 211,
+      "positive_share": 0.0495,
+      "loudness_values": 4264,
+      "feature_shapes": {
+        "vid_clip": [
+          4264,
+          512
+        ],
+        "vid_slowfast": [
+          4264,
+          2304
+        ],
+        "aud_pann": [
+          4264,
+          2048
+        ]
+      },
+      "transcript_words": 19648,
+      "last_word_s": 8526.8,
+      "trimmed_duration_s": 8526.7,
+      "clips_times_2s": 8528.0,
+      "positive_seconds": 422
+    },
+    {
+      "id": 20,
+      "source_id": "american_football_20",
+      "title": "A Playoff Matchup Worth the Hype: Seahawks vs. Cowboys 2018 NFC Wild Card FULL GAME",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=pzlYd6aXF4g",
+      "highlight_link": "https://www.youtube.com/watch?v=xNNamzoUj1w",
+      "full_length_s": 8239.0,
+      "trim_start_s": 205.900323,
+      "trim_end_s": 6963.49192,
+      "highlight_length_s": 705.0,
+      "clips": 3379,
+      "positive_clips": 275,
+      "positive_share": 0.0814,
+      "loudness_values": 3379,
+      "feature_shapes": {
+        "vid_clip": [
+          3379,
+          512
+        ],
+        "vid_slowfast": [
+          3379,
+          2304
+        ],
+        "aud_pann": [
+          3379,
+          2048
+        ]
+      },
+      "transcript_words": 15648,
+      "last_word_s": 6757.6,
+      "trimmed_duration_s": 6757.6,
+      "clips_times_2s": 6758.0,
+      "positive_seconds": 550
+    },
+    {
+      "id": 21,
+      "source_id": "american_football_21",
+      "title": "Mahomes Starts His MVP Campaign: Kansas City Chiefs vs. Los Angeles Chargers Week 1, 2018 Full Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "week_in_title": 1,
+      "full_link": "https://www.youtube.com/watch?v=pJJvCojYnK4",
+      "highlight_link": "https://www.youtube.com/watch?v=J1MEs_R0yJA",
+      "full_length_s": 8136.0,
+      "trim_start_s": 27.804934,
+      "trim_end_s": 8100.16189,
+      "highlight_length_s": 666.0,
+      "clips": 4036,
+      "positive_clips": 311,
+      "positive_share": 0.0771,
+      "loudness_values": 4037,
+      "feature_shapes": {
+        "vid_clip": [
+          4037,
+          512
+        ],
+        "vid_slowfast": [
+          4037,
+          2304
+        ],
+        "aud_pann": [
+          4037,
+          2048
+        ]
+      },
+      "transcript_words": 18540,
+      "last_word_s": 8072.4,
+      "trimmed_duration_s": 8072.4,
+      "clips_times_2s": 8072.0,
+      "positive_seconds": 622
+    },
+    {
+      "id": 22,
+      "source_id": "american_football_22",
+      "title": "Cincinnati Bengals vs. Atlanta Falcons Week 4, 2018 Full Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "week_in_title": 4,
+      "full_link": "https://www.youtube.com/watch?v=m32oyj0ISv8",
+      "highlight_link": "https://www.youtube.com/watch?v=ylmcV5IwefM",
+      "full_length_s": 9330.0,
+      "trim_start_s": 62.594164,
+      "trim_end_s": 9295.318153,
+      "highlight_length_s": 816.0,
+      "clips": 4617,
+      "positive_clips": 394,
+      "positive_share": 0.0853,
+      "loudness_values": 4617,
+      "feature_shapes": {
+        "vid_clip": [
+          4617,
+          512
+        ],
+        "vid_slowfast": [
+          4617,
+          2304
+        ],
+        "aud_pann": [
+          4617,
+          2048
+        ]
+      },
+      "transcript_words": 23357,
+      "last_word_s": 9232.8,
+      "trimmed_duration_s": 9232.7,
+      "clips_times_2s": 9234.0,
+      "positive_seconds": 788
+    },
+    {
+      "id": 23,
+      "source_id": "american_football_23",
+      "title": "Super Bowl 52 FULL Game: New England Patriots vs. Philadelphia Eagles",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": null,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=0FF_DbJ3G68",
+      "highlight_link": "https://www.youtube.com/watch?v=qW1xbhW2PEE",
+      "full_length_s": 8997.0,
+      "trim_start_s": 27.123448,
+      "trim_end_s": 8955.049794,
+      "highlight_length_s": 1075.0,
+      "clips": 4464,
+      "positive_clips": 508,
+      "positive_share": 0.1138,
+      "loudness_values": 4464,
+      "feature_shapes": {
+        "vid_clip": [
+          4464,
+          512
+        ],
+        "vid_slowfast": [
+          4464,
+          2304
+        ],
+        "aud_pann": [
+          4464,
+          2048
+        ]
+      },
+      "transcript_words": 21309,
+      "last_word_s": 8927.5,
+      "trimmed_duration_s": 8927.9,
+      "clips_times_2s": 8928.0,
+      "positive_seconds": 1016
+    },
+    {
+      "id": 24,
+      "source_id": "american_football_24",
+      "title": "Houston Texans vs. Indianapolis Colts Week 4, 2018 FULL Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2018,
+      "week_in_title": 4,
+      "full_link": "https://www.youtube.com/watch?v=2mps2wlZ9-c",
+      "highlight_link": "https://www.youtube.com/watch?v=GS4y8YcULu4",
+      "full_length_s": 11113.0,
+      "trim_start_s": 90.480837,
+      "trim_end_s": 11083.73822,
+      "highlight_length_s": 950.0,
+      "clips": 5497,
+      "positive_clips": 466,
+      "positive_share": 0.0848,
+      "loudness_values": 5497,
+      "feature_shapes": {
+        "vid_clip": [
+          5497,
+          512
+        ],
+        "vid_slowfast": [
+          5497,
+          2304
+        ],
+        "aud_pann": [
+          5497,
+          2048
+        ]
+      },
+      "transcript_words": 25893,
+      "last_word_s": 10992.5,
+      "trimmed_duration_s": 10993.3,
+      "clips_times_2s": 10994.0,
+      "positive_seconds": 932
+    },
+    {
+      "id": 25,
+      "source_id": "american_football_25",
+      "title": "2017 NFC Divisional Round FULL Game: New Orleans Saints vs. Minnesota Vikings",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2017,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=A7g9v0BSsvA",
+      "highlight_link": "https://www.youtube.com/watch?v=5aL06wxD4lI",
+      "full_length_s": 8781.0,
+      "trim_start_s": 22.482997,
+      "trim_end_s": 8681.740399,
+      "highlight_length_s": 1133.0,
+      "clips": 4330,
+      "positive_clips": 532,
+      "positive_share": 0.1229,
+      "loudness_values": 4330,
+      "feature_shapes": {
+        "vid_clip": [
+          4330,
+          512
+        ],
+        "vid_slowfast": [
+          4330,
+          2304
+        ],
+        "aud_pann": [
+          4330,
+          2048
+        ]
+      },
+      "transcript_words": 20720,
+      "last_word_s": 8656.0,
+      "trimmed_duration_s": 8659.3,
+      "clips_times_2s": 8660.0,
+      "positive_seconds": 1064
+    },
+    {
+      "id": 26,
+      "source_id": "american_football_26",
+      "title": "Green Bay Packers vs. Atlanta Falcons 2016 NFC Championship Full Game",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2016,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=gkaqsTS_Qa8",
+      "highlight_link": "https://www.youtube.com/watch?v=4uiEGZx9Wxs",
+      "full_length_s": 9071.0,
+      "trim_start_s": 48.443211,
+      "trim_end_s": 8955.036431,
+      "highlight_length_s": 697.0,
+      "clips": 4454,
+      "positive_clips": 294,
+      "positive_share": 0.066,
+      "loudness_values": 4454,
+      "feature_shapes": {
+        "vid_clip": [
+          4454,
+          512
+        ],
+        "vid_slowfast": [
+          4454,
+          2304
+        ],
+        "aud_pann": [
+          4454,
+          2048
+        ]
+      },
+      "transcript_words": 20868,
+      "last_word_s": 8906.6,
+      "trimmed_duration_s": 8906.6,
+      "clips_times_2s": 8908.0,
+      "positive_seconds": 588
+    },
+    {
+      "id": 27,
+      "source_id": "american_football_27",
+      "title": "Bengals vs. Ravens Week 17, 2017 FULL Game: The Bengals 4th Down Miracle!",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2017,
+      "week_in_title": 17,
+      "full_link": "https://www.youtube.com/watch?v=CJjHhwdlJtE",
+      "highlight_link": "https://www.youtube.com/watch?v=ZLJhgJIPFTM",
+      "full_length_s": 9581.0,
+      "trim_start_s": 44.111895,
+      "trim_end_s": 9484.947704,
+      "highlight_length_s": 750.0,
+      "clips": 4721,
+      "positive_clips": 369,
+      "positive_share": 0.0782,
+      "loudness_values": 4721,
+      "feature_shapes": {
+        "vid_clip": [
+          4721,
+          512
+        ],
+        "vid_slowfast": [
+          4721,
+          2304
+        ],
+        "aud_pann": [
+          4721,
+          2048
+        ]
+      },
+      "transcript_words": 19495,
+      "last_word_s": 9440.5,
+      "trimmed_duration_s": 9440.8,
+      "clips_times_2s": 9442.0,
+      "positive_seconds": 738
+    },
+    {
+      "id": 28,
+      "source_id": "american_football_28",
+      "title": "GAME OF THE WEEK! Miami Dolphins vs. Buffalo Bills FULL GAME | NFL 2024 Season Week 9",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 9,
+      "full_link": "https://www.youtube.com/watch?v=iIlNNJy1VJw",
+      "highlight_link": "https://www.youtube.com/watch?v=w9E1Cy0RokQ",
+      "full_length_s": 6750.0,
+      "trim_start_s": 20.132935,
+      "trim_end_s": 6678.671635,
+      "highlight_length_s": 848.0,
+      "clips": 3330,
+      "positive_clips": 409,
+      "positive_share": 0.1228,
+      "loudness_values": 3330,
+      "feature_shapes": {
+        "vid_clip": [
+          3330,
+          512
+        ],
+        "vid_slowfast": [
+          3330,
+          2304
+        ],
+        "aud_pann": [
+          3330,
+          2048
+        ]
+      },
+      "transcript_words": 16663,
+      "last_word_s": 6658.6,
+      "trimmed_duration_s": 6658.5,
+      "clips_times_2s": 6660.0,
+      "positive_seconds": 818
+    },
+    {
+      "id": 29,
+      "source_id": "american_football_29",
+      "title": "ULTIMATE BELIEF!! Baltimore Ravens vs. Cleveland Browns FULL GAME | NFL 2024 Season Week 8",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 8,
+      "full_link": "https://www.youtube.com/watch?v=LcJs3GlwL-w",
+      "highlight_link": "https://www.youtube.com/watch?v=mLKcKkcdVkw",
+      "full_length_s": 7510.0,
+      "trim_start_s": 22.608641,
+      "trim_end_s": 7456.507162,
+      "highlight_length_s": 859.0,
+      "clips": 3717,
+      "positive_clips": 426,
+      "positive_share": 0.1146,
+      "loudness_values": 3717,
+      "feature_shapes": {
+        "vid_clip": [
+          3717,
+          512
+        ],
+        "vid_slowfast": [
+          3717,
+          2304
+        ],
+        "aud_pann": [
+          3717,
+          2048
+        ]
+      },
+      "transcript_words": 21204,
+      "last_word_s": 7434.0,
+      "trimmed_duration_s": 7433.9,
+      "clips_times_2s": 7434.0,
+      "positive_seconds": 852
+    },
+    {
+      "id": 30,
+      "source_id": "american_football_30",
+      "title": "Detroit Lions vs. Houston Texans FULL GAME | NFL 2024 Season Week 10",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 10,
+      "full_link": "https://www.youtube.com/watch?v=fCdtMRGe9CI",
+      "highlight_link": "https://www.youtube.com/watch?v=s1W0oAPD6Ls",
+      "full_length_s": 7362.0,
+      "trim_start_s": 35.454042,
+      "trim_end_s": 7248.526165,
+      "highlight_length_s": 912.0,
+      "clips": 3607,
+      "positive_clips": 422,
+      "positive_share": 0.117,
+      "loudness_values": 3607,
+      "feature_shapes": {
+        "vid_clip": [
+          3607,
+          512
+        ],
+        "vid_slowfast": [
+          3607,
+          2304
+        ],
+        "aud_pann": [
+          3607,
+          2048
+        ]
+      },
+      "transcript_words": 18162,
+      "last_word_s": 7213.1,
+      "trimmed_duration_s": 7213.1,
+      "clips_times_2s": 7214.0,
+      "positive_seconds": 844
+    },
+    {
+      "id": 31,
+      "source_id": "american_football_31",
+      "title": "Tampa Bay Buccaneers vs. Carolina Panthers FULL GAME | NFL 2024 Season Week 13",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 13,
+      "full_link": "https://www.youtube.com/watch?v=M6atHwIP2qc",
+      "highlight_link": "https://www.youtube.com/watch?v=Az0E3MGjzHs",
+      "full_length_s": 8919.0,
+      "trim_start_s": 8.208771,
+      "trim_end_s": 8893.796805,
+      "highlight_length_s": 893.0,
+      "clips": 4443,
+      "positive_clips": 437,
+      "positive_share": 0.0984,
+      "loudness_values": 4443,
+      "feature_shapes": {
+        "vid_clip": [
+          4443,
+          512
+        ],
+        "vid_slowfast": [
+          4443,
+          2304
+        ],
+        "aud_pann": [
+          4443,
+          2048
+        ]
+      },
+      "transcript_words": 21826,
+      "last_word_s": 8885.5,
+      "trimmed_duration_s": 8885.6,
+      "clips_times_2s": 8886.0,
+      "positive_seconds": 874
+    },
+    {
+      "id": 32,
+      "source_id": "american_football_32",
+      "title": "A WILD Battle In Week 11! Cincinnati Bengals vs. Los Angeles Chargers FULL GAME | NFL 2024 Season",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 11,
+      "full_link": "https://www.youtube.com/watch?v=ea4ej65-ONU",
+      "highlight_link": "https://www.youtube.com/watch?v=4vZsGgL0YpY",
+      "full_length_s": 8460.0,
+      "trim_start_s": 17.193063,
+      "trim_end_s": 8385.469033,
+      "highlight_length_s": 1082.0,
+      "clips": 4184,
+      "positive_clips": 533,
+      "positive_share": 0.1274,
+      "loudness_values": 4185,
+      "feature_shapes": {
+        "vid_clip": [
+          4185,
+          512
+        ],
+        "vid_slowfast": [
+          4185,
+          2304
+        ],
+        "aud_pann": [
+          4184,
+          2048
+        ]
+      },
+      "transcript_words": 20429,
+      "last_word_s": 8368.3,
+      "trimmed_duration_s": 8368.3,
+      "clips_times_2s": 8368.0,
+      "positive_seconds": 1066
+    },
+    {
+      "id": 33,
+      "source_id": "american_football_33",
+      "title": "San Francisco 49ers vs. Los Angeles Rams Full Game | NFL 2024 Season Week 3",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 3,
+      "full_link": "https://www.youtube.com/watch?v=2jxjaPm64Lk",
+      "highlight_link": "https://www.youtube.com/watch?v=o0mCUeMMUpk",
+      "full_length_s": 7227.0,
+      "trim_start_s": 10.507592,
+      "trim_end_s": 7182.690131,
+      "highlight_length_s": 868.0,
+      "clips": 3586,
+      "positive_clips": 415,
+      "positive_share": 0.1157,
+      "loudness_values": 3587,
+      "feature_shapes": {
+        "vid_clip": [
+          3587,
+          512
+        ],
+        "vid_slowfast": [
+          3587,
+          2304
+        ],
+        "aud_pann": [
+          3586,
+          2048
+        ]
+      },
+      "transcript_words": 17778,
+      "last_word_s": 7171.9,
+      "trimmed_duration_s": 7172.2,
+      "clips_times_2s": 7172.0,
+      "positive_seconds": 830
+    },
+    {
+      "id": 34,
+      "source_id": "american_football_34",
+      "title": "Tom Brady's SEVENTH Super Bowl Win | Kansas City Chiefs vs Tampa Bay Buccaneers FULL GAME | NFL 2020",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2020,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=arcwCWZBY8Q",
+      "highlight_link": "https://www.youtube.com/watch?v=Gz5-NQROQGw",
+      "full_length_s": 7472.0,
+      "trim_start_s": 5.386281,
+      "trim_end_s": 7436.010049,
+      "highlight_length_s": 730.0,
+      "clips": 3716,
+      "positive_clips": 353,
+      "positive_share": 0.095,
+      "loudness_values": 3716,
+      "feature_shapes": {
+        "vid_clip": [
+          3716,
+          512
+        ],
+        "vid_slowfast": [
+          3716,
+          2304
+        ],
+        "aud_pann": [
+          3716,
+          2048
+        ]
+      },
+      "transcript_words": 18767,
+      "last_word_s": 7429.3,
+      "trimmed_duration_s": 7430.6,
+      "clips_times_2s": 7432.0,
+      "positive_seconds": 706
+    },
+    {
+      "id": 35,
+      "source_id": "american_football_35",
+      "title": "FULL GAME!! Jacksonville Jaguars vs. Houston Texans  | NFL 2024 Season Week 4",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 4,
+      "full_link": "https://www.youtube.com/watch?v=Bc4srv6rZj0",
+      "highlight_link": "https://www.youtube.com/watch?v=fVkhBUFQZ4I",
+      "full_length_s": 7360.0,
+      "trim_start_s": 24.337469,
+      "trim_end_s": 7331.074033,
+      "highlight_length_s": 692.0,
+      "clips": 3654,
+      "positive_clips": 339,
+      "positive_share": 0.0928,
+      "loudness_values": 3654,
+      "feature_shapes": {
+        "vid_clip": [
+          3654,
+          512
+        ],
+        "vid_slowfast": [
+          3654,
+          2304
+        ],
+        "aud_pann": [
+          3654,
+          2048
+        ]
+      },
+      "transcript_words": 18218,
+      "last_word_s": 7306.1,
+      "trimmed_duration_s": 7306.7,
+      "clips_times_2s": 7308.0,
+      "positive_seconds": 678
+    },
+    {
+      "id": 36,
+      "source_id": "american_football_36",
+      "title": "One of the most INTENSE Super Bowls ever! 49ers vs. Chiefs Full Game | Super Bowl 58",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": null,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=O5yGFznv5KE",
+      "highlight_link": "https://www.youtube.com/watch?v=O17DfQco2JQ",
+      "full_length_s": 9353.0,
+      "trim_start_s": 50.60078,
+      "trim_end_s": 9244.604764,
+      "highlight_length_s": 1261.0,
+      "clips": 4597,
+      "positive_clips": 602,
+      "positive_share": 0.131,
+      "loudness_values": 4598,
+      "feature_shapes": {
+        "vid_clip": [
+          4598,
+          512
+        ],
+        "vid_slowfast": [
+          4598,
+          2304
+        ],
+        "aud_pann": [
+          4597,
+          2048
+        ]
+      },
+      "transcript_words": 25407,
+      "last_word_s": 9194.1,
+      "trimmed_duration_s": 9194.0,
+      "clips_times_2s": 9194.0,
+      "positive_seconds": 1204
+    },
+    {
+      "id": 37,
+      "source_id": "american_football_37",
+      "title": "Kansas City Chiefs vs. Philadelphia Eagles Super Bowl LVII FULL GAME | Super Bowl NFL 2022 Season",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2022,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=UrOzwTlD2_w",
+      "highlight_link": "https://www.youtube.com/watch?v=BWkt79xkd00",
+      "full_length_s": 7759.0,
+      "trim_start_s": 53.364619,
+      "trim_end_s": 7697.611249,
+      "highlight_length_s": 1042.0,
+      "clips": 3822,
+      "positive_clips": 505,
+      "positive_share": 0.1321,
+      "loudness_values": 3823,
+      "feature_shapes": {
+        "vid_clip": [
+          3823,
+          512
+        ],
+        "vid_slowfast": [
+          3823,
+          2304
+        ],
+        "aud_pann": [
+          3822,
+          2048
+        ]
+      },
+      "transcript_words": 18270,
+      "last_word_s": 7644.3,
+      "trimmed_duration_s": 7644.2,
+      "clips_times_2s": 7644.0,
+      "positive_seconds": 1010
+    },
+    {
+      "id": 38,
+      "source_id": "american_football_38",
+      "title": "Super Bowl LIII: New England Patriots vs. Los Angeles Rams | FULL GAME",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": null,
+      "week_in_title": null,
+      "full_link": "https://www.youtube.com/watch?v=4kRSu_Eb4L4",
+      "highlight_link": "https://www.youtube.com/watch?v=usw9WiShXEs",
+      "full_length_s": 7493.0,
+      "trim_start_s": 15.300628,
+      "trim_end_s": 7475.114334,
+      "highlight_length_s": 811.0,
+      "clips": 3730,
+      "positive_clips": 398,
+      "positive_share": 0.1067,
+      "loudness_values": 3730,
+      "feature_shapes": {
+        "vid_clip": [
+          3730,
+          512
+        ],
+        "vid_slowfast": [
+          3730,
+          2304
+        ],
+        "aud_pann": [
+          3730,
+          2048
+        ]
+      },
+      "transcript_words": 18851,
+      "last_word_s": 7459.9,
+      "trimmed_duration_s": 7459.8,
+      "clips_times_2s": 7460.0,
+      "positive_seconds": 796
+    },
+    {
+      "id": 39,
+      "source_id": "american_football_39",
+      "title": "Buffalo Bills vs. Detroit Lions FULL GAME | NFL 2024 Season Week 15",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2024,
+      "week_in_title": 15,
+      "full_link": "https://www.youtube.com/watch?v=hfBFVWYPV2U",
+      "highlight_link": "https://www.youtube.com/watch?v=Qa0mNmToOSA",
+      "full_length_s": 8150.0,
+      "trim_start_s": 11.33412,
+      "trim_end_s": 8137.930134,
+      "highlight_length_s": 1201.0,
+      "clips": 4064,
+      "positive_clips": 589,
+      "positive_share": 0.1449,
+      "loudness_values": 4064,
+      "feature_shapes": {
+        "vid_clip": [
+          4064,
+          512
+        ],
+        "vid_slowfast": [
+          4064,
+          2304
+        ],
+        "aud_pann": [
+          4064,
+          2048
+        ]
+      },
+      "transcript_words": 21083,
+      "last_word_s": 8126.7,
+      "trimmed_duration_s": 8126.6,
+      "clips_times_2s": 8128.0,
+      "positive_seconds": 1178
+    },
+    {
+      "id": 40,
+      "source_id": "american_football_40",
+      "title": "The Immaculate Extension: Ravens vs. Steelers 2016, Week 16 FULL GAME",
+      "channel": "NFL",
+      "league": "NFL",
+      "season_in_title": 2016,
+      "week_in_title": 16,
+      "full_link": "https://www.youtube.com/watch?v=Tcf_3l2edBk",
+      "highlight_link": "https://www.youtube.com/watch?v=QFzpXTC5dMU",
+      "full_length_s": 7993.0,
+      "trim_start_s": 43.467645,
+      "trim_end_s": 7834.746864,
+      "highlight_length_s": 454.0,
+      "clips": 3896,
+      "positive_clips": 166,
+      "positive_share": 0.0426,
+      "loudness_values": 3896,
+      "feature_shapes": {
+        "vid_clip": [
+          3896,
+          512
+        ],
+        "vid_slowfast": [
+          3896,
+          2304
+        ],
+        "aud_pann": [
+          3896,
+          2048
+        ]
+      },
+      "transcript_words": 20267,
+      "last_word_s": 7791.1,
+      "trimmed_duration_s": 7791.3,
+      "clips_times_2s": 7792.0,
+      "positive_seconds": 332
+    }
+  ]
+}

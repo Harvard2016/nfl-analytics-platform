@@ -1,0 +1,313 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2024_13_TB_CAR",
+  "final": "TB 26, CAR 23",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 4,
+    "interception": 2,
+    "sack": 5,
+    "fumble lost": 1,
+    "turnover": 3,
+    "big play": 13
+  },
+  "events": [
+    {
+      "play_id": 381,
+      "quarter": 1.0,
+      "game_clock": "10:35",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 11.0,
+      "epa": 0.78,
+      "description": "(10:35) (Shotgun) 1-R.White right tackle to TB 48 for 11 yards (26-C.Smith-Wade; 20-J.Fuller)."
+    },
+    {
+      "play_id": 426,
+      "quarter": 1.0,
+      "game_clock": "09:51",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 1.92,
+      "description": "(9:51) (Shotgun) 6-B.Mayfield pass short left to 17-S.Shepard pushed ob at CAR 31 for 21 yards\u2026"
+    },
+    {
+      "play_id": 456,
+      "quarter": 1.0,
+      "game_clock": "09:14",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 11.0,
+      "epa": 0.71,
+      "description": "(9:14) 7-B.Irving right tackle to CAR 20 for 11 yards (20-J.Fuller)."
+    },
+    {
+      "play_id": 678,
+      "quarter": 1.0,
+      "game_clock": "04:34",
+      "offense": "TB",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 2.0,
+      "epa": 1.17,
+      "description": "(4:34) 6-B.Mayfield pass short left to 13-M.Evans for 2 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1166,
+      "quarter": 2.0,
+      "game_clock": "13:28",
+      "offense": "CAR",
+      "events": [
+        "big play"
+      ],
+      "yards": 38.0,
+      "epa": 3.68,
+      "description": "(13:28) (Shotgun) 9-B.Young pass deep right to 82-T.Tremble to TB 25 for 38 yards (27-Z.McCollum)."
+    },
+    {
+      "play_id": 1327,
+      "quarter": 2.0,
+      "game_clock": "11:17",
+      "offense": "TB",
+      "events": [
+        "sack"
+      ],
+      "yards": -13.0,
+      "epa": -1.52,
+      "description": "(11:17) (Shotgun) 6-B.Mayfield sacked at TB 5 for -13 yards (7-J.Clowney)."
+    },
+    {
+      "play_id": 1564,
+      "quarter": 2.0,
+      "game_clock": "07:54",
+      "offense": "CAR",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 10.0,
+      "epa": 3.05,
+      "description": "(7:54) (Shotgun) 9-B.Young scrambles left end for 10 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1626,
+      "quarter": 2.0,
+      "game_clock": "07:45",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 12.0,
+      "epa": 0.67,
+      "description": "(7:45) 7-B.Irving up the middle to TB 42 for 12 yards (2-M.Jackson)."
+    },
+    {
+      "play_id": 1731,
+      "quarter": 2.0,
+      "game_clock": "05:46",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 27.0,
+      "epa": 1.79,
+      "description": "(5:46) 6-B.Mayfield pass deep middle to 13-M.Evans to CAR 21 for 27 yards (20-J.Fuller)."
+    },
+    {
+      "play_id": 2229,
+      "quarter": 2.0,
+      "game_clock": "00:50",
+      "offense": "TB",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -3.71,
+      "description": "(:50) (No Huddle, Shotgun) 6-B.Mayfield pass short right intended for 88-C.Otton INTERCEPTED by\u2026"
+    },
+    {
+      "play_id": 2807,
+      "quarter": 3.0,
+      "game_clock": "12:30",
+      "offense": "CAR",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 1.51,
+      "description": "(12:30) 9-B.Young pass deep left to 17-X.Legette to CAR 40 for 21 yards (35-J.Dean). Penalty on\u2026"
+    },
+    {
+      "play_id": 3119,
+      "quarter": 3.0,
+      "game_clock": "07:40",
+      "offense": "TB",
+      "events": [
+        "sack"
+      ],
+      "yards": -3.0,
+      "epa": -1.26,
+      "description": "(7:40) (Shotgun) 6-B.Mayfield sacked at TB 42 for -3 yards (38-A.Barno)."
+    },
+    {
+      "play_id": 3139,
+      "quarter": 3.0,
+      "game_clock": "06:56",
+      "offense": "TB",
+      "events": [
+        "sack"
+      ],
+      "yards": -7.0,
+      "epa": -1.84,
+      "description": "(6:56) (Shotgun) 6-B.Mayfield sacked at TB 35 for -7 yards (47-J.Jewell). TB-6-B.Mayfield was\u2026"
+    },
+    {
+      "play_id": 3356,
+      "quarter": 3.0,
+      "game_clock": "04:19",
+      "offense": "TB",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -6.42,
+      "description": "(4:19) 6-B.Mayfield pass short left intended for 15-J.McMillan INTERCEPTED by 25-X.Woods at CAR\u2026"
+    },
+    {
+      "play_id": 3747,
+      "quarter": 4.0,
+      "game_clock": "11:34",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 1.09,
+      "description": "(11:34) (Shotgun) 7-B.Irving right end to CAR 22 for 10 yards (45-C.Gill)."
+    },
+    {
+      "play_id": 3841,
+      "quarter": 4.0,
+      "game_clock": "08:58",
+      "offense": "TB",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 6.0,
+      "epa": 1.53,
+      "description": "(8:58) 7-B.Irving left tackle for 6 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3898,
+      "quarter": 4.0,
+      "game_clock": "08:53",
+      "offense": "CAR",
+      "events": [
+        "sack"
+      ],
+      "yards": -9.0,
+      "epa": -1.39,
+      "description": "(8:53) (Shotgun) 9-B.Young sacked at CAR 21 for -9 yards (94-C.Kancey)."
+    },
+    {
+      "play_id": 4100,
+      "quarter": 4.0,
+      "game_clock": "04:42",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 43.0,
+      "epa": 3.07,
+      "description": "(4:42) 7-B.Irving up the middle to CAR 11 for 43 yards (8-J.Horn)."
+    },
+    {
+      "play_id": 4471,
+      "quarter": 4.0,
+      "game_clock": "00:36",
+      "offense": "CAR",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 25.0,
+      "epa": 3.56,
+      "description": "(:36) (Shotgun) 9-B.Young pass deep right to 19-A.Thielen for 25 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 4764,
+      "quarter": 5.0,
+      "game_clock": "09:18",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 1.82,
+      "description": "(9:18) 6-B.Mayfield pass deep left to 15-J.McMillan to CAR 40 for 22 yards (47-J.Jewell)."
+    },
+    {
+      "play_id": 4814,
+      "quarter": 5.0,
+      "game_clock": "07:59",
+      "offense": "TB",
+      "events": [
+        "sack"
+      ],
+      "yards": -8.0,
+      "epa": -1.8,
+      "description": "(7:59) (Shotgun) 6-B.Mayfield sacked at CAR 44 for -8 yards (56-T.Wallace)."
+    },
+    {
+      "play_id": 4962,
+      "quarter": 5.0,
+      "game_clock": "05:11",
+      "offense": "CAR",
+      "events": [
+        "fumble lost",
+        "turnover"
+      ],
+      "yards": 4.0,
+      "epa": -4.53,
+      "description": "(5:11) 30-C.Hubbard up the middle to TB 30 for 4 yards (98-A.Nelson). FUMBLES (98-A.Nelson),\u2026"
+    },
+    {
+      "play_id": 5022,
+      "quarter": 5.0,
+      "game_clock": "04:23",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 21.0,
+      "epa": 1.53,
+      "description": "(4:23) (Shotgun) 6-B.Mayfield pass short left to 13-M.Evans to CAR 48 for 21 yards (25-X.Woods)."
+    },
+    {
+      "play_id": 5047,
+      "quarter": 5.0,
+      "game_clock": "03:44",
+      "offense": "TB",
+      "events": [
+        "big play"
+      ],
+      "yards": 38.0,
+      "epa": 2.52,
+      "description": "(3:44) (Shotgun) 1-R.White left end pushed ob at CAR 10 for 38 yards (26-C.Smith-Wade)."
+    }
+  ]
+}

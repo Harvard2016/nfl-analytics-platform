@@ -1,0 +1,150 @@
+{
+  "design": "For each fold every game involving a held-out team, on either side of the ball, is removed from training\n(weeks 1-12) and from calibration (weeks 13-14). Models are scored on the held-out teams' defensive plays in\nweeks 1-14. Settings are the frozen experiment A and B choices; nothing is tuned here.",
+  "horizon": "post_1_5s",
+  "folds": [
+    {
+      "held_out": [
+        "ARI",
+        "CAR",
+        "DAL",
+        "HOU",
+        "LA",
+        "MIN",
+        "NYJ",
+        "SF"
+      ],
+      "train_plays": 5214,
+      "calibration_plays": 761,
+      "scored_plays": 2539
+    },
+    {
+      "held_out": [
+        "ATL",
+        "CHI",
+        "DEN",
+        "IND",
+        "LAC",
+        "NE",
+        "PHI",
+        "TB"
+      ],
+      "train_plays": 4951,
+      "calibration_plays": 811,
+      "scored_plays": 2808
+    },
+    {
+      "held_out": [
+        "BAL",
+        "CIN",
+        "DET",
+        "JAX",
+        "LV",
+        "NO",
+        "PIT",
+        "TEN"
+      ],
+      "train_plays": 5272,
+      "calibration_plays": 797,
+      "scored_plays": 2680
+    },
+    {
+      "held_out": [
+        "BUF",
+        "CLE",
+        "GB",
+        "KC",
+        "MIA",
+        "NYG",
+        "SEA",
+        "WAS"
+      ],
+      "train_plays": 5047,
+      "calibration_plays": 951,
+      "scored_plays": 2517
+    }
+  ],
+  "models": {
+    "v2_gbm_rel": {
+      "n": 10544,
+      "man": 2980,
+      "zone": 7564,
+      "threshold": 0.5,
+      "accuracy": 0.8950113808801214,
+      "balanced_accuracy": 0.8616458569202758,
+      "macro_f1": 0.868152142622229,
+      "man_precision": 0.8338680926916221,
+      "man_recall": 0.7848993288590604,
+      "zone_precision": 0.9171727613386742,
+      "zone_recall": 0.9383923849814912,
+      "log_loss": 0.24599238894611944,
+      "brier": 0.07557536988136214,
+      "game_bootstrap_95": {
+        "games": 208,
+        "resamples": 1000,
+        "accuracy": [
+          0.8874369604369053,
+          0.9022572393962082
+        ],
+        "macro_f1": [
+          0.8590510147484208,
+          0.8770049810818027
+        ],
+        "log_loss": [
+          0.23200682478571014,
+          0.25953877215548304
+        ],
+        "man_recall": [
+          0.7654786463877791,
+          0.8052338487461381
+        ]
+      },
+      "accuracy_by_fold": [
+        0.9027176053564395,
+        0.8799857549857549,
+        0.9041044776119403,
+        0.8943186332936035
+      ]
+    },
+    "v2_temporal": {
+      "n": 10544,
+      "man": 2980,
+      "zone": 7564,
+      "threshold": 0.5,
+      "accuracy": 0.9282056145675266,
+      "balanced_accuracy": 0.9033896876408563,
+      "macro_f1": 0.9099930291972519,
+      "man_precision": 0.8940092165898618,
+      "man_recall": 0.8463087248322148,
+      "zone_precision": 0.9406966204842677,
+      "zone_recall": 0.9604706504494976,
+      "log_loss": 0.16786985099315643,
+      "brier": 0.05128573253750801,
+      "game_bootstrap_95": {
+        "games": 208,
+        "resamples": 1000,
+        "accuracy": [
+          0.9222367785716147,
+          0.9346482650335454
+        ],
+        "macro_f1": [
+          0.9019822162185903,
+          0.9178309032513776
+        ],
+        "log_loss": [
+          0.1554835792630911,
+          0.17953592352569103
+        ],
+        "man_recall": [
+          0.8315742089606389,
+          0.8617685655004229
+        ]
+      },
+      "accuracy_by_fold": [
+        0.9393461992910594,
+        0.917022792022792,
+        0.935820895522388,
+        0.9213349225268176
+      ]
+    }
+  }
+}

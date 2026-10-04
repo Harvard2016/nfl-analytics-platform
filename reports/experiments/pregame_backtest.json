@@ -1,0 +1,2030 @@
+{
+  "module": "pregame",
+  "version": "pregame-v1",
+  "run_at": "2026-10-04T05:03:34+00:00",
+  "source": "https://github.com/nflverse/nfldata/raw/master/data/games.csv",
+  "source_file": {
+    "name": "games.csv",
+    "bytes": 2182454,
+    "sha256": "dd987a0f726862782b6f31e6c85b0cfbd194b696ba89f36c729ed31e3ecb9bce"
+  },
+  "target": "home team wins (ties excluded)",
+  "cutoff": "Only games played on an earlier calendar date feed a game's features.",
+  "reconstructed": "Reconstructed from today's nflverse schedule file, not from forecasts recorded before kickoff.",
+  "not_used": [
+    "quarterback fields",
+    "injuries",
+    "betting lines (publication time not established)",
+    "anything from the coverage or highlights modules"
+  ],
+  "elo": {
+    "k": 20.0,
+    "home_field": 55.0,
+    "mean": 1505.0,
+    "offseason_keep": 0.6666666666666666
+  },
+  "features": [
+    "elo_diff",
+    "form_diff",
+    "win_pct_diff",
+    "rest_diff",
+    "home_field",
+    "div_game"
+  ],
+  "feature_descriptions": {
+    "elo_diff": "Home Elo rating minus away Elo rating before the game, plus home-field points unless the site is neutral",
+    "form_diff": "Home minus away average point margin over each team's last 8 games",
+    "win_pct_diff": "Home minus away win share this season before the game (0.5 each before a team's first game)",
+    "rest_diff": "Home minus away days of rest, from the schedule",
+    "home_field": "1 for a true home game, 0 for a neutral site",
+    "div_game": "1 when the teams share a division"
+  },
+  "games": {
+    "completed_since_2002": 6548,
+    "ties_excluded": 15,
+    "ties": [
+      {
+        "game_id": "2002_10_ATL_PIT",
+        "season": 2002
+      },
+      {
+        "game_id": "2008_11_PHI_CIN",
+        "season": 2008
+      },
+      {
+        "game_id": "2012_10_STL_SF",
+        "season": 2012
+      },
+      {
+        "game_id": "2013_12_MIN_GB",
+        "season": 2013
+      },
+      {
+        "game_id": "2014_06_CAR_CIN",
+        "season": 2014
+      },
+      {
+        "game_id": "2016_07_SEA_ARI",
+        "season": 2016
+      },
+      {
+        "game_id": "2016_08_WAS_CIN",
+        "season": 2016
+      },
+      {
+        "game_id": "2018_01_PIT_CLE",
+        "season": 2018
+      },
+      {
+        "game_id": "2018_02_MIN_GB",
+        "season": 2018
+      },
+      {
+        "game_id": "2019_01_DET_ARI",
+        "season": 2019
+      },
+      {
+        "game_id": "2020_03_CIN_PHI",
+        "season": 2020
+      },
+      {
+        "game_id": "2021_10_DET_PIT",
+        "season": 2021
+      },
+      {
+        "game_id": "2022_01_IND_HOU",
+        "season": 2022
+      },
+      {
+        "game_id": "2022_13_WAS_NYG",
+        "season": 2022
+      },
+      {
+        "game_id": "2025_04_GB_DAL",
+        "season": 2025
+      }
+    ],
+    "elo_warm_up_seasons": [
+      1999,
+      2001
+    ],
+    "train_seasons": [
+      2002,
+      2018
+    ],
+    "train_games": 4530
+  },
+  "development": {
+    "seasons": [
+      2019,
+      2022
+    ],
+    "note": "Fit once on 2002-2018. Nothing was tuned on these seasons; they are a second look at the same fixed settings.",
+    "models": {
+      "home_prior": {
+        "games": 1100,
+        "log_loss": 0.6960233287260704,
+        "brier": 0.2514034251484051,
+        "accuracy": 0.5272727272727272,
+        "auc": 0.5037798408488063,
+        "home_win_rate": 0.5272727272727272,
+        "calibration": [
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 1100,
+            "mean_predicted": 0.5755050505050505,
+            "home_won": 0.5272727272727272
+          }
+        ]
+      },
+      "elo": {
+        "games": 1100,
+        "log_loss": 0.6399491748906124,
+        "brier": 0.2239798999844512,
+        "accuracy": 0.6372727272727273,
+        "auc": 0.6949038461538461,
+        "home_win_rate": 0.5272727272727272,
+        "calibration": [
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "games": 16,
+            "mean_predicted": 0.1590336267061646,
+            "home_won": 0.3125
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 59,
+            "mean_predicted": 0.259362353996132,
+            "home_won": 0.288135593220339
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 114,
+            "mean_predicted": 0.3540852445864737,
+            "home_won": 0.2807017543859649
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 184,
+            "mean_predicted": 0.45161410682649894,
+            "home_won": 0.391304347826087
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 199,
+            "mean_predicted": 0.5538282576826932,
+            "home_won": 0.49246231155778897
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 257,
+            "mean_predicted": 0.6497230825787751,
+            "home_won": 0.5797665369649806
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 170,
+            "mean_predicted": 0.7487112745844041,
+            "home_won": 0.7235294117647059
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 89,
+            "mean_predicted": 0.8393337205604205,
+            "home_won": 0.8426966292134831
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 12,
+            "mean_predicted": 0.9125924792970087,
+            "home_won": 0.75
+          }
+        ]
+      },
+      "logistic": {
+        "games": 1100,
+        "log_loss": 0.6415368451927839,
+        "brier": 0.22510773221185296,
+        "accuracy": 0.6309090909090909,
+        "auc": 0.6919363395225464,
+        "home_win_rate": 0.5272727272727272,
+        "calibration": [
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "games": 12,
+            "mean_predicted": 0.16799338603916594,
+            "home_won": 0.25
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 58,
+            "mean_predicted": 0.26023835606779455,
+            "home_won": 0.27586206896551724
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 110,
+            "mean_predicted": 0.35663373234161067,
+            "home_won": 0.3181818181818182
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 162,
+            "mean_predicted": 0.45037294721923316,
+            "home_won": 0.37037037037037035
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 217,
+            "mean_predicted": 0.5511409875047398,
+            "home_won": 0.4930875576036866
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 265,
+            "mean_predicted": 0.6489247726717208,
+            "home_won": 0.5735849056603773
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 185,
+            "mean_predicted": 0.7465886568500263,
+            "home_won": 0.7243243243243244
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 85,
+            "mean_predicted": 0.8418569961549304,
+            "home_won": 0.8
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 6,
+            "mean_predicted": 0.9154189159593367,
+            "home_won": 0.8333333333333334
+          }
+        ]
+      },
+      "boosted_trees": {
+        "games": 1100,
+        "log_loss": 0.6423614829804473,
+        "brier": 0.22528143002315854,
+        "accuracy": 0.6227272727272727,
+        "auc": 0.6926193633952255,
+        "home_win_rate": 0.5272727272727272,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 53,
+            "mean_predicted": 0.2774702807389526,
+            "home_won": 0.2830188679245283
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 113,
+            "mean_predicted": 0.35880125983276406,
+            "home_won": 0.2920353982300885
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 161,
+            "mean_predicted": 0.4540566796926875,
+            "home_won": 0.391304347826087
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 260,
+            "mean_predicted": 0.5550589166714756,
+            "home_won": 0.4653846153846154
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 263,
+            "mean_predicted": 0.6405626638556724,
+            "home_won": 0.6083650190114068
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 159,
+            "mean_predicted": 0.7430953794439156,
+            "home_won": 0.7169811320754716
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 67,
+            "mean_predicted": 0.8330708548076393,
+            "home_won": 0.8059701492537313
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 24,
+            "mean_predicted": 0.9200388148096058,
+            "home_won": 0.8333333333333334
+          }
+        ]
+      }
+    }
+  },
+  "locked": {
+    "seasons": [
+      2023,
+      2025
+    ],
+    "refit": "Before each season, refit on every earlier season since 2002. Settings fixed.",
+    "models": {
+      "home_prior": {
+        "games": 854,
+        "log_loss": 0.6898243244957507,
+        "brier": 0.24833537109028567,
+        "accuracy": 0.5491803278688525,
+        "auc": 0.5070390164206795,
+        "home_win_rate": 0.5491803278688525,
+        "calibration": [
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 854,
+            "mean_predicted": 0.5655305355402946,
+            "home_won": 0.5491803278688525
+          }
+        ]
+      },
+      "elo": {
+        "games": 854,
+        "log_loss": 0.63616244743442,
+        "brier": 0.22264943705322038,
+        "accuracy": 0.6405152224824356,
+        "auc": 0.6897793038517985,
+        "home_win_rate": 0.5491803278688525,
+        "calibration": [
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "games": 15,
+            "mean_predicted": 0.16365520587912358,
+            "home_won": 0.26666666666666666
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 40,
+            "mean_predicted": 0.2632665699683609,
+            "home_won": 0.4
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 85,
+            "mean_predicted": 0.35643504760086464,
+            "home_won": 0.32941176470588235
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 164,
+            "mean_predicted": 0.45474010368831674,
+            "home_won": 0.39634146341463417
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 161,
+            "mean_predicted": 0.5541664042300003,
+            "home_won": 0.5093167701863354
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 171,
+            "mean_predicted": 0.6473369892388748,
+            "home_won": 0.6257309941520468
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 145,
+            "mean_predicted": 0.7487254185940775,
+            "home_won": 0.7310344827586207
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 64,
+            "mean_predicted": 0.8377028194818154,
+            "home_won": 0.8125
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 9,
+            "mean_predicted": 0.9129452059995187,
+            "home_won": 1.0
+          }
+        ]
+      },
+      "logistic": {
+        "games": 854,
+        "log_loss": 0.6354365580664855,
+        "brier": 0.2226715750212947,
+        "accuracy": 0.6370023419203747,
+        "auc": 0.6876747985489988,
+        "home_win_rate": 0.5491803278688525,
+        "calibration": [
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "games": 11,
+            "mean_predicted": 0.17026457801067588,
+            "home_won": 0.2727272727272727
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 36,
+            "mean_predicted": 0.2569035443643078,
+            "home_won": 0.3611111111111111
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 99,
+            "mean_predicted": 0.3547602995552094,
+            "home_won": 0.3333333333333333
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 149,
+            "mean_predicted": 0.45317166061445424,
+            "home_won": 0.40939597315436244
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 193,
+            "mean_predicted": 0.5503522235111914,
+            "home_won": 0.49740932642487046
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 169,
+            "mean_predicted": 0.6511003741287212,
+            "home_won": 0.6568047337278107
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 141,
+            "mean_predicted": 0.74971852963021,
+            "home_won": 0.7588652482269503
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 53,
+            "mean_predicted": 0.8391951158802572,
+            "home_won": 0.7924528301886793
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 3,
+            "mean_predicted": 0.9092737825827153,
+            "home_won": 1.0
+          }
+        ],
+        "vs_elo": {
+          "mean_log_loss_difference": -0.0007258893679344469,
+          "interval_95": [
+            -0.0063781699889991425,
+            0.005173163532706012
+          ],
+          "blocks": 66,
+          "block": "season-week"
+        }
+      },
+      "boosted_trees": {
+        "games": 854,
+        "log_loss": 0.6359411540654537,
+        "brier": 0.22299527847128653,
+        "accuracy": 0.629976580796253,
+        "auc": 0.6846592639769612,
+        "home_win_rate": 0.5491803278688525,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 40,
+            "mean_predicted": 0.27893370597187,
+            "home_won": 0.4
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 96,
+            "mean_predicted": 0.35575320165693985,
+            "home_won": 0.28125
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 159,
+            "mean_predicted": 0.4539883097915379,
+            "home_won": 0.44025157232704404
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 205,
+            "mean_predicted": 0.5496816457626931,
+            "home_won": 0.4926829268292683
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 164,
+            "mean_predicted": 0.6440826918217303,
+            "home_won": 0.6829268292682927
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 129,
+            "mean_predicted": 0.7463535733944371,
+            "home_won": 0.7131782945736435
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 54,
+            "mean_predicted": 0.8413788932829535,
+            "home_won": 0.8148148148148148
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 7,
+            "mean_predicted": 0.9156013484783536,
+            "home_won": 1.0
+          }
+        ],
+        "vs_elo": {
+          "mean_log_loss_difference": -0.00022129336896632013,
+          "interval_95": [
+            -0.006833991003107848,
+            0.006053851877541221
+          ],
+          "blocks": 66,
+          "block": "season-week"
+        }
+      }
+    },
+    "by_season": {
+      "2023": {
+        "home_prior": {
+          "games": 285,
+          "log_loss": 0.6845172122886332,
+          "brier": 0.24569768683731935,
+          "accuracy": 0.5649122807017544,
+          "auc": 0.5027800040072129,
+          "home_win_rate": 0.5649122807017544,
+          "calibration": [
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 285,
+              "mean_predicted": 0.5662783104136894,
+              "home_won": 0.5649122807017544
+            }
+          ]
+        },
+        "elo": {
+          "games": 285,
+          "log_loss": 0.6591366497734185,
+          "brier": 0.232720486268087,
+          "accuracy": 0.6035087719298246,
+          "auc": 0.6431075936686035,
+          "home_win_rate": 0.5649122807017544,
+          "calibration": [
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "games": 4,
+              "mean_predicted": 0.16553746727307975,
+              "home_won": 0.25
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 11,
+              "mean_predicted": 0.27102449077368124,
+              "home_won": 0.2727272727272727
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 26,
+              "mean_predicted": 0.35444874464429704,
+              "home_won": 0.5384615384615384
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 52,
+              "mean_predicted": 0.45734020297116706,
+              "home_won": 0.4423076923076923
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 64,
+              "mean_predicted": 0.5573225295468649,
+              "home_won": 0.5
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 58,
+              "mean_predicted": 0.6512687425980757,
+              "home_won": 0.6379310344827587
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 50,
+              "mean_predicted": 0.7447184735637857,
+              "home_won": 0.74
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 18,
+              "mean_predicted": 0.8260155458193026,
+              "home_won": 0.6666666666666666
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "games": 2,
+              "mean_predicted": 0.9008591280158714,
+              "home_won": 1.0
+            }
+          ]
+        },
+        "logistic": {
+          "games": 285,
+          "log_loss": 0.6503562352435904,
+          "brier": 0.22920361059936453,
+          "accuracy": 0.5964912280701754,
+          "auc": 0.6553796834301743,
+          "home_win_rate": 0.5649122807017544,
+          "calibration": [
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "games": 4,
+              "mean_predicted": 0.17667587350514763,
+              "home_won": 0.25
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 9,
+              "mean_predicted": 0.2751368910984573,
+              "home_won": 0.3333333333333333
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 31,
+              "mean_predicted": 0.36117758354438523,
+              "home_won": 0.45161290322580644
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 43,
+              "mean_predicted": 0.4490581944827329,
+              "home_won": 0.4883720930232558
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 71,
+              "mean_predicted": 0.5487052804357669,
+              "home_won": 0.43661971830985913
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 63,
+              "mean_predicted": 0.6468599469921639,
+              "home_won": 0.7142857142857143
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 49,
+              "mean_predicted": 0.7457582357461243,
+              "home_won": 0.7142857142857143
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 15,
+              "mean_predicted": 0.8289699507257661,
+              "home_won": 0.7333333333333333
+            }
+          ],
+          "vs_elo": {
+            "mean_log_loss_difference": -0.008780414529827876,
+            "interval_95": [
+              -0.017289640544468618,
+              0.00019109608164172328
+            ],
+            "blocks": 22,
+            "block": "season-week"
+          }
+        },
+        "boosted_trees": {
+          "games": 285,
+          "log_loss": 0.6544864351102827,
+          "brier": 0.23121848337126463,
+          "accuracy": 0.5964912280701754,
+          "auc": 0.6447104788619515,
+          "home_win_rate": 0.5649122807017544,
+          "calibration": [
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 11,
+              "mean_predicted": 0.2809556298710427,
+              "home_won": 0.36363636363636365
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 31,
+              "mean_predicted": 0.35553370272788415,
+              "home_won": 0.3870967741935484
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 49,
+              "mean_predicted": 0.4539888895569508,
+              "home_won": 0.5102040816326531
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 75,
+              "mean_predicted": 0.5520703081408397,
+              "home_won": 0.5066666666666667
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 63,
+              "mean_predicted": 0.6448556615946818,
+              "home_won": 0.6507936507936508
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 38,
+              "mean_predicted": 0.748342981939437,
+              "home_won": 0.7368421052631579
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 17,
+              "mean_predicted": 0.8282997308979372,
+              "home_won": 0.7058823529411765
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "games": 1,
+              "mean_predicted": 0.9170125242248717,
+              "home_won": 1.0
+            }
+          ],
+          "vs_elo": {
+            "mean_log_loss_difference": -0.004650214663135754,
+            "interval_95": [
+              -0.014306824180037956,
+              0.005531374239905047
+            ],
+            "blocks": 22,
+            "block": "season-week"
+          }
+        }
+      },
+      "2024": {
+        "home_prior": {
+          "games": 285,
+          "log_loss": 0.6926031886723389,
+          "brier": 0.24971594416351445,
+          "accuracy": 0.5473684210526316,
+          "auc": 0.4775641025641026,
+          "home_win_rate": 0.5473684210526316,
+          "calibration": [
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 285,
+              "mean_predicted": 0.5659757269887046,
+              "home_won": 0.5473684210526316
+            }
+          ]
+        },
+        "elo": {
+          "games": 285,
+          "log_loss": 0.6112723865409411,
+          "brier": 0.21148387544960834,
+          "accuracy": 0.6771929824561403,
+          "auc": 0.7295766249254622,
+          "home_win_rate": 0.5473684210526316,
+          "calibration": [
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "games": 6,
+              "mean_predicted": 0.15898353277657543,
+              "home_won": 0.16666666666666666
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 8,
+              "mean_predicted": 0.27349223173066023,
+              "home_won": 0.625
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 36,
+              "mean_predicted": 0.36223197572869087,
+              "home_won": 0.25
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 55,
+              "mean_predicted": 0.4483834256601002,
+              "home_won": 0.34545454545454546
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 50,
+              "mean_predicted": 0.5540196096674904,
+              "home_won": 0.5
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 56,
+              "mean_predicted": 0.650076007557008,
+              "home_won": 0.6785714285714286
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 50,
+              "mean_predicted": 0.7551654591087744,
+              "home_won": 0.74
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 19,
+              "mean_predicted": 0.8369535853904893,
+              "home_won": 0.8947368421052632
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "games": 5,
+              "mean_predicted": 0.9192112466170356,
+              "home_won": 1.0
+            }
+          ]
+        },
+        "logistic": {
+          "games": 285,
+          "log_loss": 0.6227851991789294,
+          "brier": 0.21680527720948675,
+          "accuracy": 0.6771929824561403,
+          "auc": 0.7096998608626516,
+          "home_win_rate": 0.5473684210526316,
+          "calibration": [
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "games": 4,
+              "mean_predicted": 0.1672042910308701,
+              "home_won": 0.25
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 7,
+              "mean_predicted": 0.2515914357002493,
+              "home_won": 0.2857142857142857
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 41,
+              "mean_predicted": 0.35417254459900815,
+              "home_won": 0.34146341463414637
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 53,
+              "mean_predicted": 0.45306753929499244,
+              "home_won": 0.32075471698113206
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 58,
+              "mean_predicted": 0.5539184985616885,
+              "home_won": 0.5689655172413793
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 56,
+              "mean_predicted": 0.6525871128419468,
+              "home_won": 0.6428571428571429
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 49,
+              "mean_predicted": 0.7556171082628874,
+              "home_won": 0.7959183673469388
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 15,
+              "mean_predicted": 0.8469533471878984,
+              "home_won": 0.8
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "games": 2,
+              "mean_predicted": 0.9135758184339899,
+              "home_won": 1.0
+            }
+          ],
+          "vs_elo": {
+            "mean_log_loss_difference": 0.01151281263798817,
+            "interval_95": [
+              0.00020458051922486126,
+              0.021807845526337175
+            ],
+            "blocks": 22,
+            "block": "season-week"
+          }
+        },
+        "boosted_trees": {
+          "games": 285,
+          "log_loss": 0.6203548613719339,
+          "brier": 0.21581613728490506,
+          "accuracy": 0.656140350877193,
+          "auc": 0.7139982110912344,
+          "home_win_rate": 0.5473684210526316,
+          "calibration": [
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 8,
+              "mean_predicted": 0.2730951891915817,
+              "home_won": 0.375
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 38,
+              "mean_predicted": 0.35816873534756233,
+              "home_won": 0.2894736842105263
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 55,
+              "mean_predicted": 0.4479345311299317,
+              "home_won": 0.38181818181818183
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 61,
+              "mean_predicted": 0.5480440967133672,
+              "home_won": 0.4918032786885246
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 58,
+              "mean_predicted": 0.6438434605841661,
+              "home_won": 0.6896551724137931
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 45,
+              "mean_predicted": 0.745800129892406,
+              "home_won": 0.7333333333333333
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 19,
+              "mean_predicted": 0.8491433134154653,
+              "home_won": 0.8947368421052632
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "games": 1,
+              "mean_predicted": 0.9080920622236729,
+              "home_won": 1.0
+            }
+          ],
+          "vs_elo": {
+            "mean_log_loss_difference": 0.009082474830992626,
+            "interval_95": [
+              -0.005286092422092958,
+              0.019940515058404114
+            ],
+            "blocks": 22,
+            "block": "season-week"
+          }
+        }
+      },
+      "2025": {
+        "home_prior": {
+          "games": 284,
+          "log_loss": 0.6923614748080776,
+          "brier": 0.24959690871783927,
+          "accuracy": 0.5352112676056338,
+          "auc": 0.5019936204146731,
+          "home_win_rate": 0.5352112676056338,
+          "calibration": [
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 284,
+              "mean_predicted": 0.5643333686328497,
+              "home_won": 0.5352112676056338
+            }
+          ]
+        },
+        "elo": {
+          "games": 284,
+          "log_loss": 0.638085051969726,
+          "brier": 0.22374780335882755,
+          "accuracy": 0.6408450704225352,
+          "auc": 0.6912380382775121,
+          "home_win_rate": 0.5352112676056338,
+          "calibration": [
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "games": 5,
+              "mean_predicted": 0.16775540448701656,
+              "home_won": 0.4
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 21,
+              "mean_predicted": 0.2553074069704124,
+              "home_won": 0.38095238095238093
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 23,
+              "mean_predicted": 0.34960698082995256,
+              "home_won": 0.21739130434782608
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 57,
+              "mean_predicted": 0.45850171998382033,
+              "home_won": 0.40350877192982454
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 47,
+              "mean_predicted": 0.5500248660990676,
+              "home_won": 0.5319148936170213
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 57,
+              "mean_predicted": 0.6406452923853816,
+              "home_won": 0.5614035087719298
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 45,
+              "mean_predicted": 0.7460219791669609,
+              "home_won": 0.7111111111111111
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 27,
+              "mean_predicted": 0.8460215740618314,
+              "home_won": 0.8518518518518519
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "games": 2,
+              "mean_predicted": 0.9093661824393734,
+              "home_won": 1.0
+            }
+          ]
+        },
+        "logistic": {
+          "games": 284,
+          "log_loss": 0.633160252740706,
+          "brier": 0.2220034931079686,
+          "accuracy": 0.6373239436619719,
+          "auc": 0.6921850079744818,
+          "home_win_rate": 0.5352112676056338,
+          "calibration": [
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "games": 3,
+              "mean_predicted": 0.16579656665778783,
+              "home_won": 0.3333333333333333
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 20,
+              "mean_predicted": 0.250557776366361,
+              "home_won": 0.4
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 27,
+              "mean_predicted": 0.3482848236122386,
+              "home_won": 0.18518518518518517
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 53,
+              "mean_predicted": 0.4566131223804072,
+              "home_won": 0.4339622641509434
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 64,
+              "mean_predicted": 0.5489473642209775,
+              "home_won": 0.5
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 50,
+              "mean_predicted": 0.6547781649619709,
+              "home_won": 0.6
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 43,
+              "mean_predicted": 0.7475097865446053,
+              "home_won": 0.7674418604651163
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 23,
+              "mean_predicted": 0.8408039857803769,
+              "home_won": 0.8260869565217391
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "games": 1,
+              "mean_predicted": 0.9006697108801661,
+              "home_won": 1.0
+            }
+          ],
+          "vs_elo": {
+            "mean_log_loss_difference": -0.0049247992290200725,
+            "interval_95": [
+              -0.014280237124843295,
+              0.0044837463682960805
+            ],
+            "blocks": 22,
+            "block": "season-week"
+          }
+        },
+        "boosted_trees": {
+          "games": 284,
+          "log_loss": 0.6329717467410765,
+          "brier": 0.22194753847700818,
+          "accuracy": 0.6373239436619719,
+          "auc": 0.6916866028708135,
+          "home_win_rate": 0.5352112676056338,
+          "calibration": [
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "games": 21,
+              "mean_predicted": 0.2800987998457464,
+              "home_won": 0.42857142857142855
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "games": 27,
+              "mean_predicted": 0.35260557893683137,
+              "home_won": 0.14814814814814814
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "games": 55,
+              "mean_predicted": 0.4600415719348675,
+              "home_won": 0.43636363636363634
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "games": 69,
+              "mean_predicted": 0.5485329619025172,
+              "home_won": 0.4782608695652174
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "games": 43,
+              "mean_predicted": 0.6432728852190048,
+              "home_won": 0.7209302325581395
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "games": 46,
+              "mean_predicted": 0.7452515610657722,
+              "home_won": 0.6739130434782609
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "games": 18,
+              "mean_predicted": 0.8455356587289283,
+              "home_won": 0.8333333333333334
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "games": 5,
+              "mean_predicted": 0.9168209705799863,
+              "home_won": 1.0
+            }
+          ],
+          "vs_elo": {
+            "mean_log_loss_difference": -0.005113305228649451,
+            "interval_95": [
+              -0.014967803276443528,
+              0.00429314361175939
+            ],
+            "blocks": 22,
+            "block": "season-week"
+          }
+        }
+      }
+    },
+    "regular_season_only": {
+      "home_prior": {
+        "games": 815,
+        "log_loss": 0.6914463086364884,
+        "brier": 0.24914131737141057,
+        "accuracy": 0.5423312883435583,
+        "auc": 0.5043065277255468,
+        "home_win_rate": 0.5423312883435583,
+        "calibration": [
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 815,
+            "mean_predicted": 0.5657819011651031,
+            "home_won": 0.5423312883435583
+          }
+        ]
+      },
+      "elo": {
+        "games": 815,
+        "log_loss": 0.6379016892164505,
+        "brier": 0.22347742683407182,
+        "accuracy": 0.6380368098159509,
+        "auc": 0.6900270522727547,
+        "home_win_rate": 0.5423312883435583,
+        "calibration": [
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "games": 15,
+            "mean_predicted": 0.16365520587912358,
+            "home_won": 0.26666666666666666
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 39,
+            "mean_predicted": 0.2638032084075849,
+            "home_won": 0.41025641025641024
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 83,
+            "mean_predicted": 0.35558180114176224,
+            "home_won": 0.3253012048192771
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 159,
+            "mean_predicted": 0.45469866887533883,
+            "home_won": 0.389937106918239
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 153,
+            "mean_predicted": 0.5545914361252653,
+            "home_won": 0.49019607843137253
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 159,
+            "mean_predicted": 0.6474443790841791,
+            "home_won": 0.6289308176100629
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 135,
+            "mean_predicted": 0.7497676886169716,
+            "home_won": 0.725925925925926
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 63,
+            "mean_predicted": 0.8382490887420647,
+            "home_won": 0.8095238095238095
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 9,
+            "mean_predicted": 0.9129452059995187,
+            "home_won": 1.0
+          }
+        ]
+      },
+      "logistic": {
+        "games": 815,
+        "log_loss": 0.636242870265334,
+        "brier": 0.22312072643588068,
+        "accuracy": 0.6319018404907976,
+        "auc": 0.6884985382067861,
+        "home_win_rate": 0.5423312883435583,
+        "calibration": [
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "games": 11,
+            "mean_predicted": 0.17026457801067588,
+            "home_won": 0.2727272727272727
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 35,
+            "mean_predicted": 0.25648849121311185,
+            "home_won": 0.37142857142857144
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 96,
+            "mean_predicted": 0.3542405123788299,
+            "home_won": 0.3229166666666667
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 147,
+            "mean_predicted": 0.45336509258154123,
+            "home_won": 0.41496598639455784
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 182,
+            "mean_predicted": 0.55014256914402,
+            "home_won": 0.4835164835164835
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 157,
+            "mean_predicted": 0.651196684568992,
+            "home_won": 0.6496815286624203
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 133,
+            "mean_predicted": 0.7509700261941283,
+            "home_won": 0.7518796992481203
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 51,
+            "mean_predicted": 0.8401274253797343,
+            "home_won": 0.803921568627451
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 3,
+            "mean_predicted": 0.9092737825827153,
+            "home_won": 1.0
+          }
+        ],
+        "vs_elo": {
+          "mean_log_loss_difference": -0.0016588189511164892,
+          "interval_95": [
+            -0.007574099846727017,
+            0.004138161298296158
+          ],
+          "blocks": 54,
+          "block": "season-week"
+        }
+      },
+      "boosted_trees": {
+        "games": 815,
+        "log_loss": 0.6374054403439978,
+        "brier": 0.22373644375684656,
+        "accuracy": 0.6245398773006134,
+        "auc": 0.684558975167712,
+        "home_win_rate": 0.5423312883435583,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 39,
+            "mean_predicted": 0.2785960055989555,
+            "home_won": 0.41025641025641024
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 96,
+            "mean_predicted": 0.35575320165693985,
+            "home_won": 0.28125
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 154,
+            "mean_predicted": 0.4547795111172146,
+            "home_won": 0.44155844155844154
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 190,
+            "mean_predicted": 0.5493071991235327,
+            "home_won": 0.46842105263157896
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 153,
+            "mean_predicted": 0.6432903280179684,
+            "home_won": 0.6862745098039216
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 123,
+            "mean_predicted": 0.7468773475836737,
+            "home_won": 0.7073170731707317
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 53,
+            "mean_predicted": 0.8419158832983429,
+            "home_won": 0.8113207547169812
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "games": 7,
+            "mean_predicted": 0.9156013484783536,
+            "home_won": 1.0
+          }
+        ],
+        "vs_elo": {
+          "mean_log_loss_difference": -0.0004962488724528027,
+          "interval_95": [
+            -0.007212388265252072,
+            0.005568742463737512
+          ],
+          "blocks": 54,
+          "block": "season-week"
+        }
+      }
+    },
+    "playoffs_only": {
+      "home_prior": {
+        "games": 39,
+        "log_loss": 0.6559290148880271,
+        "brier": 0.23149316034370193,
+        "accuracy": 0.6923076923076923,
+        "auc": 0.5925925925925926,
+        "home_win_rate": 0.6923076923076923,
+        "calibration": [
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 39,
+            "mean_predicted": 0.560277638509041,
+            "home_won": 0.6923076923076923
+          }
+        ]
+      },
+      "elo": {
+        "games": 39,
+        "log_loss": 0.5998167537842936,
+        "brier": 0.20534657368414544,
+        "accuracy": 0.6923076923076923,
+        "auc": 0.6450617283950617,
+        "home_win_rate": 0.6923076923076923,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 1,
+            "mean_predicted": 0.24233767083862667,
+            "home_won": 0.0
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 2,
+            "mean_predicted": 0.3918447756536173,
+            "home_won": 0.5
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 5,
+            "mean_predicted": 0.4560577307410158,
+            "home_won": 0.6
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 8,
+            "mean_predicted": 0.5460376692330572,
+            "home_won": 0.875
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 12,
+            "mean_predicted": 0.6459140737885934,
+            "home_won": 0.5833333333333334
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 10,
+            "mean_predicted": 0.7346547732850075,
+            "home_won": 0.8
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 1,
+            "mean_predicted": 0.8032878560860981,
+            "home_won": 1.0
+          }
+        ]
+      },
+      "logistic": {
+        "games": 39,
+        "log_loss": 0.6185867005777275,
+        "brier": 0.21328546212674185,
+        "accuracy": 0.7435897435897436,
+        "auc": 0.5987654320987654,
+        "home_win_rate": 0.6923076923076923,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 1,
+            "mean_predicted": 0.2714304046561658,
+            "home_won": 0.0
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 3,
+            "mean_predicted": 0.3713934891993477,
+            "home_won": 0.6666666666666666
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 2,
+            "mean_predicted": 0.4389544110335669,
+            "home_won": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 11,
+            "mean_predicted": 0.5538210503134825,
+            "home_won": 0.7272727272727273
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 12,
+            "mean_predicted": 0.6498403125351766,
+            "home_won": 0.75
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 8,
+            "mean_predicted": 0.7289123992550671,
+            "home_won": 0.875
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 2,
+            "mean_predicted": 0.8154212236435936,
+            "home_won": 0.5
+          }
+        ],
+        "vs_elo": {
+          "mean_log_loss_difference": 0.018769946793433863,
+          "interval_95": [
+            -0.0018492704839618308,
+            0.041830697496584746
+          ],
+          "blocks": 12,
+          "block": "season-week"
+        }
+      },
+      "boosted_trees": {
+        "games": 39,
+        "log_loss": 0.6053413254240834,
+        "brier": 0.20750682442689083,
+        "accuracy": 0.7435897435897436,
+        "auc": 0.6296296296296295,
+        "home_win_rate": 0.6923076923076923,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 1,
+            "mean_predicted": 0.29210402051553336,
+            "home_won": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 5,
+            "mean_predicted": 0.429619308960699,
+            "home_won": 0.4
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 15,
+            "mean_predicted": 0.5544246365253904,
+            "home_won": 0.8
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 11,
+            "mean_predicted": 0.6551037520013308,
+            "home_won": 0.6363636363636364
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 6,
+            "mean_predicted": 0.7356162025150876,
+            "home_won": 0.8333333333333334
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 1,
+            "mean_predicted": 0.8129184224673068,
+            "home_won": 1.0
+          }
+        ],
+        "vs_elo": {
+          "mean_log_loss_difference": 0.005524571639789686,
+          "interval_95": [
+            -0.014415528442934663,
+            0.020541749172307455
+          ],
+          "blocks": 12,
+          "block": "season-week"
+        }
+      }
+    }
+  },
+  "in_progress": {
+    "seasons": [
+      2026
+    ],
+    "through": "2026-10-01",
+    "note": "Season still being played. Reconstructed like the rest; too few games for a firm reading.",
+    "models": {
+      "home_prior": {
+        "games": 49,
+        "log_loss": 0.6719911760608056,
+        "brier": 0.23947024373990156,
+        "accuracy": 0.5918367346938775,
+        "auc": 0.55,
+        "home_win_rate": 0.5918367346938775,
+        "calibration": [
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 49,
+            "mean_predicted": 0.5622554307928991,
+            "home_won": 0.5918367346938775
+          }
+        ]
+      },
+      "elo": {
+        "games": 49,
+        "log_loss": 0.6547600080491564,
+        "brier": 0.2314378232741452,
+        "accuracy": 0.6530612244897959,
+        "auc": 0.6172413793103448,
+        "home_win_rate": 0.5918367346938775,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 3,
+            "mean_predicted": 0.2461412101556554,
+            "home_won": 0.3333333333333333
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 2,
+            "mean_predicted": 0.3787255922562617,
+            "home_won": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 8,
+            "mean_predicted": 0.43211554719594797,
+            "home_won": 0.5
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 13,
+            "mean_predicted": 0.5549992222397383,
+            "home_won": 0.6923076923076923
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 10,
+            "mean_predicted": 0.6591711483071836,
+            "home_won": 0.6
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 11,
+            "mean_predicted": 0.7403158977798369,
+            "home_won": 0.6363636363636364
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 2,
+            "mean_predicted": 0.804824011639903,
+            "home_won": 1.0
+          }
+        ]
+      },
+      "logistic": {
+        "games": 49,
+        "log_loss": 0.6583698030378455,
+        "brier": 0.23372164120367142,
+        "accuracy": 0.6122448979591837,
+        "auc": 0.6120689655172413,
+        "home_win_rate": 0.5918367346938775,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 3,
+            "mean_predicted": 0.24020375112508852,
+            "home_won": 0.3333333333333333
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 4,
+            "mean_predicted": 0.3793377770684993,
+            "home_won": 0.5
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 8,
+            "mean_predicted": 0.4446559999869364,
+            "home_won": 0.5
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 10,
+            "mean_predicted": 0.5514929927634126,
+            "home_won": 0.7
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 14,
+            "mean_predicted": 0.6616159210496321,
+            "home_won": 0.5
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 9,
+            "mean_predicted": 0.7542369019132007,
+            "home_won": 0.7777777777777778
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 1,
+            "mean_predicted": 0.8073506032492174,
+            "home_won": 1.0
+          }
+        ],
+        "vs_elo": {
+          "mean_log_loss_difference": 0.0036097949886890945,
+          "interval_95": [
+            -0.011577208802165777,
+            0.013966791232060417
+          ],
+          "blocks": 4,
+          "block": "season-week"
+        }
+      },
+      "boosted_trees": {
+        "games": 49,
+        "log_loss": 0.6604005197050843,
+        "brier": 0.23465691231516073,
+        "accuracy": 0.6122448979591837,
+        "auc": 0.5982758620689654,
+        "home_win_rate": 0.5918367346938775,
+        "calibration": [
+          {
+            "lo": 0.2,
+            "hi": 0.30000000000000004,
+            "games": 2,
+            "mean_predicted": 0.282858400379304,
+            "home_won": 0.5
+          },
+          {
+            "lo": 0.30000000000000004,
+            "hi": 0.4,
+            "games": 6,
+            "mean_predicted": 0.3633737464333889,
+            "home_won": 0.5
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "games": 7,
+            "mean_predicted": 0.44432731627958516,
+            "home_won": 0.42857142857142855
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6000000000000001,
+            "games": 10,
+            "mean_predicted": 0.5533364308324638,
+            "home_won": 0.7
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.7000000000000001,
+            "games": 12,
+            "mean_predicted": 0.640255856512501,
+            "home_won": 0.5
+          },
+          {
+            "lo": 0.7000000000000001,
+            "hi": 0.8,
+            "games": 11,
+            "mean_predicted": 0.7373217023390564,
+            "home_won": 0.7272727272727273
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "games": 1,
+            "mean_predicted": 0.8352865619723463,
+            "home_won": 1.0
+          }
+        ],
+        "vs_elo": {
+          "mean_log_loss_difference": 0.0056405116559278675,
+          "interval_95": [
+            -0.007858554806813895,
+            0.030874063200622526
+          ],
+          "blocks": 4,
+          "block": "season-week"
+        }
+      }
+    }
+  }
+}

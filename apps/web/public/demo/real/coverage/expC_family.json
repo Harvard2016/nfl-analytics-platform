@@ -1,0 +1,770 @@
+{
+  "task": "coverage family (released coverage_type)",
+  "classes": [
+    "COVER_0_MAN",
+    "COVER_1_MAN",
+    "COVER_2_MAN",
+    "COVER_2_ZONE",
+    "COVER_3_ZONE",
+    "COVER_4_ZONE",
+    "COVER_6_ZONE"
+  ],
+  "excluded": [
+    "PREVENT"
+  ],
+  "status": "Development only: trained on weeks 1-12, scored on weeks 13-14. The locked test weeks have not been scored for this task.",
+  "hierarchy": "P(family) = P(man or zone) x P(family | group); the group is predicted, never given as an input",
+  "probabilities": "uncalibrated",
+  "horizons": {
+    "post_1s": {
+      "train_plays": 9099,
+      "train_counts": {
+        "COVER_0_MAN": 347,
+        "COVER_1_MAN": 2082,
+        "COVER_2_MAN": 147,
+        "COVER_2_ZONE": 1209,
+        "COVER_3_ZONE": 2881,
+        "COVER_4_ZONE": 1523,
+        "COVER_6_ZONE": 910
+      },
+      "models": {
+        "boosted_trees_flat": {
+          "plays": 1413,
+          "accuracy": 0.6956829440905874,
+          "balanced_accuracy": 0.6118085540626108,
+          "macro_f1": 0.6324858832146186,
+          "log_loss": 0.8259098611012542,
+          "per_class": {
+            "COVER_0_MAN": {
+              "precision": 0.7391304347826086,
+              "recall": 0.7083333333333334,
+              "support": 48
+            },
+            "COVER_1_MAN": {
+              "precision": 0.7571884984025559,
+              "recall": 0.7314814814814815,
+              "support": 324
+            },
+            "COVER_2_MAN": {
+              "precision": 0.6923076923076923,
+              "recall": 0.28125,
+              "support": 32
+            },
+            "COVER_2_ZONE": {
+              "precision": 0.6976744186046512,
+              "recall": 0.6666666666666666,
+              "support": 180
+            },
+            "COVER_3_ZONE": {
+              "precision": 0.711764705882353,
+              "recall": 0.8175675675675675,
+              "support": 444
+            },
+            "COVER_4_ZONE": {
+              "precision": 0.6328125,
+              "recall": 0.6982758620689655,
+              "support": 232
+            },
+            "COVER_6_ZONE": {
+              "precision": 0.5631067961165048,
+              "recall": 0.3790849673202614,
+              "support": 153
+            }
+          },
+          "confusion": {
+            "labels": [
+              "COVER_0_MAN",
+              "COVER_1_MAN",
+              "COVER_2_MAN",
+              "COVER_2_ZONE",
+              "COVER_3_ZONE",
+              "COVER_4_ZONE",
+              "COVER_6_ZONE"
+            ],
+            "rows_released_cols_predicted": [
+              [
+                34,
+                6,
+                0,
+                0,
+                3,
+                5,
+                0
+              ],
+              [
+                9,
+                237,
+                1,
+                4,
+                58,
+                9,
+                6
+              ],
+              [
+                0,
+                12,
+                9,
+                8,
+                0,
+                0,
+                3
+              ],
+              [
+                1,
+                3,
+                1,
+                120,
+                31,
+                8,
+                16
+              ],
+              [
+                0,
+                36,
+                0,
+                8,
+                363,
+                30,
+                7
+              ],
+              [
+                2,
+                9,
+                0,
+                10,
+                36,
+                162,
+                13
+              ],
+              [
+                0,
+                10,
+                2,
+                22,
+                19,
+                42,
+                58
+              ]
+            ]
+          }
+        },
+        "class_prior": {
+          "plays": 1413,
+          "accuracy": 0.31422505307855625,
+          "balanced_accuracy": 0.14285714285714285,
+          "macro_f1": 0.06831294714978076,
+          "log_loss": 1.70385865974517,
+          "per_class": {
+            "COVER_0_MAN": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 48
+            },
+            "COVER_1_MAN": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 324
+            },
+            "COVER_2_MAN": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 32
+            },
+            "COVER_2_ZONE": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 180
+            },
+            "COVER_3_ZONE": {
+              "precision": 0.31422505307855625,
+              "recall": 1.0,
+              "support": 444
+            },
+            "COVER_4_ZONE": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 232
+            },
+            "COVER_6_ZONE": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 153
+            }
+          },
+          "confusion": {
+            "labels": [
+              "COVER_0_MAN",
+              "COVER_1_MAN",
+              "COVER_2_MAN",
+              "COVER_2_ZONE",
+              "COVER_3_ZONE",
+              "COVER_4_ZONE",
+              "COVER_6_ZONE"
+            ],
+            "rows_released_cols_predicted": [
+              [
+                0,
+                0,
+                0,
+                0,
+                48,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                324,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                32,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                180,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                444,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                232,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                153,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "temporal_hierarchical": {
+          "plays": 1413,
+          "accuracy": 0.8365180467091295,
+          "balanced_accuracy": 0.8238060086310593,
+          "macro_f1": 0.8343817110903019,
+          "log_loss": 0.4296528697013855,
+          "per_class": {
+            "COVER_0_MAN": {
+              "precision": 0.8636363636363636,
+              "recall": 0.7916666666666666,
+              "support": 48
+            },
+            "COVER_1_MAN": {
+              "precision": 0.902027027027027,
+              "recall": 0.8240740740740741,
+              "support": 324
+            },
+            "COVER_2_MAN": {
+              "precision": 0.9642857142857143,
+              "recall": 0.84375,
+              "support": 32
+            },
+            "COVER_2_ZONE": {
+              "precision": 0.9361702127659575,
+              "recall": 0.7333333333333333,
+              "support": 180
+            },
+            "COVER_3_ZONE": {
+              "precision": 0.8707482993197279,
+              "recall": 0.8648648648648649,
+              "support": 444
+            },
+            "COVER_4_ZONE": {
+              "precision": 0.7195945945945946,
+              "recall": 0.9181034482758621,
+              "support": 232
+            },
+            "COVER_6_ZONE": {
+              "precision": 0.7245508982035929,
+              "recall": 0.7908496732026143,
+              "support": 153
+            }
+          },
+          "confusion": {
+            "labels": [
+              "COVER_0_MAN",
+              "COVER_1_MAN",
+              "COVER_2_MAN",
+              "COVER_2_ZONE",
+              "COVER_3_ZONE",
+              "COVER_4_ZONE",
+              "COVER_6_ZONE"
+            ],
+            "rows_released_cols_predicted": [
+              [
+                38,
+                3,
+                0,
+                0,
+                3,
+                4,
+                0
+              ],
+              [
+                5,
+                267,
+                1,
+                0,
+                39,
+                10,
+                2
+              ],
+              [
+                0,
+                2,
+                27,
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                132,
+                5,
+                11,
+                31
+              ],
+              [
+                1,
+                21,
+                0,
+                0,
+                384,
+                35,
+                3
+              ],
+              [
+                0,
+                1,
+                0,
+                1,
+                8,
+                213,
+                9
+              ],
+              [
+                0,
+                1,
+                0,
+                7,
+                2,
+                22,
+                121
+              ]
+            ]
+          }
+        }
+      },
+      "dev_plays": 1413
+    },
+    "post_1_5s": {
+      "train_plays": 9099,
+      "train_counts": {
+        "COVER_0_MAN": 347,
+        "COVER_1_MAN": 2082,
+        "COVER_2_MAN": 147,
+        "COVER_2_ZONE": 1209,
+        "COVER_3_ZONE": 2881,
+        "COVER_4_ZONE": 1523,
+        "COVER_6_ZONE": 910
+      },
+      "models": {
+        "boosted_trees_flat": {
+          "plays": 1413,
+          "accuracy": 0.7423920736022647,
+          "balanced_accuracy": 0.6690945068269275,
+          "macro_f1": 0.6954581443397952,
+          "log_loss": 0.7055137856001847,
+          "per_class": {
+            "COVER_0_MAN": {
+              "precision": 0.8043478260869565,
+              "recall": 0.7708333333333334,
+              "support": 48
+            },
+            "COVER_1_MAN": {
+              "precision": 0.8089171974522293,
+              "recall": 0.7839506172839507,
+              "support": 324
+            },
+            "COVER_2_MAN": {
+              "precision": 0.8666666666666667,
+              "recall": 0.40625,
+              "support": 32
+            },
+            "COVER_2_ZONE": {
+              "precision": 0.72,
+              "recall": 0.7,
+              "support": 180
+            },
+            "COVER_3_ZONE": {
+              "precision": 0.7504873294346979,
+              "recall": 0.8671171171171171,
+              "support": 444
+            },
+            "COVER_4_ZONE": {
+              "precision": 0.680161943319838,
+              "recall": 0.7241379310344828,
+              "support": 232
+            },
+            "COVER_6_ZONE": {
+              "precision": 0.6407766990291263,
+              "recall": 0.43137254901960786,
+              "support": 153
+            }
+          },
+          "confusion": {
+            "labels": [
+              "COVER_0_MAN",
+              "COVER_1_MAN",
+              "COVER_2_MAN",
+              "COVER_2_ZONE",
+              "COVER_3_ZONE",
+              "COVER_4_ZONE",
+              "COVER_6_ZONE"
+            ],
+            "rows_released_cols_predicted": [
+              [
+                37,
+                5,
+                0,
+                0,
+                2,
+                4,
+                0
+              ],
+              [
+                7,
+                254,
+                2,
+                3,
+                49,
+                8,
+                1
+              ],
+              [
+                0,
+                4,
+                13,
+                11,
+                1,
+                1,
+                2
+              ],
+              [
+                0,
+                4,
+                0,
+                126,
+                24,
+                12,
+                14
+              ],
+              [
+                2,
+                26,
+                0,
+                5,
+                385,
+                21,
+                5
+              ],
+              [
+                0,
+                13,
+                0,
+                3,
+                33,
+                168,
+                15
+              ],
+              [
+                0,
+                8,
+                0,
+                27,
+                19,
+                33,
+                66
+              ]
+            ]
+          }
+        },
+        "class_prior": {
+          "plays": 1413,
+          "accuracy": 0.31422505307855625,
+          "balanced_accuracy": 0.14285714285714285,
+          "macro_f1": 0.06831294714978076,
+          "log_loss": 1.70385865974517,
+          "per_class": {
+            "COVER_0_MAN": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 48
+            },
+            "COVER_1_MAN": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 324
+            },
+            "COVER_2_MAN": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 32
+            },
+            "COVER_2_ZONE": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 180
+            },
+            "COVER_3_ZONE": {
+              "precision": 0.31422505307855625,
+              "recall": 1.0,
+              "support": 444
+            },
+            "COVER_4_ZONE": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 232
+            },
+            "COVER_6_ZONE": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 153
+            }
+          },
+          "confusion": {
+            "labels": [
+              "COVER_0_MAN",
+              "COVER_1_MAN",
+              "COVER_2_MAN",
+              "COVER_2_ZONE",
+              "COVER_3_ZONE",
+              "COVER_4_ZONE",
+              "COVER_6_ZONE"
+            ],
+            "rows_released_cols_predicted": [
+              [
+                0,
+                0,
+                0,
+                0,
+                48,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                324,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                32,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                180,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                444,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                232,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                153,
+                0,
+                0
+              ]
+            ]
+          }
+        },
+        "temporal_hierarchical": {
+          "plays": 1413,
+          "accuracy": 0.8372257607926398,
+          "balanced_accuracy": 0.8169670267920776,
+          "macro_f1": 0.8292716806622318,
+          "log_loss": 0.41500118374824524,
+          "per_class": {
+            "COVER_0_MAN": {
+              "precision": 0.8863636363636364,
+              "recall": 0.8125,
+              "support": 48
+            },
+            "COVER_1_MAN": {
+              "precision": 0.903010033444816,
+              "recall": 0.8333333333333334,
+              "support": 324
+            },
+            "COVER_2_MAN": {
+              "precision": 0.9615384615384616,
+              "recall": 0.78125,
+              "support": 32
+            },
+            "COVER_2_ZONE": {
+              "precision": 0.9078014184397163,
+              "recall": 0.7111111111111111,
+              "support": 180
+            },
+            "COVER_3_ZONE": {
+              "precision": 0.8755656108597285,
+              "recall": 0.8716216216216216,
+              "support": 444
+            },
+            "COVER_4_ZONE": {
+              "precision": 0.7580071174377224,
+              "recall": 0.9181034482758621,
+              "support": 232
+            },
+            "COVER_6_ZONE": {
+              "precision": 0.6722222222222223,
+              "recall": 0.7908496732026143,
+              "support": 153
+            }
+          },
+          "confusion": {
+            "labels": [
+              "COVER_0_MAN",
+              "COVER_1_MAN",
+              "COVER_2_MAN",
+              "COVER_2_ZONE",
+              "COVER_3_ZONE",
+              "COVER_4_ZONE",
+              "COVER_6_ZONE"
+            ],
+            "rows_released_cols_predicted": [
+              [
+                39,
+                3,
+                0,
+                0,
+                2,
+                4,
+                0
+              ],
+              [
+                4,
+                270,
+                1,
+                1,
+                38,
+                7,
+                3
+              ],
+              [
+                0,
+                1,
+                25,
+                1,
+                0,
+                0,
+                5
+              ],
+              [
+                0,
+                0,
+                0,
+                128,
+                5,
+                8,
+                39
+              ],
+              [
+                1,
+                21,
+                0,
+                4,
+                387,
+                27,
+                4
+              ],
+              [
+                0,
+                2,
+                0,
+                0,
+                9,
+                213,
+                8
+              ],
+              [
+                0,
+                2,
+                0,
+                7,
+                1,
+                22,
+                121
+              ]
+            ]
+          }
+        }
+      },
+      "dev_plays": 1413
+    }
+  }
+}

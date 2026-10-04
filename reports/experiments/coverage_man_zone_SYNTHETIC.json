@@ -1,0 +1,3499 @@
+{
+  "module": "coverage",
+  "task": "man_vs_zone",
+  "run_at": "2026-10-04T03:47:54+00:00",
+  "synthetic": true,
+  "source": "synthetic_bdb",
+  "label_source": "synthetic fixture",
+  "split_weeks": {
+    "train": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "dev": [
+      7
+    ],
+    "test": [
+      8,
+      9
+    ]
+  },
+  "split_version": "weeks-1-6_7_8-9-v1",
+  "class_counts": {
+    "train": {
+      "Man": 133,
+      "Zone": 347
+    },
+    "dev": {
+      "Man": 16,
+      "Zone": 64
+    },
+    "test": {
+      "Man": 63,
+      "Zone": 97
+    }
+  },
+  "feature_schema": "cov-geo-v3",
+  "seed": 20261003,
+  "positive_class": "Man",
+  "label_meaning": "agreement with the released charted label, not coaching intent",
+  "windows": {
+    "at_snap": {
+      "features": [
+        "depth_max",
+        "depth_2nd",
+        "depth_mean",
+        "depth_std",
+        "n_deep_10",
+        "n_deep_7",
+        "deep2_lateral_sep",
+        "width_std",
+        "y_offset",
+        "n_box",
+        "cov_dist_mean",
+        "cov_dist_min",
+        "cov_dist_max",
+        "press_count",
+        "cover_facing_receiver",
+        "face_backfield",
+        "speed_mean",
+        "speed_max"
+      ],
+      "dropped_constant_features": [],
+      "context_features": [
+        "quarter",
+        "down",
+        "yardsToGo",
+        "yards_to_goal",
+        "def_score_diff",
+        "defensiveTeam"
+      ],
+      "models": {
+        "class_prior": {
+          "version": "cov-at_snap-class_prior-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "none",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.8,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4444444444444444,
+            "log_loss": 0.5162564543000985,
+            "brier": 0.16594184027777778,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  16
+                ],
+                [
+                  0,
+                  64
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 80,
+                "mean_predicted": 0.2770833333333334,
+                "observed_man_rate": 0.2
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.60625,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.377431906614786,
+            "log_loss": 0.7020579868218377,
+            "brier": 0.2523220486111111,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.60625,
+                "recall": 1.0,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  63
+                ],
+                [
+                  0,
+                  97
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 160,
+                "mean_predicted": 0.2770833333333334,
+                "observed_man_rate": 0.39375
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.55,
+                0.65625
+              ],
+              "macro_f1": [
+                0.3548387096774194,
+                0.39622641509433965
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.60625
+          }
+        },
+        "context_logit": {
+          "version": "cov-at_snap-context_logit-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.8,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4444444444444444,
+            "log_loss": 0.5003664723050597,
+            "brier": 0.15999048518497755,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  16
+                ],
+                [
+                  0,
+                  64
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 30,
+                "mean_predicted": 0.1974819324659208,
+                "observed_man_rate": 0.16666666666666666
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 50,
+                "mean_predicted": 0.20312699722132155,
+                "observed_man_rate": 0.22
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.60625,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.377431906614786,
+            "log_loss": 0.7661666995192309,
+            "brier": 0.27533123073009297,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.60625,
+                "recall": 1.0,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  63
+                ],
+                [
+                  0,
+                  97
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 47,
+                "mean_predicted": 0.19731552551851156,
+                "observed_man_rate": 0.3617021276595745
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 113,
+                "mean_predicted": 0.2045059327951292,
+                "observed_man_rate": 0.40707964601769914
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.55,
+                0.65625
+              ],
+              "macro_f1": [
+                0.3548387096774194,
+                0.39622641509433965
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.375,
+                "accepted_accuracy": 0.8333333333333334
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.29375,
+                "accepted_accuracy": 0.6382978723404256
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.60625
+          }
+        },
+        "geometry_logit": {
+          "version": "cov-at_snap-geometry_logit-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.8625,
+            "balanced_accuracy": 0.8203125,
+            "macro_f1": 0.7988571428571429,
+            "log_loss": 0.2453353382669206,
+            "brier": 0.0759283956440004,
+            "per_class": {
+              "Man": {
+                "precision": 0.631578947368421,
+                "recall": 0.75,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.9344262295081968,
+                "recall": 0.890625,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  12,
+                  4
+                ],
+                [
+                  7,
+                  57
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 57,
+                "mean_predicted": 0.03708236012903166,
+                "observed_man_rate": 0.017543859649122806
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 1,
+                "mean_predicted": 0.11415865495336035,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 1,
+                "mean_predicted": 0.3728654706723564,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 2,
+                "mean_predicted": 0.48295359719189235,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 8,
+                "mean_predicted": 0.5574962011165947,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 4,
+                "mean_predicted": 0.6728194023926373,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 4,
+                "mean_predicted": 0.7333511924254857,
+                "observed_man_rate": 0.75
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 3,
+                "mean_predicted": 0.809843415384369,
+                "observed_man_rate": 1.0
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.825,
+            "balanced_accuracy": 0.8028145966290297,
+            "macro_f1": 0.810682893847194,
+            "log_loss": 0.37293169243602386,
+            "brier": 0.11389007273681018,
+            "per_class": {
+              "Man": {
+                "precision": 0.8301886792452831,
+                "recall": 0.6984126984126984,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.822429906542056,
+                "recall": 0.9072164948453608,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  44,
+                  19
+                ],
+                [
+                  9,
+                  88
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 88,
+                "mean_predicted": 0.03686404948273853,
+                "observed_man_rate": 0.045454545454545456
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 5,
+                "mean_predicted": 0.12162322226367688,
+                "observed_man_rate": 0.2
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 1,
+                "mean_predicted": 0.2929275895553753,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 2,
+                "mean_predicted": 0.3390579282852496,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 11,
+                "mean_predicted": 0.4439526721447406,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 18,
+                "mean_predicted": 0.5478378343420688,
+                "observed_man_rate": 0.7222222222222222
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 19,
+                "mean_predicted": 0.6452197369302692,
+                "observed_man_rate": 0.8421052631578947
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 10,
+                "mean_predicted": 0.744767255921378,
+                "observed_man_rate": 0.9
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 6,
+                "mean_predicted": 0.8317659635371603,
+                "observed_man_rate": 1.0
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.75,
+                0.9
+              ],
+              "macro_f1": [
+                0.743120105665679,
+                0.8809523809523809
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.6,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8625
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.9375,
+                "accepted_accuracy": 0.8933333333333333
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.875,
+                "accepted_accuracy": 0.9285714285714286
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.8625,
+                "accepted_accuracy": 0.9420289855072463
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.8125,
+                "accepted_accuracy": 0.9692307692307692
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.775,
+                "accepted_accuracy": 0.9838709677419355
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.7625,
+                "accepted_accuracy": 0.9836065573770492
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.725,
+                "accepted_accuracy": 0.9827586206896551
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.7125,
+                "accepted_accuracy": 0.9824561403508771
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.5625,
+                "accepted_accuracy": 0.9777777777777777
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.825
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.89375,
+                "accepted_accuracy": 0.8671328671328671
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.81875,
+                "accepted_accuracy": 0.9083969465648855
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.7625,
+                "accepted_accuracy": 0.9180327868852459
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.6875,
+                "accepted_accuracy": 0.9363636363636364
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.6375,
+                "accepted_accuracy": 0.9411764705882353
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.61875,
+                "accepted_accuracy": 0.9494949494949495
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.5875,
+                "accepted_accuracy": 0.9468085106382979
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.55,
+                "accepted_accuracy": 0.9545454545454546
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.44375,
+                "accepted_accuracy": 0.9436619718309859
+              }
+            ],
+            "test_accepted_fraction": 0.81875,
+            "test_accepted_accuracy": 0.9083969465648855
+          }
+        },
+        "geometry_gbm": {
+          "version": "cov-at_snap-geometry_gbm-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.85,
+            "balanced_accuracy": 0.7890625,
+            "macro_f1": 0.7759103641456583,
+            "log_loss": 0.2511766476345646,
+            "brier": 0.08327859682871715,
+            "per_class": {
+              "Man": {
+                "precision": 0.6111111111111112,
+                "recall": 0.6875,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.9193548387096774,
+                "recall": 0.890625,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  11,
+                  5
+                ],
+                [
+                  7,
+                  57
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 54,
+                "mean_predicted": 0.030619546481663425,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 2,
+                "mean_predicted": 0.1592879697473144,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 1,
+                "mean_predicted": 0.23222205107513735,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 5,
+                "mean_predicted": 0.45947340719856145,
+                "observed_man_rate": 0.8
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 7,
+                "mean_predicted": 0.5573508179669557,
+                "observed_man_rate": 0.5714285714285714
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 6,
+                "mean_predicted": 0.6607996749902484,
+                "observed_man_rate": 0.8333333333333334
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 5,
+                "mean_predicted": 0.7425867542149561,
+                "observed_man_rate": 0.4
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.88125,
+            "balanced_accuracy": 0.8686794305351007,
+            "macro_f1": 0.8737489098384484,
+            "log_loss": 0.3714319041946032,
+            "brier": 0.10468217880734972,
+            "per_class": {
+              "Man": {
+                "precision": 0.8793103448275862,
+                "recall": 0.8095238095238095,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.8823529411764706,
+                "recall": 0.9278350515463918,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  51,
+                  12
+                ],
+                [
+                  7,
+                  90
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 80,
+                "mean_predicted": 0.03677288345985532,
+                "observed_man_rate": 0.0625
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 14,
+                "mean_predicted": 0.1366074166659102,
+                "observed_man_rate": 0.07142857142857142
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 3,
+                "mean_predicted": 0.27990388585673925,
+                "observed_man_rate": 0.6666666666666666
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 3,
+                "mean_predicted": 0.3343117991044042,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 2,
+                "mean_predicted": 0.4418985719703003,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 13,
+                "mean_predicted": 0.56596668810931,
+                "observed_man_rate": 0.8461538461538461
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 9,
+                "mean_predicted": 0.6432714410320551,
+                "observed_man_rate": 0.7777777777777778
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 17,
+                "mean_predicted": 0.7395972523161654,
+                "observed_man_rate": 0.9411764705882353
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 10,
+                "mean_predicted": 0.8440285901140951,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 9,
+                "mean_predicted": 0.9258165594801591,
+                "observed_man_rate": 0.7777777777777778
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.8125,
+                0.95625
+              ],
+              "macro_f1": [
+                0.8056680161943319,
+                0.9513022305317622
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.6,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.85
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.9375,
+                "accepted_accuracy": 0.88
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.85,
+                "accepted_accuracy": 0.9264705882352942
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.825,
+                "accepted_accuracy": 0.9242424242424242
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.775,
+                "accepted_accuracy": 0.9354838709677419
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.7375,
+                "accepted_accuracy": 0.9830508474576272
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.7,
+                "accepted_accuracy": 0.9821428571428571
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.6875,
+                "accepted_accuracy": 0.9818181818181818
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.675,
+                "accepted_accuracy": 1.0
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.5375,
+                "accepted_accuracy": 1.0
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.88125
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.975,
+                "accepted_accuracy": 0.8846153846153846
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.90625,
+                "accepted_accuracy": 0.8896551724137931
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.86875,
+                "accepted_accuracy": 0.8992805755395683
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.83125,
+                "accepted_accuracy": 0.9172932330827067
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.7375,
+                "accepted_accuracy": 0.9322033898305084
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.70625,
+                "accepted_accuracy": 0.9292035398230089
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.65,
+                "accepted_accuracy": 0.9230769230769231
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.55625,
+                "accepted_accuracy": 0.9213483146067416
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.3625,
+                "accepted_accuracy": 0.9137931034482759
+              }
+            ],
+            "test_accepted_fraction": 0.90625,
+            "test_accepted_accuracy": 0.8896551724137931
+          }
+        }
+      }
+    },
+    "post_1s": {
+      "features": [
+        "depth_max",
+        "depth_2nd",
+        "depth_mean",
+        "depth_std",
+        "n_deep_10",
+        "n_deep_7",
+        "deep2_lateral_sep",
+        "width_std",
+        "y_offset",
+        "n_box",
+        "cov_dist_mean",
+        "cov_dist_min",
+        "cov_dist_max",
+        "press_count",
+        "cover_facing_receiver",
+        "face_backfield",
+        "speed_mean",
+        "speed_max",
+        "d_depth_abs",
+        "d_lateral_abs",
+        "follow_cos",
+        "cov_dist_change",
+        "off_max_lateral",
+        "motion_follow",
+        "snap_depth_max",
+        "snap_depth_2nd",
+        "snap_depth_mean",
+        "snap_depth_std",
+        "snap_n_deep_10",
+        "snap_n_deep_7",
+        "snap_deep2_lateral_sep",
+        "snap_width_std",
+        "snap_y_offset",
+        "snap_n_box",
+        "snap_cov_dist_mean",
+        "snap_cov_dist_min",
+        "snap_cov_dist_max",
+        "snap_press_count",
+        "snap_cover_facing_receiver",
+        "snap_face_backfield",
+        "snap_speed_mean",
+        "snap_speed_max"
+      ],
+      "dropped_constant_features": [],
+      "context_features": [
+        "quarter",
+        "down",
+        "yardsToGo",
+        "yards_to_goal",
+        "def_score_diff",
+        "defensiveTeam"
+      ],
+      "models": {
+        "class_prior": {
+          "version": "cov-post_1s-class_prior-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "none",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.8,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4444444444444444,
+            "log_loss": 0.5162564543000985,
+            "brier": 0.16594184027777778,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  16
+                ],
+                [
+                  0,
+                  64
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 80,
+                "mean_predicted": 0.2770833333333334,
+                "observed_man_rate": 0.2
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.60625,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.377431906614786,
+            "log_loss": 0.7020579868218377,
+            "brier": 0.2523220486111111,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.60625,
+                "recall": 1.0,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  63
+                ],
+                [
+                  0,
+                  97
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 160,
+                "mean_predicted": 0.2770833333333334,
+                "observed_man_rate": 0.39375
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.55,
+                0.65625
+              ],
+              "macro_f1": [
+                0.3548387096774194,
+                0.39622641509433965
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.60625
+          }
+        },
+        "context_logit": {
+          "version": "cov-post_1s-context_logit-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.8,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4444444444444444,
+            "log_loss": 0.5003664723050597,
+            "brier": 0.15999048518497755,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  16
+                ],
+                [
+                  0,
+                  64
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 30,
+                "mean_predicted": 0.1974819324659208,
+                "observed_man_rate": 0.16666666666666666
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 50,
+                "mean_predicted": 0.20312699722132155,
+                "observed_man_rate": 0.22
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.60625,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.377431906614786,
+            "log_loss": 0.7661666995192309,
+            "brier": 0.27533123073009297,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.60625,
+                "recall": 1.0,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  63
+                ],
+                [
+                  0,
+                  97
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 47,
+                "mean_predicted": 0.19731552551851156,
+                "observed_man_rate": 0.3617021276595745
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 113,
+                "mean_predicted": 0.2045059327951292,
+                "observed_man_rate": 0.40707964601769914
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.55,
+                0.65625
+              ],
+              "macro_f1": [
+                0.3548387096774194,
+                0.39622641509433965
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.375,
+                "accepted_accuracy": 0.8333333333333334
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.29375,
+                "accepted_accuracy": 0.6382978723404256
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.60625
+          }
+        },
+        "geometry_logit": {
+          "version": "cov-post_1s-geometry_logit-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.9125,
+            "balanced_accuracy": 0.8984375,
+            "macro_f1": 0.872,
+            "log_loss": 0.18377485418995007,
+            "brier": 0.05750327800397168,
+            "per_class": {
+              "Man": {
+                "precision": 0.7368421052631579,
+                "recall": 0.875,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.9672131147540983,
+                "recall": 0.921875,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  14,
+                  2
+                ],
+                [
+                  5,
+                  59
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 56,
+                "mean_predicted": 0.020257543741328276,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 2,
+                "mean_predicted": 0.15577629733442533,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 2,
+                "mean_predicted": 0.3786875369071484,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "mean_predicted": 0.48144467038934546,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 4,
+                "mean_predicted": 0.5511938752965175,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 5,
+                "mean_predicted": 0.6461840504290599,
+                "observed_man_rate": 0.4
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 7,
+                "mean_predicted": 0.7746081599530278,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 3,
+                "mean_predicted": 0.8460201647617941,
+                "observed_man_rate": 1.0
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.8625,
+            "balanced_accuracy": 0.8393061692030763,
+            "macro_f1": 0.8501107136773973,
+            "log_loss": 0.3975258132131829,
+            "brier": 0.11559503284884057,
+            "per_class": {
+              "Man": {
+                "precision": 0.9019607843137255,
+                "recall": 0.7301587301587301,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.8440366972477065,
+                "recall": 0.9484536082474226,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  46,
+                  17
+                ],
+                [
+                  5,
+                  92
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 88,
+                "mean_predicted": 0.023069045607727955,
+                "observed_man_rate": 0.056818181818181816
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 6,
+                "mean_predicted": 0.1327922625306512,
+                "observed_man_rate": 0.16666666666666666
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 2,
+                "mean_predicted": 0.24912763272583674,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 6,
+                "mean_predicted": 0.3500263754524345,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 7,
+                "mean_predicted": 0.4446768601961143,
+                "observed_man_rate": 0.5714285714285714
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 17,
+                "mean_predicted": 0.5576268793285859,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 15,
+                "mean_predicted": 0.6496880458578381,
+                "observed_man_rate": 0.7333333333333333
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 9,
+                "mean_predicted": 0.7454903545742789,
+                "observed_man_rate": 0.8888888888888888
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 9,
+                "mean_predicted": 0.8348172981134355,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_predicted": 0.9181212124247088,
+                "observed_man_rate": 1.0
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.825,
+                0.91875
+              ],
+              "macro_f1": [
+                0.8104514940107936,
+                0.9078626799557032
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.9125
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.9625,
+                "accepted_accuracy": 0.922077922077922
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.9375,
+                "accepted_accuracy": 0.9333333333333333
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.8875,
+                "accepted_accuracy": 0.9577464788732394
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.85,
+                "accepted_accuracy": 0.9852941176470589
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.8375,
+                "accepted_accuracy": 0.9850746268656716
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.7625,
+                "accepted_accuracy": 0.9836065573770492
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.7375,
+                "accepted_accuracy": 0.9830508474576272
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.7,
+                "accepted_accuracy": 1.0
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.6375,
+                "accepted_accuracy": 1.0
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8625
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.95,
+                "accepted_accuracy": 0.8618421052631579
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.85,
+                "accepted_accuracy": 0.8676470588235294
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.79375,
+                "accepted_accuracy": 0.889763779527559
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.71875,
+                "accepted_accuracy": 0.9304347826086956
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.6875,
+                "accepted_accuracy": 0.9272727272727272
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.65,
+                "accepted_accuracy": 0.9423076923076923
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.6,
+                "accepted_accuracy": 0.9479166666666666
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.55625,
+                "accepted_accuracy": 0.9438202247191011
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.4875,
+                "accepted_accuracy": 0.9487179487179487
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.8625
+          }
+        },
+        "geometry_gbm": {
+          "version": "cov-post_1s-geometry_gbm-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.9,
+            "balanced_accuracy": 0.8203125,
+            "macro_f1": 0.8358974358974358,
+            "log_loss": 0.23341717288976405,
+            "brier": 0.0742819020592933,
+            "per_class": {
+              "Man": {
+                "precision": 0.7857142857142857,
+                "recall": 0.6875,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.9242424242424242,
+                "recall": 0.953125,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  11,
+                  5
+                ],
+                [
+                  3,
+                  61
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 51,
+                "mean_predicted": 0.02516670631781059,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 5,
+                "mean_predicted": 0.14589738703939858,
+                "observed_man_rate": 0.2
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 3,
+                "mean_predicted": 0.2622561840317534,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 1,
+                "mean_predicted": 0.3287568249371696,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 6,
+                "mean_predicted": 0.45785073537313375,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 2,
+                "mean_predicted": 0.5603378555525227,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 3,
+                "mean_predicted": 0.6623529102099847,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 6,
+                "mean_predicted": 0.7661348739826943,
+                "observed_man_rate": 0.6666666666666666
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 3,
+                "mean_predicted": 0.8335485208304014,
+                "observed_man_rate": 0.6666666666666666
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.8375,
+            "balanced_accuracy": 0.8159057437407953,
+            "macro_f1": 0.8242055442866802,
+            "log_loss": 0.38107227453422365,
+            "brier": 0.11115985114236268,
+            "per_class": {
+              "Man": {
+                "precision": 0.8490566037735849,
+                "recall": 0.7142857142857143,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.8317757009345794,
+                "recall": 0.9175257731958762,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  45,
+                  18
+                ],
+                [
+                  8,
+                  89
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 86,
+                "mean_predicted": 0.03255769459486401,
+                "observed_man_rate": 0.05813953488372093
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 8,
+                "mean_predicted": 0.13549540950241307,
+                "observed_man_rate": 0.125
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 2,
+                "mean_predicted": 0.23925244572405543,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 1,
+                "mean_predicted": 0.30894407346456554,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 10,
+                "mean_predicted": 0.4420349202580421,
+                "observed_man_rate": 0.9
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 8,
+                "mean_predicted": 0.5579613755954183,
+                "observed_man_rate": 0.875
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 6,
+                "mean_predicted": 0.6375537574105543,
+                "observed_man_rate": 0.6666666666666666
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 14,
+                "mean_predicted": 0.7483172435570025,
+                "observed_man_rate": 0.8571428571428571
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 22,
+                "mean_predicted": 0.8496774988637132,
+                "observed_man_rate": 0.8636363636363636
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 3,
+                "mean_predicted": 0.9249770583937961,
+                "observed_man_rate": 1.0
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.76875,
+                0.91875
+              ],
+              "macro_f1": [
+                0.760795109804213,
+                0.904931669637552
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.9
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.95,
+                "accepted_accuracy": 0.9210526315789473
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.9,
+                "accepted_accuracy": 0.9305555555555556
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.8875,
+                "accepted_accuracy": 0.9295774647887324
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.85,
+                "accepted_accuracy": 0.9411764705882353
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.8125,
+                "accepted_accuracy": 0.9384615384615385
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.7375,
+                "accepted_accuracy": 0.9661016949152542
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.6875,
+                "accepted_accuracy": 0.9818181818181818
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.6375,
+                "accepted_accuracy": 1.0
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.5875,
+                "accepted_accuracy": 1.0
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8375
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.9625,
+                "accepted_accuracy": 0.8506493506493507
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.8875,
+                "accepted_accuracy": 0.8873239436619719
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.8625,
+                "accepted_accuracy": 0.8913043478260869
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.84375,
+                "accepted_accuracy": 0.9037037037037037
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.8,
+                "accepted_accuracy": 0.90625
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.74375,
+                "accepted_accuracy": 0.9243697478991597
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.65,
+                "accepted_accuracy": 0.9519230769230769
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.55625,
+                "accepted_accuracy": 0.9438202247191011
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.45,
+                "accepted_accuracy": 0.9444444444444444
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.8375
+          }
+        }
+      }
+    },
+    "post_1_5s": {
+      "features": [
+        "depth_max",
+        "depth_2nd",
+        "depth_mean",
+        "depth_std",
+        "n_deep_10",
+        "n_deep_7",
+        "deep2_lateral_sep",
+        "width_std",
+        "y_offset",
+        "n_box",
+        "cov_dist_mean",
+        "cov_dist_min",
+        "cov_dist_max",
+        "press_count",
+        "cover_facing_receiver",
+        "face_backfield",
+        "speed_mean",
+        "speed_max",
+        "d_depth_abs",
+        "d_lateral_abs",
+        "follow_cos",
+        "cov_dist_change",
+        "off_max_lateral",
+        "motion_follow",
+        "snap_depth_max",
+        "snap_depth_2nd",
+        "snap_depth_mean",
+        "snap_depth_std",
+        "snap_n_deep_10",
+        "snap_n_deep_7",
+        "snap_deep2_lateral_sep",
+        "snap_width_std",
+        "snap_y_offset",
+        "snap_n_box",
+        "snap_cov_dist_mean",
+        "snap_cov_dist_min",
+        "snap_cov_dist_max",
+        "snap_press_count",
+        "snap_cover_facing_receiver",
+        "snap_face_backfield",
+        "snap_speed_mean",
+        "snap_speed_max"
+      ],
+      "dropped_constant_features": [],
+      "context_features": [
+        "quarter",
+        "down",
+        "yardsToGo",
+        "yards_to_goal",
+        "def_score_diff",
+        "defensiveTeam"
+      ],
+      "models": {
+        "class_prior": {
+          "version": "cov-post_1_5s-class_prior-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "none",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.8,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4444444444444444,
+            "log_loss": 0.5162564543000985,
+            "brier": 0.16594184027777778,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  16
+                ],
+                [
+                  0,
+                  64
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 80,
+                "mean_predicted": 0.2770833333333334,
+                "observed_man_rate": 0.2
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.60625,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.377431906614786,
+            "log_loss": 0.7020579868218377,
+            "brier": 0.2523220486111111,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.60625,
+                "recall": 1.0,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  63
+                ],
+                [
+                  0,
+                  97
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 160,
+                "mean_predicted": 0.2770833333333334,
+                "observed_man_rate": 0.39375
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.55,
+                0.65625
+              ],
+              "macro_f1": [
+                0.3548387096774194,
+                0.39622641509433965
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.60625
+          }
+        },
+        "context_logit": {
+          "version": "cov-post_1_5s-context_logit-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.8,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.4444444444444444,
+            "log_loss": 0.5003664723050597,
+            "brier": 0.15999048518497755,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  16
+                ],
+                [
+                  0,
+                  64
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 30,
+                "mean_predicted": 0.1974819324659208,
+                "observed_man_rate": 0.16666666666666666
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 50,
+                "mean_predicted": 0.20312699722132155,
+                "observed_man_rate": 0.22
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.60625,
+            "balanced_accuracy": 0.5,
+            "macro_f1": 0.377431906614786,
+            "log_loss": 0.7661666995192309,
+            "brier": 0.27533123073009297,
+            "per_class": {
+              "Man": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.60625,
+                "recall": 1.0,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  0,
+                  63
+                ],
+                [
+                  0,
+                  97
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 47,
+                "mean_predicted": 0.19731552551851156,
+                "observed_man_rate": 0.3617021276595745
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 113,
+                "mean_predicted": 0.2045059327951292,
+                "observed_man_rate": 0.40707964601769914
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.55,
+                0.65625
+              ],
+              "macro_f1": [
+                0.3548387096774194,
+                0.39622641509433965
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "no threshold met the development target; nothing is abstained",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.375,
+                "accepted_accuracy": 0.8333333333333334
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.60625
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.29375,
+                "accepted_accuracy": 0.6382978723404256
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.0,
+                "accepted_accuracy": null
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.60625
+          }
+        },
+        "geometry_logit": {
+          "version": "cov-post_1_5s-geometry_logit-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.9,
+            "balanced_accuracy": 0.8671875,
+            "macro_f1": 0.8506069094304388,
+            "log_loss": 0.20250915623213928,
+            "brier": 0.06388788894059842,
+            "per_class": {
+              "Man": {
+                "precision": 0.7222222222222222,
+                "recall": 0.8125,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.9516129032258065,
+                "recall": 0.921875,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  13,
+                  3
+                ],
+                [
+                  5,
+                  59
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 55,
+                "mean_predicted": 0.024539125724565226,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 3,
+                "mean_predicted": 0.1445429183807796,
+                "observed_man_rate": 0.3333333333333333
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 1,
+                "mean_predicted": 0.2900954373277861,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 1,
+                "mean_predicted": 0.35924951623291435,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 2,
+                "mean_predicted": 0.4489236218046493,
+                "observed_man_rate": 0.5
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 3,
+                "mean_predicted": 0.5668144278133203,
+                "observed_man_rate": 0.3333333333333333
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 6,
+                "mean_predicted": 0.6325018141823874,
+                "observed_man_rate": 0.6666666666666666
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 4,
+                "mean_predicted": 0.7287179446215638,
+                "observed_man_rate": 0.75
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 5,
+                "mean_predicted": 0.8680017891893625,
+                "observed_man_rate": 1.0
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.83125,
+            "balanced_accuracy": 0.8107511045655376,
+            "macro_f1": 0.8181129215611975,
+            "log_loss": 0.39001826181018645,
+            "brier": 0.11211083072903545,
+            "per_class": {
+              "Man": {
+                "precision": 0.8333333333333334,
+                "recall": 0.7142857142857143,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.8301886792452831,
+                "recall": 0.9072164948453608,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  45,
+                  18
+                ],
+                [
+                  9,
+                  88
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 86,
+                "mean_predicted": 0.029094802915531827,
+                "observed_man_rate": 0.046511627906976744
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 7,
+                "mean_predicted": 0.14072632369086155,
+                "observed_man_rate": 0.14285714285714285
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 3,
+                "mean_predicted": 0.35487126922304757,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 10,
+                "mean_predicted": 0.45389226671437155,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 10,
+                "mean_predicted": 0.5585342099606007,
+                "observed_man_rate": 0.9
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 15,
+                "mean_predicted": 0.6589033999956015,
+                "observed_man_rate": 0.7333333333333333
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 20,
+                "mean_predicted": 0.7492863612318088,
+                "observed_man_rate": 0.85
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 7,
+                "mean_predicted": 0.8498427284488658,
+                "observed_man_rate": 0.8571428571428571
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 2,
+                "mean_predicted": 0.909420084517911,
+                "observed_man_rate": 1.0
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.7496875000000001,
+                0.9125
+              ],
+              "macro_f1": [
+                0.7413428490890636,
+                0.897039897039897
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.5,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.9
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.975,
+                "accepted_accuracy": 0.9102564102564102
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.9375,
+                "accepted_accuracy": 0.9333333333333333
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.8625,
+                "accepted_accuracy": 0.9420289855072463
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.85,
+                "accepted_accuracy": 0.9558823529411765
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.8,
+                "accepted_accuracy": 0.984375
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.7875,
+                "accepted_accuracy": 0.9841269841269841
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.7625,
+                "accepted_accuracy": 0.9836065573770492
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.6875,
+                "accepted_accuracy": 1.0
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.65,
+                "accepted_accuracy": 1.0
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.83125
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.94375,
+                "accepted_accuracy": 0.8543046357615894
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.875,
+                "accepted_accuracy": 0.8857142857142857
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.84375,
+                "accepted_accuracy": 0.9037037037037037
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.7625,
+                "accepted_accuracy": 0.9262295081967213
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.69375,
+                "accepted_accuracy": 0.9279279279279279
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.6375,
+                "accepted_accuracy": 0.9411764705882353
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.6,
+                "accepted_accuracy": 0.9375
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.55,
+                "accepted_accuracy": 0.9545454545454546
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.44375,
+                "accepted_accuracy": 0.9436619718309859
+              }
+            ],
+            "test_accepted_fraction": 1.0,
+            "test_accepted_accuracy": 0.83125
+          }
+        },
+        "geometry_gbm": {
+          "version": "cov-post_1_5s-geometry_gbm-cov-geo-v3-weeks-1-6_7_8-9-v1",
+          "calibration": "sigmoid, fitted on the development weeks",
+          "dev": {
+            "n": 80,
+            "accuracy": 0.875,
+            "balanced_accuracy": 0.828125,
+            "macro_f1": 0.8132586367880486,
+            "log_loss": 0.2673152099277675,
+            "brier": 0.08639721891850327,
+            "per_class": {
+              "Man": {
+                "precision": 0.6666666666666666,
+                "recall": 0.75,
+                "support": 16
+              },
+              "Zone": {
+                "precision": 0.9354838709677419,
+                "recall": 0.90625,
+                "support": 64
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  12,
+                  4
+                ],
+                [
+                  6,
+                  58
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 52,
+                "mean_predicted": 0.036442331618024286,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 5,
+                "mean_predicted": 0.14614688980356125,
+                "observed_man_rate": 0.2
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 2,
+                "mean_predicted": 0.2227102911636939,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 1,
+                "mean_predicted": 0.31787864878392674,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 2,
+                "mean_predicted": 0.4713586019764587,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 5,
+                "mean_predicted": 0.5667477232260407,
+                "observed_man_rate": 0.8
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 10,
+                "mean_predicted": 0.6541421976394524,
+                "observed_man_rate": 0.8
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 1,
+                "mean_predicted": 0.7466881619667648,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 2,
+                "mean_predicted": 0.813603655633824,
+                "observed_man_rate": 0.0
+              }
+            ]
+          },
+          "test": {
+            "n": 160,
+            "accuracy": 0.8125,
+            "balanced_accuracy": 0.7785959744722631,
+            "macro_f1": 0.790356394129979,
+            "log_loss": 0.39381154518491995,
+            "brier": 0.1226579290878862,
+            "per_class": {
+              "Man": {
+                "precision": 0.8666666666666667,
+                "recall": 0.6190476190476191,
+                "support": 63
+              },
+              "Zone": {
+                "precision": 0.7913043478260869,
+                "recall": 0.9381443298969072,
+                "support": 97
+              }
+            },
+            "confusion": {
+              "labels": [
+                "Man",
+                "Zone"
+              ],
+              "rows_charted_cols_predicted": [
+                [
+                  39,
+                  24
+                ],
+                [
+                  6,
+                  91
+                ]
+              ]
+            },
+            "reliability": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 81,
+                "mean_predicted": 0.04247757300667443,
+                "observed_man_rate": 0.04938271604938271
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 12,
+                "mean_predicted": 0.14113928197344325,
+                "observed_man_rate": 0.16666666666666666
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.30000000000000004,
+                "n": 1,
+                "mean_predicted": 0.20792596260390356,
+                "observed_man_rate": 0.0
+              },
+              {
+                "lo": 0.30000000000000004,
+                "hi": 0.4,
+                "n": 8,
+                "mean_predicted": 0.345391474543335,
+                "observed_man_rate": 0.875
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 13,
+                "mean_predicted": 0.448394362637466,
+                "observed_man_rate": 0.8461538461538461
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6000000000000001,
+                "n": 14,
+                "mean_predicted": 0.5445976761432775,
+                "observed_man_rate": 0.7857142857142857
+              },
+              {
+                "lo": 0.6000000000000001,
+                "hi": 0.7000000000000001,
+                "n": 12,
+                "mean_predicted": 0.6540006566385603,
+                "observed_man_rate": 0.9166666666666666
+              },
+              {
+                "lo": 0.7000000000000001,
+                "hi": 0.8,
+                "n": 11,
+                "mean_predicted": 0.744836629496055,
+                "observed_man_rate": 1.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 7,
+                "mean_predicted": 0.8171059142736361,
+                "observed_man_rate": 0.7142857142857143
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_predicted": 0.9174408745965781,
+                "observed_man_rate": 1.0
+              }
+            ],
+            "game_bootstrap_95": {
+              "games": 4,
+              "resamples": 500,
+              "accuracy": [
+                0.7875,
+                0.8375
+              ],
+              "macro_f1": [
+                0.7733333333333333,
+                0.8043326345213138
+              ]
+            }
+          },
+          "abstention": {
+            "threshold": 0.6,
+            "rule": "lowest threshold with development accepted accuracy >= 0.9 and >= 20% accepted",
+            "dev_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.875
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.9625,
+                "accepted_accuracy": 0.8961038961038961
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.9125,
+                "accepted_accuracy": 0.9041095890410958
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.8625,
+                "accepted_accuracy": 0.9130434782608695
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.775,
+                "accepted_accuracy": 0.9354838709677419
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.7625,
+                "accepted_accuracy": 0.9508196721311475
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.7375,
+                "accepted_accuracy": 0.9491525423728814
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.6875,
+                "accepted_accuracy": 0.9818181818181818
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.65,
+                "accepted_accuracy": 1.0
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.475,
+                "accepted_accuracy": 1.0
+              }
+            ],
+            "test_curve": [
+              {
+                "threshold": 0.5,
+                "accepted_fraction": 1.0,
+                "accepted_accuracy": 0.8125
+              },
+              {
+                "threshold": 0.55,
+                "accepted_fraction": 0.9,
+                "accepted_accuracy": 0.8472222222222222
+              },
+              {
+                "threshold": 0.6,
+                "accepted_fraction": 0.83125,
+                "accepted_accuracy": 0.8796992481203008
+              },
+              {
+                "threshold": 0.65,
+                "accepted_fraction": 0.79375,
+                "accepted_accuracy": 0.889763779527559
+              },
+              {
+                "threshold": 0.7,
+                "accepted_fraction": 0.70625,
+                "accepted_accuracy": 0.9292035398230089
+              },
+              {
+                "threshold": 0.75,
+                "accepted_fraction": 0.6625,
+                "accepted_accuracy": 0.9245283018867925
+              },
+              {
+                "threshold": 0.8,
+                "accepted_fraction": 0.63125,
+                "accepted_accuracy": 0.9207920792079208
+              },
+              {
+                "threshold": 0.85,
+                "accepted_fraction": 0.5625,
+                "accepted_accuracy": 0.9444444444444444
+              },
+              {
+                "threshold": 0.9,
+                "accepted_fraction": 0.5125,
+                "accepted_accuracy": 0.9512195121951219
+              },
+              {
+                "threshold": 0.95,
+                "accepted_fraction": 0.3375,
+                "accepted_accuracy": 0.9444444444444444
+              }
+            ],
+            "test_accepted_fraction": 0.83125,
+            "test_accepted_accuracy": 0.8796992481203008
+          }
+        }
+      }
+    }
+  }
+}

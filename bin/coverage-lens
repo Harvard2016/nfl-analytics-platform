@@ -1,0 +1,5 @@
+#!/bin/sh
+# Runs the coverage CLI straight from src/. macOS marks files under .venv as hidden in this
+# folder and Python 3.13 skips hidden .pth files, which breaks the editable install.
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PYTHONPATH="$ROOT/src" exec "$ROOT/.venv/bin/python" -m gridiron_lens.coverage.cli "$@"

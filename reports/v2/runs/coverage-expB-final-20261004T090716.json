@@ -1,0 +1,190 @@
+{
+  "module": "coverage",
+  "run_id": "coverage-expB-final-20261004T090716",
+  "name": "expB-final",
+  "results_version": "v2",
+  "started_at": "2026-10-04T09:07:16+00:00",
+  "git_commit": "d11b3c55f521026cba0e601cd7539940c225d252+uncommitted",
+  "seed": 42,
+  "config": {
+    "chosen": {
+      "config": "gru+reflect",
+      "temporal": "gru",
+      "augment": true,
+      "epochs": 28,
+      "rule": "lowest mean validation log loss over the three chronological folds (averaged over the four prefixes); epochs = median best epoch"
+    },
+    "seeds": [
+      42,
+      7,
+      2026
+    ],
+    "base": {
+      "optimizer": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch": 64,
+      "grad_clip": 1.0,
+      "max_epochs": 50,
+      "patience": 8,
+      "pair_mlp": [
+        64,
+        64
+      ],
+      "pooled": "mean+max over receivers, then defenders",
+      "hidden": 96,
+      "layers": 2,
+      "dropout": 0.1
+    }
+  },
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {},
+  "target": "released man/zone label",
+  "population": "labelled plays, weeks 1-12",
+  "exclusions": null,
+  "input_cutoff": {
+    "at_snap": 0,
+    "post_0_5s": 5,
+    "post_1s": 10,
+    "post_1_5s": 15
+  },
+  "features": null,
+  "preprocessing": null,
+  "calibration": "Platt per horizon on weeks 13-14",
+  "hyperparameters": {
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch": 64,
+    "grad_clip": 1.0,
+    "max_epochs": 50,
+    "patience": 8,
+    "pair_mlp": [
+      64,
+      64
+    ],
+    "pooled": "mean+max over receivers, then defenders",
+    "hidden": 96,
+    "layers": 2,
+    "dropout": 0.1
+  },
+  "metrics": {
+    "seeds": {
+      "42": {
+        "platt": {
+          "at_snap": {
+            "a": 0.920322060585022,
+            "b": -0.6735720634460449
+          },
+          "post_0_5s": {
+            "a": 1.0242918729782104,
+            "b": -0.5755631923675537
+          },
+          "post_1s": {
+            "a": 0.962127149105072,
+            "b": -0.7186065912246704
+          },
+          "post_1_5s": {
+            "a": 0.8843854665756226,
+            "b": -1.0587669610977173
+          }
+        },
+        "seconds": 131.8,
+        "final_train_loss": 0.19082140357390076,
+        "parameters": 134689
+      },
+      "7": {
+        "platt": {
+          "at_snap": {
+            "a": 1.100286602973938,
+            "b": -0.2644897699356079
+          },
+          "post_0_5s": {
+            "a": 1.0178745985031128,
+            "b": 0.1534159630537033
+          },
+          "post_1s": {
+            "a": 0.971386194229126,
+            "b": 0.3736611008644104
+          },
+          "post_1_5s": {
+            "a": 0.9015510082244873,
+            "b": 0.24030975997447968
+          }
+        },
+        "seconds": 131.4,
+        "final_train_loss": 0.1896600064678726,
+        "parameters": 134689
+      },
+      "2026": {
+        "platt": {
+          "at_snap": {
+            "a": 0.8064587116241455,
+            "b": -0.5715003609657288
+          },
+          "post_0_5s": {
+            "a": 0.8041237592697144,
+            "b": -0.6923046112060547
+          },
+          "post_1s": {
+            "a": 0.7584271430969238,
+            "b": -0.5554768443107605
+          },
+          "post_1_5s": {
+            "a": 0.710126519203186,
+            "b": -0.6124715209007263
+          }
+        },
+        "seconds": 132.0,
+        "final_train_loss": 0.1799903345213325,
+        "parameters": 134689
+      }
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "model_seed42": {
+      "path": "models/coverage_v2/temporal_gru_seed42.pt",
+      "sha256": "e74e0332f342ae6d7a74306863cc121625cfab172d1007dc6264fb1e4844396c"
+    },
+    "model_seed7": {
+      "path": "models/coverage_v2/temporal_gru_seed7.pt",
+      "sha256": "e2af58eb067cab376714e9b1035ce71f6e36d7aad56b62d79057ccc7c265412d"
+    },
+    "model_seed2026": {
+      "path": "models/coverage_v2/temporal_gru_seed2026.pt",
+      "sha256": "1f4d5ef4c30aad19130269cccaac5ab26b8f1fdde49185dab12440df19cd1a57"
+    },
+    "predictions": {
+      "path": "reports/v2/coverage_expB_predictions.npz",
+      "sha256": "7358780a3c96147db472271b6cca9b8e7342782f86d36e997af3dc2e03bd6cc5"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T09:13:59+00:00",
+  "train_seconds": 402.9,
+  "peak_memory_mb": 914.4
+}

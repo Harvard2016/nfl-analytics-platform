@@ -1,0 +1,337 @@
+{
+  "mode": "metadata-led recap",
+  "source": "nflverse play-by-play",
+  "game_id": "2016_20_GB_ATL",
+  "final": "GB 21, ATL 44",
+  "alignment": "Not aligned to video time. Quarter and game clock only.",
+  "definitions": {
+    "turnover": "interception or fumble lost",
+    "big play": "pass of 20+ yards or rush of 10+ yards"
+  },
+  "counts": {
+    "touchdown": 9,
+    "interception": 1,
+    "sack": 2,
+    "fumble lost": 1,
+    "turnover": 2,
+    "big play": 15
+  },
+  "events": [
+    {
+      "play_id": 201,
+      "quarter": 1.0,
+      "game_clock": "12:34",
+      "offense": "ATL",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 0.58,
+      "description": "(12:34) 26-T.Coleman right guard to GB 48 for 10 yards (42-M.Burnett)."
+    },
+    {
+      "play_id": 289,
+      "quarter": 1.0,
+      "game_clock": "10:29",
+      "offense": "ATL",
+      "events": [
+        "big play"
+      ],
+      "yards": 31.0,
+      "epa": 1.93,
+      "description": "(10:29) 2-M.Ryan pass short right to 42-P.DiMarco pushed ob at GB 5 for 31 yards (47-J.Ryan,\u2026"
+    },
+    {
+      "play_id": 355,
+      "quarter": 1.0,
+      "game_clock": "08:30",
+      "offense": "ATL",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 2.0,
+      "epa": 1.8,
+      "description": "(8:30) (Shotgun) 2-M.Ryan pass short left to 12-M.Sanu for 2 yards, TOUCHDOWN. PENALTY on\u2026"
+    },
+    {
+      "play_id": 442,
+      "quarter": 1.0,
+      "game_clock": "07:44",
+      "offense": "GB",
+      "events": [
+        "big play"
+      ],
+      "yards": 27.0,
+      "epa": 2.11,
+      "description": "(7:44) (Shotgun) 12-A.Rodgers pass deep left to 87-J.Nelson pushed ob at ATL 44 for 27 yards\u2026"
+    },
+    {
+      "play_id": 1001,
+      "quarter": 2.0,
+      "game_clock": "14:20",
+      "offense": "GB",
+      "events": [
+        "big play"
+      ],
+      "yards": 22.0,
+      "epa": 1.56,
+      "description": "(14:20) (Shotgun) 12-A.Rodgers pass deep middle to 18-R.Cobb to ATL 34 for 22 yards (34-B.Poole;\u2026"
+    },
+    {
+      "play_id": 1094,
+      "quarter": 2.0,
+      "game_clock": "11:11",
+      "offense": "GB",
+      "events": [
+        "fumble lost",
+        "big play",
+        "turnover"
+      ],
+      "yards": 12.0,
+      "epa": -5.71,
+      "description": "(11:11) (Shotgun) 22-A.Ripkowski left guard to ATL 11 for 12 yards (32-J.Collins). FUMBLES\u2026"
+    },
+    {
+      "play_id": 1146,
+      "quarter": 2.0,
+      "game_clock": "10:18",
+      "offense": "ATL",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.02,
+      "description": "(10:18) (Shotgun) 2-M.Ryan pass deep right to 11-J.Jones ran ob at GB 43 for 20 yards\u2026"
+    },
+    {
+      "play_id": 1314,
+      "quarter": 2.0,
+      "game_clock": "07:31",
+      "offense": "ATL",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 14.0,
+      "epa": 2.36,
+      "description": "(7:31) (Shotgun) 2-M.Ryan scrambles right end for 14 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 1647,
+      "quarter": 2.0,
+      "game_clock": "02:24",
+      "offense": "GB",
+      "events": [
+        "sack"
+      ],
+      "yards": -11.0,
+      "epa": -1.4,
+      "description": "(2:24) (Shotgun) 12-A.Rodgers sacked at GB 13 for -11 yards (77-R.Hageman)."
+    },
+    {
+      "play_id": 1683,
+      "quarter": 2.0,
+      "game_clock": "02:00",
+      "offense": "GB",
+      "events": [
+        "interception",
+        "turnover"
+      ],
+      "yards": 0.0,
+      "epa": -0.65,
+      "description": "(2:00) (Shotgun) 12-A.Rodgers pass deep left intended for 87-J.Nelson INTERCEPTED by 37-R.Allen at\u2026"
+    },
+    {
+      "play_id": 1943,
+      "quarter": 2.0,
+      "game_clock": "00:07",
+      "offense": "ATL",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 5.0,
+      "epa": 3.47,
+      "description": "(:07) (Shotgun) 2-M.Ryan pass short right to 11-J.Jones for 5 yards, TOUCHDOWN. The Replay\u2026"
+    },
+    {
+      "play_id": 2172,
+      "quarter": 3.0,
+      "game_clock": "14:03",
+      "offense": "ATL",
+      "events": [
+        "touchdown",
+        "big play"
+      ],
+      "yards": 73.0,
+      "epa": 5.67,
+      "description": "(14:03) (Shotgun) 2-M.Ryan pass short middle to 11-J.Jones for 73 yards, TOUCHDOWN. Penalty on\u2026"
+    },
+    {
+      "play_id": 2256,
+      "quarter": 3.0,
+      "game_clock": "13:46",
+      "offense": "GB",
+      "events": [
+        "big play"
+      ],
+      "yards": 10.0,
+      "epa": 1.14,
+      "description": "(13:46) (Shotgun) 88-T.Montgomery left guard to GB 35 for 10 yards (34-B.Poole)."
+    },
+    {
+      "play_id": 2435,
+      "quarter": 3.0,
+      "game_clock": "10:43",
+      "offense": "GB",
+      "events": [
+        "big play"
+      ],
+      "yards": 26.0,
+      "epa": 1.74,
+      "description": "(10:43) (No Huddle, Shotgun) 12-A.Rodgers pass deep right to 89-J.Cook to ATL 7 for 26 yards\u2026"
+    },
+    {
+      "play_id": 2522,
+      "quarter": 3.0,
+      "game_clock": "09:23",
+      "offense": "GB",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 2.0,
+      "epa": 1.98,
+      "description": "(9:23) (Shotgun) 12-A.Rodgers pass short left to 17-D.Adams for 2 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 2654,
+      "quarter": 3.0,
+      "game_clock": "08:23",
+      "offense": "ATL",
+      "events": [
+        "big play"
+      ],
+      "yards": 23.0,
+      "epa": 1.35,
+      "description": "(8:23) 2-M.Ryan pass deep middle to 11-J.Jones to GB 42 for 23 yards (36-L.Gunter) [76-M.Daniels].\u2026"
+    },
+    {
+      "play_id": 2678,
+      "quarter": 3.0,
+      "game_clock": "07:52",
+      "offense": "ATL",
+      "events": [
+        "big play"
+      ],
+      "yards": 14.0,
+      "epa": 0.84,
+      "description": "(7:52) 24-D.Freeman left end to GB 28 for 14 yards (24-Q.Rollins)."
+    },
+    {
+      "play_id": 2827,
+      "quarter": 3.0,
+      "game_clock": "04:15",
+      "offense": "ATL",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 4.0,
+      "epa": 2.38,
+      "description": "(4:15) (Shotgun) 2-M.Ryan pass short right to 24-D.Freeman to GB 1 for 3 yards (42-M.Burnett).\u2026"
+    },
+    {
+      "play_id": 2922,
+      "quarter": 3.0,
+      "game_clock": "04:11",
+      "offense": "GB",
+      "events": [
+        "big play"
+      ],
+      "yards": 28.0,
+      "epa": 1.85,
+      "description": "(4:11) (Shotgun) 12-A.Rodgers scrambles up the middle to ATL 47 for 28 yards (34-B.Poole)."
+    },
+    {
+      "play_id": 3160,
+      "quarter": 3.0,
+      "game_clock": "00:41",
+      "offense": "GB",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 0.88,
+      "description": "(:41) (Shotgun) 12-A.Rodgers pass short right to 87-J.Nelson for 3 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3365,
+      "quarter": 4.0,
+      "game_clock": "12:11",
+      "offense": "ATL",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 3.0,
+      "epa": 0.81,
+      "description": "(12:11) 26-T.Coleman left end for 3 yards, TOUCHDOWN."
+    },
+    {
+      "play_id": 3413,
+      "quarter": 4.0,
+      "game_clock": "12:07",
+      "offense": "GB",
+      "events": [
+        "big play"
+      ],
+      "yards": 20.0,
+      "epa": 1.17,
+      "description": "(12:07) (Shotgun) 12-A.Rodgers pass short left to 22-A.Ripkowski to GB 45 for 20 yards\u2026"
+    },
+    {
+      "play_id": 3481,
+      "quarter": 4.0,
+      "game_clock": "11:25",
+      "offense": "GB",
+      "events": [
+        "sack"
+      ],
+      "yards": -8.0,
+      "epa": -2.01,
+      "description": "(11:25) (Shotgun) 12-A.Rodgers sacked at GB 37 for -8 yards (94-T.Jackson)."
+    },
+    {
+      "play_id": 3500,
+      "quarter": 4.0,
+      "game_clock": "10:37",
+      "offense": "GB",
+      "events": [
+        "big play"
+      ],
+      "yards": 34.0,
+      "epa": 5.07,
+      "description": "(10:37) (Shotgun) 12-A.Rodgers pass deep middle to 18-R.Cobb to ATL 29 for 34 yards (30-D.Olatoye)."
+    },
+    {
+      "play_id": 3825,
+      "quarter": 4.0,
+      "game_clock": "06:48",
+      "offense": "GB",
+      "events": [
+        "touchdown"
+      ],
+      "yards": 1.0,
+      "epa": 0.93,
+      "description": "(6:48) (Shotgun) 12-A.Rodgers pass short left to 89-J.Cook for 1 yard, TOUCHDOWN."
+    },
+    {
+      "play_id": 4123,
+      "quarter": 4.0,
+      "game_clock": "01:28",
+      "offense": "GB",
+      "events": [
+        "big play"
+      ],
+      "yards": 14.0,
+      "epa": 0.71,
+      "description": "(1:28) (Shotgun) 7-B.Hundley right end to GB 24 for 14 yards (55-P.Worrilow)."
+    }
+  ]
+}

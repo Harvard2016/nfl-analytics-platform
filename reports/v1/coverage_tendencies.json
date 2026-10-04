@@ -1,0 +1,4247 @@
+{
+  "source": "bdb2026",
+  "run_at": "2026-10-04T04:59:52+00:00",
+  "synthetic": false,
+  "sample": {
+    "season": [
+      2023
+    ],
+    "weeks": [
+      1,
+      18
+    ],
+    "dates": {
+      "first_game": "2023-09-07",
+      "last_game": "2024-01-07"
+    },
+    "plays": 14105,
+    "scope": "Pass plays that reached a throw and carry a released man/zone label. Not every defensive snap."
+  },
+  "released": {
+    "league": {
+      "all": {
+        "plays": 14105,
+        "man": 4013,
+        "man_rate": 0.2845,
+        "interval_95": [
+          0.2771,
+          0.292
+        ]
+      },
+      "by_situation": [
+        {
+          "down": "1st",
+          "distance": "1-3",
+          "plays": 57,
+          "man": 56,
+          "man_rate": 0.9825,
+          "interval_95": [
+            0.9071,
+            0.9969
+          ]
+        },
+        {
+          "down": "1st",
+          "distance": "4-7",
+          "plays": 101,
+          "man": 56,
+          "man_rate": 0.5545,
+          "interval_95": [
+            0.4573,
+            0.6476
+          ]
+        },
+        {
+          "down": "1st",
+          "distance": "8+",
+          "plays": 5003,
+          "man": 935,
+          "man_rate": 0.1869,
+          "interval_95": [
+            0.1763,
+            0.1979
+          ]
+        },
+        {
+          "down": "2nd",
+          "distance": "1-3",
+          "plays": 473,
+          "man": 159,
+          "man_rate": 0.3362,
+          "interval_95": [
+            0.2951,
+            0.3799
+          ]
+        },
+        {
+          "down": "2nd",
+          "distance": "4-7",
+          "plays": 1410,
+          "man": 394,
+          "man_rate": 0.2794,
+          "interval_95": [
+            0.2566,
+            0.3034
+          ]
+        },
+        {
+          "down": "2nd",
+          "distance": "8+",
+          "plays": 2812,
+          "man": 580,
+          "man_rate": 0.2063,
+          "interval_95": [
+            0.1917,
+            0.2216
+          ]
+        },
+        {
+          "down": "3rd/4th",
+          "distance": "1-3",
+          "plays": 950,
+          "man": 527,
+          "man_rate": 0.5547,
+          "interval_95": [
+            0.523,
+            0.5861
+          ]
+        },
+        {
+          "down": "3rd/4th",
+          "distance": "4-7",
+          "plays": 1597,
+          "man": 779,
+          "man_rate": 0.4878,
+          "interval_95": [
+            0.4633,
+            0.5123
+          ]
+        },
+        {
+          "down": "3rd/4th",
+          "distance": "8+",
+          "plays": 1702,
+          "man": 527,
+          "man_rate": 0.3096,
+          "interval_95": [
+            0.2881,
+            0.332
+          ]
+        }
+      ],
+      "coverage_types": {
+        "COVER_3_ZONE": 4482,
+        "COVER_1_MAN": 3175,
+        "COVER_4_ZONE": 2346,
+        "COVER_2_ZONE": 1837,
+        "COVER_6_ZONE": 1388,
+        "COVER_0_MAN": 601,
+        "COVER_2_MAN": 237,
+        "PREVENT": 39
+      }
+    },
+    "teams": {
+      "ARI": {
+        "all": {
+          "plays": 386,
+          "man": 79,
+          "man_rate": 0.2047,
+          "interval_95": [
+            0.1674,
+            0.2477
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 0,
+            "man": 0,
+            "man_rate": null,
+            "interval_95": null
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 3,
+            "man": 2,
+            "man_rate": 0.6667,
+            "interval_95": [
+              0.2077,
+              0.9385
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 147,
+            "man": 17,
+            "man_rate": 0.1156,
+            "interval_95": [
+              0.0735,
+              0.1774
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 17,
+            "man": 2,
+            "man_rate": 0.1176,
+            "interval_95": [
+              0.0329,
+              0.3434
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 42,
+            "man": 9,
+            "man_rate": 0.2143,
+            "interval_95": [
+              0.1171,
+              0.3594
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 81,
+            "man": 19,
+            "man_rate": 0.2346,
+            "interval_95": [
+              0.1556,
+              0.3375
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 28,
+            "man": 12,
+            "man_rate": 0.4286,
+            "interval_95": [
+              0.2651,
+              0.6093
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 32,
+            "man": 10,
+            "man_rate": 0.3125,
+            "interval_95": [
+              0.1795,
+              0.4857
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 36,
+            "man": 8,
+            "man_rate": 0.2222,
+            "interval_95": [
+              0.1172,
+              0.3809
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_4_ZONE": 132,
+          "COVER_3_ZONE": 96,
+          "COVER_1_MAN": 55,
+          "COVER_2_ZONE": 48,
+          "COVER_6_ZONE": 29,
+          "COVER_0_MAN": 24,
+          "PREVENT": 2
+        }
+      },
+      "ATL": {
+        "all": {
+          "plays": 426,
+          "man": 174,
+          "man_rate": 0.4085,
+          "interval_95": [
+            0.3628,
+            0.4557
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 2,
+            "man": 1,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.0945,
+              0.9055
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 136,
+            "man": 60,
+            "man_rate": 0.4412,
+            "interval_95": [
+              0.3605,
+              0.5251
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 13,
+            "man": 4,
+            "man_rate": 0.3077,
+            "interval_95": [
+              0.1268,
+              0.5763
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 41,
+            "man": 16,
+            "man_rate": 0.3902,
+            "interval_95": [
+              0.2566,
+              0.5427
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 106,
+            "man": 28,
+            "man_rate": 0.2642,
+            "interval_95": [
+              0.1895,
+              0.3553
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 18,
+            "man": 11,
+            "man_rate": 0.6111,
+            "interval_95": [
+              0.3862,
+              0.797
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 52,
+            "man": 29,
+            "man_rate": 0.5577,
+            "interval_95": [
+              0.4234,
+              0.6841
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 56,
+            "man": 23,
+            "man_rate": 0.4107,
+            "interval_95": [
+              0.2917,
+              0.5412
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_1_MAN": 147,
+          "COVER_6_ZONE": 76,
+          "COVER_4_ZONE": 61,
+          "COVER_3_ZONE": 58,
+          "COVER_2_ZONE": 57,
+          "COVER_2_MAN": 20,
+          "COVER_0_MAN": 7
+        }
+      },
+      "BAL": {
+        "all": {
+          "plays": 479,
+          "man": 138,
+          "man_rate": 0.2881,
+          "interval_95": [
+            0.2494,
+            0.3302
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 150,
+            "man": 26,
+            "man_rate": 0.1733,
+            "interval_95": [
+              0.1211,
+              0.2419
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 16,
+            "man": 2,
+            "man_rate": 0.125,
+            "interval_95": [
+              0.035,
+              0.3602
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 47,
+            "man": 12,
+            "man_rate": 0.2553,
+            "interval_95": [
+              0.1525,
+              0.3951
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 97,
+            "man": 23,
+            "man_rate": 0.2371,
+            "interval_95": [
+              0.1635,
+              0.3307
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 36,
+            "man": 23,
+            "man_rate": 0.6389,
+            "interval_95": [
+              0.4757,
+              0.7752
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 70,
+            "man": 34,
+            "man_rate": 0.4857,
+            "interval_95": [
+              0.3725,
+              0.6005
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 60,
+            "man": 15,
+            "man_rate": 0.25,
+            "interval_95": [
+              0.1578,
+              0.3723
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 119,
+          "COVER_1_MAN": 98,
+          "COVER_4_ZONE": 97,
+          "COVER_6_ZONE": 85,
+          "COVER_2_ZONE": 40,
+          "COVER_0_MAN": 32,
+          "COVER_2_MAN": 8
+        }
+      },
+      "BUF": {
+        "all": {
+          "plays": 417,
+          "man": 88,
+          "man_rate": 0.211,
+          "interval_95": [
+            0.1746,
+            0.2527
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 3,
+            "man": 3,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.4385,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 3,
+            "man": 2,
+            "man_rate": 0.6667,
+            "interval_95": [
+              0.2077,
+              0.9385
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 150,
+            "man": 21,
+            "man_rate": 0.14,
+            "interval_95": [
+              0.0934,
+              0.2046
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 21,
+            "man": 8,
+            "man_rate": 0.381,
+            "interval_95": [
+              0.2075,
+              0.5912
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 33,
+            "man": 7,
+            "man_rate": 0.2121,
+            "interval_95": [
+              0.1068,
+              0.3775
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 81,
+            "man": 12,
+            "man_rate": 0.1481,
+            "interval_95": [
+              0.0868,
+              0.2413
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 29,
+            "man": 12,
+            "man_rate": 0.4138,
+            "interval_95": [
+              0.2551,
+              0.5926
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 46,
+            "man": 15,
+            "man_rate": 0.3261,
+            "interval_95": [
+              0.2087,
+              0.4703
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 51,
+            "man": 8,
+            "man_rate": 0.1569,
+            "interval_95": [
+              0.0817,
+              0.2801
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 119,
+          "COVER_4_ZONE": 84,
+          "COVER_2_ZONE": 79,
+          "COVER_1_MAN": 58,
+          "COVER_6_ZONE": 45,
+          "COVER_2_MAN": 20,
+          "COVER_0_MAN": 10,
+          "PREVENT": 2
+        }
+      },
+      "CAR": {
+        "all": {
+          "plays": 355,
+          "man": 62,
+          "man_rate": 0.1746,
+          "interval_95": [
+            0.1387,
+            0.2176
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 0,
+            "man": 0,
+            "man_rate": null,
+            "interval_95": null
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 3,
+            "man": 1,
+            "man_rate": 0.3333,
+            "interval_95": [
+              0.0615,
+              0.7923
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 123,
+            "man": 6,
+            "man_rate": 0.0488,
+            "interval_95": [
+              0.0225,
+              0.1023
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 16,
+            "man": 2,
+            "man_rate": 0.125,
+            "interval_95": [
+              0.035,
+              0.3602
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 33,
+            "man": 7,
+            "man_rate": 0.2121,
+            "interval_95": [
+              0.1068,
+              0.3775
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 70,
+            "man": 7,
+            "man_rate": 0.1,
+            "interval_95": [
+              0.0493,
+              0.1923
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 21,
+            "man": 9,
+            "man_rate": 0.4286,
+            "interval_95": [
+              0.2447,
+              0.6345
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 39,
+            "man": 16,
+            "man_rate": 0.4103,
+            "interval_95": [
+              0.2708,
+              0.5658
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 50,
+            "man": 14,
+            "man_rate": 0.28,
+            "interval_95": [
+              0.1747,
+              0.4167
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 184,
+          "COVER_6_ZONE": 56,
+          "COVER_1_MAN": 53,
+          "COVER_2_ZONE": 26,
+          "COVER_4_ZONE": 26,
+          "COVER_0_MAN": 7,
+          "COVER_2_MAN": 2,
+          "PREVENT": 1
+        }
+      },
+      "CHI": {
+        "all": {
+          "plays": 493,
+          "man": 98,
+          "man_rate": 0.1988,
+          "interval_95": [
+            0.1659,
+            0.2363
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 5,
+            "man": 5,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.5655,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 5,
+            "man": 3,
+            "man_rate": 0.6,
+            "interval_95": [
+              0.2307,
+              0.8824
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 170,
+            "man": 12,
+            "man_rate": 0.0706,
+            "interval_95": [
+              0.0408,
+              0.1193
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 21,
+            "man": 5,
+            "man_rate": 0.2381,
+            "interval_95": [
+              0.1063,
+              0.4509
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 44,
+            "man": 7,
+            "man_rate": 0.1591,
+            "interval_95": [
+              0.0793,
+              0.2937
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 94,
+            "man": 8,
+            "man_rate": 0.0851,
+            "interval_95": [
+              0.0438,
+              0.159
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 32,
+            "man": 17,
+            "man_rate": 0.5312,
+            "interval_95": [
+              0.3645,
+              0.6913
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 58,
+            "man": 35,
+            "man_rate": 0.6034,
+            "interval_95": [
+              0.4749,
+              0.7191
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 64,
+            "man": 6,
+            "man_rate": 0.0938,
+            "interval_95": [
+              0.0437,
+              0.1898
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 181,
+          "COVER_2_ZONE": 108,
+          "COVER_1_MAN": 85,
+          "COVER_4_ZONE": 73,
+          "COVER_6_ZONE": 29,
+          "COVER_0_MAN": 13,
+          "PREVENT": 4
+        }
+      },
+      "CIN": {
+        "all": {
+          "plays": 451,
+          "man": 146,
+          "man_rate": 0.3237,
+          "interval_95": [
+            0.2822,
+            0.3682
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 3,
+            "man": 3,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.4385,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 177,
+            "man": 33,
+            "man_rate": 0.1864,
+            "interval_95": [
+              0.1359,
+              0.2503
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 16,
+            "man": 5,
+            "man_rate": 0.3125,
+            "interval_95": [
+              0.1416,
+              0.556
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 42,
+            "man": 9,
+            "man_rate": 0.2143,
+            "interval_95": [
+              0.1171,
+              0.3594
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 85,
+            "man": 22,
+            "man_rate": 0.2588,
+            "interval_95": [
+              0.1776,
+              0.3609
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 25,
+            "man": 18,
+            "man_rate": 0.72,
+            "interval_95": [
+              0.5242,
+              0.8572
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 49,
+            "man": 26,
+            "man_rate": 0.5306,
+            "interval_95": [
+              0.3938,
+              0.663
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 53,
+            "man": 29,
+            "man_rate": 0.5472,
+            "interval_95": [
+              0.4145,
+              0.6734
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 146,
+          "COVER_1_MAN": 120,
+          "COVER_2_ZONE": 83,
+          "COVER_4_ZONE": 57,
+          "COVER_0_MAN": 25,
+          "COVER_6_ZONE": 19,
+          "COVER_2_MAN": 1
+        }
+      },
+      "CLE": {
+        "all": {
+          "plays": 388,
+          "man": 141,
+          "man_rate": 0.3634,
+          "interval_95": [
+            0.3171,
+            0.4124
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 8,
+            "man": 5,
+            "man_rate": 0.625,
+            "interval_95": [
+              0.3057,
+              0.8632
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 129,
+            "man": 36,
+            "man_rate": 0.2791,
+            "interval_95": [
+              0.2089,
+              0.362
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 11,
+            "man": 7,
+            "man_rate": 0.6364,
+            "interval_95": [
+              0.3538,
+              0.8483
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 31,
+            "man": 19,
+            "man_rate": 0.6129,
+            "interval_95": [
+              0.4382,
+              0.7627
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 84,
+            "man": 20,
+            "man_rate": 0.2381,
+            "interval_95": [
+              0.1597,
+              0.3394
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 24,
+            "man": 12,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.3143,
+              0.6857
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 40,
+            "man": 21,
+            "man_rate": 0.525,
+            "interval_95": [
+              0.375,
+              0.6706
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 60,
+            "man": 20,
+            "man_rate": 0.3333,
+            "interval_95": [
+              0.2273,
+              0.4594
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 134,
+          "COVER_1_MAN": 124,
+          "COVER_2_ZONE": 76,
+          "COVER_6_ZONE": 30,
+          "COVER_0_MAN": 16,
+          "COVER_4_ZONE": 6,
+          "COVER_2_MAN": 1,
+          "PREVENT": 1
+        }
+      },
+      "DAL": {
+        "all": {
+          "plays": 396,
+          "man": 175,
+          "man_rate": 0.4419,
+          "interval_95": [
+            0.3938,
+            0.4912
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 6,
+            "man": 3,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.1876,
+              0.8124
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 142,
+            "man": 44,
+            "man_rate": 0.3099,
+            "interval_95": [
+              0.2396,
+              0.3901
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 17,
+            "man": 9,
+            "man_rate": 0.5294,
+            "interval_95": [
+              0.3096,
+              0.7384
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 17,
+            "man": 5,
+            "man_rate": 0.2941,
+            "interval_95": [
+              0.1328,
+              0.5313
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 85,
+            "man": 25,
+            "man_rate": 0.2941,
+            "interval_95": [
+              0.2079,
+              0.3982
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 46,
+            "man": 35,
+            "man_rate": 0.7609,
+            "interval_95": [
+              0.6206,
+              0.8609
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 35,
+            "man": 27,
+            "man_rate": 0.7714,
+            "interval_95": [
+              0.6098,
+              0.8793
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 46,
+            "man": 25,
+            "man_rate": 0.5435,
+            "interval_95": [
+              0.4018,
+              0.6785
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_1_MAN": 148,
+          "COVER_3_ZONE": 113,
+          "COVER_2_ZONE": 61,
+          "COVER_4_ZONE": 45,
+          "COVER_0_MAN": 14,
+          "COVER_2_MAN": 13,
+          "COVER_6_ZONE": 2
+        }
+      },
+      "DEN": {
+        "all": {
+          "plays": 451,
+          "man": 135,
+          "man_rate": 0.2993,
+          "interval_95": [
+            0.2589,
+            0.3432
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 3,
+            "man": 2,
+            "man_rate": 0.6667,
+            "interval_95": [
+              0.2077,
+              0.9385
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 169,
+            "man": 32,
+            "man_rate": 0.1893,
+            "interval_95": [
+              0.1374,
+              0.2551
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 15,
+            "man": 4,
+            "man_rate": 0.2667,
+            "interval_95": [
+              0.109,
+              0.5195
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 50,
+            "man": 15,
+            "man_rate": 0.3,
+            "interval_95": [
+              0.191,
+              0.4375
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 88,
+            "man": 19,
+            "man_rate": 0.2159,
+            "interval_95": [
+              0.1428,
+              0.3128
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 31,
+            "man": 18,
+            "man_rate": 0.5806,
+            "interval_95": [
+              0.4077,
+              0.7358
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 43,
+            "man": 25,
+            "man_rate": 0.5814,
+            "interval_95": [
+              0.4333,
+              0.7162
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 50,
+            "man": 18,
+            "man_rate": 0.36,
+            "interval_95": [
+              0.2414,
+              0.4986
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 157,
+          "COVER_1_MAN": 111,
+          "COVER_4_ZONE": 66,
+          "COVER_6_ZONE": 65,
+          "COVER_2_ZONE": 28,
+          "COVER_0_MAN": 16,
+          "COVER_2_MAN": 8
+        }
+      },
+      "DET": {
+        "all": {
+          "plays": 474,
+          "man": 155,
+          "man_rate": 0.327,
+          "interval_95": [
+            0.2863,
+            0.3705
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 4,
+            "man": 4,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.5101,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 178,
+            "man": 25,
+            "man_rate": 0.1404,
+            "interval_95": [
+              0.097,
+              0.1991
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 11,
+            "man": 6,
+            "man_rate": 0.5455,
+            "interval_95": [
+              0.2801,
+              0.7873
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 54,
+            "man": 19,
+            "man_rate": 0.3519,
+            "interval_95": [
+              0.2382,
+              0.4852
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 91,
+            "man": 26,
+            "man_rate": 0.2857,
+            "interval_95": [
+              0.2031,
+              0.3857
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 34,
+            "man": 22,
+            "man_rate": 0.6471,
+            "interval_95": [
+              0.4791,
+              0.7851
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 38,
+            "man": 26,
+            "man_rate": 0.6842,
+            "interval_95": [
+              0.5254,
+              0.8092
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 63,
+            "man": 26,
+            "man_rate": 0.4127,
+            "interval_95": [
+              0.2996,
+              0.5358
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 149,
+          "COVER_1_MAN": 125,
+          "COVER_4_ZONE": 79,
+          "COVER_2_ZONE": 66,
+          "COVER_6_ZONE": 24,
+          "COVER_0_MAN": 24,
+          "COVER_2_MAN": 6,
+          "PREVENT": 1
+        }
+      },
+      "GB": {
+        "all": {
+          "plays": 418,
+          "man": 113,
+          "man_rate": 0.2703,
+          "interval_95": [
+            0.23,
+            0.3149
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 3,
+            "man": 3,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.4385,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 0,
+            "man": 0,
+            "man_rate": null,
+            "interval_95": null
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 144,
+            "man": 28,
+            "man_rate": 0.1944,
+            "interval_95": [
+              0.1381,
+              0.2667
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 12,
+            "man": 6,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.2538,
+              0.7462
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 39,
+            "man": 12,
+            "man_rate": 0.3077,
+            "interval_95": [
+              0.1857,
+              0.4642
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 87,
+            "man": 18,
+            "man_rate": 0.2069,
+            "interval_95": [
+              0.1351,
+              0.3035
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 31,
+            "man": 14,
+            "man_rate": 0.4516,
+            "interval_95": [
+              0.2916,
+              0.6223
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 45,
+            "man": 15,
+            "man_rate": 0.3333,
+            "interval_95": [
+              0.2136,
+              0.4793
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 57,
+            "man": 17,
+            "man_rate": 0.2982,
+            "interval_95": [
+              0.1953,
+              0.4266
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 160,
+          "COVER_1_MAN": 108,
+          "COVER_4_ZONE": 54,
+          "COVER_6_ZONE": 52,
+          "COVER_2_ZONE": 39,
+          "COVER_0_MAN": 4,
+          "COVER_2_MAN": 1
+        }
+      },
+      "HOU": {
+        "all": {
+          "plays": 435,
+          "man": 83,
+          "man_rate": 0.1908,
+          "interval_95": [
+            0.1566,
+            0.2304
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 4,
+            "man": 2,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.15,
+              0.85
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 144,
+            "man": 15,
+            "man_rate": 0.1042,
+            "interval_95": [
+              0.0641,
+              0.1648
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 15,
+            "man": 9,
+            "man_rate": 0.6,
+            "interval_95": [
+              0.3575,
+              0.8018
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 49,
+            "man": 9,
+            "man_rate": 0.1837,
+            "interval_95": [
+              0.0998,
+              0.3136
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 92,
+            "man": 7,
+            "man_rate": 0.0761,
+            "interval_95": [
+              0.0373,
+              0.1488
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 28,
+            "man": 14,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.3263,
+              0.6737
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 44,
+            "man": 12,
+            "man_rate": 0.2727,
+            "interval_95": [
+              0.1635,
+              0.4185
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 58,
+            "man": 14,
+            "man_rate": 0.2414,
+            "interval_95": [
+              0.1496,
+              0.3653
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 130,
+          "COVER_4_ZONE": 121,
+          "COVER_1_MAN": 63,
+          "COVER_6_ZONE": 55,
+          "COVER_2_ZONE": 46,
+          "COVER_0_MAN": 19,
+          "COVER_2_MAN": 1
+        }
+      },
+      "IND": {
+        "all": {
+          "plays": 430,
+          "man": 52,
+          "man_rate": 0.1209,
+          "interval_95": [
+            0.0934,
+            0.1552
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 0,
+            "man": 0,
+            "man_rate": null,
+            "interval_95": null
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 144,
+            "man": 10,
+            "man_rate": 0.0694,
+            "interval_95": [
+              0.0382,
+              0.1231
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 17,
+            "man": 2,
+            "man_rate": 0.1176,
+            "interval_95": [
+              0.0329,
+              0.3434
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 38,
+            "man": 4,
+            "man_rate": 0.1053,
+            "interval_95": [
+              0.0417,
+              0.2413
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 88,
+            "man": 7,
+            "man_rate": 0.0795,
+            "interval_95": [
+              0.0391,
+              0.1552
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 30,
+            "man": 5,
+            "man_rate": 0.1667,
+            "interval_95": [
+              0.0734,
+              0.3356
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 52,
+            "man": 11,
+            "man_rate": 0.2115,
+            "interval_95": [
+              0.1224,
+              0.3403
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 59,
+            "man": 11,
+            "man_rate": 0.1864,
+            "interval_95": [
+              0.1074,
+              0.3038
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 224,
+          "COVER_4_ZONE": 74,
+          "COVER_2_ZONE": 44,
+          "COVER_1_MAN": 40,
+          "COVER_6_ZONE": 34,
+          "COVER_0_MAN": 12,
+          "PREVENT": 2
+        }
+      },
+      "JAX": {
+        "all": {
+          "plays": 478,
+          "man": 88,
+          "man_rate": 0.1841,
+          "interval_95": [
+            0.1519,
+            0.2213
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 3,
+            "man": 1,
+            "man_rate": 0.3333,
+            "interval_95": [
+              0.0615,
+              0.7923
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 167,
+            "man": 17,
+            "man_rate": 0.1018,
+            "interval_95": [
+              0.0645,
+              0.157
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 19,
+            "man": 4,
+            "man_rate": 0.2105,
+            "interval_95": [
+              0.0851,
+              0.4333
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 53,
+            "man": 7,
+            "man_rate": 0.1321,
+            "interval_95": [
+              0.0655,
+              0.2484
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 82,
+            "man": 6,
+            "man_rate": 0.0732,
+            "interval_95": [
+              0.034,
+              0.1506
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 46,
+            "man": 31,
+            "man_rate": 0.6739,
+            "interval_95": [
+              0.5297,
+              0.7913
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 63,
+            "man": 17,
+            "man_rate": 0.2698,
+            "interval_95": [
+              0.1758,
+              0.3903
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 44,
+            "man": 4,
+            "man_rate": 0.0909,
+            "interval_95": [
+              0.0359,
+              0.2116
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 175,
+          "COVER_4_ZONE": 79,
+          "COVER_2_ZONE": 72,
+          "COVER_1_MAN": 70,
+          "COVER_6_ZONE": 62,
+          "COVER_0_MAN": 15,
+          "COVER_2_MAN": 3,
+          "PREVENT": 2
+        }
+      },
+      "KC": {
+        "all": {
+          "plays": 393,
+          "man": 136,
+          "man_rate": 0.3461,
+          "interval_95": [
+            0.3007,
+            0.3944
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 0,
+            "man": 0,
+            "man_rate": null,
+            "interval_95": null
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 0,
+            "man": 0,
+            "man_rate": null,
+            "interval_95": null
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 134,
+            "man": 25,
+            "man_rate": 0.1866,
+            "interval_95": [
+              0.1297,
+              0.2609
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 9,
+            "man": 7,
+            "man_rate": 0.7778,
+            "interval_95": [
+              0.4526,
+              0.9368
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 40,
+            "man": 19,
+            "man_rate": 0.475,
+            "interval_95": [
+              0.3294,
+              0.625
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 89,
+            "man": 25,
+            "man_rate": 0.2809,
+            "interval_95": [
+              0.1981,
+              0.3818
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 26,
+            "man": 9,
+            "man_rate": 0.3462,
+            "interval_95": [
+              0.1941,
+              0.5378
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 57,
+            "man": 35,
+            "man_rate": 0.614,
+            "interval_95": [
+              0.4843,
+              0.7294
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 38,
+            "man": 16,
+            "man_rate": 0.4211,
+            "interval_95": [
+              0.2785,
+              0.5781
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_1_MAN": 89,
+          "COVER_4_ZONE": 89,
+          "COVER_2_ZONE": 81,
+          "COVER_3_ZONE": 59,
+          "COVER_2_MAN": 30,
+          "COVER_6_ZONE": 28,
+          "COVER_0_MAN": 17
+        }
+      },
+      "LA": {
+        "all": {
+          "plays": 482,
+          "man": 106,
+          "man_rate": 0.2199,
+          "interval_95": [
+            0.1852,
+            0.259
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 2,
+            "man": 1,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.0945,
+              0.9055
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 178,
+            "man": 20,
+            "man_rate": 0.1124,
+            "interval_95": [
+              0.0739,
+              0.1672
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 14,
+            "man": 3,
+            "man_rate": 0.2143,
+            "interval_95": [
+              0.0757,
+              0.4759
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 53,
+            "man": 4,
+            "man_rate": 0.0755,
+            "interval_95": [
+              0.0297,
+              0.1786
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 93,
+            "man": 17,
+            "man_rate": 0.1828,
+            "interval_95": [
+              0.1174,
+              0.2734
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 25,
+            "man": 13,
+            "man_rate": 0.52,
+            "interval_95": [
+              0.335,
+              0.6997
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 65,
+            "man": 31,
+            "man_rate": 0.4769,
+            "interval_95": [
+              0.3602,
+              0.5962
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 51,
+            "man": 16,
+            "man_rate": 0.3137,
+            "interval_95": [
+              0.2033,
+              0.4503
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 179,
+          "COVER_4_ZONE": 110,
+          "COVER_1_MAN": 88,
+          "COVER_6_ZONE": 70,
+          "COVER_2_ZONE": 15,
+          "COVER_2_MAN": 9,
+          "COVER_0_MAN": 9,
+          "PREVENT": 2
+        }
+      },
+      "LAC": {
+        "all": {
+          "plays": 476,
+          "man": 116,
+          "man_rate": 0.2437,
+          "interval_95": [
+            0.2073,
+            0.2842
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 2,
+            "man": 0,
+            "man_rate": 0.0,
+            "interval_95": [
+              0.0,
+              0.6576
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 173,
+            "man": 35,
+            "man_rate": 0.2023,
+            "interval_95": [
+              0.1492,
+              0.2683
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 21,
+            "man": 6,
+            "man_rate": 0.2857,
+            "interval_95": [
+              0.1381,
+              0.4996
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 52,
+            "man": 14,
+            "man_rate": 0.2692,
+            "interval_95": [
+              0.1677,
+              0.4025
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 100,
+            "man": 16,
+            "man_rate": 0.16,
+            "interval_95": [
+              0.101,
+              0.2442
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 29,
+            "man": 12,
+            "man_rate": 0.4138,
+            "interval_95": [
+              0.2551,
+              0.5926
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 40,
+            "man": 17,
+            "man_rate": 0.425,
+            "interval_95": [
+              0.2851,
+              0.5781
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 57,
+            "man": 14,
+            "man_rate": 0.2456,
+            "interval_95": [
+              0.1523,
+              0.371
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 139,
+          "COVER_6_ZONE": 112,
+          "COVER_1_MAN": 93,
+          "COVER_4_ZONE": 61,
+          "COVER_2_ZONE": 48,
+          "COVER_0_MAN": 17,
+          "COVER_2_MAN": 6
+        }
+      },
+      "LV": {
+        "all": {
+          "plays": 409,
+          "man": 94,
+          "man_rate": 0.2298,
+          "interval_95": [
+            0.1917,
+            0.273
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 1,
+            "man": 0,
+            "man_rate": 0.0,
+            "interval_95": [
+              0.0,
+              0.7935
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 149,
+            "man": 15,
+            "man_rate": 0.1007,
+            "interval_95": [
+              0.062,
+              0.1595
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 16,
+            "man": 3,
+            "man_rate": 0.1875,
+            "interval_95": [
+              0.0659,
+              0.4301
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 46,
+            "man": 4,
+            "man_rate": 0.087,
+            "interval_95": [
+              0.0343,
+              0.2032
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 76,
+            "man": 14,
+            "man_rate": 0.1842,
+            "interval_95": [
+              0.113,
+              0.2858
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 31,
+            "man": 17,
+            "man_rate": 0.5484,
+            "interval_95": [
+              0.3777,
+              0.7084
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 45,
+            "man": 25,
+            "man_rate": 0.5556,
+            "interval_95": [
+              0.4118,
+              0.6906
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 44,
+            "man": 15,
+            "man_rate": 0.3409,
+            "interval_95": [
+              0.2188,
+              0.4886
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 147,
+          "COVER_1_MAN": 77,
+          "COVER_2_ZONE": 72,
+          "COVER_4_ZONE": 71,
+          "COVER_6_ZONE": 25,
+          "COVER_0_MAN": 14,
+          "COVER_2_MAN": 3
+        }
+      },
+      "MIA": {
+        "all": {
+          "plays": 430,
+          "man": 121,
+          "man_rate": 0.2814,
+          "interval_95": [
+            0.241,
+            0.3257
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 3,
+            "man": 3,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.4385,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 3,
+            "man": 3,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.4385,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 166,
+            "man": 27,
+            "man_rate": 0.1627,
+            "interval_95": [
+              0.1143,
+              0.2263
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 12,
+            "man": 4,
+            "man_rate": 0.3333,
+            "interval_95": [
+              0.1381,
+              0.6094
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 53,
+            "man": 21,
+            "man_rate": 0.3962,
+            "interval_95": [
+              0.2759,
+              0.5306
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 80,
+            "man": 15,
+            "man_rate": 0.1875,
+            "interval_95": [
+              0.1171,
+              0.2866
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 20,
+            "man": 13,
+            "man_rate": 0.65,
+            "interval_95": [
+              0.4329,
+              0.8188
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 46,
+            "man": 23,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.3612,
+              0.6388
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 47,
+            "man": 12,
+            "man_rate": 0.2553,
+            "interval_95": [
+              0.1525,
+              0.3951
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 150,
+          "COVER_6_ZONE": 99,
+          "COVER_1_MAN": 97,
+          "COVER_4_ZONE": 55,
+          "COVER_0_MAN": 23,
+          "COVER_2_ZONE": 5,
+          "COVER_2_MAN": 1
+        }
+      },
+      "MIN": {
+        "all": {
+          "plays": 440,
+          "man": 103,
+          "man_rate": 0.2341,
+          "interval_95": [
+            0.1969,
+            0.2759
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 0,
+            "man": 0,
+            "man_rate": null,
+            "interval_95": null
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 169,
+            "man": 27,
+            "man_rate": 0.1598,
+            "interval_95": [
+              0.1122,
+              0.2225
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 12,
+            "man": 5,
+            "man_rate": 0.4167,
+            "interval_95": [
+              0.1933,
+              0.6805
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 47,
+            "man": 11,
+            "man_rate": 0.234,
+            "interval_95": [
+              0.136,
+              0.3722
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 80,
+            "man": 16,
+            "man_rate": 0.2,
+            "interval_95": [
+              0.127,
+              0.3005
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 32,
+            "man": 9,
+            "man_rate": 0.2812,
+            "interval_95": [
+              0.1556,
+              0.4537
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 52,
+            "man": 17,
+            "man_rate": 0.3269,
+            "interval_95": [
+              0.2152,
+              0.4624
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 46,
+            "man": 16,
+            "man_rate": 0.3478,
+            "interval_95": [
+              0.2268,
+              0.4923
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 169,
+          "COVER_2_ZONE": 122,
+          "COVER_0_MAN": 55,
+          "COVER_1_MAN": 44,
+          "COVER_4_ZONE": 34,
+          "COVER_6_ZONE": 10,
+          "COVER_2_MAN": 4,
+          "PREVENT": 2
+        }
+      },
+      "NE": {
+        "all": {
+          "plays": 445,
+          "man": 170,
+          "man_rate": 0.382,
+          "interval_95": [
+            0.3381,
+            0.428
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 5,
+            "man": 4,
+            "man_rate": 0.8,
+            "interval_95": [
+              0.3755,
+              0.9638
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 155,
+            "man": 32,
+            "man_rate": 0.2065,
+            "interval_95": [
+              0.1502,
+              0.2769
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 9,
+            "man": 2,
+            "man_rate": 0.2222,
+            "interval_95": [
+              0.0632,
+              0.5474
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 57,
+            "man": 18,
+            "man_rate": 0.3158,
+            "interval_95": [
+              0.21,
+              0.4448
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 83,
+            "man": 33,
+            "man_rate": 0.3976,
+            "interval_95": [
+              0.2991,
+              0.5052
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 23,
+            "man": 9,
+            "man_rate": 0.3913,
+            "interval_95": [
+              0.2216,
+              0.5921
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 52,
+            "man": 37,
+            "man_rate": 0.7115,
+            "interval_95": [
+              0.5773,
+              0.8167
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 59,
+            "man": 33,
+            "man_rate": 0.5593,
+            "interval_95": [
+              0.4329,
+              0.6785
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 143,
+          "COVER_1_MAN": 123,
+          "COVER_2_ZONE": 85,
+          "COVER_0_MAN": 38,
+          "COVER_4_ZONE": 34,
+          "COVER_6_ZONE": 10,
+          "COVER_2_MAN": 9,
+          "PREVENT": 3
+        }
+      },
+      "NO": {
+        "all": {
+          "plays": 449,
+          "man": 164,
+          "man_rate": 0.3653,
+          "interval_95": [
+            0.322,
+            0.4108
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 3,
+            "man": 3,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.4385,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 2,
+            "man": 0,
+            "man_rate": 0.0,
+            "interval_95": [
+              0.0,
+              0.6576
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 158,
+            "man": 47,
+            "man_rate": 0.2975,
+            "interval_95": [
+              0.2317,
+              0.3729
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 18,
+            "man": 12,
+            "man_rate": 0.6667,
+            "interval_95": [
+              0.4375,
+              0.8372
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 45,
+            "man": 22,
+            "man_rate": 0.4889,
+            "interval_95": [
+              0.3496,
+              0.63
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 82,
+            "man": 18,
+            "man_rate": 0.2195,
+            "interval_95": [
+              0.1436,
+              0.3205
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 29,
+            "man": 25,
+            "man_rate": 0.8621,
+            "interval_95": [
+              0.6944,
+              0.945
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 60,
+            "man": 29,
+            "man_rate": 0.4833,
+            "interval_95": [
+              0.3617,
+              0.6069
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 52,
+            "man": 8,
+            "man_rate": 0.1538,
+            "interval_95": [
+              0.0801,
+              0.2752
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_1_MAN": 150,
+          "COVER_3_ZONE": 103,
+          "COVER_2_ZONE": 86,
+          "COVER_4_ZONE": 84,
+          "COVER_6_ZONE": 10,
+          "COVER_0_MAN": 9,
+          "COVER_2_MAN": 5,
+          "PREVENT": 2
+        }
+      },
+      "NYG": {
+        "all": {
+          "plays": 450,
+          "man": 202,
+          "man_rate": 0.4489,
+          "interval_95": [
+            0.4036,
+            0.4951
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 3,
+            "man": 2,
+            "man_rate": 0.6667,
+            "interval_95": [
+              0.2077,
+              0.9385
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 167,
+            "man": 61,
+            "man_rate": 0.3653,
+            "interval_95": [
+              0.296,
+              0.4406
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 11,
+            "man": 6,
+            "man_rate": 0.5455,
+            "interval_95": [
+              0.2801,
+              0.7873
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 62,
+            "man": 33,
+            "man_rate": 0.5323,
+            "interval_95": [
+              0.4098,
+              0.6509
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 78,
+            "man": 29,
+            "man_rate": 0.3718,
+            "interval_95": [
+              0.2729,
+              0.4827
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 27,
+            "man": 20,
+            "man_rate": 0.7407,
+            "interval_95": [
+              0.5532,
+              0.8683
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 51,
+            "man": 29,
+            "man_rate": 0.5686,
+            "interval_95": [
+              0.4327,
+              0.695
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 49,
+            "man": 20,
+            "man_rate": 0.4082,
+            "interval_95": [
+              0.2822,
+              0.5475
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_1_MAN": 153,
+          "COVER_3_ZONE": 122,
+          "COVER_4_ZONE": 59,
+          "COVER_6_ZONE": 41,
+          "COVER_0_MAN": 40,
+          "COVER_2_ZONE": 24,
+          "COVER_2_MAN": 9,
+          "PREVENT": 2
+        }
+      },
+      "NYJ": {
+        "all": {
+          "plays": 385,
+          "man": 136,
+          "man_rate": 0.3532,
+          "interval_95": [
+            0.3072,
+            0.4022
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 3,
+            "man": 3,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.4385,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 5,
+            "man": 1,
+            "man_rate": 0.2,
+            "interval_95": [
+              0.0362,
+              0.6245
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 116,
+            "man": 27,
+            "man_rate": 0.2328,
+            "interval_95": [
+              0.1652,
+              0.3175
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 14,
+            "man": 7,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.268,
+              0.732
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 37,
+            "man": 13,
+            "man_rate": 0.3514,
+            "interval_95": [
+              0.2183,
+              0.5124
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 79,
+            "man": 16,
+            "man_rate": 0.2025,
+            "interval_95": [
+              0.1287,
+              0.304
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 26,
+            "man": 16,
+            "man_rate": 0.6154,
+            "interval_95": [
+              0.4253,
+              0.7757
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 53,
+            "man": 33,
+            "man_rate": 0.6226,
+            "interval_95": [
+              0.4881,
+              0.7406
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 52,
+            "man": 20,
+            "man_rate": 0.3846,
+            "interval_95": [
+              0.2647,
+              0.5204
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_1_MAN": 117,
+          "COVER_4_ZONE": 99,
+          "COVER_3_ZONE": 75,
+          "COVER_6_ZONE": 57,
+          "COVER_0_MAN": 16,
+          "COVER_2_ZONE": 13,
+          "PREVENT": 5,
+          "COVER_2_MAN": 3
+        }
+      },
+      "PHI": {
+        "all": {
+          "plays": 520,
+          "man": 184,
+          "man_rate": 0.3538,
+          "interval_95": [
+            0.314,
+            0.3959
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 9,
+            "man": 5,
+            "man_rate": 0.5556,
+            "interval_95": [
+              0.2666,
+              0.8112
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 179,
+            "man": 39,
+            "man_rate": 0.2179,
+            "interval_95": [
+              0.1637,
+              0.2839
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 18,
+            "man": 6,
+            "man_rate": 0.3333,
+            "interval_95": [
+              0.1628,
+              0.5625
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 51,
+            "man": 16,
+            "man_rate": 0.3137,
+            "interval_95": [
+              0.2033,
+              0.4503
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 95,
+            "man": 21,
+            "man_rate": 0.2211,
+            "interval_95": [
+              0.1494,
+              0.3144
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 42,
+            "man": 25,
+            "man_rate": 0.5952,
+            "interval_95": [
+              0.4449,
+              0.7296
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 60,
+            "man": 38,
+            "man_rate": 0.6333,
+            "interval_95": [
+              0.5068,
+              0.7438
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 64,
+            "man": 32,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.381,
+              0.619
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 161,
+          "COVER_1_MAN": 149,
+          "COVER_6_ZONE": 68,
+          "COVER_4_ZONE": 60,
+          "COVER_2_ZONE": 45,
+          "COVER_0_MAN": 26,
+          "COVER_2_MAN": 9,
+          "PREVENT": 2
+        }
+      },
+      "PIT": {
+        "all": {
+          "plays": 448,
+          "man": 153,
+          "man_rate": 0.3415,
+          "interval_95": [
+            0.2991,
+            0.3866
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 0,
+            "man": 0,
+            "man_rate": null,
+            "interval_95": null
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 2,
+            "man": 1,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.0945,
+              0.9055
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 152,
+            "man": 51,
+            "man_rate": 0.3355,
+            "interval_95": [
+              0.2653,
+              0.4138
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 4,
+            "man": 2,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.15,
+              0.85
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 53,
+            "man": 16,
+            "man_rate": 0.3019,
+            "interval_95": [
+              0.1952,
+              0.4354
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 91,
+            "man": 22,
+            "man_rate": 0.2418,
+            "interval_95": [
+              0.1654,
+              0.339
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 41,
+            "man": 21,
+            "man_rate": 0.5122,
+            "interval_95": [
+              0.3648,
+              0.6575
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 45,
+            "man": 25,
+            "man_rate": 0.5556,
+            "interval_95": [
+              0.4118,
+              0.6906
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 60,
+            "man": 15,
+            "man_rate": 0.25,
+            "interval_95": [
+              0.1578,
+              0.3723
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 165,
+          "COVER_1_MAN": 126,
+          "COVER_2_ZONE": 73,
+          "COVER_6_ZONE": 37,
+          "COVER_4_ZONE": 20,
+          "COVER_2_MAN": 15,
+          "COVER_0_MAN": 12
+        }
+      },
+      "SEA": {
+        "all": {
+          "plays": 448,
+          "man": 86,
+          "man_rate": 0.192,
+          "interval_95": [
+            0.1582,
+            0.231
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 2,
+            "man": 0,
+            "man_rate": 0.0,
+            "interval_95": [
+              0.0,
+              0.6576
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 148,
+            "man": 22,
+            "man_rate": 0.1486,
+            "interval_95": [
+              0.1003,
+              0.2148
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 10,
+            "man": 0,
+            "man_rate": 0.0,
+            "interval_95": [
+              -0.0,
+              0.2775
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 45,
+            "man": 6,
+            "man_rate": 0.1333,
+            "interval_95": [
+              0.0626,
+              0.2618
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 101,
+            "man": 12,
+            "man_rate": 0.1188,
+            "interval_95": [
+              0.0693,
+              0.1963
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 28,
+            "man": 15,
+            "man_rate": 0.5357,
+            "interval_95": [
+              0.3581,
+              0.7047
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 54,
+            "man": 16,
+            "man_rate": 0.2963,
+            "interval_95": [
+              0.1914,
+              0.4283
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 58,
+            "man": 13,
+            "man_rate": 0.2241,
+            "interval_95": [
+              0.1359,
+              0.3466
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 185,
+          "COVER_4_ZONE": 93,
+          "COVER_1_MAN": 77,
+          "COVER_6_ZONE": 62,
+          "COVER_2_ZONE": 22,
+          "COVER_0_MAN": 5,
+          "COVER_2_MAN": 4
+        }
+      },
+      "SF": {
+        "all": {
+          "plays": 481,
+          "man": 106,
+          "man_rate": 0.2204,
+          "interval_95": [
+            0.1856,
+            0.2596
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 4,
+            "man": 3,
+            "man_rate": 0.75,
+            "interval_95": [
+              0.3006,
+              0.9544
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 2,
+            "man": 1,
+            "man_rate": 0.5,
+            "interval_95": [
+              0.0945,
+              0.9055
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 194,
+            "man": 25,
+            "man_rate": 0.1289,
+            "interval_95": [
+              0.0888,
+              0.1833
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 20,
+            "man": 6,
+            "man_rate": 0.3,
+            "interval_95": [
+              0.1455,
+              0.519
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 34,
+            "man": 5,
+            "man_rate": 0.1471,
+            "interval_95": [
+              0.0645,
+              0.3013
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 97,
+            "man": 12,
+            "man_rate": 0.1237,
+            "interval_95": [
+              0.0722,
+              0.2039
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 29,
+            "man": 13,
+            "man_rate": 0.4483,
+            "interval_95": [
+              0.2841,
+              0.6245
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 50,
+            "man": 24,
+            "man_rate": 0.48,
+            "interval_95": [
+              0.348,
+              0.6149
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 51,
+            "man": 17,
+            "man_rate": 0.3333,
+            "interval_95": [
+              0.2197,
+              0.4703
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 168,
+          "COVER_4_ZONE": 129,
+          "COVER_1_MAN": 86,
+          "COVER_2_ZONE": 60,
+          "COVER_0_MAN": 19,
+          "COVER_6_ZONE": 18,
+          "COVER_2_MAN": 1
+        }
+      },
+      "TB": {
+        "all": {
+          "plays": 485,
+          "man": 133,
+          "man_rate": 0.2742,
+          "interval_95": [
+            0.2364,
+            0.3156
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 2,
+            "man": 2,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.3424,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 5,
+            "man": 2,
+            "man_rate": 0.4,
+            "interval_95": [
+              0.1176,
+              0.7693
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 181,
+            "man": 51,
+            "man_rate": 0.2818,
+            "interval_95": [
+              0.2213,
+              0.3513
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 19,
+            "man": 6,
+            "man_rate": 0.3158,
+            "interval_95": [
+              0.1536,
+              0.5399
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 37,
+            "man": 9,
+            "man_rate": 0.2432,
+            "interval_95": [
+              0.1336,
+              0.4012
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 98,
+            "man": 17,
+            "man_rate": 0.1735,
+            "interval_95": [
+              0.1112,
+              0.2604
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 21,
+            "man": 14,
+            "man_rate": 0.6667,
+            "interval_95": [
+              0.4537,
+              0.8281
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 54,
+            "man": 22,
+            "man_rate": 0.4074,
+            "interval_95": [
+              0.2868,
+              0.5403
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 68,
+            "man": 10,
+            "man_rate": 0.1471,
+            "interval_95": [
+              0.0819,
+              0.25
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 173,
+          "COVER_1_MAN": 92,
+          "COVER_4_ZONE": 83,
+          "COVER_2_ZONE": 70,
+          "COVER_2_MAN": 22,
+          "COVER_6_ZONE": 22,
+          "COVER_0_MAN": 19,
+          "PREVENT": 4
+        }
+      },
+      "TEN": {
+        "all": {
+          "plays": 427,
+          "man": 121,
+          "man_rate": 0.2834,
+          "interval_95": [
+            0.2427,
+            0.3279
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 5,
+            "man": 3,
+            "man_rate": 0.6,
+            "interval_95": [
+              0.2307,
+              0.8824
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 144,
+            "man": 16,
+            "man_rate": 0.1111,
+            "interval_95": [
+              0.0696,
+              0.1729
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 12,
+            "man": 2,
+            "man_rate": 0.1667,
+            "interval_95": [
+              0.047,
+              0.448
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 48,
+            "man": 16,
+            "man_rate": 0.3333,
+            "interval_95": [
+              0.2168,
+              0.4746
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 89,
+            "man": 21,
+            "man_rate": 0.236,
+            "interval_95": [
+              0.1598,
+              0.3339
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 32,
+            "man": 18,
+            "man_rate": 0.5625,
+            "interval_95": [
+              0.3933,
+              0.7183
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 49,
+            "man": 27,
+            "man_rate": 0.551,
+            "interval_95": [
+              0.4131,
+              0.6815
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 47,
+            "man": 17,
+            "man_rate": 0.3617,
+            "interval_95": [
+              0.2397,
+              0.5046
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_3_ZONE": 113,
+          "COVER_4_ZONE": 107,
+          "COVER_1_MAN": 96,
+          "COVER_2_ZONE": 69,
+          "COVER_0_MAN": 19,
+          "COVER_6_ZONE": 16,
+          "COVER_2_MAN": 6,
+          "PREVENT": 1
+        }
+      },
+      "WAS": {
+        "all": {
+          "plays": 460,
+          "man": 155,
+          "man_rate": 0.337,
+          "interval_95": [
+            0.2953,
+            0.3813
+          ]
+        },
+        "by_situation": [
+          {
+            "down": "1st",
+            "distance": "1-3",
+            "plays": 1,
+            "man": 1,
+            "man_rate": 1.0,
+            "interval_95": [
+              0.2065,
+              1.0
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "4-7",
+            "plays": 5,
+            "man": 3,
+            "man_rate": 0.6,
+            "interval_95": [
+              0.2307,
+              0.8824
+            ]
+          },
+          {
+            "down": "1st",
+            "distance": "8+",
+            "plays": 170,
+            "man": 33,
+            "man_rate": 0.1941,
+            "interval_95": [
+              0.1417,
+              0.2601
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "1-3",
+            "plays": 17,
+            "man": 7,
+            "man_rate": 0.4118,
+            "interval_95": [
+              0.2161,
+              0.6399
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "4-7",
+            "plays": 37,
+            "man": 10,
+            "man_rate": 0.2703,
+            "interval_95": [
+              0.154,
+              0.4298
+            ]
+          },
+          {
+            "down": "2nd",
+            "distance": "8+",
+            "plays": 90,
+            "man": 29,
+            "man_rate": 0.3222,
+            "interval_95": [
+              0.2347,
+              0.4243
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "1-3",
+            "plays": 30,
+            "man": 25,
+            "man_rate": 0.8333,
+            "interval_95": [
+              0.6644,
+              0.9266
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "4-7",
+            "plays": 58,
+            "man": 32,
+            "man_rate": 0.5517,
+            "interval_95": [
+              0.4245,
+              0.6725
+            ]
+          },
+          {
+            "down": "3rd/4th",
+            "distance": "8+",
+            "plays": 52,
+            "man": 15,
+            "man_rate": 0.2885,
+            "interval_95": [
+              0.1833,
+              0.4227
+            ]
+          }
+        ],
+        "coverage_types": {
+          "COVER_1_MAN": 113,
+          "COVER_4_ZONE": 104,
+          "COVER_3_ZONE": 86,
+          "COVER_2_ZONE": 74,
+          "COVER_6_ZONE": 40,
+          "COVER_0_MAN": 25,
+          "COVER_2_MAN": 17,
+          "PREVENT": 1
+        }
+      }
+    }
+  },
+  "predicted": {
+    "scope": "Locked test weeks 15-18 only: the model never trained on these plays.",
+    "model": "cov-post_1_5s-geometry_gbm-cov-geo-v3-weeks-1-12_13-14_15-18-v1",
+    "confidence_bar": 0.6,
+    "league": {
+      "plays": 3178,
+      "released_man_rate": 0.2747,
+      "predicted_man_rate": 0.2379,
+      "abstained": 186,
+      "agreement": 0.8883
+    },
+    "teams": {
+      "ARI": {
+        "plays": 79,
+        "released_man_rate": 0.1772,
+        "predicted_man_rate": 0.1266,
+        "abstained": 7,
+        "agreement": 0.8987
+      },
+      "ATL": {
+        "plays": 93,
+        "released_man_rate": 0.5161,
+        "predicted_man_rate": 0.5806,
+        "abstained": 8,
+        "agreement": 0.8065
+      },
+      "BAL": {
+        "plays": 112,
+        "released_man_rate": 0.2143,
+        "predicted_man_rate": 0.2143,
+        "abstained": 7,
+        "agreement": 0.9464
+      },
+      "BUF": {
+        "plays": 94,
+        "released_man_rate": 0.2021,
+        "predicted_man_rate": 0.1915,
+        "abstained": 2,
+        "agreement": 0.9468
+      },
+      "CAR": {
+        "plays": 80,
+        "released_man_rate": 0.175,
+        "predicted_man_rate": 0.175,
+        "abstained": 7,
+        "agreement": 0.85
+      },
+      "CHI": {
+        "plays": 118,
+        "released_man_rate": 0.1441,
+        "predicted_man_rate": 0.1017,
+        "abstained": 3,
+        "agreement": 0.9576
+      },
+      "CIN": {
+        "plays": 94,
+        "released_man_rate": 0.3298,
+        "predicted_man_rate": 0.2872,
+        "abstained": 5,
+        "agreement": 0.8936
+      },
+      "CLE": {
+        "plays": 115,
+        "released_man_rate": 0.313,
+        "predicted_man_rate": 0.2783,
+        "abstained": 7,
+        "agreement": 0.9304
+      },
+      "DAL": {
+        "plays": 84,
+        "released_man_rate": 0.3333,
+        "predicted_man_rate": 0.2143,
+        "abstained": 8,
+        "agreement": 0.8095
+      },
+      "DEN": {
+        "plays": 112,
+        "released_man_rate": 0.4107,
+        "predicted_man_rate": 0.2679,
+        "abstained": 10,
+        "agreement": 0.8571
+      },
+      "DET": {
+        "plays": 118,
+        "released_man_rate": 0.339,
+        "predicted_man_rate": 0.2797,
+        "abstained": 3,
+        "agreement": 0.9407
+      },
+      "GB": {
+        "plays": 91,
+        "released_man_rate": 0.2857,
+        "predicted_man_rate": 0.3187,
+        "abstained": 5,
+        "agreement": 0.8571
+      },
+      "HOU": {
+        "plays": 86,
+        "released_man_rate": 0.1279,
+        "predicted_man_rate": 0.1163,
+        "abstained": 2,
+        "agreement": 0.9651
+      },
+      "IND": {
+        "plays": 105,
+        "released_man_rate": 0.1333,
+        "predicted_man_rate": 0.0857,
+        "abstained": 4,
+        "agreement": 0.8762
+      },
+      "JAX": {
+        "plays": 88,
+        "released_man_rate": 0.125,
+        "predicted_man_rate": 0.1818,
+        "abstained": 6,
+        "agreement": 0.8977
+      },
+      "KC": {
+        "plays": 98,
+        "released_man_rate": 0.3163,
+        "predicted_man_rate": 0.3367,
+        "abstained": 6,
+        "agreement": 0.8776
+      },
+      "LA": {
+        "plays": 120,
+        "released_man_rate": 0.2083,
+        "predicted_man_rate": 0.1583,
+        "abstained": 6,
+        "agreement": 0.9
+      },
+      "LAC": {
+        "plays": 90,
+        "released_man_rate": 0.2778,
+        "predicted_man_rate": 0.2111,
+        "abstained": 4,
+        "agreement": 0.8222
+      },
+      "LV": {
+        "plays": 93,
+        "released_man_rate": 0.2151,
+        "predicted_man_rate": 0.129,
+        "abstained": 3,
+        "agreement": 0.871
+      },
+      "MIA": {
+        "plays": 103,
+        "released_man_rate": 0.3398,
+        "predicted_man_rate": 0.3107,
+        "abstained": 4,
+        "agreement": 0.932
+      },
+      "MIN": {
+        "plays": 114,
+        "released_man_rate": 0.2281,
+        "predicted_man_rate": 0.2807,
+        "abstained": 9,
+        "agreement": 0.8596
+      },
+      "NE": {
+        "plays": 86,
+        "released_man_rate": 0.4186,
+        "predicted_man_rate": 0.2674,
+        "abstained": 10,
+        "agreement": 0.7558
+      },
+      "NO": {
+        "plays": 114,
+        "released_man_rate": 0.3158,
+        "predicted_man_rate": 0.2368,
+        "abstained": 9,
+        "agreement": 0.8509
+      },
+      "NYG": {
+        "plays": 107,
+        "released_man_rate": 0.486,
+        "predicted_man_rate": 0.3832,
+        "abstained": 10,
+        "agreement": 0.8598
+      },
+      "NYJ": {
+        "plays": 87,
+        "released_man_rate": 0.3908,
+        "predicted_man_rate": 0.2989,
+        "abstained": 10,
+        "agreement": 0.8161
+      },
+      "PHI": {
+        "plays": 98,
+        "released_man_rate": 0.3367,
+        "predicted_man_rate": 0.2755,
+        "abstained": 2,
+        "agreement": 0.9388
+      },
+      "PIT": {
+        "plays": 104,
+        "released_man_rate": 0.2308,
+        "predicted_man_rate": 0.1731,
+        "abstained": 2,
+        "agreement": 0.9231
+      },
+      "SEA": {
+        "plays": 75,
+        "released_man_rate": 0.1733,
+        "predicted_man_rate": 0.1867,
+        "abstained": 4,
+        "agreement": 0.88
+      },
+      "SF": {
+        "plays": 92,
+        "released_man_rate": 0.2391,
+        "predicted_man_rate": 0.2391,
+        "abstained": 1,
+        "agreement": 0.913
+      },
+      "TB": {
+        "plays": 108,
+        "released_man_rate": 0.213,
+        "predicted_man_rate": 0.25,
+        "abstained": 7,
+        "agreement": 0.9074
+      },
+      "TEN": {
+        "plays": 109,
+        "released_man_rate": 0.2661,
+        "predicted_man_rate": 0.1835,
+        "abstained": 7,
+        "agreement": 0.8991
+      },
+      "WAS": {
+        "plays": 111,
+        "released_man_rate": 0.2703,
+        "predicted_man_rate": 0.2523,
+        "abstained": 8,
+        "agreement": 0.9099
+      }
+    }
+  }
+}
