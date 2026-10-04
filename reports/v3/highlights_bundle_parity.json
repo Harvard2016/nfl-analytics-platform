@@ -1,0 +1,141 @@
+{
+  "version": "highlights-h3-bundle-v3",
+  "created_at_utc": "2026-10-04T22:46:25+00:00",
+  "parity_tolerance": 0.001,
+  "feature_parity_max_abs_diff": {
+    "vid_clip": 2.2737367544323206e-13,
+    "vid_slowfast": 3.725290298461914e-09,
+    "aud_pann": 1.8189894035458565e-12
+  },
+  "feature_parity": true,
+  "bundle_written": true,
+  "score_parity_max_abs_diff": 5.960464477539063e-08,
+  "score_parity_by_game": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0,
+    "6": 5.960464477539063e-08,
+    "7": 0.0,
+    "8": 0.0,
+    "9": 0.0,
+    "10": 0.0,
+    "11": 0.0,
+    "12": 0.0,
+    "13": 0.0,
+    "14": 0.0,
+    "15": 0.0,
+    "16": 0.0,
+    "17": 0.0,
+    "18": 0.0,
+    "19": 0.0,
+    "20": 0.0,
+    "21": 0.0,
+    "22": 0.0,
+    "23": 0.0,
+    "24": 0.0,
+    "25": 0.0,
+    "26": 0.0,
+    "27": 0.0,
+    "28": 0.0,
+    "29": 0.0,
+    "30": 0.0,
+    "31": 0.0,
+    "32": 0.0,
+    "33": 0.0,
+    "34": 0.0,
+    "35": 0.0,
+    "36": 0.0,
+    "37": 0.0,
+    "38": 0.0,
+    "39": 0.0,
+    "40": 0.0
+  },
+  "chunked_inference_max_abs_diff": 3.814697265625e-06,
+  "manifest": {
+    "version": "highlights-h3-bundle-v3",
+    "created_at_utc": "2026-10-04T22:46:31+00:00",
+    "task": "ranking agreement with editorial highlight selection (not event detection, not a probability)",
+    "architecture": {
+      "class": "gridiron_lens.highlights.models.TemporalFusion",
+      "hidden": 128,
+      "blocks": 3,
+      "kernel": 5,
+      "projection": 64,
+      "receptive_field_clips": 13,
+      "context": "symmetric: uses 6 clips (12 s) on each side; offline analysis, not live detection"
+    },
+    "streams": [
+      "vid_clip",
+      "vid_slowfast",
+      "aud_pann",
+      "loudness"
+    ],
+    "stream_dims_after_transform": {
+      "vid_clip": 64,
+      "vid_slowfast": 64,
+      "aud_pann": 64,
+      "loudness": 3
+    },
+    "extractors": {
+      "vid_clip": {
+        "dim": 512,
+        "source": "released SVHighlights feature files (HERO_Video_Feature_Extractor CLIP stream)",
+        "bundled": false
+      },
+      "vid_slowfast": {
+        "dim": 2304,
+        "source": "released SVHighlights feature files (HERO_Video_Feature_Extractor SlowFast stream)",
+        "bundled": false
+      },
+      "aud_pann": {
+        "dim": 2048,
+        "source": "released SVHighlights feature files (PANN audio embedding)",
+        "bundled": false
+      },
+      "loudness": {
+        "dim": 1,
+        "source": "mean volume in dB per 2-second clip (ffmpeg volumedetect in the release; reproducible from audio)",
+        "bundled": true
+      }
+    },
+    "sampling": {
+      "clip_seconds": 2.0,
+      "time_origin": "clip i covers [2i, 2i+2) seconds from the trimmed start; source time = trim_start_s + clip time"
+    },
+    "transforms": {
+      "kind": "IncrementalPCA(64) then (x - mean) / std, fitted on the 28 training games only",
+      "file": "transforms.joblib",
+      "loudness": "three features from dB level: level minus 5-minute centred median, change from the previous clip, within-video z-score"
+    },
+    "mask_policy": "A missing stream is passed as zeros with its mask bit set to 0. The model was trained with 15% stream dropout. Benchmark figures apply only when all four streams are present; masked-stream results are reported separately.",
+    "libraries": {
+      "python": "3.13.9",
+      "torch": "2.14.1",
+      "sklearn": "1.9.1",
+      "numpy": "2.5.3"
+    },
+    "files": {
+      "transforms.joblib": {
+        "bytes": 2533372,
+        "sha256": "03053b40b1144646c45a8a171df9875c0fcff1d1ce509b1419716fb8d21bdc56"
+      },
+      "weights.pt": {
+        "bytes": 1379507,
+        "sha256": "71f45564db661a993da808fe9810956de3d5f1001ff096d08031e44c2b5a192b"
+      }
+    },
+    "source_weights_sha256": "083f833d8a1a2bf08be4e933e55a363646a96fdd61d2c838772653e3e535674b",
+    "training_split": "svh-football-split-v1 (28 training games)",
+    "parity": {
+      "features_max_abs_diff": {
+        "vid_clip": 2.2737367544323206e-13,
+        "vid_slowfast": 3.725290298461914e-09,
+        "aud_pann": 1.8189894035458565e-12
+      },
+      "scores_max_abs_diff_over_40_games": 5.960464477539063e-08,
+      "tolerance": 0.001
+    }
+  }
+}

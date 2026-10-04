@@ -21,8 +21,8 @@ OUT = config.REPORTS / "v3"
 
 def _sh(*a: str) -> str:
     try:
-        return subprocess.run(a, capture_output=True, text=True, cwd=config.ROOT, timeout=30).stdout.strip()
-    except Exception as e:                                                   # tool missing or timed out
+        return subprocess.run(a, capture_output=True, text=True, cwd=config.ROOT, timeout=30, check=False).stdout.strip()
+    except (OSError, subprocess.SubprocessError) as e:                       # tool missing or timed out
         return f"unavailable ({type(e).__name__})"
 
 
