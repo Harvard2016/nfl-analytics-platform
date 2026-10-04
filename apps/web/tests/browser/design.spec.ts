@@ -28,6 +28,7 @@ for (const width of [1440, 390]) {
       }
       if (name === "highlights") await expect(page.locator(".clip-evidence")).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
+      await page.locator("img").evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode().catch(() => {}))));
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth+1), path).toBe(true);
       await page.screenshot({path:`../../docs/screenshots/cinematic/${name}-${width}.jpg`,type:"jpeg",quality:85});
     }

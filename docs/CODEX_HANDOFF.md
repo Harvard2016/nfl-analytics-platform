@@ -106,13 +106,13 @@ General
 ## Deployments
 
 - Current production was deployed from `main` with the Vercel CLI (`npx vercel@latest deploy --prod` from the repo root; the project's root directory setting points the build at `apps/web`).
-- **GitHub-triggered deployments are not active yet.** `vercel git connect` failed because the Vercel GitHub App has not been given access to the repository. Owner action: open https://github.com/apps/vercel → Configure → the `Harvard2016` account → Repository access → add `nfl-analytics-platform`; then in the Vercel dashboard, project `nfl-analytics-platform` → Settings → Git → connect `Harvard2016/nfl-analytics-platform` (or run `npx vercel@latest git connect`). After that, a push to `main` deploys to production and a push to any other branch creates a preview deployment.
+- **GitHub-triggered deployments are active as of the cinematic review branch.** Vercel successfully built commit `b28753c` and posted the branch preview on PR #1. Pushes to branches create previews; production remains on main.
 - Preview and per-deployment URLs are behind Vercel Authentication (project Settings → Deployment Protection). The production domain is public.
 - GitHub Actions (`.github/workflows/ci.yml`) runs ruff, pytest, lint and build on every push.
 
 ## Unfinished
 
-- Vercel GitHub integration (above).
+- Real YouTube playback review on the protected Vercel preview.
 - Screen-reader (VoiceOver) pass and a machine contrast audit.
 - Subpages (evaluation, tendencies, performance, forecasts, experiments, review) inherit the new tokens and pass width and error checks but were not individually art-directed.
 - Minor: the "Line of scrimmage" label can overlap a player marker; player rows in the coverage explanation table are taller than the group rows.
