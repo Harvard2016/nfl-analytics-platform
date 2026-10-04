@@ -1,0 +1,370 @@
+{
+  "module": "highlights",
+  "version": "highlights-v3-experiments",
+  "created_at_utc": "2026-10-04T23:42:04+00:00",
+  "registered_in": "docs/experiments/highlights_v3.md",
+  "split_role": "28 training games in 4 grouped development folds, out-of-fold. Validation and test games were not scored.",
+  "epochs": 5,
+  "seed": 42,
+  "transforms": "PCA, scaling and text vocabulary fitted inside each fold",
+  "configurations": 14,
+  "rankers": {
+    "H-C control (H3, cross-entropy)": {
+      "mean_average_precision": 0.6507017996535537,
+      "by_fold": [
+        0.6937252079849172,
+        0.6144768071044616,
+        0.6622738324294921,
+        0.6323313510953436
+      ],
+      "strict_180s": {
+        "precision": 0.8193597289102907,
+        "recall_of_labelled_time": 0.19462250986808163,
+        "output_s": 179.85714285714286
+      }
+    },
+    "H-R ranking-aware": {
+      "mean_average_precision": 0.6604367738548618,
+      "by_fold": [
+        0.701429353350978,
+        0.6261771732324498,
+        0.675176923154562,
+        0.6389636456814569
+      ],
+      "strict_180s": {
+        "precision": 0.8346441947565543,
+        "recall_of_labelled_time": 0.1983059539565164,
+        "output_s": 179.71428571428572
+      },
+      "vs_H-C": {
+        "mean_difference": 0.009734974201308038,
+        "interval_95_over_games": [
+          0.006095639626485169,
+          0.013516426715837223
+        ],
+        "games": 28
+      }
+    },
+    "H-W positive weight 3, game-balanced": {
+      "mean_average_precision": 0.6534479993115806,
+      "by_fold": [
+        0.6961733865048471,
+        0.6219853562930359,
+        0.6628111319382387,
+        0.6328221225102008
+      ],
+      "strict_180s": {
+        "precision": 0.8274835027644015,
+        "recall_of_labelled_time": 0.19686969862839088,
+        "output_s": 179.78571428571428
+      },
+      "vs_H-C": {
+        "mean_difference": 0.0027461996580269332,
+        "interval_95_over_games": [
+          -0.0032749740233024246,
+          0.009151765938269439
+        ],
+        "games": 28
+      }
+    },
+    "H1 commentary words (v2 model)": {
+      "mean_average_precision": 0.4241314897396021,
+      "by_fold": [
+        0.4595662288007478,
+        0.3847931716781977,
+        0.4687291056546048,
+        0.383437452824858
+      ],
+      "strict_180s": {
+        "precision": 0.6491706795077581,
+        "recall_of_labelled_time": 0.15408858740718623,
+        "output_s": 179.57142857142858
+      },
+      "vs_H-C": {
+        "mean_difference": -0.22657030991395158,
+        "interval_95_over_games": [
+          -0.25233834030744046,
+          -0.20048049870585943
+        ],
+        "games": 28
+      }
+    },
+    "H-N negation-aware commentary": {
+      "mean_average_precision": 0.4224705846970726,
+      "by_fold": [
+        0.4591878924781816,
+        0.38095488554271795,
+        0.46759608525551005,
+        0.38214347551188055
+      ],
+      "strict_180s": {
+        "precision": 0.6436463349384699,
+        "recall_of_labelled_time": 0.15324662627455038,
+        "output_s": 179.78571428571428
+      },
+      "vs_H1": {
+        "mean_difference": -0.0016609050425295357,
+        "interval_95_over_games": [
+          -0.0032567346602990297,
+          2.120172724140887e-08
+        ],
+        "games": 28
+      }
+    },
+    "H-F learned fusion: H3 + commentary": {
+      "mean_average_precision": 0.6695623978206193,
+      "by_fold": [
+        0.7163463380236456,
+        0.629308852739842,
+        0.6876613225161554,
+        0.6449330780028345
+      ],
+      "strict_180s": {
+        "precision": 0.8323479579097556,
+        "recall_of_labelled_time": 0.19731961969306558,
+        "output_s": 179.78571428571428
+      },
+      "vs_H-C": {
+        "mean_difference": 0.01886059816706575,
+        "interval_95_over_games": [
+          0.012731495164237095,
+          0.02509705763229734
+        ],
+        "games": 28
+      }
+    },
+    "H-F learned fusion: H3 + negation-aware commentary": {
+      "mean_average_precision": 0.669293794081152,
+      "by_fold": [
+        0.7161505054169298,
+        0.6284516116071742,
+        0.6873055449608022,
+        0.6452675143397016
+      ],
+      "strict_180s": {
+        "precision": 0.8414303549135008,
+        "recall_of_labelled_time": 0.1996852477141043,
+        "output_s": 179.71428571428572
+      },
+      "vs_H-C": {
+        "mean_difference": 0.01859199442759831,
+        "interval_95_over_games": [
+          0.01266581485474772,
+          0.02464760694399364
+        ],
+        "games": 28
+      }
+    },
+    "H3 + commentary, equal-weight sum (v2 rule)": {
+      "mean_average_precision": 0.6018757781432248,
+      "by_fold": [
+        0.6487884285038311,
+        0.5616878929624375,
+        0.633709358272504,
+        0.563317432834126
+      ],
+      "strict_180s": {
+        "precision": 0.7819957196361692,
+        "recall_of_labelled_time": 0.1857388371492759,
+        "output_s": 179.57142857142858
+      },
+      "vs_H-C": {
+        "mean_difference": -0.04882602151032903,
+        "interval_95_over_games": [
+          -0.06580511058420187,
+          -0.03129236345432812
+        ],
+        "games": 28
+      }
+    }
+  },
+  "segment_decoding_at_strict_180s": {
+    "shots / peak": {
+      "recall_of_labelled_time": 0.13929898114184674,
+      "precision": 0.588095238095238,
+      "output_s": 180.0,
+      "segments": 10.714285714285714,
+      "all_within_budget": true,
+      "segments_half_covered_share": 0.1254094525035096
+    },
+    "shots / mean": {
+      "recall_of_labelled_time": 0.15529330912349779,
+      "precision": 0.6551721062957017,
+      "output_s": 179.78571428571428,
+      "segments": 17.25,
+      "all_within_budget": true,
+      "segments_half_covered_share": 0.12634534394010294
+    },
+    "shots / q75": {
+      "recall_of_labelled_time": 0.14748848717485302,
+      "precision": 0.6205858747993581,
+      "output_s": 179.78571428571428,
+      "segments": 11.285714285714286,
+      "all_within_budget": true,
+      "segments_half_covered_share": 0.12868507253158634
+    },
+    "sentences / peak": {
+      "recall_of_labelled_time": 0.12802584224304484,
+      "precision": 0.5415195291599786,
+      "output_s": 179.85714285714286,
+      "segments": 9.607142857142858,
+      "all_within_budget": true,
+      "segments_half_covered_share": 0.11324286382779597
+    },
+    "sentences / mean": {
+      "recall_of_labelled_time": 0.15041711191451212,
+      "precision": 0.6344569288389513,
+      "output_s": 179.57142857142858,
+      "segments": 13.285714285714286,
+      "all_within_budget": true,
+      "segments_half_covered_share": 0.1254094525035096
+    },
+    "sentences / q75": {
+      "recall_of_labelled_time": 0.14034309488117555,
+      "precision": 0.592513822008204,
+      "output_s": 179.5,
+      "segments": 10.714285714285714,
+      "all_within_budget": true,
+      "segments_half_covered_share": 0.12400561534861956
+    },
+    "block decoder (v3 default)": {
+      "recall_of_labelled_time": 0.19462250986808163,
+      "precision": 0.8193597289102907,
+      "output_s": 179.85714285714286,
+      "segments": 17.571428571428573,
+      "all_within_budget": true,
+      "segments_half_covered_share": 0.19606925596630792
+    }
+  },
+  "shot_time_base": "shot frames converted with the frame rate implied by the last shot frame and the labelled duration",
+  "lexicon": {
+    "negation": [
+      "can't",
+      "couldn't",
+      "didn't",
+      "doesn't",
+      "incomplete",
+      "isn't",
+      "never",
+      "no",
+      "not",
+      "short",
+      "wasn't",
+      "won't"
+    ],
+    "reversal": [
+      "back",
+      "challenge",
+      "flag",
+      "holding",
+      "nullified",
+      "offside",
+      "overturned",
+      "penalty",
+      "reversed",
+      "review",
+      "ruled"
+    ],
+    "hypothetical": [
+      "almost",
+      "could",
+      "if",
+      "nearly",
+      "should",
+      "would"
+    ],
+    "replay": [
+      "again",
+      "angle",
+      "look",
+      "replay",
+      "see",
+      "watch"
+    ],
+    "past": [
+      "ago",
+      "career",
+      "earlier",
+      "last",
+      "season",
+      "week",
+      "year"
+    ]
+  },
+  "lexicon_probes": {
+    "plain call": {
+      "text": "touchdown",
+      "negation": 0,
+      "reversal": 0,
+      "hypothetical": 0,
+      "replay": 0,
+      "past": 0
+    },
+    "negated": {
+      "text": "no touchdown",
+      "negation": 1,
+      "reversal": 0,
+      "hypothetical": 0,
+      "replay": 0,
+      "past": 0
+    },
+    "ruled out": {
+      "text": "it is not a touchdown the pass is incomplete",
+      "negation": 2,
+      "reversal": 0,
+      "hypothetical": 0,
+      "replay": 0,
+      "past": 0
+    },
+    "historical": {
+      "text": "he had a touchdown last week against dallas",
+      "negation": 0,
+      "reversal": 0,
+      "hypothetical": 0,
+      "replay": 0,
+      "past": 2
+    },
+    "hypothetical": {
+      "text": "that would have been a touchdown if he catches it",
+      "negation": 0,
+      "reversal": 0,
+      "hypothetical": 2,
+      "replay": 0,
+      "past": 0
+    },
+    "replay talk": {
+      "text": "let's take another look at that touchdown on the replay",
+      "negation": 0,
+      "reversal": 0,
+      "hypothetical": 0,
+      "replay": 2,
+      "past": 0
+    },
+    "interception call": {
+      "text": "intercepted",
+      "negation": 0,
+      "reversal": 0,
+      "hypothetical": 0,
+      "replay": 0,
+      "past": 0
+    },
+    "routine": {
+      "text": "second down and seven",
+      "negation": 0,
+      "reversal": 0,
+      "hypothetical": 0,
+      "replay": 0,
+      "past": 0
+    }
+  },
+  "probe_note": "Probes show which lexicon counters fire on short phrases. They check mechanics; they are not an event evaluation.",
+  "peak_memory_mb": 909.7,
+  "decision": {
+    "rankers_passing_rule": [
+      "H-R ranking-aware",
+      "H-F learned fusion: H3 + commentary",
+      "H-F learned fusion: H3 + negation-aware commentary"
+    ],
+    "statement": "A ranker met the rule on development folds. It must be retrained on all training games as a new version before any validation or benchmark comparison."
+  }
+}

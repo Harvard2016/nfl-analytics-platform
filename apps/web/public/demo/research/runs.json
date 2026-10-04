@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T23:21:11+00:00",
+  "generated_at": "2026-10-04T23:44:30+00:00",
   "runs": [
     {
       "module": "coverage",
@@ -1546,6 +1546,174 @@
           "sha256": "e8f2599fc331dd5ee735876d4cd38b72d0a7a36e5378abb967d10db2fd8d1f0e"
         }
       },
+      "latest": true
+    },
+    {
+      "module": "highlights",
+      "run_id": "highlights-v3-candidates-20261004T234412",
+      "name": "v3-candidates",
+      "results_version": "v3",
+      "started_at": "2026-10-04T23:44:12+00:00",
+      "finished_at": "2026-10-04T23:44:12+00:00",
+      "git_commit": "aa617b40fc51628b9ea6573996c53b49326a9601+uncommitted",
+      "seed": 42,
+      "environment": {
+        "python": "3.13.9",
+        "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "device": "cpu",
+        "packages": {
+          "numpy": "2.5.3",
+          "polars": "1.44.2",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1",
+          "pandas": "3.0.6",
+          "duckdb": "1.5.6",
+          "pyarrow": "25.0.1"
+        }
+      },
+      "target": "editorial highlight selection (ranking)",
+      "population": "6 validation and 6 test games",
+      "exclusions": null,
+      "input_cutoff": null,
+      "split": {
+        "validation": "6 games used for H3 early stopping in v2: development data, optimistic for H3 itself",
+        "test": "6 games examined in v2: a previously examined benchmark, not a fresh test"
+      },
+      "calibration": null,
+      "hyperparameters": null,
+      "metrics": {
+        "H3 (shipped, v2)": {
+          "validation": 0.6879140201155657,
+          "test": 0.6192678665389459
+        },
+        "H3-R ranking-aware (v3 candidate)": {
+          "validation": 0.6786535148699683,
+          "test": 0.6170960622757097
+        },
+        "H3 + commentary, learned fusion (v3 candidate)": {
+          "validation": 0.6895283137558814,
+          "test": 0.6387673215106499
+        }
+      },
+      "ablations": {},
+      "outputs": {
+        "report": {
+          "path": "reports/v3/highlights_candidates_v3.json",
+          "sha256": "b8085fc5018378c39f9b6e95d4fb988196dae38b3f49ecc873aea8aafa4d99e6"
+        }
+      },
+      "notes": [],
+      "train_seconds": 0.1,
+      "peak_memory_mb": 520.1,
+      "evidence_kinds": {
+        "inputs": "observed",
+        "labels": "released",
+        "outputs": "model prediction",
+        "explanations": "model-generated interpretation",
+        "summaries": "statistical association"
+      },
+      "data": {},
+      "latest": true
+    },
+    {
+      "module": "highlights",
+      "run_id": "highlights-v3-experiments-20261004T234204",
+      "name": "v3-experiments",
+      "results_version": "v3",
+      "started_at": "2026-10-04T23:42:04+00:00",
+      "finished_at": "2026-10-04T23:42:04+00:00",
+      "git_commit": "aa617b40fc51628b9ea6573996c53b49326a9601+uncommitted",
+      "seed": 42,
+      "environment": {
+        "python": "3.13.9",
+        "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "device": "cpu",
+        "packages": {
+          "numpy": "2.5.3",
+          "polars": "1.44.2",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1",
+          "pandas": "3.0.6",
+          "duckdb": "1.5.6",
+          "pyarrow": "25.0.1"
+        }
+      },
+      "target": "editorial highlight selection (ranking)",
+      "population": "28 training games, grouped 4-fold",
+      "exclusions": null,
+      "input_cutoff": "offline: context on both sides of a clip",
+      "split": {
+        "folds": [
+          [
+            1,
+            5,
+            10,
+            14,
+            18,
+            25,
+            33
+          ],
+          [
+            2,
+            6,
+            11,
+            15,
+            19,
+            28,
+            34
+          ],
+          [
+            3,
+            7,
+            12,
+            16,
+            20,
+            29,
+            37
+          ],
+          [
+            4,
+            9,
+            13,
+            17,
+            22,
+            32,
+            38
+          ]
+        ]
+      },
+      "calibration": null,
+      "hyperparameters": null,
+      "metrics": {
+        "H-C control (H3, cross-entropy)": 0.6507017996535537,
+        "H-R ranking-aware": 0.6604367738548618,
+        "H-W positive weight 3, game-balanced": 0.6534479993115806,
+        "H1 commentary words (v2 model)": 0.4241314897396021,
+        "H-N negation-aware commentary": 0.4224705846970726,
+        "H-F learned fusion: H3 + commentary": 0.6695623978206193,
+        "H-F learned fusion: H3 + negation-aware commentary": 0.669293794081152,
+        "H3 + commentary, equal-weight sum (v2 rule)": 0.6018757781432248
+      },
+      "ablations": {},
+      "outputs": {
+        "report": {
+          "path": "reports/v3/highlights_experiments_v3.json",
+          "sha256": "8869f64e4bbddb644d588d8f039328a09a3952bb13ca668c888de645b036651f"
+        }
+      },
+      "notes": [],
+      "train_seconds": 0.4,
+      "peak_memory_mb": 909.7,
+      "evidence_kinds": {
+        "inputs": "observed",
+        "labels": "released",
+        "outputs": "model prediction",
+        "explanations": "model-generated interpretation",
+        "summaries": "statistical association"
+      },
+      "data": {},
       "latest": true
     },
     {

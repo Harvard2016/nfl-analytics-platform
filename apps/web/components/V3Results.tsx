@@ -10,6 +10,7 @@ type Cov = { split_role: string; models: Record<string, Row>; decision: { statem
 type HlEval = { oracle: { three_minutes: number }; test: { v1_selector: Record<string, Record<string, { output_s: number; precision: number; recall_of_labelled_time: number; max_output_s: number }>>;
   strict_decoder: Record<string, Record<string, { output_s: number; precision: number; recall_of_labelled_time: number; max_output_s: number; recall_interval_95_over_games: [number, number] }>> }; split_roles: Record<string, string> };
 type HlExp = { split_role: string; rankers: Record<string, { mean_average_precision: number } & Record<string, unknown>>; segment_decoding_at_strict_180s: Record<string, { recall_of_labelled_time: number; precision: number }>; decision: { statement: string } };
+type HlCand = { results: Record<string, Record<"validation" | "test", { mean_average_precision: number; games_better?: number; vs_shipped?: { interval_95_over_games: [number, number] } }>>; decision: { statement: string } };
 type Pg = { nested_development: { seasons: [number, number]; "v3 nested": { games: number; log_loss: number; vs_elo: { mean_log_loss_difference: number; interval_95: [number, number] }; vs_v2_elo_offset: { mean_log_loss_difference: number; interval_95: [number, number] } };
   controls: Record<string, { log_loss: number }> }; decision: { statement: string }; configurations_scored: number; frozen_v3_choice: { key: string };
   previously_examined_benchmark: { "v3 final choice": { log_loss: number; vs_elo: { mean_log_loss_difference: number; interval_95: [number, number] } } } };
@@ -25,11 +26,13 @@ export default function V3Results() {
   const [he, setHe] = useState<HlEval | null>(null);
   const [hx, setHx] = useState<HlExp | null>(null);
   const [pg, setPg] = useState<Pg | null>(null);
+  const [hc, setHc] = useState<HlCand | null>(null);
   useEffect(() => {
     get<Cov>("/demo/real/coverage/experiments_v3.json").then(setCov);
     get<HlEval>("/demo/highlights/eval_v3.json").then(setHe);
     get<HlExp>("/demo/highlights/experiments_v3.json").then(setHx);
     get<Pg>("/demo/pregame/experiments_v3.json").then(setPg);
+    get<HlCand>("/demo/highlights/candidates_v3.json").then(setHc);
   }, []);
   const H3 = "H3 temporal fusion";
   return (
@@ -76,6 +79,15 @@ export default function V3Results() {
                 <tbody>{Object.entries(hx.rankers).map(([k, v]) => <tr key={k} className="border-t border-line"><td className="py-1.5 pr-3">{k}</td><td>{v.mean_average_precision.toFixed(4)}</td></tr>)}</tbody></table></div>
               <p className="num mt-2 text-xs text-muted">Segment-aware decoding, recall at a strict 180 s: {Object.entries(hx.segment_decoding_at_strict_180s).map(([k, v]) => `${k} ${pct(v.recall_of_labelled_time)}`).join(" · ")}</p>
               <p className="mt-2 border-l-2 border-line pl-3 text-sm">{hx.decision.statement}</p>
+              {hc && (<>
+                <div className="overflow-x-auto"><table className="num mt-4 w-full min-w-[400px] text-sm">
+                  <thead><tr><th className={TH}>Rebuilt on all training games</th><th className={TH}>Validation games</th><th className={TH}>Examined test games</th></tr></thead>
+                  <tbody>{Object.entries(hc.results).map(([k, v]) => <tr key={k} className="border-t border-line align-top"><td className="py-1.5 pr-3">{k}</td>
+                    <td>{v.validation.mean_average_precision.toFixed(4)}{v.validation.vs_shipped ? ` (${iv(v.validation.vs_shipped.interval_95_over_games, 3)})` : ""}</td>
+                    <td>{v.test.mean_average_precision.toFixed(4)}{v.test.vs_shipped ? ` (${iv(v.test.vs_shipped.interval_95_over_games, 3)})` : ""}</td></tr>)}</tbody></table></div>
+                <p className="mt-1 text-xs text-muted">Mean average precision; brackets are the range of the difference from the shipped ranker over 6 games. Both sets of games were used before.</p>
+                <p className="mt-2 border-l-2 border-line pl-3 text-sm">{hc.decision.statement}</p>
+              </>)}
             </>) : <p className="mt-2 text-sm text-muted">Highlights round-three experiments not exported yet.</p>}
           </div>
 

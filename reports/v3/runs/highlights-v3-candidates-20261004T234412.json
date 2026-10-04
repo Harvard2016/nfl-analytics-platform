@@ -1,0 +1,71 @@
+{
+  "module": "highlights",
+  "run_id": "highlights-v3-candidates-20261004T234412",
+  "name": "v3-candidates",
+  "results_version": "v3",
+  "started_at": "2026-10-04T23:44:12+00:00",
+  "git_commit": "aa617b40fc51628b9ea6573996c53b49326a9601+uncommitted",
+  "seed": 42,
+  "config": {},
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {
+    "validation": "6 games used for H3 early stopping in v2: development data, optimistic for H3 itself",
+    "test": "6 games examined in v2: a previously examined benchmark, not a fresh test"
+  },
+  "target": "editorial highlight selection (ranking)",
+  "population": "6 validation and 6 test games",
+  "exclusions": null,
+  "input_cutoff": null,
+  "features": null,
+  "preprocessing": null,
+  "calibration": null,
+  "hyperparameters": null,
+  "metrics": {
+    "H3 (shipped, v2)": {
+      "validation": 0.6879140201155657,
+      "test": 0.6192678665389459
+    },
+    "H3-R ranking-aware (v3 candidate)": {
+      "validation": 0.6786535148699683,
+      "test": 0.6170960622757097
+    },
+    "H3 + commentary, learned fusion (v3 candidate)": {
+      "validation": 0.6895283137558814,
+      "test": 0.6387673215106499
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "report": {
+      "path": "reports/v3/highlights_candidates_v3.json",
+      "sha256": "b8085fc5018378c39f9b6e95d4fb988196dae38b3f49ecc873aea8aafa4d99e6"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T23:44:12+00:00",
+  "train_seconds": 0.1,
+  "peak_memory_mb": 520.1
+}
