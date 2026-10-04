@@ -50,7 +50,14 @@ export default function ModuleTour({ module, ready = true }: { module: TourModul
   const current = step === null ? null : steps[step];
   return <>
     <button ref={trigger} type="button" className="tour-trigger" onClick={() => setStep(0)} disabled={!ready}>Page tour <span aria-hidden="true">↗</span></button>
-    <dialog ref={dialog} className="tour-dialog" aria-labelledby={titleId} aria-describedby={bodyId} onCancel={e => { e.preventDefault(); close(); }}>
+    <dialog ref={dialog} className="tour-dialog" aria-labelledby={titleId} aria-describedby={bodyId} onKeyDown={e => {
+      e.stopPropagation();
+      if (e.key !== "Tab") return;
+      const buttons = Array.from(e.currentTarget.querySelectorAll<HTMLButtonElement>("button:not(:disabled)"));
+      const first = buttons[0], last = buttons.at(-1);
+      if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === heading.current)) { e.preventDefault(); last?.focus(); }
+    }} onCancel={e => { e.preventDefault(); close(); }}>
       {current && <>
         {rect && rect.height > 0 && <div className="tour-spotlight" aria-hidden="true" style={rect} />}
         <section className="tour-card">

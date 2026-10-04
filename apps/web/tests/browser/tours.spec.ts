@@ -36,10 +36,22 @@ for (const width of [1440, 390]) for (const moduleName of ["coverage", "predicti
   });
 }
 
-test("skipping one moduleName does not skip the others",async({page})=>{
+test("skipping one module does not skip the others",async({page})=>{
   await page.goto("/predictions");
   await page.getByRole("button",{name:"Skip tour ×"}).click();
   await page.goto("/highlights");
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(page.locator(".tour-count")).toHaveText("1 / 5");
+});
+
+test("coverage shortcuts do not move the field while the tour is open",async({page})=>{
+  await page.goto("/coverage");
+  const dialog=page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  const slider=page.getByLabel("Playback position (does not change the model input)");
+  const initial=await slider.inputValue();
+  await dialog.getByRole("heading").focus();
+  await page.keyboard.press("ArrowRight");
+  await page.keyboard.press("Space");
+  await expect(slider).toHaveValue(initial);
 });
