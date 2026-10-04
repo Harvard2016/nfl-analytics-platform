@@ -39,4 +39,4 @@ def test_masked_stream_is_explicit_and_wrong_extractor_is_rejected():
     assert masked.shape == cached.shape and np.isfinite(masked).all()
     assert np.abs(masked - B.score_raw(model, tr, raw, P.load_volume()[v])).max() > 1e-3                     # masking changes the score: never silently equal to full H3
     with pytest.raises(ValueError):
-        B.reduce(tr["vid_clip"], np.zeros((4, 512), np.float32))                                             # a different CLIP width must not pass
+        B.reduce(tr["vid_clip"], np.zeros((4, 768), np.float32))                                             # a different CLIP width (this bundle expects 512) must not pass
