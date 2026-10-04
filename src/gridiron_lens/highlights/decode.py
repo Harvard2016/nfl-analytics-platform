@@ -132,7 +132,7 @@ def discovery_curve(y: np.ndarray, score: np.ndarray, shares=(0.02, 0.05, 0.10, 
     order = np.lexsort((np.arange(len(s)), -s))
     out = []
     for sh in shares:
-        k = max(1, int(round(sh * len(s))))
+        k = max(1, round(sh * len(s)))
         sel = np.zeros(len(s), bool)
         sel[order[:k]] = True
         out.append({"share_of_broadcast": sh, "seconds": k * CLIP_S, "precision": float((sel & (y == 1)).sum() / k), "recall_of_labelled_time": float((sel & (y == 1)).sum() / max(1, y.sum())),

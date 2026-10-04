@@ -37,7 +37,7 @@ MAN = ["COVER_0_MAN", "COVER_1_MAN", "COVER_2_MAN"]
 ZONE = ["COVER_2_ZONE", "COVER_3_ZONE", "COVER_4_ZONE", "COVER_6_ZONE"]
 CLASSES = MAN + ZONE
 NOISE = {"pos_sd": 0.15, "vel_sd": 0.3, "frame_hold": 0.10, "drop_def": 0.10, "drop_rec": 0.05, "min_def": 3, "min_rec": 1}
-MAX_EPOCHS, PATIENCE, BATCH = int(os.environ.get("GL_MAX_EPOCHS", 50)), 8, 64
+MAX_EPOCHS, PATIENCE, BATCH = int(os.environ.get("GL_MAX_EPOCHS", "50")), 8, 64
 
 
 def sig(x):
