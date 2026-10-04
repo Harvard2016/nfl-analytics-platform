@@ -41,7 +41,17 @@ export type Forecast = {
   explanation: { unit: string; elo_logit: number; intercept: number; terms: Term[] }; predicted_margin: number;
   outcome_attached: { home_score: number; away_score: number; home_won: boolean; tie: boolean; attached_at_utc: string } | null;
 };
-export type Forecasts = { generated_at: string; note: string; records: Forecast[] };
+export type ForecastV3 = Forecast & {
+  protocol?: string; role?: "official" | "early preview" | "late" | "legacy (not scored)"; provenance?: string; schedule_status?: string; timing?: string; timing_reason?: string | null;
+  kickoff_utc?: string | null; cutoff_utc?: string | null; bundle_sha256?: string; pipeline_sha256?: string; training?: { through: string; games: number; cohort_sha256: string };
+  source_snapshot?: { snapshot_id: string; created_at_utc: string; content_sha256: string; historical_files: number; coverage: { schedule_last_completed_game: string; pbp_latest_game_date: string; pbp_latest_week: number } };
+};
+export type Forecasts = {
+  generated_at: string; note: string; records: ForecastV3[];
+  counts?: { records: number; official: number; early_preview: number; late: number; legacy_limited_provenance: number; official_with_outcome: number };
+  policy?: Record<string, string>;
+  leaderboard?: { season: number; games_scored: number; caution: string; models: Record<string, { log_loss: number; brier: number; accuracy: number }> | null };
+};
 
 export async function loadPregame<T>(name: string): Promise<T | null> {
   try {

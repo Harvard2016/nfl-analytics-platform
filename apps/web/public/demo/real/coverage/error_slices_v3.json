@@ -1,0 +1,606 @@
+{
+  "module": "coverage",
+  "version": "coverage-error-slices-v3",
+  "created_at_utc": "2026-10-04T23:12:33+00:00",
+  "predictions": "E0 control (v2 champion configuration, seed 42), out-of-fold on weeks 7-12, uncalibrated, lean at 0.5",
+  "split_role": "development (weeks 1-12 folds). Not the benchmark weeks.",
+  "plays": 4510,
+  "overall_by_cutoff": {
+    "at_snap": {
+      "plays": 4510,
+      "error_rate": 0.11042128603104213
+    },
+    "post_0_5s": {
+      "plays": 4510,
+      "error_rate": 0.08713968957871397
+    },
+    "post_1s": {
+      "plays": 4499,
+      "error_rate": 0.06490331184707712
+    },
+    "post_1_5s": {
+      "plays": 4425,
+      "error_rate": 0.0607909604519774
+    }
+  },
+  "note": "Slices with fewer than 30 plays are omitted. Slice fields describe the play or its outcome; none of them is a model input. Differences between slices are associations, not causes.",
+  "slices_at_last_available_cutoff": {
+    "released class": [
+      {
+        "slice": "Man",
+        "plays": 1335,
+        "error_rate": 0.11910112359550562,
+        "log_loss": 0.2626664091431722,
+        "man_share": 1.0,
+        "man_recall": 0.8808988764044944
+      },
+      {
+        "slice": "Zone",
+        "plays": 3175,
+        "error_rate": 0.03653543307086614,
+        "log_loss": 0.09701663411963153,
+        "man_share": 0.0,
+        "man_recall": null
+      }
+    ],
+    "released family": [
+      {
+        "slice": "COVER_2_MAN",
+        "plays": 61,
+        "error_rate": 0.19672131147540983,
+        "log_loss": 0.3958643060337334,
+        "man_share": 1.0,
+        "man_recall": 0.8032786885245902
+      },
+      {
+        "slice": "COVER_1_MAN",
+        "plays": 1080,
+        "error_rate": 0.12037037037037036,
+        "log_loss": 0.26753885236522584,
+        "man_share": 1.0,
+        "man_recall": 0.8796296296296297
+      },
+      {
+        "slice": "COVER_0_MAN",
+        "plays": 194,
+        "error_rate": 0.08762886597938144,
+        "log_loss": 0.1936596545548106,
+        "man_share": 1.0,
+        "man_recall": 0.9123711340206185
+      },
+      {
+        "slice": "COVER_3_ZONE",
+        "plays": 1412,
+        "error_rate": 0.05240793201133145,
+        "log_loss": 0.14021556365954088,
+        "man_share": 0.0,
+        "man_recall": null
+      },
+      {
+        "slice": "COVER_4_ZONE",
+        "plays": 711,
+        "error_rate": 0.040787623066104076,
+        "log_loss": 0.0912616118029883,
+        "man_share": 0.0,
+        "man_recall": null
+      },
+      {
+        "slice": "COVER_6_ZONE",
+        "plays": 441,
+        "error_rate": 0.027210884353741496,
+        "log_loss": 0.07685372760498257,
+        "man_share": 0.0,
+        "man_recall": null
+      },
+      {
+        "slice": "COVER_2_ZONE",
+        "plays": 596,
+        "error_rate": 0.0,
+        "log_loss": 0.007262428004864372,
+        "man_share": 0.0,
+        "man_recall": null
+      }
+    ],
+    "defensive team": [
+      {
+        "slice": "ATL",
+        "plays": 138,
+        "error_rate": 0.15217391304347827,
+        "log_loss": 0.3090839116284691,
+        "man_share": 0.38405797101449274,
+        "man_recall": 0.8490566037735849
+      },
+      {
+        "slice": "DAL",
+        "plays": 121,
+        "error_rate": 0.10743801652892562,
+        "log_loss": 0.3154704505004343,
+        "man_share": 0.4793388429752066,
+        "man_recall": 0.8448275862068966
+      },
+      {
+        "slice": "LAC",
+        "plays": 189,
+        "error_rate": 0.10052910052910052,
+        "log_loss": 0.2300996305815761,
+        "man_share": 0.21164021164021163,
+        "man_recall": 0.8
+      },
+      {
+        "slice": "CIN",
+        "plays": 135,
+        "error_rate": 0.0962962962962963,
+        "log_loss": 0.18971889813822512,
+        "man_share": 0.34074074074074073,
+        "man_recall": 0.8260869565217391
+      },
+      {
+        "slice": "GB",
+        "plays": 157,
+        "error_rate": 0.08917197452229299,
+        "log_loss": 0.20371912781191218,
+        "man_share": 0.3184713375796178,
+        "man_recall": 0.86
+      },
+      {
+        "slice": "WAS",
+        "plays": 170,
+        "error_rate": 0.08823529411764706,
+        "log_loss": 0.16402808388080808,
+        "man_share": 0.4294117647058823,
+        "man_recall": 0.863013698630137
+      },
+      {
+        "slice": "MIA",
+        "plays": 133,
+        "error_rate": 0.08270676691729323,
+        "log_loss": 0.22487232297170776,
+        "man_share": 0.2631578947368421,
+        "man_recall": 0.7428571428571429
+      },
+      {
+        "slice": "LA",
+        "plays": 134,
+        "error_rate": 0.08208955223880597,
+        "log_loss": 0.19542431410234642,
+        "man_share": 0.23880597014925373,
+        "man_recall": 0.78125
+      },
+      {
+        "slice": "CAR",
+        "plays": 110,
+        "error_rate": 0.07272727272727272,
+        "log_loss": 0.16371034490674707,
+        "man_share": 0.17272727272727273,
+        "man_recall": 0.7368421052631579
+      },
+      {
+        "slice": "MIN",
+        "plays": 158,
+        "error_rate": 0.06962025316455696,
+        "log_loss": 0.13599615342073443,
+        "man_share": 0.21518987341772153,
+        "man_recall": 0.6764705882352942
+      },
+      {
+        "slice": "NE",
+        "plays": 144,
+        "error_rate": 0.06944444444444445,
+        "log_loss": 0.16831331421340887,
+        "man_share": 0.4097222222222222,
+        "man_recall": 0.8813559322033898
+      },
+      {
+        "slice": "NYG",
+        "plays": 174,
+        "error_rate": 0.06896551724137931,
+        "log_loss": 0.15823403469923628,
+        "man_share": 0.4942528735632184,
+        "man_recall": 0.9186046511627907
+      },
+      {
+        "slice": "NO",
+        "plays": 117,
+        "error_rate": 0.06837606837606838,
+        "log_loss": 0.1892491818120777,
+        "man_share": 0.3162393162393162,
+        "man_recall": 0.8108108108108109
+      },
+      {
+        "slice": "JAX",
+        "plays": 135,
+        "error_rate": 0.06666666666666667,
+        "log_loss": 0.14656393387091332,
+        "man_share": 0.18518518518518517,
+        "man_recall": 0.8
+      },
+      {
+        "slice": "TB",
+        "plays": 167,
+        "error_rate": 0.0658682634730539,
+        "log_loss": 0.19475413602855854,
+        "man_share": 0.31736526946107785,
+        "man_recall": 0.9433962264150944
+      },
+      {
+        "slice": "BAL",
+        "plays": 174,
+        "error_rate": 0.05747126436781609,
+        "log_loss": 0.1320772809810995,
+        "man_share": 0.28735632183908044,
+        "man_recall": 0.86
+      },
+      {
+        "slice": "CLE",
+        "plays": 107,
+        "error_rate": 0.056074766355140186,
+        "log_loss": 0.098510081793163,
+        "man_share": 0.4392523364485981,
+        "man_recall": 0.9574468085106383
+      },
+      {
+        "slice": "DEN",
+        "plays": 134,
+        "error_rate": 0.05223880597014925,
+        "log_loss": 0.13140171033790274,
+        "man_share": 0.26119402985074625,
+        "man_recall": 0.9714285714285714
+      },
+      {
+        "slice": "TEN",
+        "plays": 115,
+        "error_rate": 0.05217391304347826,
+        "log_loss": 0.11325075026244792,
+        "man_share": 0.21739130434782608,
+        "man_recall": 0.88
+      },
+      {
+        "slice": "HOU",
+        "plays": 137,
+        "error_rate": 0.051094890510948905,
+        "log_loss": 0.11869765059712238,
+        "man_share": 0.26277372262773724,
+        "man_recall": 0.8611111111111112
+      },
+      {
+        "slice": "DET",
+        "plays": 119,
+        "error_rate": 0.05042016806722689,
+        "log_loss": 0.07320857123840567,
+        "man_share": 0.40336134453781514,
+        "man_recall": 0.9166666666666666
+      },
+      {
+        "slice": "SEA",
+        "plays": 152,
+        "error_rate": 0.046052631578947366,
+        "log_loss": 0.11893889828439787,
+        "man_share": 0.18421052631578946,
+        "man_recall": 0.8928571428571429
+      },
+      {
+        "slice": "IND",
+        "plays": 124,
+        "error_rate": 0.04032258064516129,
+        "log_loss": 0.12163401233122706,
+        "man_share": 0.0967741935483871,
+        "man_recall": 0.6666666666666666
+      },
+      {
+        "slice": "ARI",
+        "plays": 130,
+        "error_rate": 0.038461538461538464,
+        "log_loss": 0.11784864405414439,
+        "man_share": 0.2,
+        "man_recall": 0.8461538461538461
+      },
+      {
+        "slice": "LV",
+        "plays": 144,
+        "error_rate": 0.034722222222222224,
+        "log_loss": 0.07429136783452644,
+        "man_share": 0.20833333333333334,
+        "man_recall": 0.8666666666666667
+      },
+      {
+        "slice": "PHI",
+        "plays": 182,
+        "error_rate": 0.03296703296703297,
+        "log_loss": 0.07959502182463789,
+        "man_share": 0.3791208791208791,
+        "man_recall": 0.9565217391304348
+      },
+      {
+        "slice": "BUF",
+        "plays": 154,
+        "error_rate": 0.032467532467532464,
+        "log_loss": 0.08742704392202959,
+        "man_share": 0.24025974025974026,
+        "man_recall": 0.9459459459459459
+      },
+      {
+        "slice": "KC",
+        "plays": 98,
+        "error_rate": 0.030612244897959183,
+        "log_loss": 0.06624749514884357,
+        "man_share": 0.30612244897959184,
+        "man_recall": 0.9666666666666667
+      },
+      {
+        "slice": "CHI",
+        "plays": 176,
+        "error_rate": 0.028409090909090908,
+        "log_loss": 0.12457058976348753,
+        "man_share": 0.23295454545454544,
+        "man_recall": 0.9512195121951219
+      },
+      {
+        "slice": "PIT",
+        "plays": 158,
+        "error_rate": 0.0189873417721519,
+        "log_loss": 0.06667689804317145,
+        "man_share": 0.34810126582278483,
+        "man_recall": 0.9818181818181818
+      },
+      {
+        "slice": "SF",
+        "plays": 135,
+        "error_rate": 0.014814814814814815,
+        "log_loss": 0.06421713177733447,
+        "man_share": 0.24444444444444444,
+        "man_recall": 0.9393939393939394
+      },
+      {
+        "slice": "NYJ",
+        "plays": 89,
+        "error_rate": 0.011235955056179775,
+        "log_loss": 0.03598015926346668,
+        "man_share": 0.3707865168539326,
+        "man_recall": 1.0
+      }
+    ],
+    "week": [
+      {
+        "slice": "8",
+        "plays": 827,
+        "error_rate": 0.07255139056831923,
+        "log_loss": 0.15557394317338308,
+        "man_share": 0.3083434099153567,
+        "man_recall": 0.8509803921568627
+      },
+      {
+        "slice": "9",
+        "plays": 711,
+        "error_rate": 0.06751054852320675,
+        "log_loss": 0.1729120066907852,
+        "man_share": 0.27848101265822783,
+        "man_recall": 0.9090909090909091
+      },
+      {
+        "slice": "7",
+        "plays": 693,
+        "error_rate": 0.06637806637806638,
+        "log_loss": 0.14610675947829932,
+        "man_share": 0.2828282828282828,
+        "man_recall": 0.8367346938775511
+      },
+      {
+        "slice": "10",
+        "plays": 721,
+        "error_rate": 0.0638002773925104,
+        "log_loss": 0.15292320486747932,
+        "man_share": 0.3079056865464632,
+        "man_recall": 0.9009009009009009
+      },
+      {
+        "slice": "12",
+        "plays": 851,
+        "error_rate": 0.04935370152761457,
+        "log_loss": 0.1270652086679522,
+        "man_share": 0.3207990599294947,
+        "man_recall": 0.8901098901098901
+      },
+      {
+        "slice": "11",
+        "plays": 707,
+        "error_rate": 0.04667609618104668,
+        "log_loss": 0.12368497053760623,
+        "man_share": 0.27015558698727016,
+        "man_recall": 0.900523560209424
+      }
+    ],
+    "thrown before +1.5 s": [
+      {
+        "slice": "True",
+        "plays": 85,
+        "error_rate": 0.07058823529411765,
+        "log_loss": 0.1720719916684293,
+        "man_share": 0.4235294117647059,
+        "man_recall": 0.9166666666666666
+      },
+      {
+        "slice": "False",
+        "plays": 4425,
+        "error_rate": 0.0607909604519774,
+        "log_loss": 0.14555058762579626,
+        "man_share": 0.2935593220338983,
+        "man_recall": 0.8799076212471132
+      }
+    ],
+    "tracked defenders": [
+      {
+        "slice": "6",
+        "plays": 959,
+        "error_rate": 0.08550573514077164,
+        "log_loss": 0.19695155486637775,
+        "man_share": 0.48175182481751827,
+        "man_recall": 0.9155844155844156
+      },
+      {
+        "slice": "5",
+        "plays": 232,
+        "error_rate": 0.07758620689655173,
+        "log_loss": 0.20199778387925296,
+        "man_share": 0.6724137931034483,
+        "man_recall": 0.9423076923076923
+      },
+      {
+        "slice": "4",
+        "plays": 48,
+        "error_rate": 0.0625,
+        "log_loss": 0.16357163726618393,
+        "man_share": 0.8958333333333334,
+        "man_recall": 0.9534883720930233
+      },
+      {
+        "slice": "8",
+        "plays": 244,
+        "error_rate": 0.05737704918032787,
+        "log_loss": 0.14608598220071561,
+        "man_share": 0.18442622950819673,
+        "man_recall": 0.7555555555555555
+      },
+      {
+        "slice": "7",
+        "plays": 3014,
+        "error_rate": 0.051758460517584606,
+        "log_loss": 0.12321135350495686,
+        "man_share": 0.20637027206370273,
+        "man_recall": 0.8456591639871383
+      }
+    ],
+    "route runners": [
+      {
+        "slice": "2",
+        "plays": 37,
+        "error_rate": 0.10810810810810811,
+        "log_loss": 0.14561222870544074,
+        "man_share": 0.4594594594594595,
+        "man_recall": 0.9411764705882353
+      },
+      {
+        "slice": "3",
+        "plays": 288,
+        "error_rate": 0.06944444444444445,
+        "log_loss": 0.1605474173019323,
+        "man_share": 0.3298611111111111,
+        "man_recall": 0.8526315789473684
+      },
+      {
+        "slice": "5",
+        "plays": 3086,
+        "error_rate": 0.06221646143875567,
+        "log_loss": 0.14637825173577998,
+        "man_share": 0.2640959170447181,
+        "man_recall": 0.8650306748466258
+      },
+      {
+        "slice": "4",
+        "plays": 1098,
+        "error_rate": 0.05373406193078324,
+        "log_loss": 0.14147422825987674,
+        "man_share": 0.37067395264116576,
+        "man_recall": 0.9164619164619164
+      }
+    ],
+    "receiver in motion at snap": [
+      {
+        "slice": "True",
+        "plays": 910,
+        "error_rate": 0.06263736263736264,
+        "log_loss": 0.13482844304153485,
+        "man_share": 0.3142857142857143,
+        "man_recall": 0.8951048951048951
+      },
+      {
+        "slice": "False",
+        "plays": 3600,
+        "error_rate": 0.06055555555555556,
+        "log_loss": 0.1488871073244912,
+        "man_share": 0.29138888888888886,
+        "man_recall": 0.877025738798856
+      }
+    ],
+    "receivers cross": [
+      {
+        "slice": "False",
+        "plays": 2780,
+        "error_rate": 0.0618705035971223,
+        "log_loss": 0.15289054738926514,
+        "man_share": 0.28525179856115107,
+        "man_recall": 0.8650693568726355
+      },
+      {
+        "slice": "True",
+        "plays": 1730,
+        "error_rate": 0.05953757225433526,
+        "log_loss": 0.13505881375364617,
+        "man_share": 0.3132947976878613,
+        "man_recall": 0.9040590405904059
+      }
+    ],
+    "nearest defender switched": [
+      {
+        "slice": "False",
+        "plays": 1407,
+        "error_rate": 0.07036247334754797,
+        "log_loss": 0.17775684411209772,
+        "man_share": 0.3070362473347548,
+        "man_recall": 0.8819444444444444
+      },
+      {
+        "slice": "True",
+        "plays": 3103,
+        "error_rate": 0.05671930389945214,
+        "log_loss": 0.1316737318305651,
+        "man_share": 0.2910087012568482,
+        "man_recall": 0.8803986710963455
+      }
+    ],
+    "bunch at snap": [
+      {
+        "slice": "True",
+        "plays": 1435,
+        "error_rate": 0.06202090592334495,
+        "log_loss": 0.1394625621976733,
+        "man_share": 0.31010452961672474,
+        "man_recall": 0.8921348314606742
+      },
+      {
+        "slice": "False",
+        "plays": 3075,
+        "error_rate": 0.06048780487804878,
+        "log_loss": 0.14912477814058658,
+        "man_share": 0.2894308943089431,
+        "man_recall": 0.8752808988764045
+      }
+    ],
+    "mean defender depth at snap": [
+      {
+        "slice": "under 5 yd",
+        "plays": 870,
+        "error_rate": 0.06321839080459771,
+        "log_loss": 0.1372840885081655,
+        "man_share": 0.6229885057471264,
+        "man_recall": 0.9391143911439115
+      },
+      {
+        "slice": "5-8 yd",
+        "plays": 3240,
+        "error_rate": 0.061419753086419754,
+        "log_loss": 0.15171302627617947,
+        "man_share": 0.2324074074074074,
+        "man_recall": 0.8552456839309429
+      },
+      {
+        "slice": "8 yd or more",
+        "plays": 400,
+        "error_rate": 0.0525,
+        "log_loss": 0.11925026849759866,
+        "man_share": 0.1,
+        "man_recall": 0.575
+      }
+    ]
+  },
+  "full_cohort_plays_reaching_1_5s": 4425
+}
