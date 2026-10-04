@@ -237,9 +237,9 @@ export default function CoverageExplorer({ view }: { view: View }) {
                   className={`narrow flex items-center px-4 py-2.5 text-base transition-colors duration-150 ${view === v.key ? "bg-ink text-bg" : "text-muted hover:text-ink"}`}>{v.label}</Link>
               ))}
             </nav>
-            <div className="flex flex-1 flex-wrap items-center gap-x-5 gap-y-2 border-l border-line px-4 py-2 text-sm">
-              <label className="flex items-center gap-2 text-muted">Model
-                <select value={model} onChange={(e) => setParam({ model: e.target.value === DEFAULT_MODEL ? null : e.target.value, play: view === "errors" ? null : playId })} className="border border-line bg-surface px-2 text-ink">
+            <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-5 gap-y-2 border-l border-line px-4 py-2 text-sm">
+              <label className="flex min-w-0 max-w-full items-center gap-2 text-muted">Model
+                <select value={model} onChange={(e) => setParam({ model: e.target.value === DEFAULT_MODEL ? null : e.target.value, play: view === "errors" ? null : playId })} className="min-w-0 max-w-full border border-line bg-surface px-2 text-ink">
                   {MODELS.map((m) => <option key={m} value={m}>{ROLE[m]}: {ds.index.models[m].short}</option>)}
                 </select>
               </label>
