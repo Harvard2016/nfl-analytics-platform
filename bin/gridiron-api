@@ -1,0 +1,3 @@
+#!/bin/sh
+# Local inference API for the upload lab (loopback only). Needs: uv sync --extra service
+cd "$(dirname "$0")/.." && PYTHONPATH=src exec .venv/bin/python -m gridiron_lens.service.api "$@"

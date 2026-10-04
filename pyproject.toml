@@ -22,8 +22,19 @@ dependencies = [
 [project.scripts]
 coverage-lens = "gridiron_lens.coverage.cli:app"
 
+[project.optional-dependencies]
+service = [
+    "fastapi>=0.115",
+    "python-multipart>=0.0.9",
+    "uvicorn>=0.30",
+]
+
 [dependency-groups]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=8",
+    "ruff>=0.6",
+]
 
 [build-system]
 requires = ["hatchling"]
