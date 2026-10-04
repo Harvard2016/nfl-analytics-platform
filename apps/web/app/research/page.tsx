@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <>
       <article className="paper">
-        <header className="mx-auto max-w-[1500px] px-4 pb-10 pt-12 lg:px-8 lg:pt-20">
+        <header className="research-masthead mx-auto max-w-[1500px] px-4 pb-10 pt-12 lg:px-8 lg:pt-20">
           <p className="kicker">Research</p>
           <h1 className="display mt-2 text-7xl sm:text-9xl">The playbook<span className="text-teal">.</span></h1>
           <p className="mt-5 max-w-[62ch] text-lg text-muted">What was tried, what held up and what did not. Three independent systems, each with its own data, target, split and limits. Every number below is read from a frozen run record, so the site and the reports cannot drift apart.</p>

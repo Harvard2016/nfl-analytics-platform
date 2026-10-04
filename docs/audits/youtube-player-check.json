@@ -1,0 +1,14 @@
+{
+  "environment": "GitHub Actions Chromium / localhost",
+  "status": "The video owner has disabled playback on other websites. This interval can only be watched on YouTube; use the source link.YouTube error 150",
+  "source": "https://www.youtube.com/watch?v=0FF_DbJ3G68&t=435s",
+  "error": [
+    "YouTube error 150"
+  ],
+  "checked_at_utc": "2026-10-04T12:32:34Z",
+  "source_commit": "af5bbad450a74886fedc8e4f7282fec4b345f1cb",
+  "scope": "One default source, first saved candidate. Other source games were not checked.",
+  "meaning": "YouTube error 150 is equivalent to 101: the owner does not allow embedded playback. This is a source restriction, not a source-time mapping failure.",
+  "reference": "https://developers.google.com/youtube/iframe_api_reference#onError",
+  "next_source_requirement": "An authorized embeddable upload of the same footage with verified time mapping, or authorized local media. Do not reuse full-game offsets on a different highlight edit."
+}

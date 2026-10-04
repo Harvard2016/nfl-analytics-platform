@@ -12,7 +12,6 @@ const NAV = [
   ["/engineering", "Engineering"],
 ] as const;
 
-// No GitHub link: the repository has no remote configured, and the brief forbids a placeholder URL.
 export default function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -47,6 +46,7 @@ export default function SiteNav() {
             );
           })}
         </ul>
+        <a href="https://github.com/Harvard2016/nfl-analytics-platform" target="_blank" rel="noreferrer" className="nav-source hidden lg:inline-flex" aria-label="View source on GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.73 1.16 1.73 1.16 1 1.73 2.62 1.23 3.26.94.1-.73.4-1.23.71-1.51-2.5-.29-5.13-1.25-5.13-5.54 0-1.23.44-2.23 1.16-3.01-.12-.28-.51-1.43.11-2.98 0 0 .95-.3 3.08 1.15A10.7 10.7 0 0 1 12 6.16c.95 0 1.91.13 2.81.38 2.13-1.45 3.08-1.15 3.08-1.15.62 1.55.23 2.7.11 2.98.72.78 1.16 1.78 1.16 3.01 0 4.3-2.64 5.25-5.15 5.53.41.36.77 1.04.77 2.1v3.08c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z" /></svg>Source ↗</a>
         <button ref={button} className="narrow ml-auto border border-line px-3 text-[15px] md:hidden" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen((o) => !o)}>
           {open ? "Close" : "Menu"}
         </button>

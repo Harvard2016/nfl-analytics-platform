@@ -65,9 +65,7 @@ Everything under `apps/web/public/` is downloadable by anyone. Sources and displ
 | `public/demo/highlights/` | ranking scores, editorial labels, loudness, transcript excerpts of 100 characters or fewer, links to source videos | SVHighlights, CC BY-NC 4.0 as stated; non-commercial only |
 | `public/demo/research/` | run records, rights manifest, baseline manifest | project output |
 
-Rules to keep: never add raw tracking files, full transcripts, audio, video or broadcast frames; never embed or host game
-footage (the site links out to YouTube only); keep the attributions; keep the site non-commercial. The hero image is an
-original SVG (`components/StadiumScene.tsx`), not footage. There are no team logos or NFL marks.
+Rules to keep: never add raw tracking files, full transcripts, audio, video or broadcast frames; never host game footage; keep the attributions and keep the site non-commercial. At the owner’s request, Highlights now uses the official YouTube IFrame API when embedding is permitted, with a source-link fallback when unavailable. No video is downloaded or proxied. Original generated stadium and decorative helmet artwork live in `public/art/`; see `docs/ASSETS.md`. There are no team logos or NFL marks.
 
 ## Model outputs and experiment records
 
@@ -108,15 +106,19 @@ General
 ## Deployments
 
 - Current production was deployed from `main` with the Vercel CLI (`npx vercel@latest deploy --prod` from the repo root; the project's root directory setting points the build at `apps/web`).
-- **GitHub-triggered deployments are not active yet.** `vercel git connect` failed because the Vercel GitHub App has not been given access to the repository. Owner action: open https://github.com/apps/vercel → Configure → the `Harvard2016` account → Repository access → add `nfl-analytics-platform`; then in the Vercel dashboard, project `nfl-analytics-platform` → Settings → Git → connect `Harvard2016/nfl-analytics-platform` (or run `npx vercel@latest git connect`). After that, a push to `main` deploys to production and a push to any other branch creates a preview deployment.
+- **GitHub-triggered deployments are active as of the cinematic review branch.** Vercel successfully built commit `b28753c` and posted the branch preview on PR #1. Pushes to branches create previews; production remains on main.
 - Preview and per-deployment URLs are behind Vercel Authentication (project Settings → Deployment Protection). The production domain is public.
 - GitHub Actions (`.github/workflows/ci.yml`) runs ruff, pytest, lint and build on every push.
 
 ## Unfinished
 
-- Vercel GitHub integration (above).
+- Real YouTube playback review on the protected Vercel preview.
 - Screen-reader (VoiceOver) pass and a machine contrast audit.
 - Subpages (evaluation, tendencies, performance, forecasts, experiments, review) inherit the new tokens and pass width and error checks but were not individually art-directed.
 - Minor: the "Line of scrimmage" label can overlap a player marker; player rows in the coverage explanation table are taller than the group rows.
 - Independent review of dataset terms (see BUILD_STATUS, "Repository and deployment").
 - Science backlog (fresh coverage test data, event detection, ffmpeg path): BUILD_STATUS, "Blocked" and "Next".
+
+## Cinematic design branch
+
+`design/cinematic-film-room` adds stadium layers, decorative helmets, restrained route animation, and synchronized YouTube interval playback above separate model-rank and audio plots. Mapping uses the existing per-game trim offset, not independently verified full-play boundaries. Selecting another interval seeks the existing player. Third-party media loads only after interaction. Unit tests validate all exported candidate mappings; browser tests mock playback and check six pages at desktop/mobile widths. Real YouTube availability still needs a deployed-browser check. Run `npm test` and, after `npm run build`, `npm run test:ui` from `apps/web`. Node 24 is used in CI. No saved predictions or evaluation results changed.

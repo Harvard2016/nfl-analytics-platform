@@ -252,3 +252,13 @@ Screenshots: `docs/screenshots/{home,coverage,predictions,highlights,research,en
 
 ## Next
 Confirm the temporal model on unseen data when available; calibrate and benchmark-score the family model once; add reviewer annotations for the development error queue; VoiceOver pass; grant the Vercel GitHub App access so pushes deploy automatically.
+
+## Cinematic website redesign — 2026-10-04
+
+Review branch: `design/cinematic-film-room`. Presentation only: original stadium/helmet artwork, richer mastheads, restrained decorative routes, GitHub links, and interaction-loaded YouTube interval playback synchronized to saved model/audio evidence. Existing datasets, models, metrics and frozen outputs are unchanged. Source mapping uses released trim offsets; intervals are ranking windows, not verified play boundaries. No broadcast media is hosted.
+
+Local lint, production build and four timestamp/export unit tests pass. GitHub Actions run 37201021592 passed both Python and web jobs, including the four browser tests (six pages at 1440/390 px, matchup identity, mocked playback). The 12 screenshots were reviewed: layout and typography are readable with no tested page overflow. Screenshot capture now also waits for image decoding. Vercel GitHub integration is active and the branch preview deployed successfully. Preview Authentication blocks direct browser review in the Codex session; actual YouTube playback and a screen-reader pass remain manual checks. Draft PR #1 contains the changes; production is unchanged.
+
+## Follow-up: module tours and YouTube playback
+
+Added five-step first-visit tours to Coverage, Predictions and Highlights with highlighted controls, module-specific copy, replay and local completion memory. Added keyboard/mobile regression tests. Player setup now includes iframe referrer/permission attributes and page origin before loading, bounded loadVideoById calls, specific YouTube error messages/codes and retry. Six timestamp/embed/error unit tests pass locally. GitHub Actions run 37202389644 passed Python/web checks and all 12 deterministic browser tests (tour steps, focus, completion/replay, mobile bounds, independent module memory, playback retry and existing page/data checks). The six tour screenshots were reviewed. A separate one-source check returned YouTube error 150 for the default Super Bowl 52 game: the owner has disabled embedding. The player connection works, but this video can only be opened on YouTube. This diagnosis does not establish the status of the other 11 source games; embed availability can change. See docs/audits/youtube-player-check.json. The public production URL still showed the older link-only Highlights page when checked. Changes remain on draft PR #1 until merged.

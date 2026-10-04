@@ -37,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <li><Link className="hover:text-ink" href="/research">Research</Link></li>
               <li><Link className="hover:text-ink" href="/research/experiments">Run records</Link></li>
               <li><Link className="hover:text-ink" href="/engineering">Engineering and data sources</Link></li>
+              <li><a className="hover:text-ink" href="https://github.com/Harvard2016/nfl-analytics-platform" target="_blank" rel="noreferrer">GitHub source ↗</a></li>
             </ul>
           </div>
         </footer>

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Field, { type Highlight } from "@/components/Field";
+import ModuleTour from "@/components/ModuleTour";
+import StadiumBackdrop from "@/components/StadiumBackdrop";
 import { Badge, Bar } from "@/components/ui";
 import {
   type Ablation, type Dataset, type HorizonKey, type Play, type PlaySummary, type Similar, type Status, type Term, DEFAULT_HORIZON, DEFAULT_MODEL, HORIZONS, MODELS,
@@ -208,10 +210,11 @@ export default function CoverageExplorer({ view }: { view: View }) {
 
   return (
     <div>
-      <header className="grain border-b border-line">
+      <header className="cinematic-band border-b border-line">
+        <StadiumBackdrop />
         <div className="mx-auto flex max-w-[1500px] flex-wrap items-end justify-between gap-x-10 gap-y-3 px-4 py-6 lg:px-8">
           <div>
-            <p className="kicker">Coverage / film room</p>
+            <div className="flex items-center gap-4"><p className="kicker">Coverage / film room</p><ModuleTour module="coverage" ready={!!play} /></div>
             <h1 className="display mt-1 text-5xl sm:text-7xl">Read the defense<span className="text-teal">.</span></h1>
           </div>
           <p className="max-w-[58ch] text-sm text-muted">
@@ -222,7 +225,7 @@ export default function CoverageExplorer({ view }: { view: View }) {
       </header>
 
       <div className="mx-auto flex max-w-[1500px] flex-col gap-4 px-4 py-4 lg:px-8">
-        <section aria-label="What is shown" className="border border-line">
+        <section data-tour="coverage-settings" aria-label="What is shown" className="border border-line">
           <div className="flex flex-wrap items-stretch">
             <nav aria-label="Play set" className="flex text-sm">
               {VIEWS.map((v) => (
@@ -256,7 +259,7 @@ export default function CoverageExplorer({ view }: { view: View }) {
 
         <div className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)_380px]">
           {/* play library: a drawer on small screens, a column on large ones */}
-          <aside aria-label="Play library" className="order-3 lg:order-1">
+          <aside data-tour="coverage-library" aria-label="Play library" className="order-3 lg:order-1">
             <button className="narrow w-full border border-line px-3 text-left text-base lg:hidden" aria-expanded={libOpen} aria-controls="library" onClick={() => setLibOpen((o) => !o)}>
               {libOpen ? "Hide" : "Show"} play library ({plays.length})
             </button>
@@ -300,7 +303,7 @@ export default function CoverageExplorer({ view }: { view: View }) {
             </div>
           </aside>
 
-          <section id="play" tabIndex={-1} aria-label="Play" className="order-1 min-w-0 lg:order-2">
+          <section data-tour="coverage-field" id="play" tabIndex={-1} aria-label="Play" className="order-1 min-w-0 lg:order-2">
             {error && <p className="border border-coral/60 p-3 text-sm text-coral">This play could not be loaded: {error}. Pick another play or re-run the export.</p>}
             {!play && !error && <p className="text-muted">{current ? "Loading tracking…" : "Pick a play from the library."}</p>}
             {play && (
@@ -330,7 +333,7 @@ export default function CoverageExplorer({ view }: { view: View }) {
             )}
           </section>
 
-          <aside aria-label="Prediction and evidence" className="order-2 min-w-0 lg:order-3">
+          <aside data-tour="coverage-evidence" aria-label="Prediction and evidence" className="order-2 min-w-0 lg:order-3">
             <div role="tablist" aria-label="Evidence panels" className="flex border-b border-line">
               {TABS.map((x) => (
                 <button key={x.key} role="tab" id={`tab-${x.key}`} aria-selected={tab === x.key} aria-controls={`panel-${x.key}`} tabIndex={tab === x.key ? 0 : -1} onClick={() => setTab(x.key)}

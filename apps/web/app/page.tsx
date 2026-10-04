@@ -1,18 +1,19 @@
 import Link from "next/link";
 import HomeChapters from "@/components/HomeChapters";
 import Parallax from "@/components/Parallax";
-import StadiumScene from "@/components/StadiumScene";
+import StadiumBackdrop, { ChalkRoutes } from "@/components/StadiumBackdrop";
 
 const d = (ms: number) => ({ "--d": `${ms}ms` }) as React.CSSProperties;
 
 export default function Home() {
   return (
     <>
-      <section className="relative isolate overflow-hidden border-b border-line">
-        <Parallax className="absolute inset-0 -z-10"><StadiumScene className="h-full w-full" /></Parallax>
-        <div className="mx-auto flex min-h-[min(78vh,760px)] max-w-[1500px] flex-col justify-center px-4 py-16 lg:px-8">
+      <section className="home-hero relative isolate overflow-hidden border-b border-line">
+        <Parallax amount={0.08} className="absolute inset-0 -z-10"><StadiumBackdrop hero /></Parallax>
+        <ChalkRoutes />
+        <div className="hero-copy mx-auto flex max-w-[1500px] flex-col justify-center px-5 lg:px-10">
           <p className="kicker rise" style={d(0)}>NFL analytics / three independent systems</p>
-          <h1 className="display mt-4 text-[5.2rem] leading-[0.82] sm:text-[9rem] lg:text-[12.5rem]">
+          <h1 className="display hero-title mt-5">
             <span className="rise block" style={d(80)}>Read</span>
             <span className="rise block" style={d(200)}>the <span className="outline-text">field</span><span className="text-teal">.</span></span>
           </h1>
@@ -21,9 +22,11 @@ export default function Home() {
             <Link href="/coverage?model=v2_temporal" className="btn-primary">Enter the film room <span aria-hidden="true">→</span></Link>
             <Link href="/research" className="btn-quiet">Explore the research</Link>
           </p>
-          <p className="kicker rise mt-12 max-w-[60ch] normal-case tracking-normal" style={d(600)}>Illustration, not footage. Every number on this site comes from a saved model record with its limits stated beside it.</p>
+          <p className="hero-caption rise" style={d(600)}>Original stadium artwork · illustrative routes</p>
         </div>
+        <div className="hero-rail" aria-hidden="true"><span>Different perspective.<br />Same game.</span><span className="hero-scroll">Explore ↓</span></div>
       </section>
+      <div className="platform-strip"><span className="kicker">Inside the lens</span><Link href="/coverage?model=v2_temporal">01 <span>Read the defense</span> ↗</Link><Link href="/highlights">02 <span>Find the moment</span> ↗</Link><Link href="/predictions">03 <span>Before kickoff</span> ↗</Link></div>
 
       <HomeChapters />
 

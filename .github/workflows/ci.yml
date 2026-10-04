@@ -19,7 +19,22 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:ui
+      # Single opt-in source diagnosis, separate from deterministic regression checks.
+      - run: YOUTUBE_SOURCE_PROBE=1 npx playwright test youtube-probe.spec.ts
+        if: always()
+        continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cinematic-design-review
+          path: |
+            docs/screenshots/cinematic/
+            apps/web/test-results/
+          retention-days: 7
