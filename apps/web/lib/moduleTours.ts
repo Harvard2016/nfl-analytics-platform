@@ -1,5 +1,5 @@
 export type TourStep = { target: string; title: string; body: string; tip?: string };
-export type TourModule = "coverage" | "predictions" | "highlights";
+export type TourModule = "coverage" | "predictions" | "highlights" | "coverage-upload" | "highlights-upload";
 export const MODULE_TOURS: Record<TourModule, TourStep[]> = {
   coverage: [
     { target: "coverage-settings", title: "Choose what the model can see", body: "Pick a saved model and input cutoff: the snap, or a short time after it. These buttons change the saved prediction. Playing the field animation does not.", tip: "This source includes selected pass-coverage players, not all 22 players or pre-snap frames." },
@@ -21,5 +21,13 @@ export const MODULE_TOURS: Record<TourModule, TourStep[]> = {
     { target: "highlight-player", title: "Watch the source film", body: "Use the video controls to play or pause. If your browser blocks the first attempt, press Play interval again. If the video owner disables embedding, the source link opens the selected timestamp on YouTube.", tip: "Playback uses the official YouTube player. The site does not host broadcast footage." },
     { target: "highlight-signals", title: "Follow the evidence cursor", body: "The model-rank line and audio-loudness line are separate saved signals. The cursor follows video time. Blue editorial labels are shown only for evaluation, not as model inputs.", tip: "Rank 90 is a high position within this game, not a 90% chance. This graph does not prove which signal caused the model's score." },
     { target: "highlight-review", title: "Inspect misses and compare models", body: "Evidence shows saved scores and commentary. Missed moments shows editorial segments the reel left out. Review supports human inspection; the methodology and benchmark below explain how the system was evaluated.", tip: "Timestamp mapping uses the dataset's trim offset and has not been independently checked frame by frame." },
+  ],
+  "coverage-upload": [
+    { target: "upload-form", title: "Upload tracking for one play", body: "Choose a CSV or JSON file with player positions at 10 frames per second. The template shows the columns. Pick release-compatible for route runners and coverage defenders with orientation; anything else runs as experimental.", tip: "This reads tracking, not video. A label column is ignored by the model." },
+    { target: "upload-result", title: "Read the result by cutoff", body: "The job moves through checking and running stages, then shows Man and Zone probabilities at each cutoff the play reaches. A cutoff is disabled when the play ends, or a player is missing, before it.", tip: "No accuracy is shown for an upload: one play cannot measure it." },
+  ],
+  "highlights-upload": [
+    { target: "upload-form", title: "Choose a clip you may process", body: "Pick an audio or video file and a reel length in seconds. The list shows which modes work here: the loudness baseline runs; the trained multimodal model cannot score new files yet.", tip: "The preview plays from your browser. The file is sent only to the local service." },
+    { target: "upload-result", title: "Follow the playhead", body: "The green line follows the video. Click the graph to seek. Each candidate has a moment (tick) and a padded clip (bar); Play this clip starts at its start and stops at its end. Edit bounds, mark replays, remove candidates, then export.", tip: "Rank is loudness ordered within this file. It is not a probability and names no event." },
   ],
 };

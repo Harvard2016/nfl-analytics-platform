@@ -9,13 +9,13 @@ import time
 import pytest
 
 pytest.importorskip("fastapi")
-from fastapi.testclient import TestClient  # noqa: E402
+from fastapi.testclient import TestClient
 
-from gridiron_lens.coverage import upload as U  # noqa: E402
-from gridiron_lens.service import media  # noqa: E402
-from gridiron_lens.service.api import create_app  # noqa: E402
-from gridiron_lens.service.store import Store  # noqa: E402
-from tests.test_coverage_upload import _csv, _rows  # noqa: E402
+from gridiron_lens.coverage import upload as U
+from gridiron_lens.service import media
+from gridiron_lens.service.api import create_app
+from gridiron_lens.service.store import Store
+from tests.test_coverage_upload import _csv, _rows
 
 needs_model = pytest.mark.skipif(not U.MODEL_FILE.exists(), reason="local coverage model not present")
 needs_ffmpeg = pytest.mark.skipif(shutil.which("ffmpeg") is None, reason="ffmpeg not installed")

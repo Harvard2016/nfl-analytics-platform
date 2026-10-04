@@ -219,7 +219,8 @@ export default function CoverageExplorer({ view }: { view: View }) {
           </div>
           <p className="max-w-[58ch] text-sm text-muted">
             <strong className="font-semibold text-ink">Selected-player tracking.</strong> {SCOPE} The release chose those defenders after the play, so this is not a snap-time or live system.{" "}
-            <Link className="text-teal underline" href={`/coverage/evaluation?${carry}#e-sens`}>Data scope and limits</Link>
+            <Link className="text-teal underline" href={`/coverage/evaluation?${carry}#e-sens`}>Data scope and limits</Link>{" · "}
+            <Link className="text-teal underline" href="/coverage/analyze">Analyze your play</Link>
           </p>
         </div>
       </header>
