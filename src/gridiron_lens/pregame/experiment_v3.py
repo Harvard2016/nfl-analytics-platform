@@ -92,7 +92,7 @@ def shrunk_turnovers(games: pl.DataFrame, team: pl.DataFrame) -> pl.DataFrame:
                 for k in d:
                     d[k] *= PRIOR_SEASON_WEIGHT
         league = lg_to / lg_pl if lg_pl else 0.025
-        rate = lambda num, den, t: (num[t] + TO_PRIOR_PLAYS * league) / (den[t] + TO_PRIOR_PLAYS)
+        rate = lambda num, den, t, league=league: (num[t] + TO_PRIOR_PLAYS * league) / (den[t] + TO_PRIOR_PLAYS)
         for r in todays:
             rows.append({"game_id": r["game_id"], "d_giveaway_shrunk": rate(give, plays_o, r["home"]) - rate(give, plays_o, r["away"]),
                          "d_takeaway_shrunk": rate(take, plays_d, r["home"]) - rate(take, plays_d, r["away"])})

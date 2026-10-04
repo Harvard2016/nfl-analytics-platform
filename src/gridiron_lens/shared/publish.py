@@ -16,7 +16,7 @@ KEEP = ("module", "run_id", "name", "results_version", "started_at", "finished_a
 
 
 def run() -> dict:
-    runs = [{k: r.get(k) for k in KEEP} for r in load_runs("v2")]
+    runs = [{k: r.get(k) for k in KEEP} for v in ("v2", "v3") for r in load_runs(v)]
     latest: dict[tuple, dict] = {}
     for r in runs:                                   # keep every run, mark the most recent of each kind
         latest[(r["module"], r["name"])] = r

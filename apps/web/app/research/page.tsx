@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ResearchCases, { NotebookPreview } from "@/components/ResearchCases";
+import V3Results from "@/components/V3Results";
 
 export const metadata: Metadata = { title: "Research" };
 
@@ -42,6 +43,7 @@ export default function Page() {
             <p className="mt-3 max-w-[62ch] text-sm text-muted">Sources, licences, what may be displayed and what was never used are listed on the <Link className="text-teal underline underline-offset-4" href="/engineering">engineering page</Link>. The first benchmark is frozen in a manifest with data checksums, split ids, model hashes and metrics, and is never overwritten.</p>
           </section>
         </div>
+        <V3Results />
       </article>
 
       <section id="notebook" aria-labelledby="r-notebook" className="grain scroll-mt-20 border-t border-line">

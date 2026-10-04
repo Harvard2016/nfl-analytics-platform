@@ -84,7 +84,7 @@ def test_real_play_through_the_upload_path_matches_the_offline_pipeline():
             continue
         flipped = bool(p["flipped"][0])
         los_raw = config.FIELD_LENGTH - p["los_x"][0] if flipped else p["los_x"][0]
-        back = lambda c: (pl.col(c) + 180.0) % 360.0 if flipped else pl.col(c)                           # undo the canonical rotation to get the raw angles
+        back = lambda c, flipped=flipped: (pl.col(c) + 180.0) % 360.0 if flipped else pl.col(c)                           # undo the canonical rotation to get the raw angles
         rows = p.filter(pl.col("side") != "ball").select(
             pl.col("nflId").cast(pl.String).alias("player_id"), pl.col("frameId").alias("frame"), "side",
             pl.when(pl.col("role") == "Passer").then(pl.lit("passer")).otherwise(pl.lit("route_runner")).alias("role"),

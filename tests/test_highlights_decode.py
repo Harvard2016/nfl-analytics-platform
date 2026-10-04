@@ -1,4 +1,6 @@
 """Strict reel decoder: the final output never exceeds the budget, whatever the scores, padding or media length."""
+import itertools
+
 import numpy as np
 import pytest
 
@@ -12,7 +14,7 @@ def _check(score, budget, **kw):
     assert D.output_seconds(segs) <= budget + 1e-6
     assert all(0 <= s.start_s < s.end_s <= dur + 1e-9 for s in segs)
     m = D.merge([(s.start_s, s.end_s) for s in segs])
-    assert all(a2 > b1 for (_, b1), (a2, _) in zip(m, m[1:]))                 # no second appears twice
+    assert all(a2 > b1 for (_, b1), (a2, _) in itertools.pairwise(m))                 # no second appears twice
     return segs
 
 

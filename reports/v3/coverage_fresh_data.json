@@ -1,0 +1,20 @@
+{
+  "created_at_utc": "2026-10-04T23:17:50+00:00",
+  "status": "blocked",
+  "candidate": "NFL Big Data Bowl 2026 Prediction release (https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-prediction/data), expected under data/raw/bdb2026_prediction/",
+  "why_blocked": "No Kaggle command-line client or credentials exist on this machine, and the files cannot be listed without accepting the competition rules in a signed-in account.",
+  "owner_action": "Accept the rules for that competition in a browser, download the archive and place it unextracted in data/raw/bdb2026_prediction/. Nothing else is needed.",
+  "what_is_known": "NFL Football Operations says the 2026 competitions used 2023 and 2024 data. Whether the downloadable 2024 files carry man/zone or coverage-family labels is unverified.",
+  "audit_planned_before_any_scoring": [
+    "seasons and weeks present",
+    "game and play id overlap with bdb2026 Analytics (all previously used plays)",
+    "presence and meaning of coverage labels",
+    "which players are tracked and how they were selected",
+    "sampling rate, coordinate and angle conventions",
+    "snap and throw markers",
+    "checksums of the original files"
+  ],
+  "protocol_if_compatible": "Freeze the v2 temporal bundle and a manifest first; score a registered cohort once; never calibrate or choose thresholds on it. If no compatible labels exist, external validation stays blocked and is reported as such.",
+  "labels_never_inferred": "Missing labels are not filled from another model or from play outcomes.",
+  "helmet_assignment_dataset": "Not downloaded. It pairs sideline/end-zone video with helmet boxes and tracking; it has no coverage labels and its terms were not reviewed here."
+}

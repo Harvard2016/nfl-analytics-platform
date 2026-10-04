@@ -69,7 +69,7 @@ def run_highlights(store: Store, row, path: Path) -> dict:
     lim = LIMITS["highlights"]
     if not info["has_audio"]:
         raise media.MediaError("The file has no audio stream. The loudness baseline needs audio.")
-    if not lim["min_duration_s"] <= info["duration_s"] <= lim["max_duration_s"]:
+    if not lim["min_duration_s"] <= info["duration_s"] <= (float("inf") if opts.get("local_cli") else lim["max_duration_s"]):
         raise media.MediaError(f"Duration {info['duration_s']:.0f} s is outside the {lim['min_duration_s']:.0f}-{lim['max_duration_s']:.0f} s range for uploads. Longer files run from the command line.")
     check(store, jid)
     store.update(jid, state="extracting", stage_note="extracting mono 16 kHz audio and measuring loudness per 2-second clip")
@@ -109,7 +109,8 @@ def run_highlights(store: Store, row, path: Path) -> dict:
         (d / "media" / "concat.txt").unlink(missing_ok=True)
         assets[f"reel{ext}"] = f"reel{ext}"
         reel = {"asset": f"reel{ext}", "ffprobe_duration_s": round(media.probe(d / "media" / f"reel{ext}")["duration_s"], 3), "budget_s": budget,
-                "decoder_output_s": round(D.output_seconds(segs), 3), "sha256": sha256_file(d / "media" / f"reel{ext}")}
+                "decoder_output_s": round(D.output_seconds(segs), 3),
+                "render_tolerance": "The selected seconds never exceed the budget. The rendered container can be longer by up to one audio frame per file (about 64 ms at 16 kHz) because AAC is written in whole frames.", "sha256": sha256_file(d / "media" / f"reel{ext}")}
     assets["source"] = path.name
     store.update(jid, assets=assets)
     short = len(vol) < HM.BACKGROUND_CLIPS

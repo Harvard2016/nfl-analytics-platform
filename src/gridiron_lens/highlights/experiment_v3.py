@@ -188,7 +188,7 @@ def run(log=print) -> dict:
         s_tr = h1.decision_function(xtr)
         ltr = np.concatenate([lex[v] for v in tr])
         mu, sd = ltr.mean(0), ltr.std(0) + 1e-6
-        zn = lambda a: (a - mu) / sd
+        zn = lambda a, mu=mu, sd=sd: (a - mu) / sd
         hn = LogisticRegression(C=1.0, max_iter=2000).fit(np.c_[s_tr, zn(ltr), s_tr[:, None] * zn(ltr)], ytr)      # word score, lexicon counts, and their interactions
         for v in held:
             s = h1.decision_function(vec.transform(docs[v]))
