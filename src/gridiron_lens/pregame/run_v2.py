@@ -286,10 +286,20 @@ def main(argv: list[str] | None = None) -> None:
                 print(f"  {m:18s} log loss {v['log_loss']:.4f} brier {v['brier']:.4f} acc {v['accuracy']:.3f}{extra}")
     elif cmd == "forecast":
         print(forecast())
+    elif cmd == "snapshot":
+        from . import forecast_v3
+        forecast_v3.snapshot()
+    elif cmd == "forecast-v3":
+        from . import forecast_v3
+        print(forecast_v3.forecast())
+        print(forecast_v3.publish())
+    elif cmd == "publish-forecasts":
+        from . import forecast_v3
+        print(forecast_v3.publish())
     elif cmd == "v1":
         pipeline.run()
     else:
-        raise SystemExit("usage: pregame-lens backtest | forecast | v1")
+        raise SystemExit("usage: pregame-lens backtest | snapshot | forecast-v3 | publish-forecasts | forecast (legacy) | v1")
 
 
 if __name__ == "__main__":
