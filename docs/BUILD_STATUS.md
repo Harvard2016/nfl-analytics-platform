@@ -252,3 +252,9 @@ Screenshots: `docs/screenshots/{home,coverage,predictions,highlights,research,en
 
 ## Next
 Confirm the temporal model on unseen data when available; calibrate and benchmark-score the family model once; add reviewer annotations for the development error queue; VoiceOver pass; grant the Vercel GitHub App access so pushes deploy automatically.
+
+## Cinematic website redesign — 2026-10-04
+
+Review branch: `design/cinematic-film-room`. Presentation only: original stadium/helmet artwork, richer mastheads, restrained decorative routes, GitHub links, and interaction-loaded YouTube interval playback synchronized to saved model/audio evidence. Existing datasets, models, metrics and frozen outputs are unchanged. Source mapping uses released trim offsets; intervals are ranking windows, not verified play boundaries. No broadcast media is hosted.
+
+Local lint, production build and four timestamp/export unit tests pass. Browser regression tests are added to CI; local Chromium installation failed, so browser results must be read from the branch workflow before declaring visual QA complete. Deployed YouTube playback and a screen-reader pass remain manual checks. GitHub–Vercel integration still requires the owner action documented in `CODEX_HANDOFF.md`.

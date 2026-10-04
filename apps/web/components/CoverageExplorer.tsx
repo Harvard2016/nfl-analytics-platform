@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Field, { type Highlight } from "@/components/Field";
+import StadiumBackdrop from "@/components/StadiumBackdrop";
 import { Badge, Bar } from "@/components/ui";
 import {
   type Ablation, type Dataset, type HorizonKey, type Play, type PlaySummary, type Similar, type Status, type Term, DEFAULT_HORIZON, DEFAULT_MODEL, HORIZONS, MODELS,
@@ -208,7 +209,8 @@ export default function CoverageExplorer({ view }: { view: View }) {
 
   return (
     <div>
-      <header className="grain border-b border-line">
+      <header className="cinematic-band border-b border-line">
+        <StadiumBackdrop />
         <div className="mx-auto flex max-w-[1500px] flex-wrap items-end justify-between gap-x-10 gap-y-3 px-4 py-6 lg:px-8">
           <div>
             <p className="kicker">Coverage / film room</p>

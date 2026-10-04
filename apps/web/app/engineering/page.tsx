@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Architecture from "@/components/Architecture";
 import Engineering from "@/components/Engineering";
 import Reveal from "@/components/Reveal";
+import StadiumBackdrop from "@/components/StadiumBackdrop";
 
 export const metadata: Metadata = { title: "Engineering" };
 
@@ -24,7 +25,8 @@ const H2 = "display text-4xl sm:text-5xl";
 export default function Page() {
   return (
     <>
-      <header className="grain border-b border-line">
+      <header className="cinematic-band border-b border-line">
+        <StadiumBackdrop />
         <div className="mx-auto max-w-[1500px] px-4 pb-10 pt-12 lg:px-8 lg:pt-20">
           <p className="kicker">Engineering</p>
           <h1 className="display mt-2 text-6xl sm:text-8xl lg:text-9xl">Built to be <span className="outline-text">inspected</span><span className="text-teal">.</span></h1>

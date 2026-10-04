@@ -2,9 +2,13 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Badge } from "@/components/ui";
 import { pct } from "@/lib/demo";
+import StadiumBackdrop from "@/components/StadiumBackdrop";
+import HighlightPlayer, { type PlaybackRequest } from "@/components/HighlightPlayer";
+import ClipEvidence from "@/components/ClipEvidence";
+import { sourceVideoLink, formatClock as clock } from "@/lib/highlightTime";
 
 type Budget = "1 minute" | "3 minutes" | "5 minutes";
 type Summary = { games: number; mean_average_precision: number; average_precision_range: [number, number]; hit_at_1: number; chance_average_precision: number }
@@ -33,9 +37,8 @@ type Recap = { mode: string; source: string; game_id: string; final: string; ali
 
 const BUDGETS: Budget[] = ["1 minute", "3 minutes", "5 minutes"];
 const TH = "py-1.5 pr-3 text-left font-normal text-muted";
-const clock = (s: number) => `${Math.floor(s / 3600)}:${String(Math.floor((s % 3600) / 60)).padStart(2, "0")}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 const runs = (a: number[]) => { const out: [number, number][] = []; let s = -1; a.forEach((v, i) => { if (v && s < 0) s = i; if (!v && s >= 0) { out.push([s, i]); s = -1; } }); if (s >= 0) out.push([s, a.length]); return out; };
-const sourceLink = (g: Game, t: number) => `${g.source.full_video}&t=${Math.max(0, Math.floor(g.source.trim_start_s + t))}s`;
+const sourceLink = (g: Game, t: number) => sourceVideoLink(g.source, t);
 
 function path(values: number[], h: number, max: number, min = 0) {
   return values.map((v, i) => `${i === 0 ? "M" : "L"}${i},${(h - ((Math.max(min, Math.min(max, v)) - min) / (max - min)) * h).toFixed(1)}`).join("");
@@ -50,6 +53,15 @@ export default function Highlights() {
   const [cursor, setCursor] = useState<number | null>(null);
   const [recap, setRecap] = useState<Recap | null>(null);
   const [tab, setTab] = useState<"evidence" | "missed" | "review">("evidence");
+  const [playback, setPlayback] = useState<PlaybackRequest | null>(null);
+  const selectMoment = (start: number, end: number | null, label = "ranked interval") => {
+    setCursor(Math.floor(start / 2));
+    setPlayback((prev) => ({ start, end, label, sequence: (prev?.sequence ?? 0) + 1 }));
+  };
+  const followVideo = useCallback((time: number) => setCursor((prev) => {
+    const clip = Math.max(0, Math.floor(time / 2));
+    return clip === prev ? prev : clip;
+  }), []);
 
   useEffect(() => { fetch("/demo/highlights/index.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then(setIndex).catch(() => setIndex(null)); }, []);
   const gid = index ? (index.games.find((g) => String(g.id) === params.get("game")) ?? index.games[0])?.id : null;
@@ -58,7 +70,7 @@ export default function Highlights() {
   useEffect(() => {
     if (gid == null) return;
     let live = true;
-    fetch(`/demo/highlights/games/${gid}.json`).then((r) => r.json()).then((g) => { if (live) { setGame(g); setCursor(null); } });
+    fetch(`/demo/highlights/games/${gid}.json`).then((r) => r.json()).then((g) => { if (live) { setGame(g); setCursor(null); setPlayback(null); } });
     fetch(`/demo/highlights/recaps/${gid}.json`).then((r) => (r.ok ? r.json() : null)).then((x) => { if (live) setRecap(x); }).catch(() => { if (live) setRecap(null); });
     return () => { live = false; };
   }, [gid]);
@@ -70,7 +82,7 @@ export default function Highlights() {
 
   const g = game && game.id === gid ? game : null;
   const N = g?.clips ?? 1;
-  const cur = g && cursor != null ? cursor : g?.candidates[0]?.start_clip ?? 0;
+  const cur = g && cursor != null ? Math.max(0,Math.min(g.clips-1,cursor)) : g?.candidates[0]?.start_clip ?? 0;
   const cand = g?.candidates.find((c) => cur >= c.start_clip && cur < c.end_clip);
   const talk = g?.commentary.find((c) => cur * 2 >= c.start_s && cur * 2 < c.end_s);
   const shipped = index.results[index.shipped];
@@ -78,19 +90,25 @@ export default function Highlights() {
   const ablation = Object.entries(index.results).filter(([n]) => n.startsWith("H3 without") || n === "H3 temporal fusion");
   const lo = Math.max(0, cur - 45), hi = Math.min(N, cur + 46);
   const nearby = g ? g.commentary.filter((c) => c.end_s >= cur * 2 - 40 && c.start_s <= cur * 2 + 40).slice(0, 4) : [];
+  const selectedCandidate = g?.candidates.find(c => c.start_s === playback?.start) ?? cand ?? g?.candidates[0];
+  const selectedStart = playback?.start ?? selectedCandidate?.start_s ?? cur*2;
+  const selectedEnd = playback ? playback.end ?? Math.min(N*2,selectedStart+20) : selectedCandidate?.end_s ?? Math.min(N*2,selectedStart+2);
+  const nextCandidateIndex = g && selectedCandidate ? g.candidates.indexOf(selectedCandidate)+1 : 0;
 
   return (
     <div>
-      <header className="grain border-b border-line">
+      <header className="highlight-header cinematic-band border-b border-line">
+        <StadiumBackdrop />
         <div className="mx-auto grid max-w-[1500px] gap-6 px-4 py-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end lg:px-8">
           <div>
             <p className="kicker">Highlight intelligence</p>
             <h1 className="display mt-1 text-6xl sm:text-8xl">Find the <span className="text-amber">moment.</span></h1>
           </div>
-          <p className="max-w-[62ch] text-sm text-muted">
-            <strong className="font-semibold text-ink">Ranks agreement with editorial selection, not a probability.</strong> Editorial label: {index.label} Scope: {index.scope}. No video is hosted; links open the public source video.
-            On {shipped.test.games} held-out games the shipped model reaches {shipped.test.mean_average_precision.toFixed(3)} mean average precision (random: {shipped.test.chance_average_precision.toFixed(3)}). A 3-minute reel is {pct(shipped.test["3 minutes"].precision)} editorial highlights but covers only {pct(shipped.test["3 minutes"].recall_of_highlight_time)} of highlight time.
-          </p>
+          <div className="max-w-[58ch] text-sm text-muted">
+            <p className="text-lg text-ink">Select a moment. Watch the source. Inspect the signals.</p>
+            <p className="mt-2">Ranks editorial highlight selection. Scores are ranks, not probabilities.</p>
+            <details className="mt-4 border-t border-line pt-2"><summary>Dataset and evaluation</summary><p className="mt-2">{index.scope}. Editorial label: {index.label} On {shipped.test.games} held-out games: {shipped.test.mean_average_precision.toFixed(3)} mAP (random: {shipped.test.chance_average_precision.toFixed(3)}). A 3-minute reel is {pct(shipped.test["3 minutes"].precision)} editorial highlights but covers only {pct(shipped.test["3 minutes"].recall_of_highlight_time)} of highlight time. Source playback uses YouTube; no footage is hosted.</p></details>
+          </div>
         </div>
       </header>
 
@@ -115,15 +133,20 @@ export default function Highlights() {
         {!g ? <p className="py-6 text-muted">Loading game…</p> : (
           <div key={g.id} className="fade-swap mt-4 grid gap-5 lg:grid-cols-[minmax(0,1fr)_360px]">
             <section aria-label="Timeline" className="min-w-0">
+              <HighlightPlayer key={g.id} source={g.source} title={g.title} duration={g.clips*2} request={playback} onTime={followVideo}
+                onReplay={() => selectMoment(selectedStart,selectedEnd,playback?.label ?? "ranked interval")}
+                onNext={() => { const next = g.candidates[nextCandidateIndex]; if (next) selectMoment(next.start_s,next.end_s); }} hasNext={nextCandidateIndex<g.candidates.length} />
+              <ClipEvidence scores={g.scores[model]} loudness={g.loudness_above_background} label={g.label} commentary={g.commentary} start={selectedStart} end={selectedEnd} cursor={cur} model={model} />
+              <p className="kicker mb-2 mt-6">Full-game overview / click to seek</p>
               <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-x-2">
                 <ul className="mono relative text-[10px] leading-tight text-muted" aria-hidden="true">
                   <li className="absolute top-[10%]">MODEL RANK</li><li className="absolute top-[41%] text-defense">EDITORIAL</li><li className="absolute top-[52%] text-amber">MODEL REEL</li>
                   <li className="absolute top-[68%]">AUDIO</li><li className="absolute top-[88%]">COMMENTARY</li>
                 </ul>
                 <div className="border border-line bg-surface">
-                  <svg viewBox={`0 0 ${N} 150`} preserveAspectRatio="none" className="block h-72 w-full cursor-crosshair" role="img"
+                  <svg viewBox={`0 0 ${N} 150`} preserveAspectRatio="none" className="block h-32 w-full cursor-crosshair" role="img"
                     aria-label={`Timeline of ${g.title}. Rows: model score rank, editorial highlight segments, the model's ${budget} reel, loudness above background, and commentary activity. Use the slider below to move the cursor.`}
-                    onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); setCursor(Math.max(0, Math.min(N - 1, Math.floor(((e.clientX - r.left) / r.width) * N)))); }}>
+                    onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); const clip=Math.max(0, Math.min(N-1,Math.floor(((e.clientX-r.left)/r.width)*N))); const candidate=g.candidates.find(c=>clip>=c.start_clip&&clip<c.end_clip); selectMoment(clip*2,candidate?.end_s ?? null,candidate ? "ranked interval" : "full-video position"); }}>
                     <path d={path(g.scores[model], 50, 100)} transform="translate(0 4)" fill="none" stroke="#f2efe5" strokeWidth={1} vectorEffect="non-scaling-stroke" />
                     {bands!.label.map(([a, b]) => <rect key={`l${a}`} x={a} y={60} width={b - a} height={11} fill="#8ebaf1" />)}
                     {bands!.selected.map(([a, b]) => <rect key={`s${a}`} x={a} y={76} width={b - a} height={11} fill="#e8ad66" />)}
@@ -136,7 +159,7 @@ export default function Highlights() {
                 <span />
                 <div className="mono num mt-1 flex justify-between text-[10px] text-muted"><span>0:00:00</span><span className="text-amber">{clock(cur * 2)}</span><span>{clock(N * 2)} TRIMMED BROADCAST</span></div>
                 <span />
-                <input type="range" min={0} max={N - 1} value={cur} onChange={(e) => setCursor(Number(e.target.value))} className="w-full" style={{ accentColor: "#e8ad66" }} aria-label="Timeline position" />
+                <input type="range" min={0} max={N - 1} value={cur} onChange={(e) => selectMoment(Number(e.target.value)*2,null,"full-video position")} className="w-full" style={{ accentColor: "#e8ad66" }} aria-label="Timeline position" />
               </div>
               <p className="mt-1 text-xs text-muted">Every row is measured data for this game: model score rank, the released editorial label, the model&apos;s {budget} reel, loudness above the local background, and machine-transcribed commentary segments. No play diagram is shown because no tracking exists for these broadcasts.</p>
 
@@ -144,8 +167,9 @@ export default function Highlights() {
               <ul className="mt-2 flex gap-2 overflow-x-auto pb-2">
                 {g.candidates.slice(0, 24).map((c) => (
                   <li key={c.start_clip}>
-                    <button onClick={() => setCursor(c.start_clip)} aria-current={cand === c ? "true" : undefined}
-                      className={`w-44 shrink-0 border px-2 py-2 text-left transition-colors duration-150 ${cand === c ? "border-amber" : "border-line hover:border-ink"}`}>
+                    <button onClick={() => selectMoment(c.start_s,c.end_s)} aria-current={selectedCandidate === c ? "true" : undefined}
+                      className={`candidate-button w-44 shrink-0 border px-3 py-3 text-left transition-colors duration-150 ${selectedCandidate === c ? "border-amber bg-amber/10" : "border-line hover:border-ink"}`}>
+                      <span className="mb-2 flex items-center justify-between text-[10px] text-amber"><span>▶ PLAY INTERVAL</span><span>{c.end_s-c.start_s}s</span></span>
                       <span className="mono num block text-sm">{clock(c.start_s)} <span className="text-muted">RANK {c.score_rank}</span></span>
                       <span className={`block text-xs ${c.in_editorial_highlights ? "text-defense" : "text-coral"}`}>{c.in_editorial_highlights ? "In the editors' reel" : "Not in the editors' reel"}</span>
                     </button>
@@ -169,10 +193,10 @@ export default function Highlights() {
                   </div>
                   <p className="mono num mt-2 text-xs text-muted">TIMELINE {clock(cur * 2)} FROM THE TRIMMED START. <a className="text-teal underline" href={sourceLink(g, cur * 2)} target="_blank" rel="noreferrer">Open the source video at this moment</a></p>
                   <table className="num mt-4 w-full text-xs">
-                    <caption className="kicker pb-1 text-left"><Badge kind="Predicted" /> why it ranks where it does</caption>
+                    <caption className="kicker pb-1 text-left"><Badge kind="Predicted" /> signals at this moment</caption>
                     <tbody>
                       {Object.entries(g.scores).map(([n, s]) => <tr key={n} className="border-t border-line"><td className="py-1.5 pr-2">{n} rank</td><td className="text-right">{s[cur]}</td></tr>)}
-                      <tr className="border-t border-line"><td className="py-1.5 pr-2">Loudness above local background</td><td className="text-right">{g.loudness_above_background[cur]} dB</td></tr>
+                      <tr className="border-t border-line"><td className="py-1.5 pr-2">Loudness above local background</td><td className="text-right">{g.loudness_above_background[cur].toFixed(1)} dB</td></tr>
                       {cand && <tr className="border-t border-line"><td className="py-1.5 pr-2">Commentary words the word model weighted</td><td className="text-right">{cand.commentary_terms.length ? cand.commentary_terms.join(", ") : "none"}</td></tr>}
                     </tbody>
                   </table>
@@ -189,7 +213,7 @@ export default function Highlights() {
                   <ul className="mt-2 max-h-[26rem] overflow-y-auto border-t border-line">
                     {g.missed_highlights.map((m) => (
                       <li key={m.start_s}>
-                        <button onClick={() => { setCursor(m.start_s / 2); setTab("evidence"); }} className="w-full border-b border-line px-2 py-2 text-left hover:bg-surface">
+                        <button onClick={() => { selectMoment(m.start_s,m.end_s,"missed editorial segment"); setTab("evidence"); }} className="w-full border-b border-line px-2 py-2 text-left hover:bg-surface">
                           <span className="mono num flex justify-between gap-2 text-xs"><span>{clock(m.start_s)} · {m.seconds}S</span><span className="text-muted">BEST RANK {m.best_score_rank}</span></span>
                           <span className="block text-xs text-muted">{m.excerpt || "No commentary transcribed here"}</span>
                         </button>

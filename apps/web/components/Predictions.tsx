@@ -6,6 +6,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Badge } from "@/components/ui";
 import { pct } from "@/lib/demo";
 import { type Games, PMODELS, loadPregame, signed } from "@/lib/pregame";
+import StadiumBackdrop from "@/components/StadiumBackdrop";
+import TeamPortrait from "@/components/TeamPortrait";
 
 const sig = (x: number) => 1 / (1 + Math.exp(-x));
 
@@ -42,7 +44,8 @@ export default function Predictions() {
 
   return (
     <div>
-      <header className="grain border-b border-line">
+      <header className="prediction-header cinematic-band border-b border-line">
+        <StadiumBackdrop />
         <div className="mx-auto grid max-w-[1500px] gap-6 px-4 py-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:px-8">
           <div>
             <p className="kicker">Game prediction</p>
@@ -79,13 +82,10 @@ export default function Predictions() {
         </nav>
       </header>
 
-      <section key={game.id} aria-label="Selected matchup" className="fade-swap border-b border-line">
-        <div className="mx-auto grid max-w-[1500px] items-center gap-6 px-4 py-10 md:grid-cols-[minmax(0,1fr)_minmax(280px,1.1fr)_minmax(0,1fr)] lg:px-8">
-          <div className="text-center md:text-left">
-            <p className="kicker">Away</p>
-            <p className="display text-[7rem] leading-[0.8] md:text-[8rem] lg:text-[11rem]">{game.away}</p>
-          </div>
-          <div className="text-center">
+      <section key={game.id} aria-label="Selected matchup" className="matchup-stage fade-swap border-b border-line">
+        <div className="matchup-grid mx-auto max-w-[1500px]">
+          <TeamPortrait team={game.away} side="away" />
+          <div className="matchup-probabilities text-center">
             <p className="mono mx-auto w-fit border border-line px-3 py-1 text-[11px] tracking-[0.2em] text-muted">HISTORICAL BACKTEST · 24 H INPUT CUTOFF</p>
             <p className="kicker mt-5">Win probability, Elo-offset model</p>
             <div className="mt-2 grid grid-cols-[auto_1fr_auto] items-center gap-3">
@@ -100,11 +100,9 @@ export default function Predictions() {
             <p className="mt-4"><Link href="/predictions/performance" className="narrow inline-block border border-line px-4 py-2 text-base hover:border-ink">No established gain over Elo. See the evidence</Link></p>
             <p className="mono num mt-3 text-[11px] text-muted">{game.date} · {game.season} WEEK {game.week}{game.type !== "REG" ? ` · ${game.type}` : ""}</p>
           </div>
-          <div className="text-center md:text-right">
-            <p className="kicker">Home</p>
-            <p className="display text-[7rem] leading-[0.8] md:text-[8rem] lg:text-[11rem]">{game.home}</p>
-          </div>
+          <TeamPortrait team={game.home} side="home" />
         </div>
+        <p className="matchup-art-note">Original decorative helmet artwork · not official uniform imagery</p>
       </section>
 
       <div className="paper">

@@ -33,7 +33,7 @@ Inline SVG uses `var(--color-*)` so figures follow the surface. Fixed hex appear
 
 ## Components
 
-- `SiteNav`: sticky, compacts on scroll, active link from the path, mobile menu button with `aria-expanded`, Esc closes. No GitHub link is rendered because no remote is configured.
+- `SiteNav`: sticky, compacts on scroll, active link from the path, mobile menu button with `aria-expanded`, Esc closes. GitHub links point to the public project repository.
 - Skip link, footer with system and evidence links (`layout.tsx`).
 - `.btn-primary` (chartreuse block) and `.btn-quiet` (underlined) are the only two button styles for navigation actions.
 - `Badge` (`ui.tsx`): Observed / Released label / Predicted / Derived. The word is always shown; colour is never the only signal.
@@ -72,3 +72,11 @@ CSS and `IntersectionObserver` only; no animation library was added.
 Checked at 1440, 1024, 768 and 390 px. Coverage collapses to field → evidence with the play library in a drawer;
 wide tables scroll inside their own container. One `h1` per page, labelled controls, visible focus, keyboard-operable
 tabs, dialog and menu. Not done: a screen-reader (VoiceOver) pass.
+
+## Cinematic artwork and playback
+
+`StadiumBackdrop` uses original optimized WebP artwork with dark readability layers. The Home hero adds illustrative chalk routes; these are decorative, not observed player trajectories. `TeamPortrait` places original helmet artwork behind team names, with colour overlays that do not claim to reproduce official uniforms. See `ASSETS.md`.
+
+Highlights places an interaction-loaded official YouTube player above `ClipEvidence`: model ranking and observed loudness remain separate lanes, and editorial labels remain evaluation-only. A compact full-game overview supplies navigation. Selected intervals have start/end limits, replay/next controls, a synchronized cursor, and an external source fallback. No graph is described as feature attribution; two-second source bins constrain evidence resolution. Source timestamps use existing trim offsets and are not independently frame-verified.
+
+The new browser regression suite checks desktop/mobile overflow and saved matchup presentation. Its mocked player tests verify seek, reuse, boundary pause, replay and embedding-error states; they do not establish real YouTube embeddability.
