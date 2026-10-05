@@ -110,6 +110,19 @@ General
 - Preview and per-deployment URLs are behind Vercel Authentication (project Settings → Deployment Protection). The production domain is public.
 - GitHub Actions (`.github/workflows/ci.yml`) runs ruff, pytest, lint and build on every push.
 
+## V3 additions (branch `feat/inference-and-model-v3`)
+
+Read `docs/V3_EXECUTION_STATUS.md` first. New surfaces a design change must not break:
+
+- `/coverage/analyze`, `/highlights/analyze` (`components/AnalyzePlay.tsx`, `AnalyzeClip.tsx`, `UploadShell.tsx`, `lib/inference.ts`). They call a local service only when `NEXT_PUBLIC_GRIDIRON_API` is set at build time. Unset (Vercel), they must show the local-operation notice, render no file input and make no request to localhost. `tests/browser/uploads.spec.ts` checks this.
+- The clip page keeps three things in sync: the video's time, the graph playhead and the candidate being played (it must pause at the clip end). The mode label must stay "loudness baseline (H0)"; ranks are not probabilities; no event names.
+- The tracking page disables cutoffs the play does not reach, shows a supplied label only as a comparison and never shows an accuracy figure.
+- `/coverage/review` (`CoverageReview.tsx`): annotations live in the browser and are exported by the reviewer; the page must keep saying the queue is unreviewed until someone annotates it, and that automated flags are suggestions.
+- `/predictions/forecasts`: roles are official, early preview, late and legacy; only official records are scored; the leaderboard must stay empty until official records have results.
+- The coverage explorer's model list carries each model's role; the default stays the preserved benchmark.
+- `components/V3Results.tsx` on `/research` reads the round-three reports. Keep the decisions and the unsuccessful rows visible.
+- Local service: `bin/gridiron-api`, code in `src/gridiron_lens/service/`. Data in `data/jobs/` is private and ignored by Git.
+
 ## Unfinished
 
 - Real YouTube playback review on the protected Vercel preview.

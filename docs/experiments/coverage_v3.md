@@ -36,3 +36,7 @@ Otherwise the v2 temporal model stays the champion and the result is reported as
 Rollback: the v2 bundles in `models/coverage_v2/` are never modified; a promoted model is saved under `models/coverage/v3/`.
 
 ---
+
+## Results
+
+Run on 2026-10-04. Report: `reports/v3/coverage_v3_experiments.json`. Summary and decision: `docs/V3_EXECUTION_STATUS.md`.

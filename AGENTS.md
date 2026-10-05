@@ -26,14 +26,28 @@ Read `docs/BUILD_STATUS.md` first for the current state.
   (https://nfl-analytics-platform-theta.vercel.app). Everything under `apps/web/public/` is public: add nothing there that
   `data/manifests/rights.json` does not allow. No paid services without an explicit instruction from the owner.
 
+- v3 (2026-10-04): new reports go to `reports/v3/`, model bundles to `models/<module>/v3/`. Experiment lists and selection rules are
+  written in `docs/experiments/` **before** the first run and are not edited afterwards. v1 and v2 outputs stay untouched.
+- Forecasts: only `bin/pregame-lens forecast-v3` records count. Never backfill a played game as a forecast, never edit a record, and
+  never mark a late record as official. Source snapshots live in `data/snapshots/` (private, ignored by Git).
+- Uploads: user files, job results and `data/local_media/` are private and never committed or copied under `apps/web/public/`.
+  The public site must never accept a file or imitate inference when no inference service is configured.
+- Highlight scores are ranks. The loudness baseline and the trained model must always be named separately; the trained model cannot
+  score new media until the CLIP/SlowFast/PANN extractors are installed and parity-checked.
+
 ## Layout
 - `src/gridiron_lens/{shared,coverage,pregame,highlights}`: one package per module; `shared/runs.py` is the run-record contract.
 - `apps/web`: Next.js 16 site reading frozen exports. Read `apps/web/AGENTS.md` before changing Next.js code.
-- `data/raw/{bdb2026,nflverse,svhighlights}`; `models/`; `reports/{v1,v2,forecasts}`.
+- `data/raw/{bdb2026,nflverse,svhighlights}`; `models/`; `reports/{v1,v2,v3,forecasts}`.
+- `src/gridiron_lens/service`: local inference API (FastAPI, SQLite jobs). `src/gridiron_lens/videocov`: calibration library (partial prototype).
 
 ## Commands
 - Coverage: `bin/coverage-lens audit|normalize|features|train` (v1), `relational|exp-a|exp-b|exp-c|benchmark-v2|export-v3` (v2).
-- Game predictor: `bin/pregame-lens backtest|forecast`. Highlights: `bin/highlights-lens audit|run|export`.
+- Game predictor: `bin/pregame-lens backtest|snapshot|forecast-v3|publish-forecasts`. Highlights: `bin/highlights-lens audit|run|export`.
+- v3 modules run with `PYTHONPATH=src .venv/bin/python -m gridiron_lens.<module>`: `shared.v3_audit`, `highlights.bundle`, `highlights.eval_v3`,
+  `highlights.experiment_v3`, `highlights.candidate_v3`, `coverage.experiment_v3`, `coverage.review_v3`, `pregame.experiment_v3`.
+- Upload lab: `uv sync --extra service`, `bin/gridiron-api` (http://127.0.0.1:8765), then
+  `cd apps/web && NEXT_PUBLIC_GRIDIRON_API=http://127.0.0.1:8765 npm run dev`. Command line: `python -m gridiron_lens.service.cli`.
 - Site research export: `.venv/bin/python -m gridiron_lens.shared.publish`.
 - Checks: `.venv/bin/python -m pytest -q`, `.venv/bin/ruff check src tests`, `cd apps/web && npm run lint && npm run build`.
 - Site: `cd apps/web && npx next start -p 3111` after a build (restart it after adding new files under `public/`). Needs arm64 Node at `/opt/homebrew/bin`.

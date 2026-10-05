@@ -86,7 +86,7 @@ export default function AnalyzeClip() {
       <header className="cinematic-band border-b border-line">
         <div className="mx-auto flex max-w-[1500px] flex-wrap items-end justify-between gap-x-10 gap-y-3 px-4 py-6 lg:px-8">
           <div>
-            <div className="flex items-center gap-4"><p className="kicker">Highlights / clip ranking</p><ModuleTour module="highlights-upload" ready={ready} /></div>
+            <div className="flex items-center gap-4"><p className="kicker">Highlights / clip ranking</p>{ready && <ModuleTour module="highlights-upload" ready />}</div>
             <h1 className="display mt-1 text-5xl sm:text-7xl">Analyze your <span className="text-amber">clip.</span></h1>
           </div>
           <p className="max-w-[58ch] text-sm text-muted">
@@ -122,7 +122,11 @@ export default function AnalyzeClip() {
         <section aria-label="Player and evidence" className="min-w-0" data-tour="upload-result">
           {preview ? (
             <video ref={video} src={preview} controls playsInline onTimeUpdate={onTime} className="aspect-video w-full bg-black" aria-label="Your uploaded clip" data-testid="clip-player" />
-          ) : <div className="grid aspect-video w-full place-items-center border border-line text-sm text-muted">Choose a file to preview it here. The preview never leaves your browser.</div>}
+          ) : ready ? <div className="grid aspect-video w-full place-items-center border border-line p-4 text-center text-sm text-muted">Choose a file to preview it here. The preview never leaves your browser.</div> : (
+            <div className="border border-line p-6 text-sm text-muted"><h2 className="narrow text-2xl font-semibold text-ink">What it does when it runs</h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5"><li>Plays your clip above its loudness and rank tracks, with the playhead following the video.</li><li>Finds the loudest moments and cuts clips within an exact reel length.</li><li>Lets you adjust bounds, mark replays, remove candidates and export the result.</li></ul>
+              <p className="mt-3">Saved examples from the benchmark games are on the <Link className="text-teal underline" href="/highlights">Highlights page</Link>. They are not an analysis of your file.</p></div>
+          )}
 
           {res && (
             <div className="fade-swap mt-3">

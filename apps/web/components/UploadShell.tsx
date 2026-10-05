@@ -55,7 +55,7 @@ export function BackendNotice({ backend, what }: { backend: Backend; what: strin
           ? `${what} is done by a small Python service that runs locally, next to the models. This public site has no such service behind it, so it does not accept files and does not pretend to analyse them.`
           : `The site is configured to use a local service, but it could not be reached (${backend.error}). Start it and reload.`}
       </p>
-      <ol className="mono mt-3 list-decimal space-y-1 pl-5 text-xs text-muted">
+      <ol className="mono mt-3 list-decimal space-y-1 break-words pl-5 text-xs text-muted [overflow-wrap:anywhere]">
         <li>git clone the repository; uv sync --extra service; brew install ffmpeg</li>
         <li>bin/gridiron-api <span className="text-ink">(serves http://127.0.0.1:8765, loopback only)</span></li>
         <li>cd apps/web &amp;&amp; NEXT_PUBLIC_GRIDIRON_API=http://127.0.0.1:8765 npm run dev</li>

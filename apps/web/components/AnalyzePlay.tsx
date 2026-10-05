@@ -52,7 +52,7 @@ export default function AnalyzePlay() {
       <header className="cinematic-band border-b border-line">
         <div className="mx-auto flex max-w-[1500px] flex-wrap items-end justify-between gap-x-10 gap-y-3 px-4 py-6 lg:px-8">
           <div>
-            <div className="flex items-center gap-4"><p className="kicker">Coverage / tracking classification</p><ModuleTour module="coverage-upload" ready={ready} /></div>
+            <div className="flex items-center gap-4"><p className="kicker">Coverage / tracking classification</p>{ready && <ModuleTour module="coverage-upload" ready />}</div>
             <h1 className="display mt-1 text-5xl sm:text-7xl">Analyze your play<span className="text-teal">.</span></h1>
           </div>
           <p className="max-w-[58ch] text-sm text-muted">

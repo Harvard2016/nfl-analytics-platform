@@ -21,3 +21,7 @@ Seed 42. Ten configurations in total; nothing else is tried.
 **Objectives.** Rankers: mean out-of-fold average precision over the 28 games (higher is better), with the game-level bootstrap interval of the paired difference from the control. Decoders: mean recall of labelled time at a strict 180-second output, ties to precision.
 
 **Promotion.** A ranker replaces H3 only if its paired difference in average precision has a game-bootstrap interval above zero, and then it must be retrained on all 28 training games as a new version before any comparison on the validation or examined test games. Otherwise H3 stays.
+
+## Results
+
+Run on 2026-10-04. Report: `reports/v3/highlights_experiments_v3.json and highlights_candidates_v3.json`. Summary and decision: `docs/V3_EXECUTION_STATUS.md`.

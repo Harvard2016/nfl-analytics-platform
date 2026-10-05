@@ -300,7 +300,10 @@ def summarize(A: dict, saved: dict, oof: dict, log=print) -> dict:
             entry["lower_in_every_fold"] = bool(all(a < b for a, b in zip(entry["fold_val_loss"], [f["val_loss"] for f in saved[ctrl_key]["folds"]])))
             c15, m15 = rep["models"][ctrl_key]["pooled_clean"]["post_1_5s"], entry["pooled_clean"]["post_1_5s"]
             entry["guardrails_ok"] = bool(all(m15[k] >= c15[k] - 0.01 for k in ("macro_f1", "man_precision", "man_recall")))
-            entry["passes_rule"] = bool(entry["lower_in_every_fold"] and entry["vs_control_post_1_5s"]["interval_95"][1] < 0 and entry["guardrails_ok"])
+            if key.startswith("E0"):                                   # another seed of the control is not a candidate: it measures seed-to-seed variation
+                entry["role"] = "control, different seed (not a candidate)"
+            else:
+                entry["passes_rule"] = bool(entry["lower_in_every_fold"] and entry["vs_control_post_1_5s"]["interval_95"][1] < 0 and entry["guardrails_ok"])
         rep["models"][key] = entry
 
     # E3: ensembles and calibration, all fitted on the other folds
@@ -357,6 +360,9 @@ def summarize(A: dict, saved: dict, oof: dict, log=print) -> dict:
                                 "per_class_recall_mean": {c: float(np.mean([f["per_class"][c]["recall"] for f in v["folds"]])) for c in CLASSES},
                                 "per_class_support_total": {c: int(sum(f["per_class"][c]["support"] for f in v["folds"])) for c in CLASSES}, "folds": v["folds"]} for k, v in fam.items()}
         rep["E4_note"] = "Development only, +1.5 s cutoff, uncalibrated. PREVENT excluded for too few plays. The group in the hierarchical head is predicted, never supplied."
+    seeds_ll = [v["pooled_clean"]["post_1_5s"]["log_loss"] for k, v in rep["models"].items() if k.startswith("E0")]
+    rep["seed_variation"] = {"control_log_loss_post_1_5s_by_seed": seeds_ll, "range": float(max(seeds_ll) - min(seeds_ll)),
+                             "note": "Three seeds of the same control differ by this much. A candidate's gain has to be read against it; one control seed differs from another by more than either candidate differs from the control."}
     passing = [k for k, v in rep["models"].items() if v.get("passes_rule")]
     rep["decision"] = {"candidates_passing_rule": passing, "champion": "v2 temporal (unchanged)" if not passing else "see finalists",
                        "statement": "No candidate met the registered rule; the v2 temporal model stays the champion." if not passing else "A candidate met the rule on seed 42; finalist seeds are required before promotion."}

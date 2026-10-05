@@ -19,3 +19,7 @@ Each feature set enters the Elo-offset logistic model with penalties 0.01, 0.1, 
 **Not run:** quarterback scenarios from timestamped depth charts. nflverse documents those snapshots from 2025 on, so there is no way to test them on development seasons 2012–2022; they are a future prospective experiment, not a backtest.
 
 **Selection:** nested by season. For each development season from 2015, the configuration with the lowest pooled log loss on the earlier development seasons is applied to that season. The nested score is what is reported as the v3 development result. A v3 model replaces the frozen v2 model in forecasts only if its nested log loss is lower than both Elo and v2 with a season-week bootstrap interval excluding zero. Otherwise forecasting stays on Elo and frozen v2.
+
+## Results
+
+Run on 2026-10-04. Report: `reports/v3/pregame_experiments_v3.json`. Summary and decision: `docs/V3_EXECUTION_STATUS.md`.
