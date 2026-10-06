@@ -1,13 +1,14 @@
 import { expect, test, type Page } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import type { Capabilities, Job } from "../../lib/inference";
 
 // Synthetic fixtures check UI mechanics only: no trained inference or football media is represented.
-const caps = {
+const caps: Capabilities = {
   privacy: "Synthetic test service", retention_hours: 24, hosting: "local",
   modules: {
     coverage: { ready: true, model: "synthetic", modes: { "release-compatible": { ready: true } }, limits: { max_bytes: 2097152 },
-      input: { required: {}, optional: {}, motion: "synthetic", orientation: "synthetic" } },
-    highlights: { modes: { loudness_baseline: { ready: true } }, limits: { max_bytes: 600 * 2 ** 20, min_duration_s: 10, max_duration_s: 1200 } },
+      input: { required: {}, optional: {}, motion: "synthetic", orientation: "synthetic", field: "synthetic", limits: {} } },
+    highlights: { modes: { loudness_baseline: { ready: true } }, limits: { max_bytes: 600 * 2 ** 20, min_duration_s: 10, max_duration_s: 1200, full_games: "synthetic" } },
     video_coverage: { ready: false, reason: "not available" },
   },
 };
@@ -57,7 +58,10 @@ async function setup(page: Page, module: "coverage" | "highlights", delayFirst =
       const id = path.split("/")[3];
       if (id === "job1" && delayFirst) { firstRequested(); await gate; }
       json = module === "coverage" ? playResult(id) : clipResult(id);
-    } else json = { id: path.split("/")[3], state: "complete", stage: null, progress: null, warnings: [], error: null, result_available: true, assets: [] };
+    } else {
+      const job: Job = { id: path.split("/")[3], state: "complete", stage: null, progress: null, warnings: [], error: null, result_available: true, assets: [], expires_at: "2026-10-07T00:00:00+00:00" };
+      json = job;
+    }
     await route.fulfill({ status: 200, headers, json });
   });
   await page.goto(`/${module}/analyze`);
