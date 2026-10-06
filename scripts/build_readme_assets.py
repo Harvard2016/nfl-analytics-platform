@@ -31,7 +31,7 @@ def results_svg():
     cov = load("reports/v2/coverage_benchmark_v2.json")
     high = load("reports/v2/highlights_ranking.json")
     game = load("reports/v2/pregame_backtest_v2.json")["previously_examined_benchmark"]["models"]
-    parts = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 440" role="img" aria-labelledby="title desc">',
+    parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="440" viewBox="0 0 1260 440" role="img" aria-labelledby="title desc">',
              '<title id="title">Three independent systems, three measured comparisons</title>',
              '<desc id="desc">Coverage accuracy at +1.5 seconds from selected-player tracking; highlight mean average precision; pregame log loss. All comparisons are on previously examined benchmarks. Bars start at zero; results are not comparable across tasks.</desc>',
              '<rect width="1260" height="440" rx="8" fill="#0d1912"/>',
