@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Weekly forecast schedule for macOS launchd. Runs ops/forecast_job.sh on Tuesday, Wednesday and Saturday at 09:00 local time,
+  which is well before the 24-hour cutoff of Thursday, Sunday and Monday games. Replace REPO_PATH with the repository path.
+
+    sed "s|REPO_PATH|$HOME/Developer/nfl-analytics-platform|g" ops/com.gridironlens.forecast.plist > ~/Library/LaunchAgents/com.gridironlens.forecast.plist
+    launchctl load ~/Library/LaunchAgents/com.gridironlens.forecast.plist        # enable
+    launchctl unload ~/Library/LaunchAgents/com.gridironlens.forecast.plist      # disable
+
+  A sleeping laptop misses a run. launchd runs a missed job once on wake; if that is after a cutoff, the record is written as
+  late and never counts as official. Nothing is ever backdated.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.gridironlens.forecast</string>
+  <key>ProgramArguments</key><array><string>/bin/sh</string><string>REPO_PATH/ops/forecast_job.sh</string></array>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>6</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>REPO_PATH/logs/forecast_job.log</string>
+  <key>StandardErrorPath</key><string>REPO_PATH/logs/forecast_job.log</string>
+</dict>
+</plist>

@@ -1,0 +1,1880 @@
+{
+  "module": "highlights",
+  "version": "highlights-eval-v3",
+  "created_at_utc": "2026-10-04T22:41:42+00:00",
+  "scores": "saved v2 scores (no retraining)",
+  "split_roles": {
+    "decoder settings": "6 validation games (development)",
+    "reported": "6 test games, previously examined in v2: a benchmark comparison, not a fresh test"
+  },
+  "labels": "released editorial labels, unchanged. Contiguous label runs are alignment-derived segments, not validated counts of distinct plays.",
+  "objective": "mean recall of labelled time at a strict 180-second output; ties go to precision",
+  "grid_on_validation": [
+    {
+      "block_clips": 3,
+      "lead_s": 0.0,
+      "tail_s": 0.0,
+      "recall_of_labelled_time": 0.18775702847112352,
+      "precision": 0.8796296296296297,
+      "segments_half_covered_share": 0.14463840399002495,
+      "mean_segments_in_reel": 23.166666666666668
+    },
+    {
+      "block_clips": 3,
+      "lead_s": 2.0,
+      "tail_s": 2.0,
+      "recall_of_labelled_time": 0.19357491841268823,
+      "precision": 0.9012276321265086,
+      "segments_half_covered_share": 0.19950124688279303,
+      "mean_segments_in_reel": 15.166666666666666
+    },
+    {
+      "block_clips": 3,
+      "lead_s": 4.0,
+      "tail_s": 2.0,
+      "recall_of_labelled_time": 0.18529569001215415,
+      "precision": 0.8572617561381605,
+      "segments_half_covered_share": 0.1770573566084788,
+      "mean_segments_in_reel": 13.0
+    },
+    {
+      "block_clips": 5,
+      "lead_s": 0.0,
+      "tail_s": 0.0,
+      "recall_of_labelled_time": 0.18671048000703952,
+      "precision": 0.8759259259259261,
+      "segments_half_covered_share": 0.20698254364089774,
+      "mean_segments_in_reel": 17.5
+    },
+    {
+      "block_clips": 5,
+      "lead_s": 2.0,
+      "tail_s": 2.0,
+      "recall_of_labelled_time": 0.18692906540603804,
+      "precision": 0.8648148148148148,
+      "segments_half_covered_share": 0.17955112219451372,
+      "mean_segments_in_reel": 13.0
+    },
+    {
+      "block_clips": 5,
+      "lead_s": 4.0,
+      "tail_s": 2.0,
+      "recall_of_labelled_time": 0.17526264527049842,
+      "precision": 0.8092592592592592,
+      "segments_half_covered_share": 0.1571072319201995,
+      "mean_segments_in_reel": 12.0
+    },
+    {
+      "block_clips": 7,
+      "lead_s": 0.0,
+      "tail_s": 0.0,
+      "recall_of_labelled_time": 0.18663389753718662,
+      "precision": 0.8721389929255098,
+      "segments_half_covered_share": 0.1770573566084788,
+      "mean_segments_in_reel": 13.0
+    },
+    {
+      "block_clips": 7,
+      "lead_s": 2.0,
+      "tail_s": 2.0,
+      "recall_of_labelled_time": 0.17882464738723788,
+      "precision": 0.8277777777777778,
+      "segments_half_covered_share": 0.14214463840399003,
+      "mean_segments_in_reel": 10.0
+    },
+    {
+      "block_clips": 7,
+      "lead_s": 4.0,
+      "tail_s": 2.0,
+      "recall_of_labelled_time": 0.1679347466347593,
+      "precision": 0.7777777777777777,
+      "segments_half_covered_share": 0.12718204488778054,
+      "mean_segments_in_reel": 9.0
+    }
+  ],
+  "chosen": {
+    "block": 3,
+    "lead_s": 2.0,
+    "tail_s": 2.0
+  },
+  "padded_variant": {
+    "block": 3,
+    "lead_s": 4.0,
+    "tail_s": 2.0
+  },
+  "decoder": {
+    "budget": "final output seconds after padding and merging, clamped to the media duration",
+    "ties": "earlier clip first",
+    "export": "see local_media: cuts are re-encoded for exact durations and verified with ffprobe"
+  },
+  "mean_average_precision": {
+    "H3 temporal fusion": {
+      "test": 0.6192678665389459,
+      "test_interval_95_over_games": [
+        0.520381255511469,
+        0.7067205650403384
+      ],
+      "validation": 0.6879140201155657
+    },
+    "H0 loudness": {
+      "test": 0.24597855451589345,
+      "test_interval_95_over_games": [
+        0.15189937454021782,
+        0.32462356902725903
+      ],
+      "validation": 0.31378833899936354
+    },
+    "H1 commentary": {
+      "test": 0.4042559230721789,
+      "test_interval_95_over_games": [
+        0.33040903135632566,
+        0.47060278748155854
+      ],
+      "validation": 0.40227330120206944
+    }
+  },
+  "oracle": {
+    "definition": "mean over games of min(budget, labelled seconds) / labelled seconds. A generous upper bound that ignores clip coherence. Diagnostic only; labels never drive selection.",
+    "labelled_seconds_test_games": {
+      "23": 1016,
+      "24": 932,
+      "26": 588,
+      "35": 678,
+      "36": 1204,
+      "40": 332
+    },
+    "three_minutes": 0.2722629853354468
+  },
+  "test": {
+    "v1_selector": {
+      "H3 temporal fusion": {
+        "1 minute": {
+          "output_s": 60.0,
+          "precision": 0.8500000000000001,
+          "recall_of_labelled_time": 0.07209959856445793,
+          "max_output_s": 60.0,
+          "all_within_budget": true
+        },
+        "3 minutes": {
+          "output_s": 181.33333333333334,
+          "precision": 0.775925925925926,
+          "recall_of_labelled_time": 0.19396650064779894,
+          "max_output_s": 188.0,
+          "all_within_budget": false
+        },
+        "5 minutes": {
+          "output_s": 301.3333333333333,
+          "precision": 0.746926406926407,
+          "recall_of_labelled_time": 0.30441975867144516,
+          "max_output_s": 308.0,
+          "all_within_budget": false
+        }
+      },
+      "H0 loudness": {
+        "1 minute": {
+          "output_s": 60.0,
+          "precision": 0.39999999999999997,
+          "recall_of_labelled_time": 0.027506319170834962,
+          "max_output_s": 60.0,
+          "all_within_budget": true
+        },
+        "3 minutes": {
+          "output_s": 180.0,
+          "precision": 0.4074074074074074,
+          "recall_of_labelled_time": 0.0887217124446522,
+          "max_output_s": 180.0,
+          "all_within_budget": true
+        },
+        "5 minutes": {
+          "output_s": 300.0,
+          "precision": 0.38000000000000006,
+          "recall_of_labelled_time": 0.13779898892562456,
+          "max_output_s": 300.0,
+          "all_within_budget": true
+        }
+      }
+    },
+    "strict_decoder": {
+      "H3 temporal fusion": {
+        "1 minute": {
+          "output_s": 60.0,
+          "precision": 0.838888888888889,
+          "recall_of_labelled_time": 0.07052868907616462,
+          "temporal_iou": 0.06877881354983008,
+          "oracle_recall_upper_bound": 0.09075432844514895,
+          "all_within_budget": true,
+          "max_output_s": 60.0,
+          "segments_touched_share": 0.07283464566929133,
+          "segments_half_covered_share": 0.07086614173228346,
+          "recall_interval_95_over_games": [
+            0.05589482024968886,
+            0.09254116412087482
+          ],
+          "precision_interval_95_over_games": [
+            0.7000000000000001,
+            0.9666666666666667
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 1.0,
+              "recall_of_labelled_time": 0.05905511811023622,
+              "temporal_iou": 0.05905511811023622,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.05905511811023622,
+              "labelled_segments": 116,
+              "segments_touched": 6,
+              "segments_half_covered": 6
+            },
+            "24": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.9666666666666667,
+              "recall_of_labelled_time": 0.06223175965665236,
+              "temporal_iou": 0.06209850107066381,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.06437768240343347,
+              "labelled_segments": 83,
+              "segments_touched": 6,
+              "segments_half_covered": 6
+            },
+            "26": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.5666666666666667,
+              "recall_of_labelled_time": 0.05782312925170068,
+              "temporal_iou": 0.05537459283387622,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.10204081632653061,
+              "labelled_segments": 99,
+              "segments_touched": 8,
+              "segments_half_covered": 7
+            },
+            "35": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.8333333333333334,
+              "recall_of_labelled_time": 0.07374631268436578,
+              "temporal_iou": 0.07267441860465117,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.08849557522123894,
+              "labelled_segments": 53,
+              "segments_touched": 5,
+              "segments_half_covered": 5
+            },
+            "36": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 1.0,
+              "recall_of_labelled_time": 0.04983388704318937,
+              "temporal_iou": 0.04983388704318937,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.04983388704318937,
+              "labelled_segments": 94,
+              "segments_touched": 6,
+              "segments_half_covered": 6
+            },
+            "40": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.6666666666666666,
+              "recall_of_labelled_time": 0.12048192771084337,
+              "temporal_iou": 0.11363636363636363,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.18072289156626506,
+              "labelled_segments": 63,
+              "segments_touched": 6,
+              "segments_half_covered": 6
+            }
+          }
+        },
+        "3 minutes": {
+          "output_s": 179.33333333333334,
+          "precision": 0.7800041614648356,
+          "recall_of_labelled_time": 0.19333700865110293,
+          "temporal_iou": 0.17745876350362355,
+          "oracle_recall_upper_bound": 0.2722629853354468,
+          "all_within_budget": true,
+          "max_output_s": 180.0,
+          "segments_touched_share": 0.20669291338582677,
+          "segments_half_covered_share": 0.19881889763779528,
+          "recall_interval_95_over_games": [
+            0.16033626529263414,
+            0.23340856147962338
+          ],
+          "precision_interval_95_over_games": [
+            0.6597378277153559,
+            0.8870370370370372
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 18,
+              "precision": 0.9333333333333333,
+              "recall_of_labelled_time": 0.16535433070866143,
+              "temporal_iou": 0.16342412451361868,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.17716535433070865,
+              "labelled_segments": 116,
+              "segments_touched": 18,
+              "segments_half_covered": 18
+            },
+            "24": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 17,
+              "precision": 0.8444444444444444,
+              "recall_of_labelled_time": 0.1630901287553648,
+              "temporal_iou": 0.15833333333333333,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.19313304721030042,
+              "labelled_segments": 83,
+              "segments_touched": 16,
+              "segments_half_covered": 14
+            },
+            "26": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 16,
+              "precision": 0.6741573033707865,
+              "recall_of_labelled_time": 0.20408163265306123,
+              "temporal_iou": 0.18575851393188855,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.30612244897959184,
+              "labelled_segments": 99,
+              "segments_touched": 21,
+              "segments_half_covered": 21
+            },
+            "35": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 17,
+              "precision": 0.7777777777777778,
+              "recall_of_labelled_time": 0.20648967551622419,
+              "temporal_iou": 0.19498607242339833,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.26548672566371684,
+              "labelled_segments": 53,
+              "segments_touched": 14,
+              "segments_half_covered": 13
+            },
+            "36": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 18,
+              "precision": 0.9222222222222223,
+              "recall_of_labelled_time": 0.1378737541528239,
+              "temporal_iou": 0.13628899835796388,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.14950166112956811,
+              "labelled_segments": 94,
+              "segments_touched": 17,
+              "segments_half_covered": 16
+            },
+            "40": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 16,
+              "precision": 0.5280898876404494,
+              "recall_of_labelled_time": 0.28313253012048195,
+              "temporal_iou": 0.22596153846153846,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.5421686746987951,
+              "labelled_segments": 63,
+              "segments_touched": 19,
+              "segments_half_covered": 19
+            }
+          }
+        },
+        "5 minutes": {
+          "output_s": 299.0,
+          "precision": 0.7270991797166294,
+          "recall_of_labelled_time": 0.2895948272286253,
+          "temporal_iou": 0.25005632400098426,
+          "oracle_recall_upper_bound": 0.45377164222574473,
+          "all_within_budget": true,
+          "max_output_s": 300.0,
+          "segments_touched_share": 0.3090551181102362,
+          "segments_half_covered_share": 0.297244094488189,
+          "recall_interval_95_over_games": [
+            0.2560783519313028,
+            0.32251061920307805
+          ],
+          "precision_interval_95_over_games": [
+            0.5631841909023118,
+            0.8537583892617447
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 300,
+              "output_s": 298.0,
+              "within_budget": true,
+              "segments": 28,
+              "precision": 0.87248322147651,
+              "recall_of_labelled_time": 0.2559055118110236,
+              "temporal_iou": 0.24667931688804554,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.2952755905511811,
+              "labelled_segments": 116,
+              "segments_touched": 28,
+              "segments_half_covered": 28
+            },
+            "24": {
+              "budget_s": 300,
+              "output_s": 298.0,
+              "within_budget": true,
+              "segments": 28,
+              "precision": 0.8657718120805369,
+              "recall_of_labelled_time": 0.27682403433476394,
+              "temporal_iou": 0.2654320987654321,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.3218884120171674,
+              "labelled_segments": 83,
+              "segments_touched": 27,
+              "segments_half_covered": 24
+            },
+            "26": {
+              "budget_s": 300,
+              "output_s": 298.0,
+              "within_budget": true,
+              "segments": 25,
+              "precision": 0.6510067114093959,
+              "recall_of_labelled_time": 0.3299319727891156,
+              "temporal_iou": 0.28034682080924855,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.5102040816326531,
+              "labelled_segments": 99,
+              "segments_touched": 34,
+              "segments_half_covered": 34
+            },
+            "35": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 27,
+              "precision": 0.6733333333333333,
+              "recall_of_labelled_time": 0.29793510324483774,
+              "temporal_iou": 0.2603092783505155,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.4424778761061947,
+              "labelled_segments": 53,
+              "segments_touched": 19,
+              "segments_half_covered": 17
+            },
+            "36": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 27,
+              "precision": 0.9133333333333333,
+              "recall_of_labelled_time": 0.22757475083056478,
+              "temporal_iou": 0.22276422764227644,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.24916943521594684,
+              "labelled_segments": 94,
+              "segments_touched": 26,
+              "segments_half_covered": 25
+            },
+            "40": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 26,
+              "precision": 0.38666666666666666,
+              "recall_of_labelled_time": 0.3493975903614458,
+              "temporal_iou": 0.2248062015503876,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.9036144578313253,
+              "labelled_segments": 63,
+              "segments_touched": 23,
+              "segments_half_covered": 23
+            }
+          }
+        }
+      },
+      "H0 loudness": {
+        "1 minute": {
+          "output_s": 60.0,
+          "precision": 0.37222222222222223,
+          "recall_of_labelled_time": 0.025006738794265928,
+          "temporal_iou": 0.024318806896077783,
+          "oracle_recall_upper_bound": 0.09075432844514895,
+          "all_within_budget": true,
+          "max_output_s": 60.0,
+          "segments_touched_share": 0.031496062992125984,
+          "segments_half_covered_share": 0.02952755905511811,
+          "recall_interval_95_over_games": [
+            0.009227770947236246,
+            0.04046823047360724
+          ],
+          "precision_interval_95_over_games": [
+            0.16666666666666666,
+            0.5777777777777777
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.6,
+              "recall_of_labelled_time": 0.03543307086614173,
+              "temporal_iou": 0.03461538461538462,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.05905511811023622,
+              "labelled_segments": 116,
+              "segments_touched": 5,
+              "segments_half_covered": 5
+            },
+            "24": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.6,
+              "recall_of_labelled_time": 0.03862660944206009,
+              "temporal_iou": 0.03765690376569038,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.06437768240343347,
+              "labelled_segments": 83,
+              "segments_touched": 4,
+              "segments_half_covered": 4
+            },
+            "26": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 4,
+              "precision": 0.0,
+              "recall_of_labelled_time": 0.0,
+              "temporal_iou": 0.0,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.10204081632653061,
+              "labelled_segments": 99,
+              "segments_touched": 0,
+              "segments_half_covered": 0
+            },
+            "35": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.6333333333333333,
+              "recall_of_labelled_time": 0.05604719764011799,
+              "temporal_iou": 0.054285714285714284,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.08849557522123894,
+              "labelled_segments": 53,
+              "segments_touched": 4,
+              "segments_half_covered": 3
+            },
+            "36": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.4,
+              "recall_of_labelled_time": 0.019933554817275746,
+              "temporal_iou": 0.01935483870967742,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.04983388704318937,
+              "labelled_segments": 94,
+              "segments_touched": 3,
+              "segments_half_covered": 3
+            },
+            "40": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.0,
+              "recall_of_labelled_time": 0.0,
+              "temporal_iou": 0.0,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.18072289156626506,
+              "labelled_segments": 63,
+              "segments_touched": 0,
+              "segments_half_covered": 0
+            }
+          }
+        },
+        "3 minutes": {
+          "output_s": 180.0,
+          "precision": 0.42037037037037034,
+          "recall_of_labelled_time": 0.08521455021597264,
+          "temporal_iou": 0.07687772022743035,
+          "oracle_recall_upper_bound": 0.2722629853354468,
+          "all_within_budget": true,
+          "max_output_s": 180.0,
+          "segments_touched_share": 0.10826771653543307,
+          "segments_half_covered_share": 0.1062992125984252,
+          "recall_interval_95_over_games": [
+            0.04788639679846387,
+            0.11184867988287987
+          ],
+          "precision_interval_95_over_games": [
+            0.2222222222222222,
+            0.5981481481481481
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 17,
+              "precision": 0.6666666666666666,
+              "recall_of_labelled_time": 0.11811023622047244,
+              "temporal_iou": 0.11152416356877323,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.17716535433070865,
+              "labelled_segments": 116,
+              "segments_touched": 15,
+              "segments_half_covered": 15
+            },
+            "24": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 18,
+              "precision": 0.45555555555555555,
+              "recall_of_labelled_time": 0.08798283261802575,
+              "temporal_iou": 0.07961165048543689,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.19313304721030042,
+              "labelled_segments": 83,
+              "segments_touched": 9,
+              "segments_half_covered": 9
+            },
+            "26": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 14,
+              "precision": 0.26666666666666666,
+              "recall_of_labelled_time": 0.08163265306122448,
+              "temporal_iou": 0.06666666666666667,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.30612244897959184,
+              "labelled_segments": 99,
+              "segments_touched": 9,
+              "segments_half_covered": 9
+            },
+            "35": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 18,
+              "precision": 0.4666666666666667,
+              "recall_of_labelled_time": 0.12389380530973451,
+              "temporal_iou": 0.10852713178294573,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.26548672566371684,
+              "labelled_segments": 53,
+              "segments_touched": 9,
+              "segments_half_covered": 8
+            },
+            "36": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 18,
+              "precision": 0.6666666666666666,
+              "recall_of_labelled_time": 0.09966777408637874,
+              "temporal_iou": 0.0949367088607595,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.14950166112956811,
+              "labelled_segments": 94,
+              "segments_touched": 13,
+              "segments_half_covered": 13
+            },
+            "40": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 18,
+              "precision": 0.0,
+              "recall_of_labelled_time": 0.0,
+              "temporal_iou": 0.0,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.5421686746987951,
+              "labelled_segments": 63,
+              "segments_touched": 0,
+              "segments_half_covered": 0
+            }
+          }
+        },
+        "5 minutes": {
+          "output_s": 300.0,
+          "precision": 0.39999999999999997,
+          "recall_of_labelled_time": 0.13816309438948707,
+          "temporal_iou": 0.11482536641823578,
+          "oracle_recall_upper_bound": 0.45377164222574473,
+          "all_within_budget": true,
+          "max_output_s": 300.0,
+          "segments_touched_share": 0.17913385826771652,
+          "segments_half_covered_share": 0.17125984251968504,
+          "recall_interval_95_over_games": [
+            0.0857892811704107,
+            0.17158774476995056
+          ],
+          "precision_interval_95_over_games": [
+            0.22333333333333336,
+            0.5522222222222223
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 28,
+              "precision": 0.5933333333333334,
+              "recall_of_labelled_time": 0.17519685039370078,
+              "temporal_iou": 0.15641476274165203,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.2952755905511811,
+              "labelled_segments": 116,
+              "segments_touched": 23,
+              "segments_half_covered": 23
+            },
+            "24": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 27,
+              "precision": 0.4266666666666667,
+              "recall_of_labelled_time": 0.13733905579399142,
+              "temporal_iou": 0.11594202898550725,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.3218884120171674,
+              "labelled_segments": 83,
+              "segments_touched": 14,
+              "segments_half_covered": 14
+            },
+            "26": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 24,
+              "precision": 0.3,
+              "recall_of_labelled_time": 0.15306122448979592,
+              "temporal_iou": 0.11278195488721804,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.5102040816326531,
+              "labelled_segments": 99,
+              "segments_touched": 17,
+              "segments_half_covered": 16
+            },
+            "35": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 30,
+              "precision": 0.42,
+              "recall_of_labelled_time": 0.18584070796460178,
+              "temporal_iou": 0.14788732394366197,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.4424778761061947,
+              "labelled_segments": 53,
+              "segments_touched": 14,
+              "segments_half_covered": 13
+            },
+            "36": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 30,
+              "precision": 0.64,
+              "recall_of_labelled_time": 0.15946843853820597,
+              "temporal_iou": 0.14634146341463414,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.24916943521594684,
+              "labelled_segments": 94,
+              "segments_touched": 21,
+              "segments_half_covered": 20
+            },
+            "40": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 30,
+              "precision": 0.02,
+              "recall_of_labelled_time": 0.018072289156626505,
+              "temporal_iou": 0.009584664536741214,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.9036144578313253,
+              "labelled_segments": 63,
+              "segments_touched": 2,
+              "segments_half_covered": 1
+            }
+          }
+        }
+      },
+      "H1 commentary": {
+        "1 minute": {
+          "output_s": 59.333333333333336,
+          "precision": 0.6074712643678161,
+          "recall_of_labelled_time": 0.051085975920655335,
+          "temporal_iou": 0.048944202183828105,
+          "oracle_recall_upper_bound": 0.09075432844514895,
+          "all_within_budget": true,
+          "max_output_s": 60.0,
+          "segments_touched_share": 0.05905511811023622,
+          "segments_half_covered_share": 0.0531496062992126,
+          "recall_interval_95_over_games": [
+            0.036451112215624214,
+            0.06664918410613636
+          ],
+          "precision_interval_95_over_games": [
+            0.46934865900383144,
+            0.7448994252873566
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 5,
+              "precision": 0.4,
+              "recall_of_labelled_time": 0.023622047244094488,
+              "temporal_iou": 0.022813688212927757,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.05905511811023622,
+              "labelled_segments": 116,
+              "segments_touched": 3,
+              "segments_half_covered": 3
+            },
+            "24": {
+              "budget_s": 60,
+              "output_s": 58.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.8620689655172413,
+              "recall_of_labelled_time": 0.0536480686695279,
+              "temporal_iou": 0.05319148936170213,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.06437768240343347,
+              "labelled_segments": 83,
+              "segments_touched": 6,
+              "segments_half_covered": 6
+            },
+            "26": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.7,
+              "recall_of_labelled_time": 0.07142857142857142,
+              "temporal_iou": 0.06930693069306931,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.10204081632653061,
+              "labelled_segments": 99,
+              "segments_touched": 7,
+              "segments_half_covered": 7
+            },
+            "35": {
+              "budget_s": 60,
+              "output_s": 58.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.4827586206896552,
+              "recall_of_labelled_time": 0.04129793510324484,
+              "temporal_iou": 0.03954802259887006,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.08849557522123894,
+              "labelled_segments": 53,
+              "segments_touched": 3,
+              "segments_half_covered": 2
+            },
+            "36": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.7666666666666667,
+              "recall_of_labelled_time": 0.03820598006644518,
+              "temporal_iou": 0.03776683087027915,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.04983388704318937,
+              "labelled_segments": 94,
+              "segments_touched": 5,
+              "segments_half_covered": 3
+            },
+            "40": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.43333333333333335,
+              "recall_of_labelled_time": 0.0783132530120482,
+              "temporal_iou": 0.07103825136612021,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.18072289156626506,
+              "labelled_segments": 63,
+              "segments_touched": 6,
+              "segments_half_covered": 6
+            }
+          }
+        },
+        "3 minutes": {
+          "output_s": 178.33333333333334,
+          "precision": 0.6019142738243862,
+          "recall_of_labelled_time": 0.14707387440086536,
+          "temporal_iou": 0.13044603848041417,
+          "oracle_recall_upper_bound": 0.2722629853354468,
+          "all_within_budget": true,
+          "max_output_s": 180.0,
+          "segments_touched_share": 0.1673228346456693,
+          "segments_half_covered_share": 0.16338582677165353,
+          "recall_interval_95_over_games": [
+            0.1173264886739656,
+            0.17320794081115562
+          ],
+          "precision_interval_95_over_games": [
+            0.48019142738243864,
+            0.7134831460674157
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 14,
+              "precision": 0.6741573033707865,
+              "recall_of_labelled_time": 0.11811023622047244,
+              "temporal_iou": 0.11173184357541899,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.17716535433070865,
+              "labelled_segments": 116,
+              "segments_touched": 13,
+              "segments_half_covered": 13
+            },
+            "24": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 18,
+              "precision": 0.8426966292134831,
+              "recall_of_labelled_time": 0.1609442060085837,
+              "temporal_iou": 0.15625,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.19313304721030042,
+              "labelled_segments": 83,
+              "segments_touched": 18,
+              "segments_half_covered": 18
+            },
+            "26": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 18,
+              "precision": 0.5777777777777777,
+              "recall_of_labelled_time": 0.17687074829931973,
+              "temporal_iou": 0.1566265060240964,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.30612244897959184,
+              "labelled_segments": 99,
+              "segments_touched": 20,
+              "segments_half_covered": 20
+            },
+            "35": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 15,
+              "precision": 0.5842696629213483,
+              "recall_of_labelled_time": 0.15339233038348082,
+              "temporal_iou": 0.13829787234042554,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.26548672566371684,
+              "labelled_segments": 53,
+              "segments_touched": 10,
+              "segments_half_covered": 10
+            },
+            "36": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 16,
+              "precision": 0.5842696629213483,
+              "recall_of_labelled_time": 0.08637873754152824,
+              "temporal_iou": 0.081377151799687,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.14950166112956811,
+              "labelled_segments": 94,
+              "segments_touched": 10,
+              "segments_half_covered": 9
+            },
+            "40": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 16,
+              "precision": 0.34831460674157305,
+              "recall_of_labelled_time": 0.18674698795180722,
+              "temporal_iou": 0.13839285714285715,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.5421686746987951,
+              "labelled_segments": 63,
+              "segments_touched": 14,
+              "segments_half_covered": 13
+            }
+          }
+        },
+        "5 minutes": {
+          "output_s": 299.3333333333333,
+          "precision": 0.558083519761372,
+          "recall_of_labelled_time": 0.223618948670031,
+          "temporal_iou": 0.1832248994493714,
+          "oracle_recall_upper_bound": 0.45377164222574473,
+          "all_within_budget": true,
+          "max_output_s": 300.0,
+          "segments_touched_share": 0.2559055118110236,
+          "segments_half_covered_share": 0.24803149606299213,
+          "recall_interval_95_over_games": [
+            0.18565986130721104,
+            0.2595843274404031
+          ],
+          "precision_interval_95_over_games": [
+            0.4262565249813572,
+            0.6743549589858313
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 24,
+              "precision": 0.6066666666666667,
+              "recall_of_labelled_time": 0.17913385826771652,
+              "temporal_iou": 0.16049382716049382,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.2952755905511811,
+              "labelled_segments": 116,
+              "segments_touched": 20,
+              "segments_half_covered": 20
+            },
+            "24": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 29,
+              "precision": 0.76,
+              "recall_of_labelled_time": 0.2446351931330472,
+              "temporal_iou": 0.22709163346613545,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.3218884120171674,
+              "labelled_segments": 83,
+              "segments_touched": 28,
+              "segments_half_covered": 27
+            },
+            "26": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 27,
+              "precision": 0.4,
+              "recall_of_labelled_time": 0.20408163265306123,
+              "temporal_iou": 0.15625,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.5102040816326531,
+              "labelled_segments": 99,
+              "segments_touched": 24,
+              "segments_half_covered": 23
+            },
+            "35": {
+              "budget_s": 300,
+              "output_s": 298.0,
+              "within_budget": true,
+              "segments": 27,
+              "precision": 0.6308724832214765,
+              "recall_of_labelled_time": 0.27728613569321536,
+              "temporal_iou": 0.23857868020304568,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.4424778761061947,
+              "labelled_segments": 53,
+              "segments_touched": 19,
+              "segments_half_covered": 18
+            },
+            "36": {
+              "budget_s": 300,
+              "output_s": 298.0,
+              "within_budget": true,
+              "segments": 28,
+              "precision": 0.6442953020134228,
+              "recall_of_labelled_time": 0.15946843853820597,
+              "temporal_iou": 0.1465648854961832,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.24916943521594684,
+              "labelled_segments": 94,
+              "segments_touched": 19,
+              "segments_half_covered": 18
+            },
+            "40": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 28,
+              "precision": 0.30666666666666664,
+              "recall_of_labelled_time": 0.27710843373493976,
+              "temporal_iou": 0.17037037037037037,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.9036144578313253,
+              "labelled_segments": 63,
+              "segments_touched": 20,
+              "segments_half_covered": 20
+            }
+          }
+        }
+      }
+    },
+    "strict_decoder_padded": {
+      "H3 temporal fusion": {
+        "1 minute": {
+          "output_s": 60.0,
+          "precision": 0.8444444444444444,
+          "recall_of_labelled_time": 0.07029312958983126,
+          "temporal_iou": 0.06860519502632222,
+          "oracle_recall_upper_bound": 0.09075432844514895,
+          "all_within_budget": true,
+          "max_output_s": 60.0,
+          "segments_touched_share": 0.06299212598425197,
+          "segments_half_covered_share": 0.06299212598425197,
+          "recall_interval_95_over_games": [
+            0.055291661432401225,
+            0.08861762436701466
+          ],
+          "precision_interval_95_over_games": [
+            0.7000000000000001,
+            0.9833333333333334
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 5,
+              "precision": 0.9666666666666667,
+              "recall_of_labelled_time": 0.05708661417322835,
+              "temporal_iou": 0.05697445972495088,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.05905511811023622,
+              "labelled_segments": 116,
+              "segments_touched": 5,
+              "segments_half_covered": 5
+            },
+            "24": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 5,
+              "precision": 0.9333333333333333,
+              "recall_of_labelled_time": 0.060085836909871244,
+              "temporal_iou": 0.05982905982905983,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.06437768240343347,
+              "labelled_segments": 83,
+              "segments_touched": 5,
+              "segments_half_covered": 5
+            },
+            "26": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 5,
+              "precision": 0.5666666666666667,
+              "recall_of_labelled_time": 0.05782312925170068,
+              "temporal_iou": 0.05537459283387622,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.10204081632653061,
+              "labelled_segments": 99,
+              "segments_touched": 7,
+              "segments_half_covered": 7
+            },
+            "35": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 5,
+              "precision": 1.0,
+              "recall_of_labelled_time": 0.08849557522123894,
+              "temporal_iou": 0.08849557522123894,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.08849557522123894,
+              "labelled_segments": 53,
+              "segments_touched": 5,
+              "segments_half_covered": 5
+            },
+            "36": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 5,
+              "precision": 1.0,
+              "recall_of_labelled_time": 0.04983388704318937,
+              "temporal_iou": 0.04983388704318937,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.04983388704318937,
+              "labelled_segments": 94,
+              "segments_touched": 5,
+              "segments_half_covered": 5
+            },
+            "40": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 5,
+              "precision": 0.6,
+              "recall_of_labelled_time": 0.10843373493975904,
+              "temporal_iou": 0.10112359550561797,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.18072289156626506,
+              "labelled_segments": 63,
+              "segments_touched": 5,
+              "segments_half_covered": 5
+            }
+          }
+        },
+        "3 minutes": {
+          "output_s": 180.0,
+          "precision": 0.7370370370370369,
+          "recall_of_labelled_time": 0.18085173980848043,
+          "temporal_iou": 0.16439651783565068,
+          "oracle_recall_upper_bound": 0.2722629853354468,
+          "all_within_budget": true,
+          "max_output_s": 180.0,
+          "segments_touched_share": 0.17519685039370078,
+          "segments_half_covered_share": 0.16929133858267717,
+          "recall_interval_95_over_games": [
+            0.15258859941040284,
+            0.21277689301165736
+          ],
+          "precision_interval_95_over_games": [
+            0.6037037037037037,
+            0.8518518518518517
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 15,
+              "precision": 0.8888888888888888,
+              "recall_of_labelled_time": 0.15748031496062992,
+              "temporal_iou": 0.15444015444015444,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.17716535433070865,
+              "labelled_segments": 116,
+              "segments_touched": 15,
+              "segments_half_covered": 15
+            },
+            "24": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 14,
+              "precision": 0.8222222222222222,
+              "recall_of_labelled_time": 0.15879828326180256,
+              "temporal_iou": 0.15352697095435686,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.19313304721030042,
+              "labelled_segments": 83,
+              "segments_touched": 14,
+              "segments_half_covered": 12
+            },
+            "26": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 14,
+              "precision": 0.6111111111111112,
+              "recall_of_labelled_time": 0.1870748299319728,
+              "temporal_iou": 0.16717325227963525,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.30612244897959184,
+              "labelled_segments": 99,
+              "segments_touched": 18,
+              "segments_half_covered": 17
+            },
+            "35": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 14,
+              "precision": 0.7666666666666667,
+              "recall_of_labelled_time": 0.20353982300884957,
+              "temporal_iou": 0.19166666666666668,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.26548672566371684,
+              "labelled_segments": 53,
+              "segments_touched": 12,
+              "segments_half_covered": 12
+            },
+            "36": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 15,
+              "precision": 0.8777777777777778,
+              "recall_of_labelled_time": 0.13122923588039867,
+              "temporal_iou": 0.12887438825448613,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.14950166112956811,
+              "labelled_segments": 94,
+              "segments_touched": 14,
+              "segments_half_covered": 14
+            },
+            "40": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 14,
+              "precision": 0.45555555555555555,
+              "recall_of_labelled_time": 0.2469879518072289,
+              "temporal_iou": 0.19069767441860466,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.5421686746987951,
+              "labelled_segments": 63,
+              "segments_touched": 16,
+              "segments_half_covered": 16
+            }
+          }
+        },
+        "5 minutes": {
+          "output_s": 300.0,
+          "precision": 0.6722222222222222,
+          "recall_of_labelled_time": 0.2703937392368198,
+          "temporal_iou": 0.22841598500679738,
+          "oracle_recall_upper_bound": 0.45377164222574473,
+          "all_within_budget": true,
+          "max_output_s": 300.0,
+          "segments_touched_share": 0.27165354330708663,
+          "segments_half_covered_share": 0.2637795275590551,
+          "recall_interval_95_over_games": [
+            0.23788739696930894,
+            0.3065865828259167
+          ],
+          "precision_interval_95_over_games": [
+            0.5299999999999999,
+            0.7899999999999999
+          ],
+          "per_game": {
+            "23": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 24,
+              "precision": 0.8,
+              "recall_of_labelled_time": 0.23622047244094488,
+              "temporal_iou": 0.22304832713754646,
+              "labelled_s": 1016,
+              "oracle_recall_upper_bound": 0.2952755905511811,
+              "labelled_segments": 116,
+              "segments_touched": 24,
+              "segments_half_covered": 24
+            },
+            "24": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 24,
+              "precision": 0.7733333333333333,
+              "recall_of_labelled_time": 0.24892703862660945,
+              "temporal_iou": 0.232,
+              "labelled_s": 932,
+              "oracle_recall_upper_bound": 0.3218884120171674,
+              "labelled_segments": 83,
+              "segments_touched": 23,
+              "segments_half_covered": 20
+            },
+            "26": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 22,
+              "precision": 0.5866666666666667,
+              "recall_of_labelled_time": 0.29931972789115646,
+              "temporal_iou": 0.24719101123595505,
+              "labelled_s": 588,
+              "oracle_recall_upper_bound": 0.5102040816326531,
+              "labelled_segments": 99,
+              "segments_touched": 29,
+              "segments_half_covered": 29
+            },
+            "35": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 24,
+              "precision": 0.6333333333333333,
+              "recall_of_labelled_time": 0.28023598820059,
+              "temporal_iou": 0.24111675126903553,
+              "labelled_s": 678,
+              "oracle_recall_upper_bound": 0.4424778761061947,
+              "labelled_segments": 53,
+              "segments_touched": 17,
+              "segments_half_covered": 16
+            },
+            "36": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 24,
+              "precision": 0.86,
+              "recall_of_labelled_time": 0.21428571428571427,
+              "temporal_iou": 0.20706260032102727,
+              "labelled_s": 1204,
+              "oracle_recall_upper_bound": 0.24916943521594684,
+              "labelled_segments": 94,
+              "segments_touched": 23,
+              "segments_half_covered": 23
+            },
+            "40": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 22,
+              "precision": 0.38,
+              "recall_of_labelled_time": 0.3433734939759036,
+              "temporal_iou": 0.22007722007722008,
+              "labelled_s": 332,
+              "oracle_recall_upper_bound": 0.9036144578313253,
+              "labelled_segments": 63,
+              "segments_touched": 22,
+              "segments_half_covered": 22
+            }
+          }
+        }
+      }
+    }
+  },
+  "validation": {
+    "strict_decoder": {
+      "H3 temporal fusion": {
+        "1 minute": {
+          "output_s": 60.0,
+          "precision": 0.9833333333333334,
+          "recall_of_labelled_time": 0.0711679634664047,
+          "temporal_iou": 0.0711191306262603,
+          "oracle_recall_upper_bound": 0.07209001977895337,
+          "all_within_budget": true,
+          "max_output_s": 60.0,
+          "segments_touched_share": 0.08728179551122195,
+          "segments_half_covered_share": 0.059850374064837904,
+          "recall_interval_95_over_games": [
+            0.05890455458976145,
+            0.08313238266771322
+          ],
+          "precision_interval_95_over_games": [
+            0.9611111111111111,
+            1.0
+          ],
+          "per_game": {
+            "8": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.9666666666666667,
+              "recall_of_labelled_time": 0.06196581196581197,
+              "temporal_iou": 0.06183368869936034,
+              "labelled_s": 936,
+              "oracle_recall_upper_bound": 0.0641025641025641,
+              "labelled_segments": 81,
+              "segments_touched": 6,
+              "segments_half_covered": 4
+            },
+            "21": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 1.0,
+              "recall_of_labelled_time": 0.09646302250803858,
+              "temporal_iou": 0.09646302250803858,
+              "labelled_s": 622,
+              "oracle_recall_upper_bound": 0.09646302250803858,
+              "labelled_segments": 48,
+              "segments_touched": 6,
+              "segments_half_covered": 3
+            },
+            "27": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 1.0,
+              "recall_of_labelled_time": 0.08130081300813008,
+              "temporal_iou": 0.08130081300813008,
+              "labelled_s": 738,
+              "oracle_recall_upper_bound": 0.08130081300813008,
+              "labelled_segments": 53,
+              "segments_touched": 6,
+              "segments_half_covered": 3
+            },
+            "30": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 1.0,
+              "recall_of_labelled_time": 0.07109004739336493,
+              "temporal_iou": 0.07109004739336493,
+              "labelled_s": 844,
+              "oracle_recall_upper_bound": 0.07109004739336493,
+              "labelled_segments": 65,
+              "segments_touched": 6,
+              "segments_half_covered": 6
+            },
+            "31": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 1.0,
+              "recall_of_labelled_time": 0.06864988558352403,
+              "temporal_iou": 0.06864988558352403,
+              "labelled_s": 874,
+              "oracle_recall_upper_bound": 0.06864988558352403,
+              "labelled_segments": 72,
+              "segments_touched": 6,
+              "segments_half_covered": 4
+            },
+            "39": {
+              "budget_s": 60,
+              "output_s": 60.0,
+              "within_budget": true,
+              "segments": 6,
+              "precision": 0.9333333333333333,
+              "recall_of_labelled_time": 0.04753820033955857,
+              "temporal_iou": 0.047377326565143825,
+              "labelled_s": 1178,
+              "oracle_recall_upper_bound": 0.050933786078098474,
+              "labelled_segments": 82,
+              "segments_touched": 5,
+              "segments_half_covered": 4
+            }
+          }
+        },
+        "3 minutes": {
+          "output_s": 179.33333333333334,
+          "precision": 0.9012276321265086,
+          "recall_of_labelled_time": 0.19357491841268823,
+          "temporal_iou": 0.1893867585463382,
+          "oracle_recall_upper_bound": 0.21627005933686005,
+          "all_within_budget": true,
+          "max_output_s": 180.0,
+          "segments_touched_share": 0.20698254364089774,
+          "segments_half_covered_share": 0.19950124688279303,
+          "recall_interval_95_over_games": [
+            0.16463790913950505,
+            0.22253417720189028
+          ],
+          "precision_interval_95_over_games": [
+            0.8506034124011652,
+            0.9518518518518518
+          ],
+          "per_game": {
+            "8": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 15,
+              "precision": 0.9777777777777777,
+              "recall_of_labelled_time": 0.18803418803418803,
+              "temporal_iou": 0.18723404255319148,
+              "labelled_s": 936,
+              "oracle_recall_upper_bound": 0.19230769230769232,
+              "labelled_segments": 81,
+              "segments_touched": 15,
+              "segments_half_covered": 15
+            },
+            "21": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 16,
+              "precision": 0.8888888888888888,
+              "recall_of_labelled_time": 0.2572347266881029,
+              "temporal_iou": 0.24922118380062305,
+              "labelled_s": 622,
+              "oracle_recall_upper_bound": 0.28938906752411575,
+              "labelled_segments": 48,
+              "segments_touched": 14,
+              "segments_half_covered": 13
+            },
+            "27": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 13,
+              "precision": 0.8202247191011236,
+              "recall_of_labelled_time": 0.1978319783197832,
+              "temporal_iou": 0.18961038961038962,
+              "labelled_s": 738,
+              "oracle_recall_upper_bound": 0.24390243902439024,
+              "labelled_segments": 53,
+              "segments_touched": 10,
+              "segments_half_covered": 10
+            },
+            "30": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 16,
+              "precision": 0.9888888888888889,
+              "recall_of_labelled_time": 0.2109004739336493,
+              "temporal_iou": 0.21040189125295508,
+              "labelled_s": 844,
+              "oracle_recall_upper_bound": 0.2132701421800948,
+              "labelled_segments": 65,
+              "segments_touched": 16,
+              "segments_half_covered": 16
+            },
+            "31": {
+              "budget_s": 180,
+              "output_s": 178.0,
+              "within_budget": true,
+              "segments": 16,
+              "precision": 0.8426966292134831,
+              "recall_of_labelled_time": 0.17162471395881007,
+              "temporal_iou": 0.1662971175166297,
+              "labelled_s": 874,
+              "oracle_recall_upper_bound": 0.20594965675057209,
+              "labelled_segments": 72,
+              "segments_touched": 14,
+              "segments_half_covered": 13
+            },
+            "39": {
+              "budget_s": 180,
+              "output_s": 180.0,
+              "within_budget": true,
+              "segments": 15,
+              "precision": 0.8888888888888888,
+              "recall_of_labelled_time": 0.13582342954159593,
+              "temporal_iou": 0.1335559265442404,
+              "labelled_s": 1178,
+              "oracle_recall_upper_bound": 0.15280135823429541,
+              "labelled_segments": 82,
+              "segments_touched": 14,
+              "segments_half_covered": 13
+            }
+          }
+        },
+        "5 minutes": {
+          "output_s": 299.6666666666667,
+          "precision": 0.8276510067114095,
+          "recall_of_labelled_time": 0.2932617655692309,
+          "temporal_iou": 0.2746159809768905,
+          "oracle_recall_upper_bound": 0.3604500988947668,
+          "all_within_budget": true,
+          "max_output_s": 300.0,
+          "segments_touched_share": 0.32418952618453867,
+          "segments_half_covered_share": 0.3092269326683292,
+          "recall_interval_95_over_games": [
+            0.26076641057817707,
+            0.32145570953408753
+          ],
+          "precision_interval_95_over_games": [
+            0.7588888888888888,
+            0.8953020134228188
+          ],
+          "per_game": {
+            "8": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 25,
+              "precision": 0.96,
+              "recall_of_labelled_time": 0.3076923076923077,
+              "temporal_iou": 0.3037974683544304,
+              "labelled_s": 936,
+              "oracle_recall_upper_bound": 0.32051282051282054,
+              "labelled_segments": 81,
+              "segments_touched": 25,
+              "segments_half_covered": 24
+            },
+            "21": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 27,
+              "precision": 0.7266666666666667,
+              "recall_of_labelled_time": 0.3504823151125402,
+              "temporal_iou": 0.3096590909090909,
+              "labelled_s": 622,
+              "oracle_recall_upper_bound": 0.48231511254019294,
+              "labelled_segments": 48,
+              "segments_touched": 20,
+              "segments_half_covered": 18
+            },
+            "27": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 25,
+              "precision": 0.7133333333333334,
+              "recall_of_labelled_time": 0.2899728997289973,
+              "temporal_iou": 0.25970873786407767,
+              "labelled_s": 738,
+              "oracle_recall_upper_bound": 0.4065040650406504,
+              "labelled_segments": 53,
+              "segments_touched": 17,
+              "segments_half_covered": 17
+            },
+            "30": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 27,
+              "precision": 0.8733333333333333,
+              "recall_of_labelled_time": 0.3104265402843602,
+              "temporal_iou": 0.29705215419501135,
+              "labelled_s": 844,
+              "oracle_recall_upper_bound": 0.35545023696682465,
+              "labelled_segments": 65,
+              "segments_touched": 24,
+              "segments_half_covered": 23
+            },
+            "31": {
+              "budget_s": 300,
+              "output_s": 300.0,
+              "within_budget": true,
+              "segments": 24,
+              "precision": 0.8066666666666666,
+              "recall_of_labelled_time": 0.2768878718535469,
+              "temporal_iou": 0.259656652360515,
+              "labelled_s": 874,
+              "oracle_recall_upper_bound": 0.34324942791762014,
+              "labelled_segments": 72,
+              "segments_touched": 21,
+              "segments_half_covered": 21
+            },
+            "39": {
+              "budget_s": 300,
+              "output_s": 298.0,
+              "within_budget": true,
+              "segments": 25,
+              "precision": 0.8859060402684564,
+              "recall_of_labelled_time": 0.22410865874363328,
+              "temporal_iou": 0.21782178217821782,
+              "labelled_s": 1178,
+              "oracle_recall_upper_bound": 0.2546689303904924,
+              "labelled_segments": 82,
+              "segments_touched": 23,
+              "segments_half_covered": 21
+            }
+          }
+        }
+      }
+    }
+  },
+  "budget_curve_test_h3": [
+    {
+      "budget_s": 30,
+      "recall_of_labelled_time": 0.03515693086146368,
+      "precision": 0.8555555555555555,
+      "oracle_recall_upper_bound": 0.04537716422257448
+    },
+    {
+      "budget_s": 60,
+      "recall_of_labelled_time": 0.07052868907616462,
+      "precision": 0.838888888888889,
+      "oracle_recall_upper_bound": 0.09075432844514895
+    },
+    {
+      "budget_s": 120,
+      "recall_of_labelled_time": 0.13080234921242428,
+      "precision": 0.8018361581920904,
+      "oracle_recall_upper_bound": 0.1815086568902979
+    },
+    {
+      "budget_s": 180,
+      "recall_of_labelled_time": 0.19333700865110293,
+      "precision": 0.7800041614648356,
+      "oracle_recall_upper_bound": 0.2722629853354468
+    },
+    {
+      "budget_s": 300,
+      "recall_of_labelled_time": 0.2895948272286253,
+      "precision": 0.7270991797166294,
+      "oracle_recall_upper_bound": 0.45377164222574473
+    },
+    {
+      "budget_s": 450,
+      "recall_of_labelled_time": 0.40057667664108626,
+      "precision": 0.67067791005291,
+      "oracle_recall_upper_bound": 0.6214205155474524
+    },
+    {
+      "budget_s": 600,
+      "recall_of_labelled_time": 0.48080758332562895,
+      "precision": 0.6121627647714605,
+      "oracle_recall_upper_bound": 0.76960377129683
+    },
+    {
+      "budget_s": 900,
+      "recall_of_labelled_time": 0.6191357671896534,
+      "precision": 0.5234347933679783,
+      "oracle_recall_upper_bound": 0.9331667188921476
+    }
+  ],
+  "discovery_mode_test_h3": {
+    "0.02": {
+      "seconds": 177.0,
+      "precision": 0.8349386062999704,
+      "recall_of_labelled_time": 0.20239715070782927,
+      "segments_touched_share": 0.28088591757396464
+    },
+    "0.05": {
+      "seconds": 443.0,
+      "precision": 0.7112475523819888,
+      "recall_of_labelled_time": 0.42143431757627886,
+      "segments_touched_share": 0.49569428434628987
+    },
+    "0.1": {
+      "seconds": 885.3333333333334,
+      "precision": 0.546698679335451,
+      "recall_of_labelled_time": 0.635919608809418,
+      "segments_touched_share": 0.6979488221567309
+    },
+    "0.15": {
+      "seconds": 1328.3333333333333,
+      "precision": 0.44497196693296925,
+      "recall_of_labelled_time": 0.764564799205251,
+      "segments_touched_share": 0.8319180704424207
+    },
+    "0.2": {
+      "seconds": 1770.6666666666667,
+      "precision": 0.37074237370431673,
+      "recall_of_labelled_time": 0.8418634574142371,
+      "segments_touched_share": 0.8977478377715992
+    },
+    "0.3": {
+      "seconds": 2656.0,
+      "precision": 0.2719117094794701,
+      "recall_of_labelled_time": 0.9222302723263917,
+      "segments_touched_share": 0.9543077162922607
+    }
+  },
+  "discovery_note": "Discovery mode keeps the top share of clips by score with no reel budget: recall rises as precision falls. Segment share = labelled runs with at least one selected clip."
+}

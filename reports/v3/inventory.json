@@ -1,0 +1,132 @@
+{
+  "created_at_utc": "2026-10-04T22:32:36+00:00",
+  "git": {
+    "branch": "feat/inference-and-model-v3",
+    "commit": "af14fa02c46e910d610c547f501ce9aa6e811204",
+    "dirty_files": 1
+  },
+  "python": "3.13.9",
+  "node": "v26.10.0",
+  "machine": "arm64",
+  "cpu": "Apple M2",
+  "cpu_count": 8,
+  "ram_gb": 8.0,
+  "disk_free_gb": 13.7,
+  "disk_total_gb": 228.3,
+  "ffmpeg": null,
+  "ffprobe": null,
+  "kaggle_cli": null,
+  "raw_sources": {
+    "bdb2025": {
+      "files": 0,
+      "bytes": 0
+    },
+    "bdb2026": {
+      "files": 37,
+      "bytes": 863837579
+    },
+    "nflverse": {
+      "files": 30,
+      "bytes": 496097714
+    },
+    "svhighlights": {
+      "files": 35,
+      "bytes": 3018212305
+    },
+    "synthetic_bdb": {
+      "files": 13,
+      "bytes": 83664464
+    }
+  },
+  "local_media_dir_exists": false,
+  "models": {
+    "models/coverage_bdb2026/at_snap__class_prior.joblib": {
+      "bytes": 1115,
+      "sha256": "f542f1d004670da0180b5ad82d8c03726a887787bcbacbf4eb48e891689f1d1e"
+    },
+    "models/coverage_bdb2026/at_snap__context_logit.joblib": {
+      "bytes": 5257,
+      "sha256": "a35615878fb95bc153184704b30c82b6b5bca2e726c7c33c2f72a30b32532470"
+    },
+    "models/coverage_bdb2026/at_snap__geometry_gbm.joblib": {
+      "bytes": 279168,
+      "sha256": "419e2e539c7a8e0070c20818c8ad2e7e69bddc2df7a50f01ae7d0be210adedf3"
+    },
+    "models/coverage_bdb2026/at_snap__geometry_logit.joblib": {
+      "bytes": 5255,
+      "sha256": "f1e46f563b381c6cb7a1424e9dd7659c5f49be37e58a0461bf7e620043afc259"
+    },
+    "models/coverage_bdb2026/post_1_5s__class_prior.joblib": {
+      "bytes": 1119,
+      "sha256": "4a0992cc85655934192243c99d02ba2599153b844587eaf3d80313687a3d0b49"
+    },
+    "models/coverage_bdb2026/post_1_5s__context_logit.joblib": {
+      "bytes": 5261,
+      "sha256": "58de39057beaa45b6f34d67eab038fdbdc4a36cc258479e10a21d83549fd21b3"
+    },
+    "models/coverage_bdb2026/post_1_5s__geometry_gbm.joblib": {
+      "bytes": 329416,
+      "sha256": "e38a2acadb27bf8db68f11e43ee3b1865c4b409f016c634b4527cb1cc509e8dc"
+    },
+    "models/coverage_bdb2026/post_1_5s__geometry_logit.joblib": {
+      "bytes": 8013,
+      "sha256": "cadd2cb4085064e9a7028c2445e6f54f43484bf4d98f3b1651eff3730552404f"
+    },
+    "models/coverage_bdb2026/post_1s__class_prior.joblib": {
+      "bytes": 1115,
+      "sha256": "fb98b4d67f6767907b094319a9c1d3f1f3cf315019df2630c8fa52b61d89d22d"
+    },
+    "models/coverage_bdb2026/post_1s__context_logit.joblib": {
+      "bytes": 5257,
+      "sha256": "d8de50fd06e9d6af661957b4e52a2fad8366fb1ec5cb47ad4c60d92dc27645cd"
+    },
+    "models/coverage_bdb2026/post_1s__geometry_gbm.joblib": {
+      "bytes": 327876,
+      "sha256": "8c4eed0ce723f71f774cad2b26cd6183b2b9f78247f8c643fd8e79cf0bde94fd"
+    },
+    "models/coverage_bdb2026/post_1s__geometry_logit.joblib": {
+      "bytes": 8009,
+      "sha256": "4cb73f8cd26d5805198220817984d64283e5964d7494aa5522b95fc57405c26a"
+    },
+    "models/coverage_v2/gbm_rel_at_snap.joblib": {
+      "bytes": 372384,
+      "sha256": "0dafaef27feb90347c0d28c0b79932fc5b2a0750de6fc32dab87a8209dc1719f"
+    },
+    "models/coverage_v2/gbm_rel_post_0_5s.joblib": {
+      "bytes": 497898,
+      "sha256": "8113e0d694d9e68e77256d9c44fd51c16c805b9c88a999ff2f7f17fe550e9266"
+    },
+    "models/coverage_v2/gbm_rel_post_1_5s.joblib": {
+      "bytes": 498698,
+      "sha256": "489b94c93e081fe1497582f0e88828933a416d1d195e861c8c2cd903984e87f2"
+    },
+    "models/coverage_v2/gbm_rel_post_1s.joblib": {
+      "bytes": 501510,
+      "sha256": "db3589aba1a6067bfe3f06baaab1c3c82997c57ffb9eef51eabc973c9a7a9c9f"
+    },
+    "models/coverage_v2/temporal_gru_seed2026.pt": {
+      "bytes": 545703,
+      "sha256": "1f4d5ef4c30aad19130269cccaac5ab26b8f1fdde49185dab12440df19cd1a57"
+    },
+    "models/coverage_v2/temporal_gru_seed42.pt": {
+      "bytes": 545659,
+      "sha256": "e74e0332f342ae6d7a74306863cc121625cfab172d1007dc6264fb1e4844396c"
+    },
+    "models/coverage_v2/temporal_gru_seed7.pt": {
+      "bytes": 545637,
+      "sha256": "e2af58eb067cab376714e9b1035ce71f6e36d7aad56b62d79057ccc7c265412d"
+    },
+    "models/highlights/commentary_tfidf_logistic.joblib": {
+      "bytes": 1498633,
+      "sha256": "277c872da20b2675665e36f3c3f378ba53558afddb3cc19152d8b5ba6f26e4a1"
+    },
+    "models/highlights/temporal_fusion.pt": {
+      "bytes": 1380259,
+      "sha256": "083f833d8a1a2bf08be4e933e55a363646a96fdd61d2c838772653e3e535674b"
+    }
+  },
+  "schemas": {
+    "coverage_site_export": "coverage-demo-v3",
+    "run_records": "reports/v2/runs/*.json"
+  }
+}

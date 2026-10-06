@@ -1,0 +1,329 @@
+{
+  "module": "pregame",
+  "version": "pregame-v3-experiments",
+  "created_at_utc": "2026-10-04T23:08:15+00:00",
+  "registered_in": "docs/experiments/pregame_v3.md",
+  "source_snapshot": {
+    "snapshot_id": "20261004T223450Z",
+    "content_sha256": "8458210c38600c5e2f82d4e9165ae96113886567e77519724191b39146016f6d"
+  },
+  "configurations_scored": 17,
+  "reconstructed": "Backtests from today's nflverse files. EPA values come from models fitted with later data (hindsight); P2 uses points only as a check.",
+  "development_all_configurations": {
+    "P4 margin on adjusted EPA h12 | alpha 10.0": {
+      "log_loss": 0.6261572535722364,
+      "vs_elo": -0.0038958401647650742
+    },
+    "P4 margin on adjusted EPA h12 | alpha 100.0": {
+      "log_loss": 0.6262930231714443,
+      "vs_elo": -0.003760070565557161
+    },
+    "P3 adjusted EPA h12 + shrunk turnovers | penalty 0.01": {
+      "log_loss": 0.6277987366060537,
+      "vs_elo": -0.0022543571309477928
+    },
+    "P1 adjusted EPA h12 | penalty 0.01": {
+      "log_loss": 0.6279266877183506,
+      "vs_elo": -0.0021264060186508837
+    },
+    "P1 adjusted EPA h6 | penalty 0.01": {
+      "log_loss": 0.6279739932904783,
+      "vs_elo": -0.002079100446523152
+    },
+    "P3 adjusted EPA h12 + shrunk turnovers | penalty 0.1": {
+      "log_loss": 0.6281128288649719,
+      "vs_elo": -0.0019402648720295845
+    },
+    "P2 adjusted points h12 | penalty 0.01": {
+      "log_loss": 0.6281810292876564,
+      "vs_elo": -0.0018720644493450678
+    },
+    "P1 adjusted EPA h6 | penalty 0.1": {
+      "log_loss": 0.6283188921371949,
+      "vs_elo": -0.0017342015998065285
+    },
+    "P2 adjusted points h6 | penalty 0.01": {
+      "log_loss": 0.6283801805874676,
+      "vs_elo": -0.0016729131495338834
+    },
+    "P1 adjusted EPA h12 | penalty 0.1": {
+      "log_loss": 0.6284249202613608,
+      "vs_elo": -0.001628173475640704
+    },
+    "P2 adjusted points h12 | penalty 0.1": {
+      "log_loss": 0.6288205097376457,
+      "vs_elo": -0.0012325839993557741
+    },
+    "P2 adjusted points h6 | penalty 0.1": {
+      "log_loss": 0.6288744419485924,
+      "vs_elo": -0.0011786517884090353
+    },
+    "P3 adjusted EPA h12 + shrunk turnovers | penalty 1.0": {
+      "log_loss": 0.6295674805604112,
+      "vs_elo": -0.0004856131765902383
+    },
+    "P1 adjusted EPA h6 | penalty 1.0": {
+      "log_loss": 0.6295946957562701,
+      "vs_elo": -0.00045839798073132876
+    },
+    "P1 adjusted EPA h12 | penalty 1.0": {
+      "log_loss": 0.6296425881658583,
+      "vs_elo": -0.00041050557114319375
+    },
+    "P2 adjusted points h6 | penalty 1.0": {
+      "log_loss": 0.6297891047383628,
+      "vs_elo": -0.00026398899863866454
+    },
+    "P2 adjusted points h12 | penalty 1.0": {
+      "log_loss": 0.629796085158958,
+      "vs_elo": -0.00025700857804344945
+    }
+  },
+  "development_controls": {
+    "elo": {
+      "log_loss": 0.6300530937370015
+    },
+    "v2 elo-offset (frozen)": {
+      "log_loss": 0.6278107807872588
+    },
+    "v2 margin (frozen)": {
+      "log_loss": 0.6263465114828887
+    }
+  },
+  "nested_development": {
+    "seasons": [
+      2015,
+      2022
+    ],
+    "picked_per_season": {
+      "2015": "P3 adjusted EPA h12 + shrunk turnovers | penalty 0.01",
+      "2016": "P3 adjusted EPA h12 + shrunk turnovers | penalty 0.1",
+      "2017": "P3 adjusted EPA h12 + shrunk turnovers | penalty 0.01",
+      "2018": "P3 adjusted EPA h12 + shrunk turnovers | penalty 0.01",
+      "2019": "P4 margin on adjusted EPA h12 | alpha 10.0",
+      "2020": "P4 margin on adjusted EPA h12 | alpha 10.0",
+      "2021": "P4 margin on adjusted EPA h12 | alpha 10.0",
+      "2022": "P4 margin on adjusted EPA h12 | alpha 10.0"
+    },
+    "v3 nested": {
+      "games": 2164,
+      "log_loss": 0.632223458833456,
+      "brier": 0.22100455362620816,
+      "accuracy": 0.6427911275415896,
+      "calibration_slope": 1.000545482620457,
+      "calibration_intercept": -0.09181267303898483,
+      "vs_elo": {
+        "mean_log_loss_difference": -0.0034426817698124767,
+        "interval_95": [
+          -0.006150937538891338,
+          -0.0008126436383023512
+        ],
+        "share_of_resamples_better": 0.9965,
+        "blocks": 170,
+        "block": "season-week"
+      },
+      "vs_v2_elo_offset": {
+        "mean_log_loss_difference": 2.6157511983234464e-05,
+        "interval_95": [
+          -0.0029713084045401,
+          0.003011042636408494
+        ],
+        "share_of_resamples_better": 0.5075,
+        "blocks": 170,
+        "block": "season-week"
+      }
+    },
+    "controls": {
+      "elo": {
+        "games": 2164,
+        "log_loss": 0.6356661406032685,
+        "brier": 0.22242876970530104,
+        "accuracy": 0.6441774491682071,
+        "calibration_slope": 0.9184252957789328,
+        "calibration_intercept": -0.07708243986033263
+      },
+      "v2 elo-offset (frozen)": {
+        "games": 2164,
+        "log_loss": 0.6321973013214728,
+        "brier": 0.22094886211619533,
+        "accuracy": 0.6464879852125693,
+        "calibration_slope": 0.897171114416083,
+        "calibration_intercept": -0.08064189373572596,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.0034688392817957114,
+          "interval_95": [
+            -0.006277285727953524,
+            -0.0007257859979745259
+          ],
+          "share_of_resamples_better": 0.995,
+          "blocks": 170,
+          "block": "season-week"
+        }
+      },
+      "v2 margin (frozen)": {
+        "games": 2164,
+        "log_loss": 0.6290286956735359,
+        "brier": 0.21980840323213063,
+        "accuracy": 0.6381700554528651,
+        "calibration_slope": 1.111742391227803,
+        "calibration_intercept": -0.10811060234314146,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.0066374449297326235,
+          "interval_95": [
+            -0.011873629875725503,
+            -0.0017210762355159468
+          ],
+          "share_of_resamples_better": 0.995,
+          "blocks": 170,
+          "block": "season-week"
+        }
+      }
+    },
+    "note": "Each season's configuration was chosen using earlier development seasons only. Still optimistic as a guide to future seasons: the experiment list itself was designed after seeing 2012-2022."
+  },
+  "calibration_from_prior_out_of_fold": {
+    "elo": {
+      "nested_seasons_raw": 0.6356661406032685,
+      "nested_seasons_platt": 0.6356979361562047
+    },
+    "v2 elo-offset (frozen)": {
+      "nested_seasons_raw": 0.6321973013214728,
+      "nested_seasons_platt": 0.6315657710068291
+    },
+    "v2 margin (frozen)": {
+      "nested_seasons_raw": 0.6290286956735359,
+      "nested_seasons_platt": 0.6289664759946343
+    },
+    "v3 final choice": {
+      "nested_seasons_raw": 0.630793282543172,
+      "nested_seasons_platt": 0.6306922675123213
+    }
+  },
+  "frozen_v3_choice": {
+    "key": "P4 margin on adjusted EPA h12 | alpha 10.0",
+    "rule": "lowest pooled development log loss (2012-2022)"
+  },
+  "previously_examined_benchmark": {
+    "seasons": [
+      2023,
+      2025
+    ],
+    "note": "2023-2025 were examined in v1 and v2. One frozen v3 configuration is scored here once; this is not a fresh test.",
+    "v3 final choice": {
+      "games": 854,
+      "log_loss": 0.6327383959443991,
+      "brier": 0.2213395500856509,
+      "accuracy": 0.6229508196721312,
+      "calibration_slope": 1.0449236736100993,
+      "calibration_intercept": -0.07442529783483695,
+      "vs_elo": {
+        "mean_log_loss_difference": -0.003424051490020858,
+        "interval_95": [
+          -0.00946184538790654,
+          0.0026737544235718815
+        ],
+        "share_of_resamples_better": 0.878,
+        "blocks": 66,
+        "block": "season-week"
+      },
+      "vs_v2_elo_offset": {
+        "mean_log_loss_difference": -0.0022002572804626272,
+        "interval_95": [
+          -0.008027194496549164,
+          0.003407772220722485
+        ],
+        "share_of_resamples_better": 0.774,
+        "blocks": 66,
+        "block": "season-week"
+      }
+    },
+    "controls": {
+      "elo": {
+        "games": 854,
+        "log_loss": 0.63616244743442,
+        "brier": 0.22264943705322038,
+        "accuracy": 0.6405152224824356,
+        "calibration_slope": 0.9203099371219169,
+        "calibration_intercept": -0.08088834466614796
+      },
+      "v2 elo-offset (frozen)": {
+        "games": 854,
+        "log_loss": 0.6349386532248618,
+        "brier": 0.22209683658541793,
+        "accuracy": 0.6381733021077284,
+        "calibration_slope": 0.8696930933067584,
+        "calibration_intercept": -0.0479986409830786,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.0012237942095582313,
+          "interval_95": [
+            -0.006071466339052182,
+            0.0036381330632806242
+          ],
+          "share_of_resamples_better": 0.686,
+          "blocks": 66,
+          "block": "season-week"
+        }
+      },
+      "v2 margin (frozen)": {
+        "games": 854,
+        "log_loss": 0.6319180339692884,
+        "brier": 0.2210355346680924,
+        "accuracy": 0.6440281030444965,
+        "calibration_slope": 1.0405841819567776,
+        "calibration_intercept": -0.07970192275015542,
+        "vs_elo": {
+          "mean_log_loss_difference": -0.004244413465131517,
+          "interval_95": [
+            -0.011633533039113993,
+            0.003221470558139784
+          ],
+          "share_of_resamples_better": 0.8695,
+          "blocks": 66,
+          "block": "season-week"
+        }
+      }
+    }
+  },
+  "per_season_vs_elo": {
+    "v2 elo-offset (frozen)": {
+      "2012": -0.004920163620156459,
+      "2013": 0.006486491622759938,
+      "2014": 0.0016849398495324408,
+      "2015": -0.002195399324399716,
+      "2016": -0.004140399320407773,
+      "2017": -0.0019961259935603604,
+      "2018": -0.011130723633935302,
+      "2019": -0.001272599815045794,
+      "2020": -0.007293082953415686,
+      "2021": 0.0010767654903865997,
+      "2022": -0.0012529325530563629,
+      "2023": 0.0021663897966582857,
+      "2024": -0.0017103142917302971,
+      "2025": -0.004137682302349344
+    },
+    "v3 final choice": {
+      "2012": -0.009081536669621526,
+      "2013": 0.0022754019494262145,
+      "2014": 0.0030669853743848785,
+      "2015": 0.0012016731076353038,
+      "2016": -0.002543186688469201,
+      "2017": -0.0030631621395071917,
+      "2018": -0.011940479232887657,
+      "2019": -0.003379762562027544,
+      "2020": -0.0050203979500801355,
+      "2021": -0.007860032165218689,
+      "2022": -0.006145188561476611,
+      "2023": -0.004375531712508818,
+      "2024": -0.004370502500821605,
+      "2025": -0.001519437400276824
+    }
+  },
+  "not_run": {
+    "quarterback scenarios from timestamped depth charts": "nflverse documents timestamped depth-chart snapshots from 2025 on, so they cannot be tested on development seasons 2012-2022.",
+    "market comparison": "No price series with timestamps before the 24-hour cutoff is on disk; closing prices are later information."
+  },
+  "decision": {
+    "promote_v3_to_forecasts": false,
+    "statement": "On nested development seasons the v3 choice is better than Elo with an interval excluding zero and not distinguishable from the frozen v2 model. On the previously examined 2023-2025 seasons its interval against Elo includes zero. Not promoted: forecasting stays on Elo and the frozen v2 model."
+  }
+}

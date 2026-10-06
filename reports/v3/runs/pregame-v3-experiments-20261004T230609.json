@@ -1,0 +1,98 @@
+{
+  "module": "pregame",
+  "run_id": "pregame-v3-experiments-20261004T230609",
+  "name": "v3-experiments",
+  "results_version": "v3",
+  "started_at": "2026-10-04T23:06:09+00:00",
+  "git_commit": "327d951413e8c83c82d844d086e33228b8389083+uncommitted",
+  "seed": 20261004,
+  "config": {},
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {
+    "development": [
+      2012,
+      2022
+    ],
+    "nested_from": 2015,
+    "previously_examined": [
+      2023,
+      2025
+    ]
+  },
+  "target": "home team wins",
+  "population": "decided games 2012-2025",
+  "exclusions": null,
+  "input_cutoff": "24 hours before kickoff; prior games at least 28 hours earlier",
+  "features": null,
+  "preprocessing": null,
+  "calibration": null,
+  "hyperparameters": null,
+  "metrics": {
+    "nested": {
+      "games": 2164,
+      "log_loss": 0.632223458833456,
+      "brier": 0.22100455362620816,
+      "accuracy": 0.6427911275415896,
+      "calibration_slope": 1.000545482620457,
+      "calibration_intercept": -0.09181267303898483,
+      "vs_elo": {
+        "mean_log_loss_difference": -0.0034426817698124767,
+        "interval_95": [
+          -0.006150937538891338,
+          -0.0008126436383023512
+        ],
+        "share_of_resamples_better": 0.9965,
+        "blocks": 170,
+        "block": "season-week"
+      },
+      "vs_v2_elo_offset": {
+        "mean_log_loss_difference": 2.6157511983234464e-05,
+        "interval_95": [
+          -0.0029713084045401,
+          0.003011042636408494
+        ],
+        "share_of_resamples_better": 0.5075,
+        "blocks": 170,
+        "block": "season-week"
+      }
+    },
+    "decision": {
+      "promote_v3_to_forecasts": false,
+      "statement": "No gain over Elo or frozen v2 is established: the intervals include zero. Forecasting stays on Elo and the frozen v2 model."
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "report": {
+      "path": "reports/v3/pregame_experiments_v3.json",
+      "sha256": "127f80ecbf002f7428c90f691d836914e85a10bc53ac9ae2c029e4ff5fd47852"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-04T23:06:09+00:00",
+  "train_seconds": 0.2,
+  "peak_memory_mb": 311.8
+}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T09:34:04+00:00",
+  "generated_at": "2026-10-06T20:35:35+00:00",
   "runs": [
     {
       "module": "coverage",
@@ -1546,6 +1546,578 @@
           "sha256": "e8f2599fc331dd5ee735876d4cd38b72d0a7a36e5378abb967d10db2fd8d1f0e"
         }
       },
+      "latest": true
+    },
+    {
+      "module": "coverage",
+      "run_id": "coverage-v3-experiments-20261005T000242",
+      "name": "v3-experiments",
+      "results_version": "v3",
+      "started_at": "2026-10-05T00:02:42+00:00",
+      "finished_at": "2026-10-05T00:02:42+00:00",
+      "git_commit": "7d7e307a23c8e5c473097bb45bd54fa4d94d4183+uncommitted",
+      "seed": 42,
+      "environment": {
+        "python": "3.13.9",
+        "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "device": "cpu",
+        "packages": {
+          "numpy": "2.5.3",
+          "polars": "1.44.2",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1",
+          "pandas": "3.0.6",
+          "duckdb": "1.5.6",
+          "pyarrow": "25.0.1"
+        }
+      },
+      "target": "released man/zone label",
+      "population": "labelled plays in weeks 1-12 with the prefix available",
+      "exclusions": null,
+      "input_cutoff": {
+        "at_snap": 0,
+        "post_0_5s": 5,
+        "post_1s": 10,
+        "post_1_5s": 15
+      },
+      "split": {
+        "folds": [
+          [
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          [
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            [
+              9,
+              10
+            ]
+          ],
+          [
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            [
+              11,
+              12
+            ]
+          ]
+        ]
+      },
+      "calibration": null,
+      "hyperparameters": null,
+      "metrics": {
+        "E0 control (gru+reflect)|seed42": {
+          "mean_val_loss": 0.2002058525880178,
+          "post_1_5s_log_loss": 0.14555059373378754
+        },
+        "E0 control (gru+reflect)|seed7": {
+          "mean_val_loss": 0.19709005455176035,
+          "post_1_5s_log_loss": 0.14398963749408722
+        },
+        "E0 control (gru+reflect)|seed2026": {
+          "mean_val_loss": 0.1849149614572525,
+          "post_1_5s_log_loss": 0.12787453830242157
+        },
+        "E1 attention pooling|seed42": {
+          "mean_val_loss": 0.2015771120786667,
+          "post_1_5s_log_loss": 0.14395573735237122
+        },
+        "E2 robustness training|seed42": {
+          "mean_val_loss": 0.2152146895726522,
+          "post_1_5s_log_loss": 0.1500774472951889
+        }
+      },
+      "ablations": {},
+      "outputs": {
+        "report": {
+          "path": "reports/v3/coverage_v3_experiments.json",
+          "sha256": "7e5c571498ddacb15fb970cae157b8cef8130cb3372896288cd395b0da81123d"
+        }
+      },
+      "notes": [],
+      "train_seconds": 0.1,
+      "peak_memory_mb": 546.6,
+      "evidence_kinds": {
+        "inputs": "observed",
+        "labels": "released",
+        "outputs": "model prediction",
+        "explanations": "model-generated interpretation",
+        "summaries": "statistical association"
+      },
+      "data": {},
+      "latest": true
+    },
+    {
+      "module": "coverage",
+      "run_id": "coverage-videocov-helmet-eval-20261006T191513",
+      "name": "videocov-helmet-eval",
+      "results_version": "v3",
+      "started_at": "2026-10-06T19:15:13+00:00",
+      "finished_at": "2026-10-06T19:15:13+00:00",
+      "git_commit": "6fd50f2b04ec242c867867366fcca104979fb5c1+uncommitted",
+      "seed": 20261006,
+      "environment": {
+        "python": "3.13.9",
+        "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "device": "cpu",
+        "packages": {
+          "numpy": "2.5.3",
+          "polars": "1.44.2",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1",
+          "pandas": "3.0.6",
+          "duckdb": "1.5.6",
+          "pyarrow": "25.0.1"
+        }
+      },
+      "target": "field position of held-out players (yards)",
+      "population": "60 plays x 2 views, frames 0-3 s after the snap",
+      "exclusions": null,
+      "input_cutoff": null,
+      "split": {},
+      "calibration": null,
+      "hyperparameters": null,
+      "metrics": {
+        "held_out": {
+          "Sideline": {
+            "player_errors": 38519,
+            "median_yards": 0.4797821168067309,
+            "mean_yards": 0.7460753392151824,
+            "p90_yards": 1.191715093814483,
+            "share_within_1_yard": 0.8572392845089436,
+            "share_within_2_yards": 0.9639398738285002
+          },
+          "Endzone": {
+            "player_errors": 32868,
+            "median_yards": 0.5996740379003691,
+            "mean_yards": 1.6949866060245873,
+            "p90_yards": 1.7735087528055866,
+            "share_within_1_yard": 0.7444018498235365,
+            "share_within_2_yards": 0.9160277473530486
+          }
+        },
+        "gate": {
+          "Sideline": {
+            "frames": 1800,
+            "median_frame_rms_yards": 0.7365000651564659,
+            "share_of_frames_passing_1_yard_gate": 0.75,
+            "share_of_frames_under_2_yards": 0.9577777777777777
+          },
+          "Endzone": {
+            "frames": 1800,
+            "median_frame_rms_yards": 1.0067591658491346,
+            "share_of_frames_passing_1_yard_gate": 0.4955555555555556,
+            "share_of_frames_under_2_yards": 0.7811111111111111
+          }
+        }
+      },
+      "ablations": {},
+      "outputs": {
+        "report": {
+          "path": "reports/v3/videocov_helmet_eval.json",
+          "sha256": "15b7c5230f74cf7624357a02c5b7d09ff1a6e8b4be14d05f7d78996fc882eb3d"
+        }
+      },
+      "notes": [],
+      "train_seconds": 0.2,
+      "peak_memory_mb": 550.3,
+      "evidence_kinds": {
+        "inputs": "observed",
+        "labels": "released",
+        "outputs": "model prediction",
+        "explanations": "model-generated interpretation",
+        "summaries": "statistical association"
+      },
+      "data": {},
+      "latest": true
+    },
+    {
+      "module": "highlights",
+      "run_id": "highlights-v3-candidates-20261004T234412",
+      "name": "v3-candidates",
+      "results_version": "v3",
+      "started_at": "2026-10-04T23:44:12+00:00",
+      "finished_at": "2026-10-04T23:44:12+00:00",
+      "git_commit": "aa617b40fc51628b9ea6573996c53b49326a9601+uncommitted",
+      "seed": 42,
+      "environment": {
+        "python": "3.13.9",
+        "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "device": "cpu",
+        "packages": {
+          "numpy": "2.5.3",
+          "polars": "1.44.2",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1",
+          "pandas": "3.0.6",
+          "duckdb": "1.5.6",
+          "pyarrow": "25.0.1"
+        }
+      },
+      "target": "editorial highlight selection (ranking)",
+      "population": "6 validation and 6 test games",
+      "exclusions": null,
+      "input_cutoff": null,
+      "split": {
+        "validation": "6 games used for H3 early stopping in v2: development data, optimistic for H3 itself",
+        "test": "6 games examined in v2: a previously examined benchmark, not a fresh test"
+      },
+      "calibration": null,
+      "hyperparameters": null,
+      "metrics": {
+        "H3 (shipped, v2)": {
+          "validation": 0.6879140201155657,
+          "test": 0.6192678665389459
+        },
+        "H3-R ranking-aware (v3 candidate)": {
+          "validation": 0.6786535148699683,
+          "test": 0.6170960622757097
+        },
+        "H3 + commentary, learned fusion (v3 candidate)": {
+          "validation": 0.6895283137558814,
+          "test": 0.6387673215106499
+        }
+      },
+      "ablations": {},
+      "outputs": {
+        "report": {
+          "path": "reports/v3/highlights_candidates_v3.json",
+          "sha256": "b8085fc5018378c39f9b6e95d4fb988196dae38b3f49ecc873aea8aafa4d99e6"
+        }
+      },
+      "notes": [],
+      "train_seconds": 0.1,
+      "peak_memory_mb": 520.1,
+      "evidence_kinds": {
+        "inputs": "observed",
+        "labels": "released",
+        "outputs": "model prediction",
+        "explanations": "model-generated interpretation",
+        "summaries": "statistical association"
+      },
+      "data": {},
+      "latest": true
+    },
+    {
+      "module": "highlights",
+      "run_id": "highlights-v3-experiments-20261004T234204",
+      "name": "v3-experiments",
+      "results_version": "v3",
+      "started_at": "2026-10-04T23:42:04+00:00",
+      "finished_at": "2026-10-04T23:42:04+00:00",
+      "git_commit": "aa617b40fc51628b9ea6573996c53b49326a9601+uncommitted",
+      "seed": 42,
+      "environment": {
+        "python": "3.13.9",
+        "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "device": "cpu",
+        "packages": {
+          "numpy": "2.5.3",
+          "polars": "1.44.2",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1",
+          "pandas": "3.0.6",
+          "duckdb": "1.5.6",
+          "pyarrow": "25.0.1"
+        }
+      },
+      "target": "editorial highlight selection (ranking)",
+      "population": "28 training games, grouped 4-fold",
+      "exclusions": null,
+      "input_cutoff": "offline: context on both sides of a clip",
+      "split": {
+        "folds": [
+          [
+            1,
+            5,
+            10,
+            14,
+            18,
+            25,
+            33
+          ],
+          [
+            2,
+            6,
+            11,
+            15,
+            19,
+            28,
+            34
+          ],
+          [
+            3,
+            7,
+            12,
+            16,
+            20,
+            29,
+            37
+          ],
+          [
+            4,
+            9,
+            13,
+            17,
+            22,
+            32,
+            38
+          ]
+        ]
+      },
+      "calibration": null,
+      "hyperparameters": null,
+      "metrics": {
+        "H-C control (H3, cross-entropy)": 0.6507017996535537,
+        "H-R ranking-aware": 0.6604367738548618,
+        "H-W positive weight 3, game-balanced": 0.6534479993115806,
+        "H1 commentary words (v2 model)": 0.4241314897396021,
+        "H-N negation-aware commentary": 0.4224705846970726,
+        "H-F learned fusion: H3 + commentary": 0.6695623978206193,
+        "H-F learned fusion: H3 + negation-aware commentary": 0.669293794081152,
+        "H3 + commentary, equal-weight sum (v2 rule)": 0.6018757781432248
+      },
+      "ablations": {},
+      "outputs": {
+        "report": {
+          "path": "reports/v3/highlights_experiments_v3.json",
+          "sha256": "8869f64e4bbddb644d588d8f039328a09a3952bb13ca668c888de645b036651f"
+        }
+      },
+      "notes": [],
+      "train_seconds": 0.4,
+      "peak_memory_mb": 909.7,
+      "evidence_kinds": {
+        "inputs": "observed",
+        "labels": "released",
+        "outputs": "model prediction",
+        "explanations": "model-generated interpretation",
+        "summaries": "statistical association"
+      },
+      "data": {},
+      "latest": true
+    },
+    {
+      "module": "pregame",
+      "run_id": "pregame-v3-experiments-20261004T230609",
+      "name": "v3-experiments",
+      "results_version": "v3",
+      "started_at": "2026-10-04T23:06:09+00:00",
+      "finished_at": "2026-10-04T23:06:09+00:00",
+      "git_commit": "327d951413e8c83c82d844d086e33228b8389083+uncommitted",
+      "seed": 20261004,
+      "environment": {
+        "python": "3.13.9",
+        "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "device": "cpu",
+        "packages": {
+          "numpy": "2.5.3",
+          "polars": "1.44.2",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1",
+          "pandas": "3.0.6",
+          "duckdb": "1.5.6",
+          "pyarrow": "25.0.1"
+        }
+      },
+      "target": "home team wins",
+      "population": "decided games 2012-2025",
+      "exclusions": null,
+      "input_cutoff": "24 hours before kickoff; prior games at least 28 hours earlier",
+      "split": {
+        "development": [
+          2012,
+          2022
+        ],
+        "nested_from": 2015,
+        "previously_examined": [
+          2023,
+          2025
+        ]
+      },
+      "calibration": null,
+      "hyperparameters": null,
+      "metrics": {
+        "nested": {
+          "games": 2164,
+          "log_loss": 0.632223458833456,
+          "brier": 0.22100455362620816,
+          "accuracy": 0.6427911275415896,
+          "calibration_slope": 1.000545482620457,
+          "calibration_intercept": -0.09181267303898483,
+          "vs_elo": {
+            "mean_log_loss_difference": -0.0034426817698124767,
+            "interval_95": [
+              -0.006150937538891338,
+              -0.0008126436383023512
+            ],
+            "share_of_resamples_better": 0.9965,
+            "blocks": 170,
+            "block": "season-week"
+          },
+          "vs_v2_elo_offset": {
+            "mean_log_loss_difference": 2.6157511983234464e-05,
+            "interval_95": [
+              -0.0029713084045401,
+              0.003011042636408494
+            ],
+            "share_of_resamples_better": 0.5075,
+            "blocks": 170,
+            "block": "season-week"
+          }
+        },
+        "decision": {
+          "promote_v3_to_forecasts": false,
+          "statement": "No gain over Elo or frozen v2 is established: the intervals include zero. Forecasting stays on Elo and the frozen v2 model."
+        }
+      },
+      "ablations": {},
+      "outputs": {
+        "report": {
+          "path": "reports/v3/pregame_experiments_v3.json",
+          "sha256": "127f80ecbf002f7428c90f691d836914e85a10bc53ac9ae2c029e4ff5fd47852"
+        }
+      },
+      "notes": [],
+      "train_seconds": 0.2,
+      "peak_memory_mb": 311.8,
+      "evidence_kinds": {
+        "inputs": "observed",
+        "labels": "released",
+        "outputs": "model prediction",
+        "explanations": "model-generated interpretation",
+        "summaries": "statistical association"
+      },
+      "data": {},
+      "latest": false
+    },
+    {
+      "module": "pregame",
+      "run_id": "pregame-v3-experiments-20261004T230816",
+      "name": "v3-experiments",
+      "results_version": "v3",
+      "started_at": "2026-10-04T23:08:16+00:00",
+      "finished_at": "2026-10-04T23:08:16+00:00",
+      "git_commit": "327d951413e8c83c82d844d086e33228b8389083+uncommitted",
+      "seed": 20261004,
+      "environment": {
+        "python": "3.13.9",
+        "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "device": "cpu",
+        "packages": {
+          "numpy": "2.5.3",
+          "polars": "1.44.2",
+          "scikit-learn": "1.9.1",
+          "torch": "2.14.1",
+          "pandas": "3.0.6",
+          "duckdb": "1.5.6",
+          "pyarrow": "25.0.1"
+        }
+      },
+      "target": "home team wins",
+      "population": "decided games 2012-2025",
+      "exclusions": null,
+      "input_cutoff": "24 hours before kickoff; prior games at least 28 hours earlier",
+      "split": {
+        "development": [
+          2012,
+          2022
+        ],
+        "nested_from": 2015,
+        "previously_examined": [
+          2023,
+          2025
+        ]
+      },
+      "calibration": null,
+      "hyperparameters": null,
+      "metrics": {
+        "nested": {
+          "games": 2164,
+          "log_loss": 0.632223458833456,
+          "brier": 0.22100455362620816,
+          "accuracy": 0.6427911275415896,
+          "calibration_slope": 1.000545482620457,
+          "calibration_intercept": -0.09181267303898483,
+          "vs_elo": {
+            "mean_log_loss_difference": -0.0034426817698124767,
+            "interval_95": [
+              -0.006150937538891338,
+              -0.0008126436383023512
+            ],
+            "share_of_resamples_better": 0.9965,
+            "blocks": 170,
+            "block": "season-week"
+          },
+          "vs_v2_elo_offset": {
+            "mean_log_loss_difference": 2.6157511983234464e-05,
+            "interval_95": [
+              -0.0029713084045401,
+              0.003011042636408494
+            ],
+            "share_of_resamples_better": 0.5075,
+            "blocks": 170,
+            "block": "season-week"
+          }
+        },
+        "decision": {
+          "promote_v3_to_forecasts": false,
+          "statement": "On nested development seasons the v3 choice is better than Elo with an interval excluding zero and not distinguishable from the frozen v2 model. On the previously examined 2023-2025 seasons its interval against Elo includes zero. Not promoted: forecasting stays on Elo and the frozen v2 model."
+        }
+      },
+      "ablations": {},
+      "outputs": {
+        "report": {
+          "path": "reports/v3/pregame_experiments_v3.json",
+          "sha256": "8ece96317fb329aaea2cad827a9a4acd540a124d203cb38f236409efceb624c3"
+        }
+      },
+      "notes": [],
+      "train_seconds": 0.2,
+      "peak_memory_mb": 328.8,
+      "evidence_kinds": {
+        "inputs": "observed",
+        "labels": "released",
+        "outputs": "model prediction",
+        "explanations": "model-generated interpretation",
+        "summaries": "statistical association"
+      },
+      "data": {},
       "latest": true
     }
   ]

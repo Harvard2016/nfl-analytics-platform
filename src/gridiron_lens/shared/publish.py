@@ -11,12 +11,14 @@ from .provenance import now_utc, write_json
 from .runs import load_runs
 
 WEB = config.WEB_DEMO / "research"
+V3_EXPORTS = {"coverage_v3_experiments.json": "real/coverage/experiments_v3.json", "coverage_fresh_2024.json": "real/coverage/fresh_2024.json", "highlights_eval_v3.json": "highlights/eval_v3.json",
+              "highlights_experiments_v3.json": "highlights/experiments_v3.json", "highlights_candidates_v3.json": "highlights/candidates_v3.json", "pregame_experiments_v3.json": "pregame/experiments_v3.json"}
 KEEP = ("module", "run_id", "name", "results_version", "started_at", "finished_at", "git_commit", "seed", "environment", "target", "population", "exclusions",
         "input_cutoff", "split", "calibration", "hyperparameters", "metrics", "ablations", "outputs", "notes", "train_seconds", "peak_memory_mb", "evidence_kinds", "data")
 
 
 def run() -> dict:
-    runs = [{k: r.get(k) for k in KEEP} for r in load_runs("v2")]
+    runs = [{k: r.get(k) for k in KEEP} for v in ("v2", "v3") for r in load_runs(v)]
     latest: dict[tuple, dict] = {}
     for r in runs:                                   # keep every run, mark the most recent of each kind
         latest[(r["module"], r["name"])] = r
@@ -32,7 +34,13 @@ def run() -> dict:
                      "models": base["coverage"]["models"], "metrics": base["coverage"]["metrics"]["post_1_5s"]["geometry_gbm"], "ui_defaults": base["coverage"]["ui_defaults"]},
         "pregame": base["pregame"]["metrics"],
     })
-    return {"runs": len(runs), "out": config.rel(WEB)}
+    copied = []
+    for src, dest in V3_EXPORTS.items():                 # aggregate results only: no per-play tracking, no media, no transcript text
+        f = config.REPORTS / "v3" / src
+        if f.exists():
+            write_json(config.WEB_DEMO / dest, json.loads(f.read_text()))
+            copied.append(dest)
+    return {"runs": len(runs), "out": config.rel(WEB), "v3_exports": copied}
 
 
 if __name__ == "__main__":

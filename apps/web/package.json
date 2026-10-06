@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
-    "test:ui": "playwright test"
+    "test:ui": "playwright test",
+    "test:inference": "playwright test --config playwright.inference.config.ts"
   },
   "dependencies": {
     "next": "16.3.8",

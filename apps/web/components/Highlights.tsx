@@ -107,7 +107,7 @@ export default function Highlights() {
           </div>
           <div className="max-w-[58ch] text-sm text-muted">
             <p className="text-lg text-ink">Select a moment. Watch the source. Inspect the signals.</p>
-            <p className="mt-2">Ranks editorial highlight selection. Scores are ranks, not probabilities.</p>
+            <p className="mt-2">Ranks editorial highlight selection. Scores are ranks, not probabilities. <Link className="text-teal underline" href="/highlights/analyze">Analyze your clip</Link></p>
             <details className="mt-4 border-t border-line pt-2"><summary>Dataset and evaluation</summary><p className="mt-2">{index.scope}. Editorial label: {index.label} On {shipped.test.games} held-out games: {shipped.test.mean_average_precision.toFixed(3)} mAP (random: {shipped.test.chance_average_precision.toFixed(3)}). A 3-minute reel is {pct(shipped.test["3 minutes"].precision)} editorial highlights but covers only {pct(shipped.test["3 minutes"].recall_of_highlight_time)} of highlight time. Source playback uses YouTube; no footage is hosted.</p></details>
           </div>
         </div>

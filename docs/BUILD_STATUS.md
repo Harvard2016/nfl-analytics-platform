@@ -262,3 +262,38 @@ Local lint, production build and four timestamp/export unit tests pass. GitHub A
 ## Follow-up: module tours and YouTube playback
 
 Added five-step first-visit tours to Coverage, Predictions and Highlights with highlighted controls, module-specific copy, replay and local completion memory. Added keyboard/mobile regression tests. Player setup now includes iframe referrer/permission attributes and page origin before loading, bounded loadVideoById calls, specific YouTube error messages/codes and retry. Six timestamp/embed/error unit tests pass locally. GitHub Actions run 37202389644 passed Python/web checks and all 12 deterministic browser tests (tour steps, focus, completion/replay, mobile bounds, independent module memory, playback retry and existing page/data checks). The six tour screenshots were reviewed. A separate one-source check returned YouTube error 150 for the default Super Bowl 52 game: the owner has disabled embedding. The player connection works, but this video can only be opened on YouTube. This diagnosis does not establish the status of the other 11 source games; embed availability can change. See docs/audits/youtube-player-check.json. The public production URL still showed the older link-only Highlights page when checked. Changes remain on draft PR #1 until merged.
+
+## V3: inference, uploads, forecasts and a third round of experiments (2026-10-04)
+
+Branch `feat/inference-and-model-v3`. Full detail, commands and blocked items: `docs/V3_EXECUTION_STATUS.md`. Model cards: `docs/model_cards/`. Dataset notes: `docs/DATASETS.md`. Experiment plans registered before running: `docs/experiments/`.
+
+**What now works**
+- Saved coverage and highlight models reproduce their saved predictions exactly from the files on disk.
+- Highlight ranker H3 has an inference bundle (weights, PCA transforms, scaling, manifest) that reproduces cached inputs and saved scores on all 40 games.
+- Reels obey an exact output budget; the first selector, which could run 188 s for a 180 s reel, is preserved as v1.
+- 2026 forecasts follow protocol v3: preserved and hashed sources, creation time read after fitting, saved bundle, idempotent append-only records. 16 official forecasts and 1 late one were written on 2026-10-04.
+- A local inference service and two pages: tracking classification (same probabilities as the offline pipeline for real plays) and clip ranking with the loudness baseline, synchronized playback and exact cuts.
+- A review tool for the 100-play development queue and out-of-fold error slices.
+
+**What the experiments showed (development data unless stated)**
+- Coverage: attention pooling gave no gain; robustness training costs a little on clean input and helps a lot on degraded input; a three-seed average and a blend with trees are better calibrated than one seed; a hierarchical family head does not beat a flat one. Champion unchanged. Weeks 15–18 not scored.
+- Highlights: a learned fusion with commentary and a ranking-aware loss beat the control on development folds; rebuilt and scored once on used games, the ranking-aware model did not hold up and the fusion was level on validation and better on the examined test games. Negation features and segment-aware decoding did not help. H3 stays shipped.
+- Game prediction: opponent-adjusted ratings beat Elo on nested development seasons and match the frozen v2 model. No established gain over Elo beyond v2. Not promoted.
+
+**Not done, and why**
+- Fresh-season coverage validation: **one small sample done, full season still blocked.** The BDB 2026 Prediction archive has no coverage labels. Its 143 test plays from three 2024 games are labelled in the Analytics label table already on disk, so they were scored once under a protocol registered beforehand: 0.979 agreement at +1.5 s on 142 plays (95% interval 0.940–0.993). The 95.2% figure on 2023 remains a previously examined benchmark. The other 3,758 labelled 2024 plays have no public tracking.
+- Trained multimodal scoring of new video: **still incomplete.** The CLIP stream was re-created and matches the benchmark in model family and scale but not in distribution; SlowFast and PANN were not built; no benchmark source video exists to verify against (`docs/HIGHLIGHT_EXTRACTORS.md`). Previously: the CLIP, SlowFast and PANN extractors are not installed or parity-checked.
+- Commentary mode for uploads: **built, experimental.** Local speech-to-text (whisper.cpp) with word timing, a transcript panel and a speech track tied to the video.
+- Video to coverage: calibration and gating library only; no detection, tracking or review interface; never run on footage.
+- Real-media smoke test: **done 2026-10-06** on an owner-supplied game video. It exposed a reel that ran 188 s for a 180 s budget when padded clips overlapped; fixed and tested. Detail in `docs/V3_EXECUTION_STATUS.md`.
+- Field calibration measured on real paired video and tracking (Helmet Assignment release): median error on held-out players 0.48 yd from the sideline view and 0.60 yd from the end zone; a calibration reused for 1.5 s drifts past 1 yd.
+- Event detection: no reviewed labels.
+- The public site has no inference service; the upload pages explain local operation there.
+
+### Update 2026-10-06
+
+- Real football video testing: completed on an owner-supplied game. Reviewed sample and failures (halftime band, late clips, announcer-driven picks): `reports/v3/highlights_real_video_review.json`.
+- Helmet Assignment calibration testing: completed within its limits (labelled helmets, fixed cameras, no coverage labels).
+- Exported reels now obey the budget on the file itself: container, video and audio durations at or under it.
+- Fresh labelled coverage validation: one registered look at 142 plays from 2024; a full unseen season remains blocked.
+- Trained highlight scoring on newly uploaded video: remains incomplete.

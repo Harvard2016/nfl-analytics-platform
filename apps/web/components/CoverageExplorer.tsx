@@ -8,7 +8,7 @@ import ModuleTour from "@/components/ModuleTour";
 import StadiumBackdrop from "@/components/StadiumBackdrop";
 import { Badge, Bar } from "@/components/ui";
 import {
-  type Ablation, type Dataset, type HorizonKey, type Play, type PlaySummary, type Similar, type Status, type Term, DEFAULT_HORIZON, DEFAULT_MODEL, HORIZONS, MODELS,
+  type Ablation, type Dataset, type HorizonKey, type ModelKey, type Play, type PlaySummary, type Similar, type Status, type Term, DEFAULT_HORIZON, DEFAULT_MODEL, HORIZONS, MODELS,
   STATUS_CLASS, STATUS_TEXT, TYPE_LABELS, horizonFrom, loadDataset, loadPlay, modelFrom, ordinal, pct, statusOf,
 } from "@/lib/demo";
 
@@ -36,6 +36,9 @@ function MiniField({ play }: { play: Similar }) {
     </svg>
   );
 }
+
+// What each saved model is for. The preserved benchmark stays the page default; the champion is the best v2 model.
+const ROLE: Record<ModelKey, string> = { v2_temporal: "Champion", v1_gbm: "Preserved benchmark", v2_gbm_rel: "Comparison", v1_logit: "Comparison" };
 
 export default function CoverageExplorer({ view }: { view: View }) {
   const router = useRouter();
@@ -219,7 +222,8 @@ export default function CoverageExplorer({ view }: { view: View }) {
           </div>
           <p className="max-w-[58ch] text-sm text-muted">
             <strong className="font-semibold text-ink">Selected-player tracking.</strong> {SCOPE} The release chose those defenders after the play, so this is not a snap-time or live system.{" "}
-            <Link className="text-teal underline" href={`/coverage/evaluation?${carry}#e-sens`}>Data scope and limits</Link>
+            <Link className="text-teal underline" href={`/coverage/evaluation?${carry}#e-sens`}>Data scope and limits</Link>{" · "}
+            <Link className="text-teal underline" href="/coverage/analyze">Analyze your play</Link>
           </p>
         </div>
       </header>
@@ -233,10 +237,10 @@ export default function CoverageExplorer({ view }: { view: View }) {
                   className={`narrow flex items-center px-4 py-2.5 text-base transition-colors duration-150 ${view === v.key ? "bg-ink text-bg" : "text-muted hover:text-ink"}`}>{v.label}</Link>
               ))}
             </nav>
-            <div className="flex flex-1 flex-wrap items-center gap-x-5 gap-y-2 border-l border-line px-4 py-2 text-sm">
-              <label className="flex items-center gap-2 text-muted">Model
-                <select value={model} onChange={(e) => setParam({ model: e.target.value === DEFAULT_MODEL ? null : e.target.value, play: view === "errors" ? null : playId })} className="border border-line bg-surface px-2 text-ink">
-                  {MODELS.map((m) => <option key={m} value={m}>{ds.index.models[m].short}</option>)}
+            <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-5 gap-y-2 border-l border-line px-4 py-2 text-sm">
+              <label className="flex min-w-0 max-w-full items-center gap-2 text-muted">Model
+                <select value={model} onChange={(e) => setParam({ model: e.target.value === DEFAULT_MODEL ? null : e.target.value, play: view === "errors" ? null : playId })} className="min-w-0 max-w-full border border-line bg-surface px-2 text-ink">
+                  {MODELS.map((m) => <option key={m} value={m}>{ROLE[m]}: {ds.index.models[m].short}</option>)}
                 </select>
               </label>
               <div role="group" aria-label="Model input cutoff" className="flex items-center border border-line">
@@ -252,6 +256,7 @@ export default function CoverageExplorer({ view }: { view: View }) {
                 })}
               </div>
               <p className="num text-ink" data-testid="settings"><span className="text-muted">Showing</span> {spec.short}, {hLabel.label}, confidence cutoff <strong className="font-semibold">{cutoff != null ? pct(cutoff) : "n/a"}</strong></p>
+              <p className="text-xs text-muted" data-testid="model-role">{ROLE[model]} model.{model !== "v2_temporal" && <> The champion is the temporal model (v2): <button className="text-teal underline" onClick={() => setParam({ model: "v2_temporal", play: view === "errors" ? null : playId })}>switch to it</button>.</>} Which model is shown first is a display choice, not a model improvement.</p>
             </div>
           </div>
           <p className="border-t border-line px-4 py-2 text-xs text-muted" data-testid="set-note">{setNote} The model sees {hLabel.detail}. Playback only moves the picture; it never changes what the model was given.</p>

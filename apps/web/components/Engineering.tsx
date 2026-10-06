@@ -24,7 +24,7 @@ export default function Engineering() {
             <tbody>
               {rights.sources.map((s) => (
                 <tr key={s.id} className="border-t border-line align-top">
-                  <td className="py-2 pr-3"><a className="text-teal underline" href={s.url}>{s.name}</a><span className="block text-xs text-muted">{s.attribution}</span></td>
+                  <td className="py-2 pr-3">{s.url ? <a className="text-teal underline" href={s.url}>{s.name}</a> : s.name}<span className="block text-xs text-muted">{s.attribution}</span></td>
                   <td className="py-2 pr-3">{s.module}</td><td className="py-2 pr-3 text-muted">{s.licence_stated}</td>
                   <td className="py-2 text-muted">{s.display.replace(/\.?$/, ".")}{s.independently_reviewed ? "" : " Terms not independently reviewed."}</td>
                 </tr>

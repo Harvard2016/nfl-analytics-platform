@@ -1,0 +1,144 @@
+{
+  "module": "highlights",
+  "version": "highlights-v3-candidates",
+  "created_at_utc": "2026-10-04T23:44:12+00:00",
+  "roles": {
+    "validation": "6 games used for H3 early stopping in v2: development data, optimistic for H3 itself",
+    "test": "6 games examined in v2: a previously examined benchmark, not a fresh test"
+  },
+  "fusion_weights": {
+    "h3": 2.5053565950260817,
+    "commentary": 0.491627773846327
+  },
+  "results": {
+    "H3 (shipped, v2)": {
+      "validation": {
+        "mean_average_precision": 0.6879140201155657,
+        "per_game": [
+          0.7655,
+          0.6536,
+          0.607,
+          0.732,
+          0.6614,
+          0.7079
+        ],
+        "strict_180s_precision": 0.9012276321265086,
+        "strict_180s_recall": 0.19357491841268823
+      },
+      "test": {
+        "mean_average_precision": 0.6192678665389459,
+        "per_game": [
+          0.7319,
+          0.6929,
+          0.5363,
+          0.5824,
+          0.7506,
+          0.4216
+        ],
+        "strict_180s_precision": 0.7800041614648356,
+        "strict_180s_recall": 0.19333700865110293
+      }
+    },
+    "H3-R ranking-aware (v3 candidate)": {
+      "validation": {
+        "mean_average_precision": 0.6786535148699683,
+        "per_game": [
+          0.7527,
+          0.6151,
+          0.6048,
+          0.7319,
+          0.6576,
+          0.7098
+        ],
+        "strict_180s_precision": 0.8678942987931753,
+        "strict_180s_recall": 0.18463162268756392,
+        "vs_shipped": {
+          "mean_difference": -0.009260505245597314,
+          "interval_95_over_games": [
+            -0.021172146326422725,
+            -0.0005148766472357624
+          ],
+          "games": 6
+        },
+        "games_better": 1
+      },
+      "test": {
+        "mean_average_precision": 0.6170960622757097,
+        "per_game": [
+          0.721,
+          0.703,
+          0.5336,
+          0.5857,
+          0.7424,
+          0.4169
+        ],
+        "strict_180s_precision": 0.7641905950894715,
+        "strict_180s_recall": 0.18782701867061266,
+        "vs_shipped": {
+          "mean_difference": -0.002171804263236284,
+          "interval_95_over_games": [
+            -0.0074872577224409315,
+            0.0034064209215842745
+          ],
+          "games": 6
+        },
+        "games_better": 2
+      }
+    },
+    "H3 + commentary, learned fusion (v3 candidate)": {
+      "validation": {
+        "mean_average_precision": 0.6895283137558814,
+        "per_game": [
+          0.7646,
+          0.6339,
+          0.6263,
+          0.7291,
+          0.6583,
+          0.725
+        ],
+        "strict_180s_precision": 0.8790054099042863,
+        "strict_180s_recall": 0.1885053756938416,
+        "vs_shipped": {
+          "mean_difference": 0.0016142936403157153,
+          "interval_95_over_games": [
+            -0.008237470758637047,
+            0.01179681168475416
+          ],
+          "games": 6
+        },
+        "games_better": 2
+      },
+      "test": {
+        "mean_average_precision": 0.6387673215106499,
+        "per_game": [
+          0.7325,
+          0.7499,
+          0.5576,
+          0.5953,
+          0.7581,
+          0.4391
+        ],
+        "strict_180s_precision": 0.7703703703703705,
+        "strict_180s_recall": 0.18960699235735023,
+        "vs_shipped": {
+          "mean_difference": 0.01949945497170404,
+          "interval_95_over_games": [
+            0.007795330742730107,
+            0.0348373475866954
+          ],
+          "games": 6
+        },
+        "games_better": 6
+      }
+    }
+  },
+  "decision": {
+    "shipped": "H3 (shipped, v2)",
+    "statement": "Candidates are recorded with their weights. H3 stays the shipped ranker: six games per split give wide intervals, both splits have been used before, and the fusion candidate needs a transcript, which uploads do not have yet.",
+    "rollback": "The v2 weights and the v3 bundle are untouched; candidates live in models/highlights/v3/candidates/."
+  },
+  "files": {
+    "fusion.json": "d42a8bfc26ee63035c6ba7bb1082bbe5d974703b94afb106248e2786f88e1baf",
+    "h3_ranking_aware.pt": "0f90918c54c34c9a8c422f0f8455fc092bba0878288ae66ef256acca6dacf4b8"
+  }
+}

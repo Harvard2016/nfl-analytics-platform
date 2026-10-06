@@ -28,3 +28,7 @@ logs/
 *.npz
 *.pt
 .vercel
+# v3: private source snapshots, authorized local media, upload jobs
+data/snapshots/
+data/local_media/
+data/jobs/

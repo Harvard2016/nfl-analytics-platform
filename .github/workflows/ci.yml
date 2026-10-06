@@ -6,10 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
-      - run: uv sync
-      - run: uv run ruff check src tests
+      - run: uv sync --locked --extra service
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: uv run --no-sync ruff check src tests
       # Tests use small synthetic fixtures; tests that need downloaded datasets skip themselves. No model is retrained here.
-      - run: uv run python -m pytest -q
+      - run: uv run --no-sync python -m pytest -q
   web:
     runs-on: ubuntu-latest
     defaults:
@@ -26,6 +27,7 @@ jobs:
       - run: npm test
       - run: npx playwright install --with-deps chromium
       - run: npm run test:ui
+      - run: npm run test:inference
       # Single opt-in source diagnosis, separate from deterministic regression checks.
       - run: YOUTUBE_SOURCE_PROBE=1 npx playwright test youtube-probe.spec.ts
         if: always()

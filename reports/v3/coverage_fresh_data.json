@@ -1,0 +1,39 @@
+{
+  "created_at_utc": "2026-10-06T20:06:37+00:00",
+  "status": "partly resolved: a small labelled 2024 sample was found and scored once; a full fresh season is still unavailable",
+  "archive_audited": {
+    "name": "nfl-big-data-bowl-2026-prediction.zip",
+    "bytes": 107074944,
+    "sha256": "18259140bbc2346fa474ad7e7d3294f99daf684c9b62921e608d70ef122c364e",
+    "files": 49,
+    "uncompressed_bytes": 864820234
+  },
+  "archive_findings": {
+    "training_files": "36 files, 2023 weeks 1-18, 272 games, all already in the BDB 2026 Analytics data; the 18 input files are byte-identical to ours",
+    "test_input": "143 plays from 3 games of the 2024 season (2024120805, 2024121502, 2025010515)",
+    "labels_in_archive": "none: no man/zone or coverage-family column in any CSV and no label table",
+    "player_role": "'Defensive Coverage' is a value of player_role (which players were tracked), not a coverage label",
+    "output_files": "future x,y of players after the throw; never read"
+  },
+  "what_changed": "The label table already on disk from the Analytics release lists 3,901 plays from the 2024 season with released coverage labels and no tracking. All 143 test-input plays are among them (108 zone, 35 man). Tracking from one release plus labels from the other give 143 labelled, never-examined 2024 plays.",
+  "one_time_evaluation": {
+    "registered": "docs/experiments/coverage_fresh_2024.md, committed before scoring",
+    "report": "reports/v3/coverage_fresh_2024.json",
+    "primary_model_post_1_5s": {
+      "n": 142,
+      "accuracy": 0.9788732394366197,
+      "accuracy_interval_95_wilson": [
+        0.9397290578508952,
+        0.9927895102394164
+      ],
+      "man_recall": 0.9117647058823529,
+      "man_precision": 1.0,
+      "log_loss": 0.06666444143151734,
+      "brier": 0.018198451606691163
+    },
+    "always_zone_accuracy_same_plays": 0.7605633802816901
+  },
+  "how_to_describe_it": "A small fresh-season sample: 142 plays reaching +1.5 s, 3 games, weeks 14, 15 and 18, one look. Same release format and the same post-play selection of tracked players. It is reported beside the 2023 benchmark (95.2%, previously examined), not in place of it.",
+  "still_blocked": "Validation on a full unseen season, on different tracking, or on players not selected after the play. 3,758 labelled 2024 plays have no public tracking. This archive cannot supply more; do not request it again for that.",
+  "experimental_unscored_file": "reports/v3/coverage_2024_unlabelled_experimental.json was written before the labels were joined and contains predictions only."
+}

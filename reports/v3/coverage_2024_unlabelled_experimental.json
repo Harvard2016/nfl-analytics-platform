@@ -1,0 +1,84 @@
+{
+  "created_at_utc": "2026-10-06T20:04:59+00:00",
+  "status": "EXPERIMENTAL AND UNSCORED. These plays have no coverage label. Nothing here is an accuracy measurement.",
+  "model": "cov-v2-temporal-gru-seed42",
+  "source": "test_input.csv of the BDB 2026 Prediction archive: 2024 season, 3 games",
+  "inputs_not_read": [
+    "num_frames_output",
+    "ball_land_x",
+    "ball_land_y",
+    "player_to_predict",
+    "Targeted Receiver role (all non-passer offence is treated alike)",
+    "output_*.csv"
+  ],
+  "plays": 143,
+  "accepted_by_the_upload_contract": 143,
+  "rejected": {},
+  "input_compatibility": {
+    "defenders": {
+      "2024 unlabelled": {
+        "mean": 6.706,
+        "median": 7.0,
+        "p10": 6.0,
+        "p90": 7.0
+      },
+      "2023 release (all plays)": {
+        "mean": 6.684,
+        "median": 7.0,
+        "p10": 6.0,
+        "p90": 7.0
+      }
+    },
+    "route_runners": {
+      "2024 unlabelled": {
+        "mean": 4.587,
+        "median": 5.0,
+        "p10": 4.0,
+        "p90": 5.0
+      },
+      "2023 release (all plays)": {
+        "mean": 4.59,
+        "median": 5.0,
+        "p10": 4.0,
+        "p90": 5.0
+      }
+    },
+    "frames": {
+      "2024 unlabelled": {
+        "mean": 15.993,
+        "median": 16.0,
+        "p10": 16.0,
+        "p90": 16.0
+      },
+      "2023 release (all plays)": {
+        "mean": 15.953,
+        "median": 16.0,
+        "p10": 16.0,
+        "p90": 16.0
+      }
+    },
+    "median_defender_speed_at_first_frame_yards_per_s": {
+      "mean": 0.386,
+      "median": 0.2800000011920929,
+      "p10": 0.05999999865889549,
+      "p90": 0.8100000023841858
+    },
+    "note": "Same file layout, same tracked-player selection (passer, route runners, defensive coverage players), same 10 Hz sampling. The first frame is treated as the snap, as for 2023."
+  },
+  "prediction_distribution_post_1_5s": {
+    "2024 unlabelled": {
+      "plays": 142,
+      "mean_p_man": 0.229,
+      "share_leaning_man": 0.218,
+      "share_confident_above_0.9_or_below_0.1": 0.852
+    },
+    "2023 all plays (same model, includes its training weeks)": {
+      "plays": 13843,
+      "mean_p_man": 0.282,
+      "share_leaning_man": 0.273,
+      "share_confident_above_0.9_or_below_0.1": 0.833
+    },
+    "reading": "A similar share of man leans and a similar confidence profile say the inputs look familiar to the model. They do not say the predictions are right."
+  },
+  "per_play_predictions": "kept locally only; not published"
+}

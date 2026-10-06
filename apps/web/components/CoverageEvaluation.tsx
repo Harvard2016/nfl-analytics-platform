@@ -260,7 +260,7 @@ export default function CoverageEvaluation() {
               </table>
             ))}
           </div>
-          <p className="mt-2 text-xs text-muted">First six of each queue shown; the full lists are in the repository report. No reviewer annotations exist yet.</p>
+          <p className="mt-2 text-xs text-muted">First six of each queue shown. No reviewer annotations exist yet. <Link className="text-teal underline" href="/coverage/review">Open the review tool and the development error slices</Link></p>
         </section>
       )}
 

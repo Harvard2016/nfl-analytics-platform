@@ -23,6 +23,31 @@ cd apps/web && npm install && npm run dev            # http://localhost:3000
 
 The site reads frozen exports under `apps/web/public/demo/`, so it runs without any dataset on disk.
 
+## Analyze your own play or clip (local)
+
+The public site has no inference service behind it. To run uploads on your own machine:
+
+```sh
+uv sync --extra service && brew install ffmpeg
+bin/gridiron-api                                                     # loopback only, http://127.0.0.1:8765
+cd apps/web && NEXT_PUBLIC_GRIDIRON_API=http://127.0.0.1:8765 npm run dev
+```
+
+- **Tracking classification** (`/coverage/analyze`): one play as CSV or JSON; the saved temporal coverage model returns man/zone probabilities at each cutoff the play reaches.
+- **Clip ranking** (`/highlights/analyze`): the loudness baseline finds loud moments and cuts clips within an exact reel length. The trained multimodal ranker cannot score new files yet (its feature extractors are not installed).
+- Files stay on your machine, are private to each job and are deleted on request or after 24 hours. Use only footage you may process.
+
+Model weights are not in the repository, so a fresh clone must run the pipelines below first.
+
+## 2026 forecasts
+
+```sh
+bin/pregame-lens snapshot        # download and preserve the schedule and play-by-play, with hashes
+bin/pregame-lens forecast-v3     # append-only records for upcoming games; refreshes the site export
+```
+
+Schedule it with `ops/com.gridironlens.forecast.plist`. A record written after the 24-hour cutoff is kept and labelled late; it is never scored.
+
 ## Reproduce the experiments
 
 Raw data is not in the repository. Put it where the commands expect it:
@@ -43,7 +68,9 @@ bin/highlights-lens audit && bin/highlights-lens run && bin/highlights-lens expo
 .venv/bin/python -m gridiron_lens.shared.publish
 ```
 
-Each run writes a record to `reports/v2/runs/` with the commit, seed, data hashes, split, cutoff, settings, metrics,
+Round-three experiments are registered in `docs/experiments/` and run with `python -m gridiron_lens.<module>.experiment_v3` (see `docs/V3_EXECUTION_STATUS.md`).
+
+Each run writes a record to `reports/v2/runs/` (or `reports/v3/runs/`) with the commit, seed, data hashes, split, cutoff, settings, metrics,
 time and memory. The preserved first benchmark lives in `reports/v1/` and is never overwritten.
 
 ## Ground rules

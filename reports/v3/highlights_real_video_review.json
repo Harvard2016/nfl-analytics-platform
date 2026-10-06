@@ -1,0 +1,260 @@
+{
+  "created_at_utc": "2026-10-06T20:25:02+00:00",
+  "version": "highlights-real-video-review-v1",
+  "source": {
+    "description": "owner-supplied high-school game, single press-box camera, stadium announcer and crowd audio, no broadcast commentary",
+    "duration_s": 6745.0,
+    "audio_duration_s": 6599.9,
+    "sha256": "3da9c23c5d2ef6e2f7412978162a9349d7f2e94973f75c9f96f894708505438c",
+    "published": "nothing from the file: no frame, audio, transcript or cut"
+  },
+  "method": {
+    "sample": "fixed before looking: every clip in each ranker's 180-second reel, 12 random 10-second windows (seed 20261006) and the 4 quietest moments at least 2 minutes apart",
+    "review": "three still frames per clip (1 s after the start, the middle, 1 s before the end), judged by the assistant from the frames alone, without sound",
+    "categories": "live action = a snap-to-whistle play or a kick in progress is visible in at least one frame. This is not 'a highlight': an ordinary run counts.",
+    "limits": [
+      "one game",
+      "small counts: differences of two or three clips are noise",
+      "stills can miss a play that happens between frames",
+      "no second reviewer",
+      "no NFL benchmark figure applies to this footage"
+    ]
+  },
+  "tally": {
+    "H0 loudness pick": {
+      "clips": 16,
+      "with_live_action": 4,
+      "halftime_band": 4,
+      "by_category": {
+        "pre-snap, snap at the end": 2,
+        "dead ball": 4,
+        "halftime band": 4,
+        "timeout or stoppage": 2,
+        "live action": 4
+      }
+    },
+    "H1 commentary pick": {
+      "clips": 12,
+      "with_live_action": 6,
+      "halftime_band": 0,
+      "by_category": {
+        "unclear": 1,
+        "live action": 6,
+        "timeout or stoppage": 2,
+        "dead ball": 2,
+        "pre-snap, snap at the end": 1
+      }
+    },
+    "partial H3 pick (CLIP + loudness, experimental)": {
+      "clips": 13,
+      "with_live_action": 6,
+      "halftime_band": 4,
+      "by_category": {
+        "pregame huddle": 1,
+        "live action": 6,
+        "dead ball": 2,
+        "halftime band": 4
+      }
+    },
+    "random": {
+      "clips": 12,
+      "with_live_action": 3,
+      "halftime_band": 2,
+      "by_category": {
+        "dead ball": 4,
+        "unclear": 1,
+        "live action": 3,
+        "pre-snap, snap at the end": 2,
+        "halftime band": 2
+      }
+    },
+    "quietest": {
+      "clips": 4,
+      "with_live_action": 1,
+      "halftime_band": 0,
+      "by_category": {
+        "timeout or stoppage": 1,
+        "pre-snap, snap at the end": 1,
+        "live action": 1,
+        "dead ball": 1
+      }
+    }
+  },
+  "failures": [
+    {
+      "ranker": "H0 loudness",
+      "what": "halftime marching band",
+      "where_s": [
+        [
+          3418,
+          3442
+        ],
+        [
+          3610,
+          3620
+        ],
+        [
+          3330,
+          3340
+        ],
+        [
+          3654,
+          3664
+        ]
+      ],
+      "detail": "4 of its 16 clips, including its third-ranked pick. The band is the loudest sustained sound in the recording; loudness above the local background cannot tell music from a crowd reacting to a play."
+    },
+    {
+      "ranker": "H0 loudness",
+      "what": "cheering after the play",
+      "where_s": [
+        [
+          5054,
+          5064
+        ],
+        [
+          4964,
+          4974
+        ],
+        [
+          2566,
+          2576
+        ],
+        [
+          2776,
+          2786
+        ]
+      ],
+      "detail": "4 clips show players standing or walking after a whistle. The crowd is loudest once the play is over, and a 10-second clip centred on the loudest moment starts too late."
+    },
+    {
+      "ranker": "H0 loudness",
+      "what": "no better than random at showing a play",
+      "detail": "4 of 16 clips contain live action against 3 of 12 random windows."
+    },
+    {
+      "ranker": "partial H3 (CLIP + loudness)",
+      "what": "halftime marching band",
+      "where_s": [
+        [
+          3130,
+          3140
+        ],
+        [
+          3326,
+          3336
+        ],
+        [
+          3412,
+          3440
+        ],
+        [
+          3682,
+          3692
+        ]
+      ],
+      "detail": "4 of 13 clips. The loudness stream still dominates when the audio and motion streams are masked, and nothing in the training games resembled a band on the field."
+    },
+    {
+      "ranker": "partial H3 (CLIP + loudness)",
+      "what": "pregame huddle",
+      "where_s": [
+        [
+          20,
+          30
+        ]
+      ],
+      "detail": "its first clip is the teams and cheerleaders before kickoff"
+    },
+    {
+      "ranker": "H1 commentary",
+      "what": "announcements instead of plays",
+      "where_s": [
+        [
+          5960,
+          5984
+        ],
+        [
+          5220,
+          5230
+        ],
+        [
+          5792,
+          5808
+        ]
+      ],
+      "detail": "4 of 12 clips are timeouts or dead-ball periods where the stadium announcer was speaking. The word model reacts to football vocabulary whether or not a play is under way."
+    },
+    {
+      "ranker": "speech-to-text",
+      "what": "misheard words",
+      "detail": "team and player names are frequently wrong, and crowd noise is transcribed as sound tags. The transcript is evidence of roughly what was said, not a record."
+    },
+    {
+      "ranker": "all",
+      "what": "quiet plays are invisible to loudness",
+      "where_s": [
+        [
+          1730,
+          1740
+        ]
+      ],
+      "detail": "a kickoff is among the four quietest moments of the recording"
+    }
+  ],
+  "partial_h3_experiment": {
+    "status": "EXPERIMENTAL. Not equivalent to benchmark H3.",
+    "streams_present": [
+      "CLIP re-extracted locally",
+      "loudness"
+    ],
+    "streams_masked": [
+      "SlowFast",
+      "PANN"
+    ],
+    "input_check": {
+      "new_clips": 3300,
+      "new_norm_mean": 9.922719955444336,
+      "reference_norm_mean": 10.04970932006836,
+      "mean_vector_cosine_new_vs_benchmark_games": {
+        "mean": 0.7028934359550476,
+        "min": 0.6717315316200256
+      },
+      "mean_vector_cosine_between_benchmark_games": {
+        "mean": 0.927410634358724,
+        "min": 0.8969361186027527
+      },
+      "mean_vector_cosine_shuffled_dimensions_control": -0.022593801297868293,
+      "adjacent_clip_cosine": {
+        "new": 0.9728600382804871,
+        "reference": 0.8784141540527344
+      },
+      "standardized_model_input": {
+        "mean_abs_z": 1.155057668685913,
+        "share_abs_z_over_3": 0.03799715909090909,
+        "benchmark_test_game_mean_abs_z": 0.8500709533691406,
+        "benchmark_test_game_share_over_3": 0.007794998879928315
+      }
+    },
+    "reading": "The re-extracted CLIP features have the benchmark's scale and clearly the same model family (mean-vector cosine 0.70 against a shuffled control of about 0), but sit further from the benchmark games than those games sit from each other (0.93), and 3.8% of standardized inputs exceed 3 against 0.8% on a benchmark game. Camera style, lighting and the absence of broadcast graphics, and possibly preprocessing differences that cannot be checked, all contribute.",
+    "what_this_configuration_scores_on_the_nfl_benchmark_with_released_features": {
+      "all four streams": {
+        "validation": 0.6879,
+        "test": 0.6193
+      },
+      "CLIP + loudness only": {
+        "validation": 0.5633,
+        "test": 0.4659
+      },
+      "loudness only through H3": {
+        "validation": 0.4181,
+        "test": 0.3406
+      },
+      "CLIP only": {
+        "validation": 0.3844,
+        "test": 0.349
+      }
+    },
+    "reference_note": "Mean average precision on the 6 validation and 6 examined test games when the same streams are masked. It shows how much is lost by having only these streams, on footage the model knows. It is not an estimate for this game."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "created_at_utc": "2026-10-04T22:32:39+00:00",
+  "note": "Saved weights applied to real cached local inputs. No retraining.",
+  "coverage_temporal": {
+    "seed42": {
+      "plays": 500,
+      "max_abs_probability_difference": 0.0
+    },
+    "seed7": {
+      "plays": 500,
+      "max_abs_probability_difference": 0.0
+    },
+    "seed2026": {
+      "plays": 500,
+      "max_abs_probability_difference": 0.0
+    }
+  },
+  "highlights_h3": {
+    "23": {
+      "clips": 4464,
+      "max_abs_score_difference": 0.0
+    },
+    "8": {
+      "clips": 5358,
+      "max_abs_score_difference": 0.0
+    },
+    "1": {
+      "clips": 4060,
+      "max_abs_score_difference": 0.0
+    }
+  },
+  "highlights_h3_bundle_gap": "temporal_fusion.pt holds weights and stream names only. The PCA transforms and mean/std used to build the cached features are not saved, so the bundle cannot score new media.",
+  "highlights_budget_overshoot": {
+    "23": {
+      "selected_clips": 90,
+      "seconds": 180
+    },
+    "24": {
+      "selected_clips": 90,
+      "seconds": 180
+    },
+    "26": {
+      "selected_clips": 90,
+      "seconds": 180
+    },
+    "35": {
+      "selected_clips": 90,
+      "seconds": 180
+    },
+    "36": {
+      "selected_clips": 90,
+      "seconds": 180
+    },
+    "40": {
+      "selected_clips": 94,
+      "seconds": 188
+    }
+  },
+  "pregame": "No saved model file exists: backtest and forecast refit from the data on disk each time, so there is no bundle to reproduce from. Addressed in v3 by saving a fitted bundle with its training cohort hash."
+}

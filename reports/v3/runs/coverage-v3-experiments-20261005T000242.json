@@ -1,0 +1,192 @@
+{
+  "module": "coverage",
+  "run_id": "coverage-v3-experiments-20261005T000242",
+  "name": "v3-experiments",
+  "results_version": "v3",
+  "started_at": "2026-10-05T00:02:42+00:00",
+  "git_commit": "7d7e307a23c8e5c473097bb45bd54fa4d94d4183+uncommitted",
+  "seed": 42,
+  "config": {
+    "folds": [
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ]
+      ]
+    ],
+    "noise": {
+      "pos_sd": 0.15,
+      "vel_sd": 0.3,
+      "frame_hold": 0.1,
+      "drop_def": 0.1,
+      "drop_rec": 0.05,
+      "min_def": 3,
+      "min_rec": 1
+    }
+  },
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {
+    "folds": [
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  "target": "released man/zone label",
+  "population": "labelled plays in weeks 1-12 with the prefix available",
+  "exclusions": null,
+  "input_cutoff": {
+    "at_snap": 0,
+    "post_0_5s": 5,
+    "post_1s": 10,
+    "post_1_5s": 15
+  },
+  "features": null,
+  "preprocessing": null,
+  "calibration": null,
+  "hyperparameters": null,
+  "metrics": {
+    "E0 control (gru+reflect)|seed42": {
+      "mean_val_loss": 0.2002058525880178,
+      "post_1_5s_log_loss": 0.14555059373378754
+    },
+    "E0 control (gru+reflect)|seed7": {
+      "mean_val_loss": 0.19709005455176035,
+      "post_1_5s_log_loss": 0.14398963749408722
+    },
+    "E0 control (gru+reflect)|seed2026": {
+      "mean_val_loss": 0.1849149614572525,
+      "post_1_5s_log_loss": 0.12787453830242157
+    },
+    "E1 attention pooling|seed42": {
+      "mean_val_loss": 0.2015771120786667,
+      "post_1_5s_log_loss": 0.14395573735237122
+    },
+    "E2 robustness training|seed42": {
+      "mean_val_loss": 0.2152146895726522,
+      "post_1_5s_log_loss": 0.1500774472951889
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "report": {
+      "path": "reports/v3/coverage_v3_experiments.json",
+      "sha256": "7e5c571498ddacb15fb970cae157b8cef8130cb3372896288cd395b0da81123d"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-05T00:02:42+00:00",
+  "train_seconds": 0.1,
+  "peak_memory_mb": 546.6
+}
