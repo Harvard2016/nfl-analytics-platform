@@ -1,0 +1,11 @@
+title = "Gridiron Lens secret scanning"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Public forecast deduplication hashes, not credentials; see forecast_v3.py"
+condition = "AND"
+paths = ['''^(reports/forecasts/v3/forecasts_[0-9TZ]+\.json|apps/web/public/demo/pregame/forecasts\.json)$''']
+regexTarget = "line"
+regexes = ['''^\s*"idempotency_key": "[0-9a-f]{24}",?\s*$''']

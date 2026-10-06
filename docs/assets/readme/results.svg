@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 440" role="img" aria-labelledby="title desc">
+<title id="title">Three independent systems, three measured comparisons</title>
+<desc id="desc">Coverage accuracy at +1.5 seconds from selected-player tracking; highlight mean average precision; pregame log loss. All comparisons are on previously examined benchmarks. Bars start at zero; results are not comparable across tasks.</desc>
+<rect width="1260" height="440" rx="8" fill="#0d1912"/>
+<text x="30" y="40" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#f2efe5">MEASURED. COMPARED. QUALIFIED.</text>
+<text x="30" y="64" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#a5b4a8">Different targets and datasets. Every chart comes from a saved report.</text>
+<text x="30" y="105" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#d8f16e">01  COVERAGE</text>
+<text x="30" y="161" font-family="Arial, sans-serif" font-size="47" font-weight="700" fill="#f2efe5">95.2%</text>
+<text x="30" y="186" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#a5b4a8">accuracy / higher is better</text>
+<text x="30" y="222" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">v1 trees</text>
+<rect x="30" y="229" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="30" y="229" width="275.371" height="9" rx="2" fill="#526356"/>
+<text x="353" y="237" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#a5b4a8">88.8%</text>
+<text x="30" y="264" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">relational trees</text>
+<rect x="30" y="271" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="30" y="271" width="280.736" height="9" rx="2" fill="#526356"/>
+<text x="353" y="279" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#a5b4a8">90.6%</text>
+<text x="30" y="306" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">temporal model</text>
+<rect x="30" y="313" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="30" y="313" width="295.076" height="9" rx="2" fill="#d8f16e"/>
+<text x="353" y="321" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#d8f16e">95.2%</text>
+<text x="30" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#a5b4a8">0</text>
+<text x="311" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#a5b4a8">100%</text>
+<text x="30" y="383" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">3,178 plays / +1.5 s / 2023 W15–18</text>
+<text x="30" y="407" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#a5b4a8">Selected players; examined benchmark.</text>
+<text x="450" y="105" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#e8ad66">02  HIGHLIGHTS</text>
+<text x="450" y="161" font-family="Arial, sans-serif" font-size="47" font-weight="700" fill="#f2efe5">0.619</text>
+<text x="450" y="186" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#a5b4a8">mAP / higher is better</text>
+<text x="450" y="222" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">loudness</text>
+<rect x="450" y="229" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="450" y="229" width="76.253" height="9" rx="2" fill="#526356"/>
+<text x="773" y="237" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#a5b4a8">0.246</text>
+<text x="450" y="264" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">commentary</text>
+<rect x="450" y="271" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="450" y="271" width="125.319" height="9" rx="2" fill="#526356"/>
+<text x="773" y="279" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#a5b4a8">0.404</text>
+<text x="450" y="306" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">temporal fusion</text>
+<rect x="450" y="313" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="450" y="313" width="191.973" height="9" rx="2" fill="#e8ad66"/>
+<text x="773" y="321" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#e8ad66">0.619</text>
+<text x="450" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#a5b4a8">0</text>
+<text x="731" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#a5b4a8">1.0</text>
+<text x="450" y="383" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">6 test games / editorial labels</text>
+<text x="450" y="407" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#a5b4a8">Rank quality, not event detection.</text>
+<text x="870" y="105" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8ebaf1">03  PREGAME</text>
+<text x="870" y="161" font-family="Arial, sans-serif" font-size="47" font-weight="700" fill="#f2efe5">~ ELO</text>
+<text x="870" y="186" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#a5b4a8">log loss / lower is better</text>
+<text x="870" y="222" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">home prior</text>
+<rect x="870" y="229" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="870" y="229" width="213.846" height="9" rx="2" fill="#526356"/>
+<text x="1193" y="237" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#a5b4a8">0.6898</text>
+<text x="870" y="264" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">Elo</text>
+<rect x="870" y="271" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="870" y="271" width="197.210" height="9" rx="2" fill="#526356"/>
+<text x="1193" y="279" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#a5b4a8">0.6362</text>
+<text x="870" y="306" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">Elo-offset</text>
+<rect x="870" y="313" width="310" height="9" rx="2" fill="#26362b"/>
+<rect x="870" y="313" width="196.831" height="9" rx="2" fill="#8ebaf1"/>
+<text x="1193" y="321" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#8ebaf1">0.6349</text>
+<text x="870" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#a5b4a8">0</text>
+<text x="1151" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#a5b4a8">1.0</text>
+<text x="870" y="383" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#f2efe5">854 games / 2023–2025</text>
+<text x="870" y="407" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#a5b4a8">Paired improvement interval includes zero.</text>
+<path d="M420 92V415M840 92V415" stroke="#344237"/>
+</svg>

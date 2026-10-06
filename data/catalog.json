@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "checked": "2026-10-06",
+  "note": "Paths are relative to the repository. This catalog describes the owner's dataset plan, not files bundled with a clone. Display decisions live in manifests/rights.json.",
+  "datasets": [
+    {
+      "id": "bdb2026",
+      "module": "coverage",
+      "raw_path": "data/raw/bdb2026/",
+      "source_url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-analytics/data",
+      "use": "2023 selected-player tracking and released coverage labels; training and evaluation",
+      "public_use": "Owner-approved compact 2023 play exports and aggregate results",
+      "limits": "No pre-snap frames, ball, linemen or rushers; defender selection uses knowledge of the play"
+    },
+    {
+      "id": "bdb2026_prediction",
+      "module": "coverage",
+      "raw_path": "data/raw/bdb2026_prediction/",
+      "source_url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-prediction/data",
+      "use": "143 previously unseen 2024 input plays matched to Analytics labels already held locally",
+      "public_use": "Aggregate evaluation only",
+      "limits": "The archive has no coverage labels; output files contain future coordinates and are not coverage-model inputs"
+    },
+    {
+      "id": "nflverse",
+      "module": "pregame",
+      "raw_path": "data/raw/nflverse/",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "use": "Schedules, results and play-by-play; historical features and pregame forecasts",
+      "public_use": "Derived game features, probabilities and results",
+      "limits": "A current historical download is not evidence of when each upstream row was first published"
+    },
+    {
+      "id": "svhighlights",
+      "module": "highlights",
+      "raw_path": "data/raw/svhighlights/",
+      "source_url": "https://huggingface.co/datasets/idong1004/SVHighlights",
+      "use": "40 NFL broadcasts' released features and editorial annotations; ranking benchmark",
+      "public_use": "Derived scores, curves, labels, timestamps, links and permitted short excerpts",
+      "limits": "No footage redistribution; released feature extractors cannot yet be verified for new video"
+    },
+    {
+      "id": "helmet_assignment",
+      "module": "videocov",
+      "raw_path": "data/raw/helmet_assignment/",
+      "source_url": "https://www.kaggle.com/competitions/nfl-health-and-safety-helmet-assignment/data",
+      "use": "Local field-calibration research on labelled helmets and tracking",
+      "public_use": "Aggregate calibration errors only",
+      "limits": "60 plays; no coverage labels; labelled helmets are not detector outputs"
+    },
+    {
+      "id": "owner_media",
+      "module": "highlights",
+      "raw_path": "data/local_media/",
+      "source_url": null,
+      "use": "Owner-authorized local smoke tests of clips and speech transcription",
+      "public_use": "No media, frames or transcripts",
+      "limits": "Permission to process locally is not permission to publish"
+    }
+  ],
+  "private_locations": [
+    "data/raw/",
+    "data/processed/",
+    "data/features/",
+    "data/snapshots/",
+    "data/local_media/",
+    "data/jobs/",
+    "models/",
+    "artifacts/",
+    "mlruns/"
+  ],
+  "public_locations": [
+    "data/manifests/",
+    "reports/",
+    "apps/web/public/demo/",
+    "docs/assets/readme/"
+  ],
+  "rules": [
+    "Private locations stay ignored by Git",
+    "Keep raw inputs unchanged",
+    "Version derived artifacts by module and experiment",
+    "Frozen split manifests and reports/v1 are not overwritten",
+    "Forecast records are append-only",
+    "Review every export against manifests/rights.json before publishing"
+  ]
+}
