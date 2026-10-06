@@ -18,7 +18,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-import os
+import shutil
 import urllib.request
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -92,11 +92,11 @@ def snapshot(season: int | None = None, fetch: bool = True, clock=utc_now, log=p
         files.append({"name": "games.csv", **_fetch(pipeline.SOURCE_URL, d / "games.csv")})
         files.append({"name": f"pbp/play_by_play_{season}.parquet", **_fetch(PBP_URL.format(season=season), d / "pbp" / f"play_by_play_{season}.parquet")})
     else:
-        os.link(pipeline.RAW, d / "games.csv")
+        shutil.copyfile(pipeline.RAW, d / "games.csv")
         files.append({"name": "games.csv", "source_url": pipeline.SOURCE_URL, "fetched_at_utc": None, "publication": None, "obtained": "local file; original fetch time not recorded"})
     for f in sorted(F.PBP_DIR.glob("play_by_play_*.parquet")):
         if not (d / "pbp" / f.name).exists():
-            os.link(f, d / "pbp" / f.name)                                 # hard link: bytes are preserved even if the raw file is later replaced
+            shutil.copyfile(f, d / "pbp" / f.name)                       # independent bytes, including when the source is rewritten in place
             files.append({"name": f"pbp/{f.name}", "source_url": PBP_URL.format(season=f.stem[-4:]), "fetched_at_utc": None, "publication": None,
                           "obtained": "local file from an earlier download; original fetch time not recorded"})
     for rec in files:
@@ -121,6 +121,25 @@ def snapshot(season: int | None = None, fetch: bool = True, clock=utc_now, log=p
 def latest_snapshot() -> dict | None:
     s = sorted(SNAPSHOTS.glob("*/snapshot.json"))
     return json.loads(s[-1].read_text()) if s else None
+
+
+def verify_snapshot(snap: dict) -> Path:
+    """Reject changed or missing inputs before using a snapshot; never repair its recorded hashes."""
+    d = SNAPSHOTS / snap["snapshot_id"]
+    files = snap["files"]
+    names = [r["name"] for r in files]
+    if not files or len(names) != len(set(names)):
+        raise ValueError("Snapshot has an empty or duplicate file manifest.")
+    for r in files:
+        p = d / r["name"]
+        if not p.resolve().is_relative_to(d.resolve()):
+            raise ValueError("Snapshot contains an invalid input path.")
+        if not p.is_file() or p.stat().st_size != r["bytes"] or sha256_file(p) != r["sha256"]:
+            raise ValueError(f"Snapshot input changed or is missing: {r['name']}. Create a new snapshot; do not overwrite this manifest.")
+    content = hashlib.sha256("".join(f"{r['name']}:{r['sha256']}" for r in sorted(files, key=lambda r: r["name"])).encode()).hexdigest()
+    if content != snap["content_sha256"]:
+        raise ValueError("Snapshot manifest does not match its recorded content hash.")
+    return d
 
 
 # ---------------------------------------------------------------- forecasts
@@ -156,7 +175,7 @@ def forecast(snapshot_id: str | None = None, clock=utc_now, days_ahead: int = 9,
     snap = json.loads((SNAPSHOTS / snapshot_id / "snapshot.json").read_text()) if snapshot_id else latest_snapshot()
     if snap is None:
         raise SystemExit("No source snapshot. Run `bin/pregame-lens snapshot` first.")
-    sdir = SNAPSHOTS / snap["snapshot_id"]
+    sdir = verify_snapshot(snap)
     sel = json.loads((config.REPORTS / "v2" / "pregame_selection_v2.json").read_text())
     games = pipeline.load_games(sdir / "games.csv")
     feat = F.build(games, *F.load_stats(sdir / "pbp"))
@@ -175,6 +194,7 @@ def forecast(snapshot_id: str | None = None, clock=utc_now, days_ahead: int = 9,
     up = up.with_columns(pl.lit(0).alias("home_win"))                       # placeholder so the shared code path runs; never read
     pe, fe = M.fit_predict(decided, up, "elo_offset", cols_e, eo["penalty"])
     pm, fm = M.fit_predict(decided, up, "margin", cols_m, mg["penalty"])
+    verify_snapshot(snap)                                                # also reject an input changed while fitting, before writing any forecast
     cohort = hashlib.sha256(",".join(decided["game_id"].to_list()).encode()).hexdigest()
     bundle = {"model_version": MODEL_VERSION, "selection": {"elo_offset": eo, "margin": mg, "blend_weight_elo_offset": w}, "elo": pipeline.ELO,
               "elo_offset": {"columns": cols_e, "mean": fe["scaler"].mean, "sd": fe["scaler"].sd, "weights": fe["w"], "qb_prior": fe["qb_prior"]},
@@ -242,6 +262,10 @@ def _ll(p: float, y: int) -> float:
 def publish(games_path: Path | None = None, clock=utc_now) -> dict:
     """Site export. Outcomes are attached beside each record from the newest schedule snapshot; records themselves are never edited."""
     snap = latest_snapshot()
+    verified = {}
+    if snap:
+        verify_snapshot(snap)
+        verified[snap["snapshot_id"]] = snap
     gp = games_path or (SNAPSHOTS / snap["snapshot_id"] / "games.csv" if snap else pipeline.RAW)
     games = {g["game_id"]: g for g in pipeline.load_games(gp).iter_rows(named=True)}
     recs = []
@@ -250,7 +274,19 @@ def publish(games_path: Path | None = None, clock=utc_now) -> dict:
             recs.append(r | {"protocol": "legacy", "timing": "before_cutoff" if r["created_before_cutoff"] else "late", "eligible_for_official_cohort": False,
                              "provenance": "limited: only the schedule file was hashed and the creation time was read before fitting. Kept for audit; never in the official cohort."})
     for f in sorted(FORECASTS.glob("forecasts_*.json")):
-        recs += [r | {"provenance": "full: source snapshot, bundle, cohort and pipeline hashes recorded"} for r in json.loads(f.read_text())["records"]]
+        for r in json.loads(f.read_text())["records"]:
+            source = r["source_snapshot"]
+            sid = source["snapshot_id"]
+            if sid not in verified:
+                manifest = SNAPSHOTS / sid / "snapshot.json"
+                if not manifest.is_file():
+                    raise ValueError(f"Cannot publish forecasts: preserved snapshot {sid} is missing.")
+                meta = json.loads(manifest.read_text())
+                verify_snapshot(meta)
+                verified[sid] = meta
+            if verified[sid]["content_sha256"] != source["content_sha256"]:
+                raise ValueError(f"Cannot publish forecasts: snapshot {sid} no longer matches its forecast record.")
+            recs.append(r | {"provenance": "full: source snapshot verified; bundle, cohort and pipeline hashes recorded"})
     official: dict[tuple, dict] = {}
     for r in recs:
         g = games.get(r["game_id"])

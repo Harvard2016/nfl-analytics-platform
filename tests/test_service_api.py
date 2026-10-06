@@ -13,13 +13,36 @@ pytest.importorskip("fastapi")
 from fastapi.testclient import TestClient
 
 from gridiron_lens.coverage import upload as U
-from gridiron_lens.service import media
+from gridiron_lens.service import api, media, worker
 from gridiron_lens.service.api import create_app
 from gridiron_lens.service.store import Store
 from tests.test_coverage_upload import _csv, _rows
 
 needs_model = pytest.mark.skipif(not U.MODEL_FILE.exists(), reason="local coverage model not present")
 needs_ffmpeg = pytest.mark.skipif(shutil.which("ffmpeg") is None, reason="ffmpeg not installed")
+
+
+@pytest.fixture
+def tracking_ready(monkeypatch):
+    """Only admission is mocked; lifecycle tests do not load private model weights."""
+    real = api.capabilities
+
+    def caps():
+        out = real()
+        out["modules"]["coverage"]["ready"] = True
+        for mode in out["modules"]["coverage"]["modes"].values():
+            mode["ready"] = True
+        return out
+
+    monkeypatch.setattr(api, "capabilities", caps)
+
+
+@pytest.fixture
+def queued_client(tmp_path, tracking_ready):
+    app = create_app(Store(tmp_path / "jobs"), start_worker=False)
+    with TestClient(app) as c:
+        c.store = app.state.store
+        yield c
 
 
 @pytest.fixture
@@ -53,7 +76,7 @@ def test_capabilities_hide_paths_and_state_what_is_not_ready(client):
     assert caps["modules"]["video_coverage"]["ready"] is False
 
 
-def test_input_rejection(client):
+def test_input_rejection(client, tracking_ready):
     assert _submit(client, "nope", "a.csv", b"x").status_code == 422
     assert _submit(client, "coverage", "a.exe", b"x").status_code == 422
     assert _submit(client, "coverage", "a.csv", b"").status_code == 422
@@ -76,11 +99,13 @@ def test_tracking_job_completes_and_bad_tracking_fails_with_reasons(client):
     assert f["state"] == "failed" and "yards" in f["error"]
 
 
-@needs_model
-def test_jobs_are_isolated_by_token_and_can_be_deleted(client):
+def test_jobs_are_isolated_by_token_and_can_be_deleted(queued_client):
+    client = queued_client
     a = _submit(client, "coverage", "a.csv", _csv(_rows()).encode()).json()
     b = _submit(client, "coverage", "b.csv", _csv(_rows(frames=8)).encode()).json()
-    _wait(client, a["id"], a["access_token"]), _wait(client, b["id"], b["access_token"])
+    # Finish these synthetic jobs without inference; ownership does not depend on a trained model.
+    client.store.update(a["id"], state="cancelled")
+    client.store.update(b["id"], state="cancelled")
     for url in (f"/v1/jobs/{a['id']}", f"/v1/jobs/{a['id']}/result", f"/v1/jobs/{a['id']}/media/source"):
         assert client.get(url, headers={"Authorization": f"Bearer {b['access_token']}"}).status_code == 404   # another job's token
         assert client.get(url).status_code == 404                                                            # no token
@@ -107,13 +132,48 @@ def test_restart_marks_interrupted_jobs_failed_and_retention_sweeps(tmp_path):
         assert app.state.store.sweep() == 1 and not dest.exists()
 
 
-def test_cancel_before_start_is_reported_as_cancelled(tmp_path):
+def test_cancel_before_start_is_reported_as_cancelled(tmp_path, tracking_ready):
     app = create_app(Store(tmp_path / "jobs"), start_worker=False)
     with TestClient(app) as c:
         j = _submit(c, "coverage", "a.csv", b"player_id,frame,side,x,y\n").json()
         h = {"Authorization": f"Bearer {j['access_token']}"}
         assert c.post(f"/v1/jobs/{j['id']}/cancel", headers=h).json()["state"] == "cancelled"
         assert c.get(f"/v1/jobs/{j['id']}/result", headers=h).status_code == 409                             # no fake success
+
+
+def test_completed_job_result_and_input_bytes_without_private_weights(client, tracking_ready, monkeypatch):
+    """A stub runner tests API/worker mechanics, never coverage accuracy."""
+    def mechanical_result(store, row, path):
+        return {"kind": "synthetic lifecycle fixture", "received": path.read_text()}
+
+    monkeypatch.setitem(worker.RUNNERS, "coverage", mechanical_result)
+    payload = "synthetic upload bytes"
+    j = _submit(client, "coverage", "play.csv", payload.encode()).json()
+    h = {"Authorization": f"Bearer {j['access_token']}"}
+    assert _wait(client, j["id"], j["access_token"])["state"] == "complete"
+    r = client.get(f"/v1/jobs/{j['id']}/result", headers=h)
+    assert r.status_code == 200 and r.json() == {"kind": "synthetic lifecycle fixture", "received": payload}
+
+
+@needs_ffmpeg
+@pytest.mark.parametrize("audio_start", [0, 5])
+def test_audio_bins_and_candidates_use_file_seconds_with_shorter_audio(client, tmp_path, audio_start):
+    """The source video outlasts audio, as in the owner's recording; only synthetic media is used here."""
+    p = tmp_path / "uneven.mp4"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "color=size=64x64:rate=10:duration=30",
+                    "-itsoffset", str(audio_start), "-f", "lavfi", "-i", "sine=frequency=440:sample_rate=16000:duration=20.6",
+                    "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p", "-c:a", "aac", str(p)], check=True)
+    j = _submit(client, "highlights", "uneven.mp4", p.read_bytes(), options='{"reel_seconds": 8}').json()
+    s = _wait(client, j["id"], j["access_token"])
+    assert s["state"] == "complete", s
+    r = client.get(f"/v1/jobs/{j['id']}/result", headers={"Authorization": f"Bearer {j['access_token']}"}).json()
+    tl = r["timeline"]
+    assert r["media"]["duration_s"] == pytest.approx(30, abs=0.1)
+    assert tl["bin_start_s"][0] == pytest.approx(audio_start, abs=0.1)
+    assert 0.5 <= tl["bin_end_s"][-1] - tl["bin_start_s"][-1] < 1          # final partial bin, not an invented two seconds
+    assert tl["audio_end_s"] == pytest.approx(audio_start + 20.6, abs=0.1)
+    assert tl["audio_end_s"] < r["media"]["duration_s"]
+    assert all(tl["audio_start_s"] <= c["clip_start_s"] < c["clip_end_s"] <= tl["audio_end_s"] + 0.001 for c in r["candidates"])
 
 
 @pytest.fixture(scope="module")

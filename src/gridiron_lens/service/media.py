@@ -34,11 +34,13 @@ def probe(path: Path) -> dict:
     except (KeyError, ValueError) as e:
         raise MediaError("The file has no readable duration. It may be truncated.") from e
     sd = lambda st: float(st["duration"]) if st and st.get("duration") not in (None, "N/A") else None
+    origin = float(info["format"].get("start_time") or 0)
+    audio_start = max(0.0, float(a.get("start_time") or origin) - origin) if a else None
     fps = None
     if v and v.get("r_frame_rate") and "/" in v["r_frame_rate"]:
         n, d = v["r_frame_rate"].split("/")
         fps = float(n) / float(d) if float(d) else None
-    return {"duration_s": duration, "video_duration_s": sd(v), "audio_duration_s": sd(a), "fps": fps, "has_video": v is not None, "has_audio": a is not None, "width": v and v.get("width"), "height": v and v.get("height"),
+    return {"duration_s": duration, "video_duration_s": sd(v), "audio_duration_s": sd(a), "audio_start_s": audio_start, "fps": fps, "has_video": v is not None, "has_audio": a is not None, "width": v and v.get("width"), "height": v and v.get("height"),
             "video_codec": v and v.get("codec_name"), "audio_codec": a and a.get("codec_name"), "format": info["format"].get("format_name")}
 
 
@@ -75,6 +77,15 @@ def loudness_db(wav: Path) -> np.ndarray:
             x = np.frombuffer(buf, dtype=np.int16).astype(np.float64) / 32768.0
             out.append(20 * np.log10(max(float(np.sqrt(np.mean(x * x))), 1e-6)))
     return np.array(out, np.float32)
+
+
+def audio_bounds(wav: Path, bins: int, start_s: float = 0.0) -> dict:
+    """Exact analysed bin bounds in uploaded-file seconds, including the last partial bin."""
+    with wave.open(str(wav), "rb") as w:
+        duration = w.getnframes() / w.getframerate()
+    return {"audio_start_s": start_s, "audio_end_s": start_s + duration,
+            "bin_start_s": [start_s + i * CLIP_S for i in range(bins)],
+            "bin_end_s": [start_s + min((i + 1) * CLIP_S, duration) for i in range(bins)]}
 
 
 def cut(src: Path, dest: Path, start_s: float, end_s: float, has_video: bool, cancelled=None) -> None:

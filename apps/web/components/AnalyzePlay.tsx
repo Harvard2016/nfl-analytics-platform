@@ -29,8 +29,10 @@ export default function AnalyzePlay() {
   const [selected, setSelected] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
-  const job = useJob(async (tk) => {
+  const selection = useRef(0);
+  const job = useJob(async (tk, isCurrent) => {
     const r = await result<Result>(tk);
+    if (!isCurrent()) return;
     setRes(r);
     const last = [...HORIZONS].reverse().find((h) => r.horizons[h.key].available);
     if (last) { setHz(last.key); setT(r.horizons[last.key].frame ?? 0); }
@@ -42,9 +44,14 @@ export default function AnalyzePlay() {
   async function go(e: React.FormEvent) {
     e.preventDefault();
     if (!file) return;
+    const version = selection.current;
+    void job.stop().catch(() => { /* selection is reset even if cancellation is unreachable */ }); job.reset();
     setBusy(true); setRes(null);
-    try { job.start(await submit("coverage", mode, {}, file)); } catch (err) { job.setError(String((err as Error).message)); }
-    setBusy(false);
+    try {
+      const tk = await submit("coverage", mode, {}, file);
+      if (selection.current === version) job.start(tk);
+    } catch (err) { if (selection.current === version) job.setError(String((err as Error).message)); }
+    if (selection.current === version) setBusy(false);
   }
 
   return (
@@ -70,7 +77,9 @@ export default function AnalyzePlay() {
               <h2 className="narrow text-2xl font-semibold">Tracking file</h2>
               <p className="mt-1 text-xs text-muted">One play, CSV or JSON, 10 frames per second, yards on a 120 by 53.3 field. <a className="text-teal underline" href={templateUrl}>Download the CSV template</a></p>
               <label className="mt-3 block"><span className="kicker">File</span>
-                <input type="file" accept=".csv,.json,text/csv,application/json" required onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="mt-1 block w-full border border-line bg-surface p-2 text-sm" /></label>
+                <input type="file" accept=".csv,.json,text/csv,application/json" required disabled={busy} onChange={(e) => {
+                  selection.current++; void job.stop().catch(() => { /* selection is reset even if cancellation is unreachable */ }); job.reset(); setFile(e.target.files?.[0] ?? null); setRes(null); setSelected(null); setT(0);
+                }} className="mt-1 block w-full border border-line bg-surface p-2 text-sm" /></label>
               <fieldset className="mt-3"><legend className="kicker">Input kind</legend>
                 {[["release-compatible", "Release-compatible", "Route runners and coverage defenders only, with observed orientation, like the benchmark data."],
                   ["broader", "Broader tracking (experimental)", "Other player sets or no orientation. A domain shift: no benchmark accuracy applies."]].map(([v, l, d]) => (

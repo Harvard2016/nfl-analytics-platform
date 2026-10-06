@@ -17,31 +17,39 @@ export function useBackend(): Backend {
 }
 
 // Polls a submitted job until it reaches a final state. Stages are reported as they are; no percentage is invented.
-export function useJob(onDone: (t: Ticket) => void) {
+export function useJob(onDone: (t: Ticket, isCurrent: () => boolean) => void | Promise<void>) {
   const [ticket, setTicket] = useState<Ticket | null>(null);
   const [job, setJob] = useState<Job | null>(null);
   const [error, setError] = useState<string | null>(null);
   const done = useRef(onDone);
+  const generation = useRef(0);
   useEffect(() => { done.current = onDone; });
   useEffect(() => {
     if (!ticket) return;
     let live = true, timer = 0;
+    const version = generation.current;
+    const isCurrent = () => live && generation.current === version;
     const tick = async () => {
       try {
         const j = await status(ticket);
-        if (!live) return;
+        if (!isCurrent()) return;
         setJob(j);
-        if (j.state === "complete") done.current(ticket);
-        if (!TERMINAL.includes(j.state)) timer = window.setTimeout(tick, 700);
-      } catch (e) { if (live) setError(String((e as Error).message)); }
+        if (j.state === "complete") await done.current(ticket, isCurrent);
+        if (isCurrent() && !TERMINAL.includes(j.state)) timer = window.setTimeout(tick, 700);
+      } catch (e) { if (isCurrent()) setError(String((e as Error).message)); }
     };
     tick();
     return () => { live = false; window.clearTimeout(timer); };
   }, [ticket]);
-  const start = useCallback((t: Ticket) => { setError(null); setJob(null); setTicket(t); }, []);
+  const reset = useCallback(() => { generation.current++; setTicket(null); setJob(null); setError(null); }, []);
+  const start = useCallback((t: Ticket) => { generation.current++; setError(null); setJob(null); setTicket(t); }, []);
   const stop = useCallback(async () => { if (ticket) await cancel(ticket); }, [ticket]);
-  const discard = useCallback(async () => { if (ticket && (await remove(ticket))) { setTicket(null); setJob(null); return true; } return false; }, [ticket]);
-  return { ticket, job, error, setError, start, stop, discard };
+  const discard = useCallback(async () => {
+    const version = generation.current;
+    if (ticket && (await remove(ticket)) && generation.current === version) { reset(); return true; }
+    return false;
+  }, [ticket, reset]);
+  return { ticket, job, error, setError, start, stop, discard, reset };
 }
 
 export function BackendNotice({ backend, what }: { backend: Backend; what: string }) {

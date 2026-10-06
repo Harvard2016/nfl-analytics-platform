@@ -6,17 +6,18 @@ import ModuleTour from "@/components/ModuleTour";
 import { BackendNotice, JobStatus, useBackend, useJob } from "@/components/UploadShell";
 import { Badge } from "@/components/ui";
 import { mediaUrl, result, submit } from "@/lib/inference";
+import { type ClipEdit, initialClipEdits, reviewedCandidates } from "@/lib/clipReview";
+import { type AudioTimeline, audioExtent, binBounds, timelineSeek } from "@/lib/clipTimeline";
 
 type Cand = { asset: string; rank_in_reel: number; candidate_moment_s: number; clip_start_s: number; clip_end_s: number; ffprobe_duration_s: number; loudness_above_background_db: number };
 type Result = {
   mode: string; mode_note: string; score_meaning: string; domain_shift: string; time_origin: string; clip_seconds: number; event_types: string; evidence_streams_used: string[];
   media: { duration_s: number; has_video: boolean };
-  timeline: { loudness_db: number[]; loudness_above_background_db: number[]; rank_within_file: number[]; ranked_by?: string };
+  timeline: AudioTimeline & { loudness_above_background_db: number[]; rank_within_file: number[]; ranked_by?: string };
   commentary?: { model: string; word_model: string; words: number; note: string; transcription_seconds: number; segments: { start_s: number; end_s: number; text: string }[]; sounds: { start_s: number; end_s: number; label: string }[] } | null;
   candidates: Cand[]; reel: { asset: string; ffprobe_duration_s: number; budget_s: number; decoder_output_s: number } | null;
   measured: { seconds: number; peak_memory_mb: number };
 };
-type Edit = { start: number; end: number; removed: boolean; replay: "unknown" | "live action" | "replay" };
 
 const MODE_TEXT: Record<string, string> = { loudness_baseline: "Loudness baseline", commentary_experimental: "Commentary words", trained_multimodal: "Trained multimodal ranker" };
 const MODE_NOTE: Record<string, string> = { loudness_baseline: "Ranks clips by how loud they are against their surroundings.", commentary_experimental: "Transcribes speech locally, then ranks clips with a word model trained on NFL broadcast commentary. Shows the transcript beside the video." };
@@ -28,16 +29,18 @@ export default function AnalyzeClip() {
   const [reel, setReel] = useState(60);
   const [mode, setMode] = useState("loudness_baseline");
   const [res, setRes] = useState<Result | null>(null);
-  const [edits, setEdits] = useState<Record<string, Edit>>({});
+  const [edits, setEdits] = useState<Record<string, ClipEdit>>({});
   const [now, setNow] = useState(0);
   const [active, setActive] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
   const stopAt = useRef<number | null>(null);
-  const job = useJob(async (tk) => {
+  const selection = useRef(0);
+  const job = useJob(async (tk, isCurrent) => {
     const r = await result<Result>(tk);
+    if (!isCurrent()) return;
     setRes(r);
-    setEdits(Object.fromEntries(r.candidates.map((c) => [c.asset, { start: c.clip_start_s, end: c.clip_end_s, removed: false, replay: "unknown" as const }])));
+    setEdits(initialClipEdits(r.candidates));
   });
 
   // Local preview straight from the chosen file; the object URL is released when the file changes or the page closes.
@@ -46,12 +49,13 @@ export default function AnalyzeClip() {
 
   const ready = backend.state === "ready" && backend.caps.modules.highlights.modes.loudness_baseline.ready;
   const dur = res?.media.duration_s ?? 0;
-  const n = res?.timeline.loudness_db.length ?? 1;
+  const extent = res ? audioExtent(res.timeline, res.clip_seconds) : [0, 0];
   const path = useMemo(() => {
     if (!res) return { loud: "", rank: "" };
     const l = res.timeline.loudness_above_background_db, lo = Math.min(...l), hi = Math.max(...l);
-    return { loud: l.map((v, i) => `${i ? "L" : "M"}${i + 0.5},${56 - ((v - lo) / (hi - lo || 1)) * 22}`).join(""),
-             rank: res.timeline.rank_within_file.map((v, i) => `${i ? "L" : "M"}${i + 0.5},${28 - (v / 100) * 24}`).join("") };
+    const centre = (i: number) => { const [a, b] = binBounds(res.timeline, i, res.clip_seconds); return (a + b) / 2; };
+    return { loud: l.map((v, i) => `${i ? "L" : "M"}${centre(i)},${56 - ((v - lo) / (hi - lo || 1)) * 22}`).join(""),
+             rank: res.timeline.rank_within_file.map((v, i) => `${i ? "L" : "M"}${centre(i)},${28 - (v / 100) * 24}`).join("") };
   }, [res]);
 
   const near = (res?.commentary?.segments ?? []).filter((g) => g.end_s >= now - 20 && g.start_s <= now + 20).slice(0, 8);
@@ -72,15 +76,19 @@ export default function AnalyzeClip() {
   async function go(e: React.FormEvent) {
     e.preventDefault();
     if (!file) return;
+    const version = selection.current;
+    void job.stop().catch(() => { /* selection is reset even if cancellation is unreachable */ }); job.reset();
     setBusy(true); setRes(null);
-    try { job.start(await submit("highlights", mode, { reel_seconds: reel, lead_s: 2, tail_s: 2 }, file)); } catch (err) { job.setError(String((err as Error).message)); }
-    setBusy(false);
+    try {
+      const tk = await submit("highlights", mode, { reel_seconds: reel, lead_s: 2, tail_s: 2 }, file);
+      if (selection.current === version) job.start(tk);
+    } catch (err) { if (selection.current === version) job.setError(String((err as Error).message)); }
+    if (selection.current === version) setBusy(false);
   }
   function exportJson() {
     if (!res) return;
     const body = { exported_at: new Date().toISOString(), mode: res.mode, time_origin: res.time_origin, score_meaning: res.score_meaning,
-      candidates: res.candidates.map((c) => ({ candidate_moment_s: c.candidate_moment_s, model_clip: [c.clip_start_s, c.clip_end_s], edited_clip: [edits[c.asset].start, edits[c.asset].end],
-        removed: edits[c.asset].removed, replay: edits[c.asset].replay, event_labels: [] as string[], reviewed_by_a_person: true })) };
+      candidates: reviewedCandidates(res.candidates, edits) };
     const url = URL.createObjectURL(new Blob([JSON.stringify(body, null, 1)], { type: "application/json" }));
     const a = document.createElement("a");
     a.href = url; a.download = "highlight_review.json"; a.click();
@@ -110,7 +118,9 @@ export default function AnalyzeClip() {
               <h2 className="narrow text-2xl font-semibold">Clip</h2>
               <p className="mt-1 text-xs text-muted">Audio or video, {backend.caps.modules.highlights.limits.min_duration_s} seconds to {backend.caps.modules.highlights.limits.max_duration_s / 60} minutes, up to {Math.round(backend.caps.modules.highlights.limits.max_bytes / 2 ** 20)} MB. Full games run from the command line.</p>
               <label className="mt-3 block"><span className="kicker">File</span>
-                <input type="file" accept="video/*,audio/*" required onChange={(e) => { setFile(e.target.files?.[0] ?? null); setRes(null); }} className="mt-1 block w-full border border-line bg-surface p-2 text-sm" /></label>
+                <input type="file" accept="video/*,audio/*" required disabled={busy} onChange={(e) => {
+                  selection.current++; void job.stop().catch(() => { /* selection is reset even if cancellation is unreachable */ }); job.reset(); setFile(e.target.files?.[0] ?? null); setRes(null); setEdits({}); setActive(null); setNow(0); stopAt.current = null;
+                }} className="mt-1 block w-full border border-line bg-surface p-2 text-sm" /></label>
               <label className="mt-3 block"><span className="kicker">Reel length (seconds of final output)</span>
                 <input type="number" min={4} max={600} step={1} value={reel} onChange={(e) => setReel(Number(e.target.value))} className="num mt-1 block w-28 border border-line bg-surface p-2" /></label>
               <label className="mt-3 flex gap-2 text-xs text-muted"><input type="checkbox" required className="mt-0.5" /><span>I have permission to process this file.</span></label>
@@ -142,24 +152,26 @@ export default function AnalyzeClip() {
               <p className="text-xs text-muted">{res.mode_note} {res.score_meaning}</p>
               <div className="mt-2 grid grid-cols-[5.5rem_minmax(0,1fr)] gap-x-2">
                 <ul className="mono relative text-[10px] text-muted" aria-hidden="true"><li className="absolute top-[12%]">RANK</li><li className="absolute top-[44%] text-amber">LOUDNESS</li><li className="absolute top-[70%] text-defense">SPEECH</li><li className="absolute top-[88%]">CLIPS</li></ul>
-                <svg viewBox={`0 0 ${n} 82`} preserveAspectRatio="none" className="block h-40 w-full cursor-crosshair border border-line bg-surface" role="img" data-testid="clip-timeline"
+                <svg viewBox={`0 0 ${dur || 1} 82`} preserveAspectRatio="none" className="block h-40 w-full cursor-crosshair border border-line bg-surface" role="img" data-testid="clip-timeline"
                   aria-label="Timeline of your clip: rank within the file, loudness above background, spoken segments from the transcript when available, and the selected clips. Click to seek the player."
-                  onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); seek(((e.clientX - r.left) / r.width) * dur); }}>
+                  onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); seek(timelineSeek((e.clientX - r.left) / r.width, dur)); }}>
+                  {extent[0] > 0 && <rect x={0} y={0} width={extent[0]} height={58} fill="var(--color-line)" opacity={0.4}><title>No analysed audio in this interval</title></rect>}
+                  {extent[1] < dur && <rect x={extent[1]} y={0} width={dur - extent[1]} height={58} fill="var(--color-line)" opacity={0.4} data-testid="missing-audio"><title>No analysed audio in this interval</title></rect>}
                   <path d={path.rank} fill="none" stroke="var(--color-ink)" strokeWidth={1} vectorEffect="non-scaling-stroke" />
                   <path d={path.loud} fill="none" stroke="var(--color-amber)" strokeWidth={1} vectorEffect="non-scaling-stroke" />
                   {res.candidates.filter((c) => !edits[c.asset]?.removed).map((c) => { const e = edits[c.asset]; return (
-                    <g key={c.asset}><rect x={e.start / res.clip_seconds} y={72} width={(e.end - e.start) / res.clip_seconds} height={8} fill="var(--color-amber)" opacity={active === c.asset ? 1 : 0.55} />
-                      <line x1={c.candidate_moment_s / res.clip_seconds} x2={c.candidate_moment_s / res.clip_seconds} y1={70} y2={82} stroke="var(--color-ink)" strokeWidth={1.5} vectorEffect="non-scaling-stroke" /></g>); })}
-                  {res.commentary?.segments.map((g) => <rect key={g.start_s} x={g.start_s / res.clip_seconds} y={60} width={Math.max(0.3, (g.end_s - g.start_s) / res.clip_seconds)} height={6} fill="var(--color-defense)" opacity={0.8} />)}
-                  <line x1={now / res.clip_seconds} x2={now / res.clip_seconds} y1={0} y2={82} stroke="var(--color-teal)" strokeWidth={2} vectorEffect="non-scaling-stroke" data-testid="clip-playhead" />
+                    <g key={c.asset}><rect x={e.start} y={72} width={e.end - e.start} height={8} fill="var(--color-amber)" opacity={active === c.asset ? 1 : 0.55} />
+                      <line x1={c.candidate_moment_s} x2={c.candidate_moment_s} y1={70} y2={82} stroke="var(--color-ink)" strokeWidth={1.5} vectorEffect="non-scaling-stroke" /></g>); })}
+                  {res.commentary?.segments.map((g) => <rect key={g.start_s} x={g.start_s} y={60} width={g.end_s - g.start_s} height={6} fill="var(--color-defense)" opacity={0.8} />)}
+                  <line x1={now} x2={now} y1={0} y2={82} stroke="var(--color-teal)" strokeWidth={2} vectorEffect="non-scaling-stroke" data-testid="clip-playhead" />
                 </svg>
                 <span /><p className="mono num mt-1 flex justify-between text-[10px] text-muted"><span>0:00</span><span className="text-teal">{clock(now)}</span><span>{clock(dur)}</span></p>
                 <span /><input type="range" min={0} max={dur} step={0.1} value={now} onChange={(e) => seek(Number(e.target.value))} className="w-full" style={{ accentColor: "var(--color-amber)" }} aria-label="Seek the clip" />
               </div>
-              <p className="mt-1 text-xs text-muted"><Badge kind="Observed" /> Loudness is measured audio{res.commentary ? "; speech bars are where the machine transcript found words" : ""}. <Badge kind="Derived" /> Rank orders the clips of this file by {res.timeline.ranked_by ?? "loudness above background"}. Bars are padded clips; ticks are the candidate moments. {res.domain_shift}</p>
+              <p className="mt-1 text-xs text-muted"><Badge kind="Observed" /> Loudness is measured audio{res.commentary ? "; speech bars are where the machine transcript found words" : ""}. <Badge kind="Derived" /> Rank orders the clips of this file by {res.timeline.ranked_by ?? "loudness above background"}. Bars are padded clips; ticks are the candidate moments. Shaded regions have no analysed audio, not silent audio. {res.domain_shift}</p>
               {res.commentary && (
                 <div className="mt-3 border border-line p-3" data-testid="clip-transcript">
-                  <p className="kicker"><Badge kind="Observed" /> heard near the playhead (machine transcript)</p>
+                  <p className="kicker"><Badge kind="Predicted" /> heard near the playhead (machine transcript)</p>
                   {near.length === 0 ? <p className="mt-1 text-sm text-muted">No speech was transcribed within 20 seconds of {clock(now)}.</p> : (
                     <ul className="mt-1 text-sm">{near.map((g) => (
                       <li key={g.start_s} className={`grid grid-cols-[4rem_1fr] gap-2 border-t border-line py-1 ${now >= g.start_s && now <= g.end_s ? "bg-surface" : ""}`}>
@@ -173,15 +185,16 @@ export default function AnalyzeClip() {
                   <li key={c.asset} className={`border p-3 text-sm ${active === c.asset ? "border-amber" : "border-line"} ${e.removed ? "opacity-50" : ""}`}>
                     <p className="mono num flex justify-between text-xs"><span>#{c.rank_in_reel} · MOMENT {clock(c.candidate_moment_s)}</span><span className="text-muted">+{c.loudness_above_background_db} dB</span></p>
                     <p className="mt-2 flex flex-wrap items-end gap-2">
-                      <label className="text-xs text-muted">Start<input type="number" step={0.5} min={0} max={e.end - 1} value={e.start} onChange={(ev) => setEdits({ ...edits, [c.asset]: { ...e, start: Number(ev.target.value) } })} className="num ml-1 w-20 border border-line bg-surface px-1" /></label>
-                      <label className="text-xs text-muted">End<input type="number" step={0.5} min={e.start + 1} max={dur} value={e.end} onChange={(ev) => setEdits({ ...edits, [c.asset]: { ...e, end: Number(ev.target.value) } })} className="num ml-1 w-20 border border-line bg-surface px-1" /></label>
-                      <label className="text-xs text-muted">Replay?<select value={e.replay} onChange={(ev) => setEdits({ ...edits, [c.asset]: { ...e, replay: ev.target.value as Edit["replay"] } })} className="ml-1 border border-line bg-surface px-1"><option>unknown</option><option>live action</option><option>replay</option></select></label>
+                      <label className="text-xs text-muted">Start<input type="number" step={0.5} min={0} max={e.end - 1} value={e.start} onChange={(ev) => setEdits({ ...edits, [c.asset]: { ...e, start: Number(ev.target.value), reviewed: false } })} className="num ml-1 w-20 border border-line bg-surface px-1" /></label>
+                      <label className="text-xs text-muted">End<input type="number" step={0.5} min={e.start + 1} max={dur} value={e.end} onChange={(ev) => setEdits({ ...edits, [c.asset]: { ...e, end: Number(ev.target.value), reviewed: false } })} className="num ml-1 w-20 border border-line bg-surface px-1" /></label>
+                      <label className="text-xs text-muted">Replay?<select value={e.replay} onChange={(ev) => setEdits({ ...edits, [c.asset]: { ...e, replay: ev.target.value as ClipEdit["replay"], reviewed: false } })} className="ml-1 border border-line bg-surface px-1"><option>unknown</option><option>live action</option><option>replay</option></select></label>
                     </p>
                     <p className="mt-2 flex flex-wrap gap-3">
                       <button className="btn-quiet" onClick={() => { setActive(c.asset); seek(e.start, e.end, true); }}>Play this clip</button>
-                      <button className="btn-quiet" onClick={() => setEdits({ ...edits, [c.asset]: { ...e, removed: !e.removed } })}>{e.removed ? "Restore" : "Remove"}</button>
+                      <button className="btn-quiet" onClick={() => setEdits({ ...edits, [c.asset]: { ...e, removed: !e.removed, reviewed: false } })}>{e.removed ? "Restore" : "Remove"}</button>
                       {job.ticket && <a className="btn-quiet" href={mediaUrl(job.ticket, c.asset)} download>Download the cut</a>}
                     </p>
+                    <label className="mt-2 flex items-start gap-2 text-xs text-muted"><input type="checkbox" checked={e.reviewed} onChange={(ev) => setEdits({ ...edits, [c.asset]: { ...e, reviewed: ev.target.checked } })} className="mt-0.5" />I watched this clip and reviewed these settings</label>
                   </li>); })}
               </ul>
               <p className="mt-3 flex flex-wrap items-center gap-4 text-sm">

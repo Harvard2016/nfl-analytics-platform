@@ -6,6 +6,7 @@ import json
 import resource
 import threading
 import time
+from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -77,6 +78,7 @@ def run_highlights(store: Store, row, path: Path) -> dict:
     wav = d / "audio.wav"
     media.extract_audio(path, wav, lambda: store.cancelled(jid))
     vol = media.loudness_db(wav)
+    bounds = media.audio_bounds(wav, len(vol), info["audio_start_s"] or 0.0)
     if len(vol) < 3:
         wav.unlink(missing_ok=True)
         raise media.MediaError("Too little audio to analyse.")
@@ -92,6 +94,8 @@ def run_highlights(store: Store, row, path: Path) -> dict:
             wav.unlink(missing_ok=True)
             raise media.MediaError(str(e)) from e
         commentary = commentary_scores(tr, len(vol)) | {"transcription_seconds": round(time.time() - ta, 2)}
+        for group in ("segments", "sounds"):
+            commentary[group] = [g | {"start_s": g["start_s"] + bounds["audio_start_s"], "end_s": g["end_s"] + bounds["audio_start_s"]} for g in commentary[group]]
     wav.unlink(missing_ok=True)
     check(store, jid)
     feats = HM.loudness_features(vol)
@@ -100,7 +104,15 @@ def run_highlights(store: Store, row, path: Path) -> dict:
     store.update(jid, state="inferring", stage_note="ranking clips by the commentary word model (experimental)" if commentary else "loudness baseline (H0): level above the local background, then the strict-budget decoder")
     budget = float(min(max(4.0, float(opts.get("reel_seconds", 60))), info["duration_s"]))
     lead, tail = float(opts.get("lead_s", 2.0)), float(opts.get("tail_s", 2.0))
-    segs = D.decode(score, budget, duration_s=info["duration_s"], block=3, lead_s=lead, tail_s=tail)
+    audio_start = bounds["audio_start_s"]
+    analysed_s = min(bounds["audio_end_s"], info["duration_s"]) - audio_start
+    segs = D.decode(score, budget, duration_s=analysed_s, block=3, lead_s=lead, tail_s=tail)
+    shifted = []
+    for s in segs:
+        i = min(len(vol) - 1, int(s.moment_s // media.CLIP_S))
+        shifted.append(replace(s, start_s=s.start_s + audio_start, end_s=s.end_s + audio_start,
+                               moment_s=(bounds["bin_start_s"][i] + bounds["bin_end_s"][i]) / 2))
+    segs = shifted
     order = np.argsort(-np.where(np.isfinite(score), score, -np.inf))
     rank = np.empty(len(score), int)
     rank[order] = np.arange(len(score), 0, -1) * 100 // len(score)
@@ -118,7 +130,7 @@ def run_highlights(store: Store, row, path: Path) -> dict:
         parts.append(d / "media" / name)
         cuts.append({"asset": name, "rank_in_reel": inside[0].rank, "candidate_moment_s": round(inside[0].moment_s, 2), "moments_s": [round(s.moment_s, 2) for s in inside],
                      "clip_start_s": round(a, 3), "clip_end_s": round(b, 3), "requested_s": round(b - a, 3), "ffprobe_duration_s": round(got, 3),
-                     "loudness_above_background_db": round(float(loud[int(inside[0].moment_s // media.CLIP_S)]), 2), "ranking_score": round(float(inside[0].score), 3), "sha256": sha256_file(d / "media" / name)})
+                     "loudness_above_background_db": round(float(loud[min(len(loud) - 1, int((inside[0].moment_s - audio_start) // media.CLIP_S))]), 2), "ranking_score": round(float(inside[0].score), 3), "sha256": sha256_file(d / "media" / name)})
     reel = None
     if cuts:
         spans = [(c["clip_start_s"], c["clip_end_s"]) for c in cuts]
@@ -149,9 +161,9 @@ def run_highlights(store: Store, row, path: Path) -> dict:
                 "evidence_streams_used": ["audio loudness"], "commentary": None}
     return {
         "schema": "highlights-upload-v2", "module": "highlights", "kind": "highlight ranking", **head,
-        "media": {k: info[k] for k in ("duration_s", "has_video", "width", "height", "format")}, "clip_seconds": media.CLIP_S,
+        "media": {k: info[k] for k in ("duration_s", "audio_start_s", "audio_duration_s", "has_video", "width", "height", "format")}, "clip_seconds": media.CLIP_S,
         "time_origin": "seconds from the start of the uploaded file",
-        "timeline": {"loudness_db": [round(float(v), 2) for v in vol], "loudness_above_background_db": [round(float(v), 2) for v in loud], "rank_within_file": rank.tolist(),
+        "timeline": {**bounds, "loudness_db": [round(float(v), 2) for v in vol], "loudness_above_background_db": [round(float(v), 2) for v in loud], "rank_within_file": rank.tolist(),
                      "loudness_rank": lrank.tolist(), "ranked_by": "commentary word model" if commentary else "loudness above background"},
         "score_meaning": "A rank within this file (100 = highest). Not a probability and not a confidence.",
         "candidates": sorted(cuts, key=lambda c: c["rank_in_reel"]), "reel": reel,
