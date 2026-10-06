@@ -1,0 +1,757 @@
+{
+  "module": "coverage",
+  "version": "coverage-fresh-2024-v1",
+  "created_at_utc": "2026-10-06T20:06:15+00:00",
+  "registered_in": "docs/experiments/coverage_fresh_2024.md (committed before scoring)",
+  "what_this_is": "A one-time evaluation on 143 labelled plays from three 2024-season games. Tracking from the BDB 2026 Prediction test input; released labels from the BDB 2026 Analytics label table. No model here trained on, tuned on or previously scored any 2024 play.",
+  "limits": [
+    "143 plays from 3 games in weeks 14, 15 and 18: intervals are wide and three games cannot represent a season",
+    "same release format and the same post-play selection of tracked players as 2023: this tests a new season, not new tracking or a new player selection",
+    "labels are the released labels; who charted them is not stated",
+    "now examined: this sample cannot serve as a fresh test again"
+  ],
+  "bundles": {
+    "seed42": "e74e0332f342ae6d7a74306863cc121625cfab172d1007dc6264fb1e4844396c",
+    "seed7": "e2af58eb067cab376714e9b1035ce71f6e36d7aad56b62d79057ccc7c265412d",
+    "seed2026": "1f4d5ef4c30aad19130269cccaac5ab26b8f1fdde49185dab12440df19cd1a57"
+  },
+  "plays": 143,
+  "seasons": [
+    2024
+  ],
+  "weeks": [
+    14,
+    15,
+    18
+  ],
+  "label_counts": {
+    "man": 35,
+    "zone": 108
+  },
+  "results": {
+    "primary: seed 42": {
+      "at_snap": {
+        "n": 143,
+        "man": 35,
+        "zone": 108,
+        "accuracy": 0.9370629370629371,
+        "balanced_accuracy": 0.9197089947089947,
+        "macro_f1": 0.9156894857517196,
+        "man_precision": 0.8611111111111112,
+        "man_recall": 0.8857142857142857,
+        "zone_precision": 0.9626168224299065,
+        "zone_recall": 0.9537037037037037,
+        "log_loss": 0.16037382336426162,
+        "brier": 0.04750017944385185,
+        "confusion": {
+          "order": "man->man, man->zone, zone->man, zone->zone",
+          "values": [
+            31,
+            4,
+            5,
+            103
+          ]
+        },
+        "accuracy_interval_95_wilson": [
+          0.8847185176022246,
+          0.9665388917422663
+        ],
+        "log_loss_interval_95_play_bootstrap": [
+          0.11567298791780013,
+          0.21234200512142928
+        ],
+        "man_pr_auc": 0.9549453270743923,
+        "always_zone_accuracy": 0.7552447552447552,
+        "class_prior_log_loss": 0.556499492626724,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 91,
+            "mean_predicted": 0.03089203430175945,
+            "observed_man_rate": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 11,
+            "mean_predicted": 0.2810268862680955,
+            "observed_man_rate": 0.18181818181818182
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6000000000000001,
+            "n": 10,
+            "mean_predicted": 0.4972295016050339,
+            "observed_man_rate": 0.5
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.8,
+            "n": 9,
+            "mean_predicted": 0.6853492657343546,
+            "observed_man_rate": 0.6666666666666666
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 22,
+            "mean_predicted": 0.9380041658878326,
+            "observed_man_rate": 1.0
+          }
+        ],
+        "by_game": {
+          "2024120805": {
+            "plays": 50,
+            "accuracy": 0.92,
+            "man_plays": 11
+          },
+          "2024121502": {
+            "plays": 49,
+            "accuracy": 0.9591836734693877,
+            "man_plays": 9
+          },
+          "2025010515": {
+            "plays": 44,
+            "accuracy": 0.9318181818181818,
+            "man_plays": 15
+          }
+        }
+      },
+      "post_0_5s": {
+        "n": 143,
+        "man": 35,
+        "zone": 108,
+        "accuracy": 0.951048951048951,
+        "balanced_accuracy": 0.9482804232804233,
+        "macro_f1": 0.9356228696379187,
+        "man_precision": 0.868421052631579,
+        "man_recall": 0.9428571428571428,
+        "zone_precision": 0.9809523809523809,
+        "zone_recall": 0.9537037037037037,
+        "log_loss": 0.1261941521672453,
+        "brier": 0.039277691610694984,
+        "confusion": {
+          "order": "man->man, man->zone, zone->man, zone->zone",
+          "values": [
+            33,
+            2,
+            5,
+            103
+          ]
+        },
+        "accuracy_interval_95_wilson": [
+          0.9024087816159931,
+          0.9760888648275214
+        ],
+        "log_loss_interval_95_play_bootstrap": [
+          0.07851750537871043,
+          0.18198518124303148
+        ],
+        "man_pr_auc": 0.9729500428560579,
+        "always_zone_accuracy": 0.7552447552447552,
+        "class_prior_log_loss": 0.556499492626724,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 96,
+            "mean_predicted": 0.023659003580481414,
+            "observed_man_rate": 0.010416666666666666
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 7,
+            "mean_predicted": 0.30109757823603495,
+            "observed_man_rate": 0.14285714285714285
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6000000000000001,
+            "n": 6,
+            "mean_predicted": 0.5278377830982208,
+            "observed_man_rate": 0.5
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.8,
+            "n": 4,
+            "mean_predicted": 0.6939096748828888,
+            "observed_man_rate": 0.25
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 30,
+            "mean_predicted": 0.9582131981849671,
+            "observed_man_rate": 0.9666666666666667
+          }
+        ],
+        "by_game": {
+          "2024120805": {
+            "plays": 50,
+            "accuracy": 0.94,
+            "man_plays": 11
+          },
+          "2024121502": {
+            "plays": 49,
+            "accuracy": 0.9591836734693877,
+            "man_plays": 9
+          },
+          "2025010515": {
+            "plays": 44,
+            "accuracy": 0.9545454545454546,
+            "man_plays": 15
+          }
+        }
+      },
+      "post_1s": {
+        "n": 143,
+        "man": 35,
+        "zone": 108,
+        "accuracy": 0.958041958041958,
+        "balanced_accuracy": 0.9529100529100529,
+        "macro_f1": 0.9443146417445483,
+        "man_precision": 0.8918918918918919,
+        "man_recall": 0.9428571428571428,
+        "zone_precision": 0.9811320754716981,
+        "zone_recall": 0.9629629629629629,
+        "log_loss": 0.098722361738451,
+        "brier": 0.02991685206706209,
+        "confusion": {
+          "order": "man->man, man->zone, zone->man, zone->zone",
+          "values": [
+            33,
+            2,
+            4,
+            104
+          ]
+        },
+        "accuracy_interval_95_wilson": [
+          0.9114868758899654,
+          0.9806308891030612
+        ],
+        "log_loss_interval_95_play_bootstrap": [
+          0.05404727062837677,
+          0.15300209095090847
+        ],
+        "man_pr_auc": 0.9792715880682793,
+        "always_zone_accuracy": 0.7552447552447552,
+        "class_prior_log_loss": 0.556499492626724,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 99,
+            "mean_predicted": 0.01665535956338069,
+            "observed_man_rate": 0.010101010101010102
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 4,
+            "mean_predicted": 0.2360185943543911,
+            "observed_man_rate": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6000000000000001,
+            "n": 5,
+            "mean_predicted": 0.48949229121208193,
+            "observed_man_rate": 0.2
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.8,
+            "n": 5,
+            "mean_predicted": 0.7063617706298828,
+            "observed_man_rate": 0.8
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 30,
+            "mean_predicted": 0.9657215853532155,
+            "observed_man_rate": 0.9666666666666667
+          }
+        ],
+        "by_game": {
+          "2024120805": {
+            "plays": 50,
+            "accuracy": 0.92,
+            "man_plays": 11
+          },
+          "2024121502": {
+            "plays": 49,
+            "accuracy": 1.0,
+            "man_plays": 9
+          },
+          "2025010515": {
+            "plays": 44,
+            "accuracy": 0.9545454545454546,
+            "man_plays": 15
+          }
+        }
+      },
+      "post_1_5s": {
+        "n": 142,
+        "man": 34,
+        "zone": 108,
+        "accuracy": 0.9788732394366197,
+        "balanced_accuracy": 0.9558823529411764,
+        "macro_f1": 0.9700737618545838,
+        "man_precision": 1.0,
+        "man_recall": 0.9117647058823529,
+        "zone_precision": 0.972972972972973,
+        "zone_recall": 1.0,
+        "log_loss": 0.06666444143151734,
+        "brier": 0.018198451606691163,
+        "confusion": {
+          "order": "man->man, man->zone, zone->man, zone->zone",
+          "values": [
+            31,
+            3,
+            0,
+            108
+          ]
+        },
+        "accuracy_interval_95_wilson": [
+          0.9397290578508952,
+          0.9927895102394164
+        ],
+        "log_loss_interval_95_play_bootstrap": [
+          0.034436770537056335,
+          0.10825459662570312
+        ],
+        "man_pr_auc": 0.9919454056132256,
+        "always_zone_accuracy": 0.7605633802816901,
+        "class_prior_log_loss": 0.5504296606550267,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 106,
+            "mean_predicted": 0.018119097959088493,
+            "observed_man_rate": 0.009433962264150943
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 4,
+            "mean_predicted": 0.297011137008667,
+            "observed_man_rate": 0.25
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6000000000000001,
+            "n": 1,
+            "mean_predicted": 0.4208144545555115,
+            "observed_man_rate": 1.0
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.8,
+            "n": 5,
+            "mean_predicted": 0.6951482176780701,
+            "observed_man_rate": 1.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 26,
+            "mean_predicted": 0.9831362137427697,
+            "observed_man_rate": 1.0
+          }
+        ],
+        "by_game": {
+          "2024120805": {
+            "plays": 49,
+            "accuracy": 0.9591836734693877,
+            "man_plays": 10
+          },
+          "2024121502": {
+            "plays": 49,
+            "accuracy": 1.0,
+            "man_plays": 9
+          },
+          "2025010515": {
+            "plays": 44,
+            "accuracy": 0.9772727272727273,
+            "man_plays": 15
+          }
+        }
+      }
+    },
+    "secondary: three-seed average": {
+      "at_snap": {
+        "n": 143,
+        "man": 35,
+        "zone": 108,
+        "accuracy": 0.9230769230769231,
+        "balanced_accuracy": 0.8911375661375662,
+        "macro_f1": 0.894944232952648,
+        "man_precision": 0.8529411764705882,
+        "man_recall": 0.8285714285714286,
+        "zone_precision": 0.944954128440367,
+        "zone_recall": 0.9537037037037037,
+        "log_loss": 0.1647961816578335,
+        "brier": 0.047680535545612135,
+        "confusion": {
+          "order": "man->man, man->zone, zone->man, zone->zone",
+          "values": [
+            29,
+            6,
+            5,
+            103
+          ]
+        },
+        "accuracy_interval_95_wilson": [
+          0.8675099224545965,
+          0.9565072497908708
+        ],
+        "log_loss_interval_95_play_bootstrap": [
+          0.11885157420418728,
+          0.218547008398542
+        ],
+        "man_pr_auc": 0.9565876827430811,
+        "always_zone_accuracy": 0.7552447552447552,
+        "class_prior_log_loss": 0.556499492626724,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 92,
+            "mean_predicted": 0.036077470344447436,
+            "observed_man_rate": 0.010869565217391304
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 13,
+            "mean_predicted": 0.27215612679719925,
+            "observed_man_rate": 0.15384615384615385
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6000000000000001,
+            "n": 9,
+            "mean_predicted": 0.5035054324953644,
+            "observed_man_rate": 0.5555555555555556
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.8,
+            "n": 9,
+            "mean_predicted": 0.7247589009779472,
+            "observed_man_rate": 0.7777777777777778
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 20,
+            "mean_predicted": 0.9360063423713049,
+            "observed_man_rate": 1.0
+          }
+        ],
+        "by_game": {
+          "2024120805": {
+            "plays": 50,
+            "accuracy": 0.88,
+            "man_plays": 11
+          },
+          "2024121502": {
+            "plays": 49,
+            "accuracy": 0.9591836734693877,
+            "man_plays": 9
+          },
+          "2025010515": {
+            "plays": 44,
+            "accuracy": 0.9318181818181818,
+            "man_plays": 15
+          }
+        }
+      },
+      "post_0_5s": {
+        "n": 143,
+        "man": 35,
+        "zone": 108,
+        "accuracy": 0.958041958041958,
+        "balanced_accuracy": 0.9432539682539682,
+        "macro_f1": 0.9432539682539682,
+        "man_precision": 0.9142857142857143,
+        "man_recall": 0.9142857142857143,
+        "zone_precision": 0.9722222222222222,
+        "zone_recall": 0.9722222222222222,
+        "log_loss": 0.13163565306233183,
+        "brier": 0.03886608695854771,
+        "confusion": {
+          "order": "man->man, man->zone, zone->man, zone->zone",
+          "values": [
+            32,
+            3,
+            3,
+            105
+          ]
+        },
+        "accuracy_interval_95_wilson": [
+          0.9114868758899654,
+          0.9806308891030612
+        ],
+        "log_loss_interval_95_play_bootstrap": [
+          0.08176933006154079,
+          0.19299234317643638
+        ],
+        "man_pr_auc": 0.9662885587849975,
+        "always_zone_accuracy": 0.7552447552447552,
+        "class_prior_log_loss": 0.556499492626724,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 96,
+            "mean_predicted": 0.026417723117447167,
+            "observed_man_rate": 0.010416666666666666
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 9,
+            "mean_predicted": 0.2630327110765157,
+            "observed_man_rate": 0.2222222222222222
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6000000000000001,
+            "n": 5,
+            "mean_predicted": 0.5052193780740103,
+            "observed_man_rate": 0.2
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.8,
+            "n": 4,
+            "mean_predicted": 0.6897887041171391,
+            "observed_man_rate": 0.75
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 29,
+            "mean_predicted": 0.9529726471023999,
+            "observed_man_rate": 0.9655172413793104
+          }
+        ],
+        "by_game": {
+          "2024120805": {
+            "plays": 50,
+            "accuracy": 0.94,
+            "man_plays": 11
+          },
+          "2024121502": {
+            "plays": 49,
+            "accuracy": 0.9591836734693877,
+            "man_plays": 9
+          },
+          "2025010515": {
+            "plays": 44,
+            "accuracy": 0.9772727272727273,
+            "man_plays": 15
+          }
+        }
+      },
+      "post_1s": {
+        "n": 143,
+        "man": 35,
+        "zone": 108,
+        "accuracy": 0.965034965034965,
+        "balanced_accuracy": 0.9478835978835979,
+        "macro_f1": 0.95224737861484,
+        "man_precision": 0.9411764705882353,
+        "man_recall": 0.9142857142857143,
+        "zone_precision": 0.9724770642201835,
+        "zone_recall": 0.9814814814814815,
+        "log_loss": 0.09575314016262318,
+        "brier": 0.02763634167037695,
+        "confusion": {
+          "order": "man->man, man->zone, zone->man, zone->zone",
+          "values": [
+            32,
+            3,
+            2,
+            106
+          ]
+        },
+        "accuracy_interval_95_wilson": [
+          0.9207633838960194,
+          0.9849744996465188
+        ],
+        "log_loss_interval_95_play_bootstrap": [
+          0.05162656861968298,
+          0.1500357774327989
+        ],
+        "man_pr_auc": 0.9779604645147145,
+        "always_zone_accuracy": 0.7552447552447552,
+        "class_prior_log_loss": 0.556499492626724,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 99,
+            "mean_predicted": 0.01677088904339465,
+            "observed_man_rate": 0.010101010101010102
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 7,
+            "mean_predicted": 0.25690334414442384,
+            "observed_man_rate": 0.14285714285714285
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6000000000000001,
+            "n": 3,
+            "mean_predicted": 0.4303255362643135,
+            "observed_man_rate": 0.3333333333333333
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.8,
+            "n": 4,
+            "mean_predicted": 0.7062934090693792,
+            "observed_man_rate": 0.75
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 30,
+            "mean_predicted": 0.9629522363344828,
+            "observed_man_rate": 0.9666666666666667
+          }
+        ],
+        "by_game": {
+          "2024120805": {
+            "plays": 50,
+            "accuracy": 0.94,
+            "man_plays": 11
+          },
+          "2024121502": {
+            "plays": 49,
+            "accuracy": 1.0,
+            "man_plays": 9
+          },
+          "2025010515": {
+            "plays": 44,
+            "accuracy": 0.9545454545454546,
+            "man_plays": 15
+          }
+        }
+      },
+      "post_1_5s": {
+        "n": 142,
+        "man": 34,
+        "zone": 108,
+        "accuracy": 0.971830985915493,
+        "balanced_accuracy": 0.9512527233115469,
+        "macro_f1": 0.9605226577703643,
+        "man_precision": 0.96875,
+        "man_recall": 0.9117647058823529,
+        "zone_precision": 0.9727272727272728,
+        "zone_recall": 0.9907407407407407,
+        "log_loss": 0.0707355171277857,
+        "brier": 0.01929332516978369,
+        "confusion": {
+          "order": "man->man, man->zone, zone->man, zone->zone",
+          "values": [
+            31,
+            3,
+            1,
+            107
+          ]
+        },
+        "accuracy_interval_95_wilson": [
+          0.9298126234613076,
+          0.9889924362747349
+        ],
+        "log_loss_interval_95_play_bootstrap": [
+          0.03485861513872929,
+          0.11792263274811131
+        ],
+        "man_pr_auc": 0.9896519305815794,
+        "always_zone_accuracy": 0.7605633802816901,
+        "class_prior_log_loss": 0.5504296606550267,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.2,
+            "n": 106,
+            "mean_predicted": 0.018179909918909293,
+            "observed_man_rate": 0.009433962264150943
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.4,
+            "n": 3,
+            "mean_predicted": 0.3239805135462019,
+            "observed_man_rate": 0.3333333333333333
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.6000000000000001,
+            "n": 1,
+            "mean_predicted": 0.4188997447490692,
+            "observed_man_rate": 1.0
+          },
+          {
+            "lo": 0.6000000000000001,
+            "hi": 0.8,
+            "n": 5,
+            "mean_predicted": 0.7154099106788635,
+            "observed_man_rate": 0.8
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.0,
+            "n": 27,
+            "mean_predicted": 0.9767489035924277,
+            "observed_man_rate": 1.0
+          }
+        ],
+        "by_game": {
+          "2024120805": {
+            "plays": 49,
+            "accuracy": 0.9591836734693877,
+            "man_plays": 10
+          },
+          "2024121502": {
+            "plays": 49,
+            "accuracy": 1.0,
+            "man_plays": 9
+          },
+          "2025010515": {
+            "plays": 44,
+            "accuracy": 0.9545454545454546,
+            "man_plays": 15
+          }
+        }
+      }
+    }
+  },
+  "for_reference_2023_previously_examined_benchmark_post_1_5s": {
+    "v2_temporal": {
+      "n": 3178,
+      "accuracy": 0.9518565135305224,
+      "man_recall": 0.9003436426116839,
+      "log_loss": 0.1276576451182837,
+      "brier": 0.03752779921233201
+    },
+    "v2_temporal_3seed": {
+      "n": 3178,
+      "accuracy": 0.9543738200125865,
+      "man_recall": 0.9026345933562429,
+      "log_loss": 0.11657660263249749,
+      "brier": 0.03442289793615039
+    }
+  }
+}
