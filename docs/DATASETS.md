@@ -5,7 +5,7 @@ Rights and display terms: `data/manifests/rights.json`. Nothing raw is in Git.
 | Source | Local path | Used for | State on 2026-10-04 |
 |---|---|---|---|
 | NFL Big Data Bowl 2026 Analytics (2023 tracking, coverage labels) | `data/raw/bdb2026/` | coverage training and evaluation | present; 14,108 pass plays, 14,105 labelled (4,013 man, 10,092 zone) |
-| NFL Big Data Bowl 2026 Prediction (candidate 2024 data) | `data/raw/bdb2026_prediction/` | possible fresh coverage validation | **not present**; needs a manual Kaggle download; label compatibility unknown (`reports/v3/coverage_fresh_data.json`) |
+| NFL Big Data Bowl 2026 Prediction | `data/raw/bdb2026_prediction/` (only `test_input.csv` and checksums extracted) | one-time fresh evaluation | supplied 2026-10-06. No coverage labels in the archive. Its 143 test plays (three 2024 games) are labelled in the Analytics `supplementary_data.csv`, which also lists 3,758 more labelled 2024 plays that have no public tracking |
 | nflverse schedules and play-by-play | `data/raw/nflverse/`, snapshots in `data/snapshots/nflverse/<id>/` | game prediction | present through 2026 week 4 (snapshot `20261004T223450Z`) |
 | SVHighlights, American-football subset | `data/raw/svhighlights/`, `data/processed/svhighlights/` | highlight ranking | present; 40 games, features and annotations only, no video |
 | NFL Helmet Assignment (video + tracking) | `data/raw/helmet_assignment/` (tables and one sample play extracted from the owner's archive) | measuring field calibration on real footage | supplied 2026-10-06; 60 plays x 2 views; no coverage labels; 2 pass plays; terms not reviewed; nothing from it is published except aggregate error figures |

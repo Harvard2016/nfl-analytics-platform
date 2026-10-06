@@ -15,7 +15,7 @@ from ..coverage import upload as cov_upload
 from ..highlights import decode as D
 from ..highlights import models as HM
 from ..shared.provenance import sha256_file, write_json
-from . import media
+from . import asr, media
 from .store import Store
 
 LIMITS = {
@@ -77,13 +77,27 @@ def run_highlights(store: Store, row, path: Path) -> dict:
     wav = d / "audio.wav"
     media.extract_audio(path, wav, lambda: store.cancelled(jid))
     vol = media.loudness_db(wav)
-    wav.unlink(missing_ok=True)
     if len(vol) < 3:
+        wav.unlink(missing_ok=True)
         raise media.MediaError("Too little audio to analyse.")
+    commentary = None
+    if row["mode"] == "commentary_experimental":
+        if not asr.available():
+            raise media.MediaError("Speech-to-text is not installed on the machine running the service.")
+        store.update(jid, stage_note="transcribing speech locally in 10-minute chunks (whisper.cpp)")
+        ta = time.time()
+        try:
+            tr = asr.transcribe(wav, d, lambda: store.cancelled(jid))
+        except RuntimeError as e:
+            wav.unlink(missing_ok=True)
+            raise media.MediaError(str(e)) from e
+        commentary = commentary_scores(tr, len(vol)) | {"transcription_seconds": round(time.time() - ta, 2)}
+    wav.unlink(missing_ok=True)
     check(store, jid)
-    store.update(jid, state="inferring", stage_note="loudness baseline (H0): level above the local background, then the strict-budget decoder")
     feats = HM.loudness_features(vol)
-    score = feats[:, 0]
+    loud = feats[:, 0]
+    score = commentary["score"] if commentary else loud
+    store.update(jid, state="inferring", stage_note="ranking clips by the commentary word model (experimental)" if commentary else "loudness baseline (H0): level above the local background, then the strict-budget decoder")
     budget = float(min(max(4.0, float(opts.get("reel_seconds", 60))), info["duration_s"]))
     lead, tail = float(opts.get("lead_s", 2.0)), float(opts.get("tail_s", 2.0))
     segs = D.decode(score, budget, duration_s=info["duration_s"], block=3, lead_s=lead, tail_s=tail)
@@ -104,7 +118,7 @@ def run_highlights(store: Store, row, path: Path) -> dict:
         parts.append(d / "media" / name)
         cuts.append({"asset": name, "rank_in_reel": inside[0].rank, "candidate_moment_s": round(inside[0].moment_s, 2), "moments_s": [round(s.moment_s, 2) for s in inside],
                      "clip_start_s": round(a, 3), "clip_end_s": round(b, 3), "requested_s": round(b - a, 3), "ffprobe_duration_s": round(got, 3),
-                     "loudness_above_background_db": round(float(inside[0].score), 2), "sha256": sha256_file(d / "media" / name)})
+                     "loudness_above_background_db": round(float(loud[int(inside[0].moment_s // media.CLIP_S)]), 2), "ranking_score": round(float(inside[0].score), 3), "sha256": sha256_file(d / "media" / name)})
     reel = None
     if cuts:
         spans = [(c["clip_start_s"], c["clip_end_s"]) for c in cuts]
@@ -122,20 +136,58 @@ def run_highlights(store: Store, row, path: Path) -> dict:
     assets["source"] = path.name
     store.update(jid, assets=assets)
     short = len(vol) < HM.BACKGROUND_CLIPS
+    lrank = np.empty(len(loud), int)
+    lrank[np.argsort(-np.where(np.isfinite(loud), loud, -np.inf))] = np.arange(len(loud), 0, -1) * 100 // len(loud)
+    if commentary:
+        head = {"mode": "commentary (experimental)", "mode_note": "Clips are ranked by a word model trained on NFL broadcast commentary, applied to a local machine transcript of this file. Speech here may be a stadium announcer, coaches or the crowd, not a commentator: treat the ranking as an experiment. It is not the trained multimodal model and carries no benchmark figure.",
+                "evidence_streams_used": ["machine transcript (words and timing)", "audio loudness (shown, not used for ranking)"],
+                "commentary": {"model": commentary["asr_model"], "word_model": "v2 commentary word model (TF-IDF + logistic regression), trained on 28 NFL broadcasts", "words": commentary["words"],
+                               "segments": commentary["segments"], "sounds": commentary["sounds"], "transcription_seconds": commentary["transcription_seconds"],
+                               "note": "Machine transcript: names and football terms are often misheard. It stays on this machine."}}
+    else:
+        head = {"mode": "loudness baseline (H0)", "mode_note": "Loudness above the local background only. This is not the trained multimodal model and carries none of its benchmark figures.",
+                "evidence_streams_used": ["audio loudness"], "commentary": None}
     return {
-        "schema": "highlights-upload-v1", "module": "highlights", "kind": "highlight ranking", "mode": "loudness baseline (H0)",
-        "mode_note": "Loudness above the local background only. This is not the trained multimodal model and carries none of its benchmark figures.",
+        "schema": "highlights-upload-v2", "module": "highlights", "kind": "highlight ranking", **head,
         "media": {k: info[k] for k in ("duration_s", "has_video", "width", "height", "format")}, "clip_seconds": media.CLIP_S,
         "time_origin": "seconds from the start of the uploaded file",
-        "timeline": {"loudness_db": [round(float(v), 2) for v in vol], "loudness_above_background_db": [round(float(v), 2) for v in score], "rank_within_file": rank.tolist()},
-        "score_meaning": "A ranking score within this file (100 = loudest relative to its surroundings). Not a probability and not a confidence.",
+        "timeline": {"loudness_db": [round(float(v), 2) for v in vol], "loudness_above_background_db": [round(float(v), 2) for v in loud], "rank_within_file": rank.tolist(),
+                     "loudness_rank": lrank.tolist(), "ranked_by": "commentary word model" if commentary else "loudness above background"},
+        "score_meaning": "A rank within this file (100 = highest). Not a probability and not a confidence.",
         "candidates": sorted(cuts, key=lambda c: c["rank_in_reel"]), "reel": reel,
-        "evidence_streams_used": ["audio loudness"], "event_types": "none: no event is detected or claimed",
+        "event_types": "none: no event is detected or claimed",
         "domain_shift": ("This file is shorter than the 5-minute background window, so loudness is compared with the whole file. Rankings in short clips are less meaningful than in a full broadcast."
                          if short else "The background is the surrounding 5 minutes, as in the benchmark."),
         "measured": {"seconds": round(time.time() - t0, 2), "peak_memory_mb": round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 2**20, 1),
                      "input_sha256": hashlib.sha256(path.read_bytes()).hexdigest() if path.stat().st_size < 64 * 2**20 else sha256_file(path)},
     }
+
+
+_H1: dict = {}
+
+
+def commentary_scores(tr: dict, n: int) -> dict:
+    """v2 commentary word model on a local transcript. Same clip windows as the benchmark: words from 2 s before to 6 s after, and 6-20 s after."""
+    import joblib
+
+    from ..shared import config
+    if not _H1:
+        _H1.update(joblib.load(config.MODELS / "highlights" / "commentary_tfidf_logistic.joblib"))
+    now, after = [[] for _ in range(n)], [[] for _ in range(n)]
+    for w in tr["words"]:
+        tok = "".join(ch for ch in w["word"].lower() if ch.isalnum() or ch == "'")
+        if not tok:
+            continue
+        t = w["start_s"]
+        for i in range(max(0, int((t - 6) // 2)), min(n, int((t + 2) // 2) + 1)):
+            if 2 * i - 2 <= t < 2 * i + 6:
+                now[i].append("n_" + tok)
+        for i in range(max(0, int((t - 20) // 2)), min(n, int((t - 6) // 2) + 1)):
+            if 2 * i + 6 <= t < 2 * i + 20:
+                after[i].append("a_" + tok)
+    docs = [" ".join(a + b) for a, b in zip(now, after)]
+    score = _H1["model"].decision_function(_H1["vectorizer"].transform(docs)).astype(np.float32)
+    return {"score": score, "words": len(tr["words"]), "segments": asr.segments(tr["words"]), "sounds": tr["sounds"], "asr_model": tr["model"]}
 
 
 RUNNERS = {"coverage": run_coverage, "highlights": run_highlights}

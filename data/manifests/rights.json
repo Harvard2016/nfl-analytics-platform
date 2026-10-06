@@ -61,6 +61,18 @@
       "processing": "local only, in data/local_media/ (ignored by Git)",
       "display": "nothing: no frame, audio, cut or screenshot of it is published; only timings, durations and file hashes are reported",
       "independently_reviewed": false
+    },
+    {
+      "id": "bdb2026_prediction",
+      "module": "coverage",
+      "name": "NFL Big Data Bowl 2026 Prediction (test input: tracking for 143 plays from three 2024 games)",
+      "url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-prediction/data",
+      "terms_url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-prediction/rules",
+      "attribution": "NFL / Kaggle Big Data Bowl 2026",
+      "licence_stated": "competition rules; not reviewed here",
+      "processing": "local one-time evaluation of the saved coverage models; only test_input.csv was extracted",
+      "display": "aggregate results only (accuracy, intervals, per-game counts). No tracking row or per-play prediction from it is published",
+      "independently_reviewed": false
     }
   ],
   "not_used": [

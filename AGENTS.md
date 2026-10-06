@@ -32,6 +32,9 @@ Read `docs/BUILD_STATUS.md` first for the current state.
   never mark a late record as official. Source snapshots live in `data/snapshots/` (private, ignored by Git).
 - Uploads: user files, job results and `data/local_media/` are private and never committed or copied under `apps/web/public/`.
   The public site must never accept a file or imitate inference when no inference service is configured.
+- The 2024 coverage sample (142 plays, 3 games) was scored once under `docs/experiments/coverage_fresh_2024.md` and is now examined. Never tune on it, never
+  present it in place of the 2023 benchmark, and never use model predictions as labels for unlabelled plays.
+- Owner-supplied footage and its transcripts stay in `data/local_media/` and `data/jobs/`. No frame, cut, transcript or screenshot of it goes into Git.
 - Highlight scores are ranks. The loudness baseline and the trained model must always be named separately; the trained model cannot
   score new media until the CLIP/SlowFast/PANN extractors are installed and parity-checked.
 

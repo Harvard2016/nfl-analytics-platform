@@ -11,18 +11,22 @@ type Cand = { asset: string; rank_in_reel: number; candidate_moment_s: number; c
 type Result = {
   mode: string; mode_note: string; score_meaning: string; domain_shift: string; time_origin: string; clip_seconds: number; event_types: string; evidence_streams_used: string[];
   media: { duration_s: number; has_video: boolean };
-  timeline: { loudness_db: number[]; loudness_above_background_db: number[]; rank_within_file: number[] };
+  timeline: { loudness_db: number[]; loudness_above_background_db: number[]; rank_within_file: number[]; ranked_by?: string };
+  commentary?: { model: string; word_model: string; words: number; note: string; transcription_seconds: number; segments: { start_s: number; end_s: number; text: string }[]; sounds: { start_s: number; end_s: number; label: string }[] } | null;
   candidates: Cand[]; reel: { asset: string; ffprobe_duration_s: number; budget_s: number; decoder_output_s: number } | null;
   measured: { seconds: number; peak_memory_mb: number };
 };
 type Edit = { start: number; end: number; removed: boolean; replay: "unknown" | "live action" | "replay" };
 
+const MODE_TEXT: Record<string, string> = { loudness_baseline: "Loudness baseline", commentary_experimental: "Commentary words", trained_multimodal: "Trained multimodal ranker" };
+const MODE_NOTE: Record<string, string> = { loudness_baseline: "Ranks clips by how loud they are against their surroundings.", commentary_experimental: "Transcribes speech locally, then ranks clips with a word model trained on NFL broadcast commentary. Shows the transcript beside the video." };
 const clock = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}.${Math.floor((s % 1) * 10)}`;
 
 export default function AnalyzeClip() {
   const backend = useBackend();
   const [file, setFile] = useState<File | null>(null);
   const [reel, setReel] = useState(60);
+  const [mode, setMode] = useState("loudness_baseline");
   const [res, setRes] = useState<Result | null>(null);
   const [edits, setEdits] = useState<Record<string, Edit>>({});
   const [now, setNow] = useState(0);
@@ -50,6 +54,8 @@ export default function AnalyzeClip() {
              rank: res.timeline.rank_within_file.map((v, i) => `${i ? "L" : "M"}${i + 0.5},${28 - (v / 100) * 24}`).join("") };
   }, [res]);
 
+  const near = (res?.commentary?.segments ?? []).filter((g) => g.end_s >= now - 20 && g.start_s <= now + 20).slice(0, 8);
+
   function seek(s: number, until: number | null = null, play = false) {
     const v = video.current;
     if (!v) return;
@@ -67,7 +73,7 @@ export default function AnalyzeClip() {
     e.preventDefault();
     if (!file) return;
     setBusy(true); setRes(null);
-    try { job.start(await submit("highlights", "loudness_baseline", { reel_seconds: reel, lead_s: 2, tail_s: 2 }, file)); } catch (err) { job.setError(String((err as Error).message)); }
+    try { job.start(await submit("highlights", mode, { reel_seconds: reel, lead_s: 2, tail_s: 2 }, file)); } catch (err) { job.setError(String((err as Error).message)); }
     setBusy(false);
   }
   function exportJson() {
@@ -108,11 +114,13 @@ export default function AnalyzeClip() {
               <label className="mt-3 block"><span className="kicker">Reel length (seconds of final output)</span>
                 <input type="number" min={4} max={600} step={1} value={reel} onChange={(e) => setReel(Number(e.target.value))} className="num mt-1 block w-28 border border-line bg-surface p-2" /></label>
               <label className="mt-3 flex gap-2 text-xs text-muted"><input type="checkbox" required className="mt-0.5" /><span>I have permission to process this file.</span></label>
-              <button className="btn-primary mt-4" style={{ background: "var(--color-amber)" }} disabled={!file || busy || !ready}>Find the loud moments</button>
-              <ul className="mt-4 space-y-2 border-t border-line pt-3 text-xs">
+              <button className="btn-primary mt-4" style={{ background: "var(--color-amber)" }} disabled={!file || busy || !ready}>Analyze the clip</button>
+              <fieldset className="mt-4 border-t border-line pt-3 text-xs" data-testid="clip-modes"><legend className="kicker">Ranking mode</legend>
                 {Object.entries(backend.caps.modules.highlights.modes).map(([k, m]) => (
-                  <li key={k}><span className={m.ready ? "text-teal" : "text-muted"}>{m.ready ? "Working" : "Not available"}</span> · <span className="text-ink">{k.replace(/_/g, " ")}</span>{m.reason && <span className="block text-muted">{m.reason}</span>}</li>))}
-              </ul>
+                  <label key={k} className={`mt-2 flex gap-2 ${m.ready ? "" : "opacity-60"}`}><input type="radio" name="mode" value={k} disabled={!m.ready} checked={mode === k} onChange={() => setMode(k)} className="mt-0.5" />
+                    <span><span className="text-ink">{MODE_TEXT[k] ?? k.replace(/_/g, " ")}</span> <span className={m.ready ? "text-teal" : "text-muted"}>{m.ready ? (m.experimental ? "experimental" : "working") : "not available"}</span>
+                      <span className="block text-muted">{m.reason ?? MODE_NOTE[k]}</span></span></label>))}
+              </fieldset>
             </form>
           )}
           <JobStatus job={job.job} error={job.error} onCancel={job.stop} onDelete={async () => { if (await job.discard()) setRes(null); }} />
@@ -133,21 +141,31 @@ export default function AnalyzeClip() {
               <p className="mono text-xs uppercase text-amber" data-testid="clip-mode">{res.mode}</p>
               <p className="text-xs text-muted">{res.mode_note} {res.score_meaning}</p>
               <div className="mt-2 grid grid-cols-[5.5rem_minmax(0,1fr)] gap-x-2">
-                <ul className="mono relative text-[10px] text-muted" aria-hidden="true"><li className="absolute top-[14%]">RANK</li><li className="absolute top-[52%] text-amber">LOUDNESS</li><li className="absolute top-[86%]">CLIPS</li></ul>
-                <svg viewBox={`0 0 ${n} 70`} preserveAspectRatio="none" className="block h-40 w-full cursor-crosshair border border-line bg-surface" role="img" data-testid="clip-timeline"
-                  aria-label="Timeline of your clip: rank within the file, loudness above background, and the selected clips. Click to seek the player."
+                <ul className="mono relative text-[10px] text-muted" aria-hidden="true"><li className="absolute top-[12%]">RANK</li><li className="absolute top-[44%] text-amber">LOUDNESS</li><li className="absolute top-[70%] text-defense">SPEECH</li><li className="absolute top-[88%]">CLIPS</li></ul>
+                <svg viewBox={`0 0 ${n} 82`} preserveAspectRatio="none" className="block h-40 w-full cursor-crosshair border border-line bg-surface" role="img" data-testid="clip-timeline"
+                  aria-label="Timeline of your clip: rank within the file, loudness above background, spoken segments from the transcript when available, and the selected clips. Click to seek the player."
                   onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); seek(((e.clientX - r.left) / r.width) * dur); }}>
                   <path d={path.rank} fill="none" stroke="var(--color-ink)" strokeWidth={1} vectorEffect="non-scaling-stroke" />
                   <path d={path.loud} fill="none" stroke="var(--color-amber)" strokeWidth={1} vectorEffect="non-scaling-stroke" />
                   {res.candidates.filter((c) => !edits[c.asset]?.removed).map((c) => { const e = edits[c.asset]; return (
-                    <g key={c.asset}><rect x={e.start / res.clip_seconds} y={60} width={(e.end - e.start) / res.clip_seconds} height={8} fill="var(--color-amber)" opacity={active === c.asset ? 1 : 0.55} />
-                      <line x1={c.candidate_moment_s / res.clip_seconds} x2={c.candidate_moment_s / res.clip_seconds} y1={58} y2={70} stroke="var(--color-ink)" strokeWidth={1.5} vectorEffect="non-scaling-stroke" /></g>); })}
-                  <line x1={now / res.clip_seconds} x2={now / res.clip_seconds} y1={0} y2={70} stroke="var(--color-teal)" strokeWidth={2} vectorEffect="non-scaling-stroke" data-testid="clip-playhead" />
+                    <g key={c.asset}><rect x={e.start / res.clip_seconds} y={72} width={(e.end - e.start) / res.clip_seconds} height={8} fill="var(--color-amber)" opacity={active === c.asset ? 1 : 0.55} />
+                      <line x1={c.candidate_moment_s / res.clip_seconds} x2={c.candidate_moment_s / res.clip_seconds} y1={70} y2={82} stroke="var(--color-ink)" strokeWidth={1.5} vectorEffect="non-scaling-stroke" /></g>); })}
+                  {res.commentary?.segments.map((g) => <rect key={g.start_s} x={g.start_s / res.clip_seconds} y={60} width={Math.max(0.3, (g.end_s - g.start_s) / res.clip_seconds)} height={6} fill="var(--color-defense)" opacity={0.8} />)}
+                  <line x1={now / res.clip_seconds} x2={now / res.clip_seconds} y1={0} y2={82} stroke="var(--color-teal)" strokeWidth={2} vectorEffect="non-scaling-stroke" data-testid="clip-playhead" />
                 </svg>
                 <span /><p className="mono num mt-1 flex justify-between text-[10px] text-muted"><span>0:00</span><span className="text-teal">{clock(now)}</span><span>{clock(dur)}</span></p>
                 <span /><input type="range" min={0} max={dur} step={0.1} value={now} onChange={(e) => seek(Number(e.target.value))} className="w-full" style={{ accentColor: "var(--color-amber)" }} aria-label="Seek the clip" />
               </div>
-              <p className="mt-1 text-xs text-muted"><Badge kind="Observed" /> Loudness is measured audio. <Badge kind="Derived" /> Rank is that loudness ordered within this file. Bars are padded clips; ticks are the candidate moments. {res.domain_shift}</p>
+              <p className="mt-1 text-xs text-muted"><Badge kind="Observed" /> Loudness is measured audio{res.commentary ? "; speech bars are where the machine transcript found words" : ""}. <Badge kind="Derived" /> Rank orders the clips of this file by {res.timeline.ranked_by ?? "loudness above background"}. Bars are padded clips; ticks are the candidate moments. {res.domain_shift}</p>
+              {res.commentary && (
+                <div className="mt-3 border border-line p-3" data-testid="clip-transcript">
+                  <p className="kicker"><Badge kind="Observed" /> heard near the playhead (machine transcript)</p>
+                  {near.length === 0 ? <p className="mt-1 text-sm text-muted">No speech was transcribed within 20 seconds of {clock(now)}.</p> : (
+                    <ul className="mt-1 text-sm">{near.map((g) => (
+                      <li key={g.start_s} className={`grid grid-cols-[4rem_1fr] gap-2 border-t border-line py-1 ${now >= g.start_s && now <= g.end_s ? "bg-surface" : ""}`}>
+                        <button className="mono num text-left text-xs text-teal underline" onClick={() => seek(g.start_s)} aria-label={`Seek to ${clock(g.start_s)}`}>{clock(g.start_s)}</button><span>{g.text}</span></li>))}</ul>)}
+                  <p className="mt-2 text-xs text-muted">{res.commentary.words} words from {res.commentary.model} in {res.commentary.transcription_seconds} s. {res.commentary.note} Words are evidence of what was said, not of what happened.</p>
+                </div>)}
 
               <h2 className="kicker mt-5">Candidates ({res.candidates.filter((c) => !edits[c.asset]?.removed).length} kept, reel {res.reel ? `${res.reel.decoder_output_s.toFixed(1)} of ${res.reel.budget_s} s selected; rendered file ${res.reel.ffprobe_duration_s.toFixed(2)} s` : "empty"})</h2>
               <ul className="mt-2 grid gap-2 md:grid-cols-2" data-testid="clip-candidates">

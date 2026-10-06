@@ -137,7 +137,7 @@ def experimental_predictions(log=print) -> dict:
                                               "reading": "A similar share of man leans and a similar confidence profile say the inputs look familiar to the model. They do not say the predictions are right."},
         "predictions": rows_out,
     }
-    write_json(OUT / "coverage_2024_unlabelled_experimental.json", rep)
+    write_json(OUT / "coverage_2024_unlabelled_experimental.json", {k: v for k, v in rep.items() if k != "predictions"} | {"per_play_predictions": "kept locally only; not published"})
     log(json.dumps({k: v for k, v in rep.items() if k != "predictions"}, indent=1))
     return rep
 

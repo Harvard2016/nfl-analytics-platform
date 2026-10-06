@@ -11,7 +11,7 @@ from .provenance import now_utc, write_json
 from .runs import load_runs
 
 WEB = config.WEB_DEMO / "research"
-V3_EXPORTS = {"coverage_v3_experiments.json": "real/coverage/experiments_v3.json", "highlights_eval_v3.json": "highlights/eval_v3.json",
+V3_EXPORTS = {"coverage_v3_experiments.json": "real/coverage/experiments_v3.json", "coverage_fresh_2024.json": "real/coverage/fresh_2024.json", "highlights_eval_v3.json": "highlights/eval_v3.json",
               "highlights_experiments_v3.json": "highlights/experiments_v3.json", "highlights_candidates_v3.json": "highlights/candidates_v3.json", "pregame_experiments_v3.json": "pregame/experiments_v3.json"}
 KEEP = ("module", "run_id", "name", "results_version", "started_at", "finished_at", "git_commit", "seed", "environment", "target", "population", "exclusions",
         "input_cutoff", "split", "calibration", "hyperparameters", "metrics", "ablations", "outputs", "notes", "train_seconds", "peak_memory_mb", "evidence_kinds", "data")

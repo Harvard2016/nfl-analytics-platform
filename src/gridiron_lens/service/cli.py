@@ -32,6 +32,7 @@ def main() -> None:
     h.add_argument("--reel", type=float, default=180.0)
     h.add_argument("--lead", type=float, default=2.0)
     h.add_argument("--tail", type=float, default=2.0)
+    h.add_argument("--mode", default="loudness_baseline", choices=["loudness_baseline", "commentary_experimental"])
     c = sub.add_parser("coverage")
     c.add_argument("file", type=Path)
     c.add_argument("--mode", default="release-compatible", choices=["release-compatible", "broader"])
@@ -55,11 +56,12 @@ def main() -> None:
                           "note": "Scores from released extractor outputs for a benchmark game. Ranking scores, not probabilities."}, indent=1))
         return
     st = Store()
-    jid, _tok, dest = st.create("highlights", "loudness_baseline", {"reel_seconds": a.reel, "lead_s": a.lead, "tail_s": a.tail, "local_cli": True}, a.file.suffix.lower() or ".bin")
+    jid, _tok, dest = st.create("highlights", a.mode, {"reel_seconds": a.reel, "lead_s": a.lead, "tail_s": a.tail, "local_cli": True}, a.file.suffix.lower() or ".bin")
     try:
         os.link(a.file, dest)                       # same volume: no second copy of a multi-gigabyte file
     except OSError:
         shutil.copyfile(a.file, dest)
+    st.ready(jid)
     process(st, st.get(jid))
     row = st.get(jid)
     if row["state"] != "complete":

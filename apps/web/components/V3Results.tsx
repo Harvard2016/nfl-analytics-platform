@@ -7,6 +7,7 @@ type Row = { mean_val_loss: number; parameters: number; pooled_clean: Record<str
   vs_control_post_1_5s?: { mean_difference: number; interval_95: [number, number] }; passes_rule?: boolean };
 type Cov = { split_role: string; models: Record<string, Row>; decision: { statement: string }; E3_ensembles_and_calibration?: Record<string, { log_loss?: number; brier?: number }>;
   E4_family?: Record<string, { mean: { accuracy: number; macro_f1: number; log_loss: number } }>; E4_note?: string };
+type Fresh = { plays: number; label_counts: { man: number; zone: number }; limits: string[]; results: Record<string, Record<string, { n: number; accuracy: number; accuracy_interval_95_wilson: [number, number]; man_recall: number; man_precision: number; log_loss: number; always_zone_accuracy: number }>> };
 type HlEval = { oracle: { three_minutes: number }; test: { v1_selector: Record<string, Record<string, { output_s: number; precision: number; recall_of_labelled_time: number; max_output_s: number }>>;
   strict_decoder: Record<string, Record<string, { output_s: number; precision: number; recall_of_labelled_time: number; max_output_s: number; recall_interval_95_over_games: [number, number] }>> }; split_roles: Record<string, string> };
 type HlExp = { split_role: string; rankers: Record<string, { mean_average_precision: number } & Record<string, unknown>>; segment_decoding_at_strict_180s: Record<string, { recall_of_labelled_time: number; precision: number }>; decision: { statement: string } };
@@ -27,12 +28,14 @@ export default function V3Results() {
   const [hx, setHx] = useState<HlExp | null>(null);
   const [pg, setPg] = useState<Pg | null>(null);
   const [hc, setHc] = useState<HlCand | null>(null);
+  const [fr, setFr] = useState<Fresh | null>(null);
   useEffect(() => {
     get<Cov>("/demo/real/coverage/experiments_v3.json").then(setCov);
     get<HlEval>("/demo/highlights/eval_v3.json").then(setHe);
     get<HlExp>("/demo/highlights/experiments_v3.json").then(setHx);
     get<Pg>("/demo/pregame/experiments_v3.json").then(setPg);
     get<HlCand>("/demo/highlights/candidates_v3.json").then(setHc);
+    get<Fresh>("/demo/real/coverage/fresh_2024.json").then(setFr);
   }, []);
   const H3 = "H3 temporal fusion";
   return (
@@ -56,6 +59,12 @@ export default function V3Results() {
               {cov.E3_ensembles_and_calibration && <p className="num mt-2 text-xs text-muted">Calibration and ensembles at +1.5 s (log loss): {Object.entries(cov.E3_ensembles_and_calibration).filter(([, v]) => typeof v.log_loss === "number").map(([k, v]) => `${k} ${v.log_loss!.toFixed(4)}`).join(" · ")}</p>}
               {cov.E4_family && <p className="num mt-2 text-xs text-muted">Coverage family, 7 classes: {Object.entries(cov.E4_family).map(([k, v]) => `${k.replace("|seed42", "")} accuracy ${pct(v.mean.accuracy)}, macro F1 ${v.mean.macro_f1.toFixed(3)}`).join(" · ")}. {cov.E4_note}</p>}
               <p className="mt-2 border-l-2 border-line pl-3 text-sm">{cov.decision.statement}</p>
+              {fr && (() => { const b = fr.results["primary: seed 42"].post_1_5s; return (
+                <div className="mt-4 border border-line p-3" data-testid="fresh-2024">
+                  <p className="kicker">A small fresh sample: 2024 season, one look</p>
+                  <p className="mt-1"><span className="display text-4xl num">{pct(b.accuracy)}</span> <span className="text-sm text-muted">agreement with the released label at +1.5 s on {b.n} plays from 3 games (95% range {pct(b.accuracy_interval_95_wilson[0])} to {pct(b.accuracy_interval_95_wilson[1])}). Man recall {b.man_recall.toFixed(2)}, log loss {b.log_loss.toFixed(3)}. Always answering zone would score {pct(b.always_zone_accuracy)}.</span></p>
+                  <p className="mt-2 text-xs text-muted">Tracking for these plays came from a different release than their labels, and no model had seen any 2024 play. The protocol was written down before scoring. Three late-season games cannot stand for a season, and the tracked players were selected the same way as in 2023. The 95.2% figure on 2023 remains a previously examined benchmark; this sample sits beside it and is now examined too.</p>
+                </div>); })()}
               <p className="mt-2 text-sm"><Link className="text-teal underline underline-offset-4" href="/coverage/review">Error slices and the review queue</Link></p>
             </>) : <p className="mt-2 text-sm text-muted">Coverage round-three report not exported yet.</p>}
           </div>

@@ -281,11 +281,19 @@ Branch `feat/inference-and-model-v3`. Full detail, commands and blocked items: `
 - Game prediction: opponent-adjusted ratings beat Elo on nested development seasons and match the frozen v2 model. No established gain over Elo beyond v2. Not promoted.
 
 **Not done, and why**
-- Fresh-season coverage validation: the candidate dataset needs a manual download.
-- Trained multimodal scoring of new video: the CLIP, SlowFast and PANN extractors are not installed or parity-checked.
-- Commentary mode for uploads: no local speech-to-text.
+- Fresh-season coverage validation: **one small sample done, full season still blocked.** The BDB 2026 Prediction archive has no coverage labels. Its 143 test plays from three 2024 games are labelled in the Analytics label table already on disk, so they were scored once under a protocol registered beforehand: 0.979 agreement at +1.5 s on 142 plays (95% interval 0.940–0.993). The 95.2% figure on 2023 remains a previously examined benchmark. The other 3,758 labelled 2024 plays have no public tracking.
+- Trained multimodal scoring of new video: **still incomplete.** The CLIP stream was re-created and matches the benchmark in model family and scale but not in distribution; SlowFast and PANN were not built; no benchmark source video exists to verify against (`docs/HIGHLIGHT_EXTRACTORS.md`). Previously: the CLIP, SlowFast and PANN extractors are not installed or parity-checked.
+- Commentary mode for uploads: **built, experimental.** Local speech-to-text (whisper.cpp) with word timing, a transcript panel and a speech track tied to the video.
 - Video to coverage: calibration and gating library only; no detection, tracking or review interface; never run on footage.
 - Real-media smoke test: **done 2026-10-06** on an owner-supplied game video. It exposed a reel that ran 188 s for a 180 s budget when padded clips overlapped; fixed and tested. Detail in `docs/V3_EXECUTION_STATUS.md`.
 - Field calibration measured on real paired video and tracking (Helmet Assignment release): median error on held-out players 0.48 yd from the sideline view and 0.60 yd from the end zone; a calibration reused for 1.5 s drifts past 1 yd.
 - Event detection: no reviewed labels.
 - The public site has no inference service; the upload pages explain local operation there.
+
+### Update 2026-10-06
+
+- Real football video testing: completed on an owner-supplied game. Reviewed sample and failures (halftime band, late clips, announcer-driven picks): `reports/v3/highlights_real_video_review.json`.
+- Helmet Assignment calibration testing: completed within its limits (labelled helmets, fixed cameras, no coverage labels).
+- Exported reels now obey the budget on the file itself: container, video and audio durations at or under it.
+- Fresh labelled coverage validation: one registered look at 142 plays from 2024; a full unseen season remains blocked.
+- Trained highlight scoring on newly uploaded video: remains incomplete.

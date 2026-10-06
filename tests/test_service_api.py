@@ -94,7 +94,10 @@ def test_jobs_are_isolated_by_token_and_can_be_deleted(client):
 def test_restart_marks_interrupted_jobs_failed_and_retention_sweeps(tmp_path):
     st = Store(tmp_path / "jobs")
     jid, tok, dest = st.create("coverage", "release-compatible", {}, ".csv")
+    assert st.next_queued() is None                                                                         # a job whose upload is still being written is never picked up
     dest.write_text("x")
+    st.ready(jid)
+    assert st.next_queued()["id"] == jid
     st.update(jid, state="inferring")
     app = create_app(Store(tmp_path / "jobs"), start_worker=False)                                           # a new process finds the job mid-run
     with TestClient(app) as c:

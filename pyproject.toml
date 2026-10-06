@@ -28,6 +28,9 @@ service = [
     "python-multipart>=0.0.9",
     "uvicorn>=0.30",
 ]
+extract = [
+    "open-clip-torch>=3.3",
+]
 
 [dependency-groups]
 dev = [

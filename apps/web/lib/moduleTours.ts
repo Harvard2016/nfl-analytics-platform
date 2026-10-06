@@ -27,7 +27,7 @@ export const MODULE_TOURS: Record<TourModule, TourStep[]> = {
     { target: "upload-result", title: "Read the result by cutoff", body: "The job moves through checking and running stages, then shows Man and Zone probabilities at each cutoff the play reaches. A cutoff is disabled when the play ends, or a player is missing, before it.", tip: "No accuracy is shown for an upload: one play cannot measure it." },
   ],
   "highlights-upload": [
-    { target: "upload-form", title: "Choose a clip you may process", body: "Pick an audio or video file and a reel length in seconds. The list shows which modes work here: the loudness baseline runs; the trained multimodal model cannot score new files yet.", tip: "The preview plays from your browser. The file is sent only to the local service." },
+    { target: "upload-form", title: "Choose a clip you may process", body: "Pick an audio or video file and a reel length in seconds. Pick a ranking mode: the loudness baseline, or commentary words, which first transcribes speech on this machine. The trained multimodal ranker cannot score new files yet.", tip: "The preview plays from your browser. The file is sent only to the local service." },
     { target: "upload-result", title: "Follow the playhead", body: "The green line follows the video. Click the graph to seek. Each candidate has a moment (tick) and a padded clip (bar); Play this clip starts at its start and stops at its end. Edit bounds, mark replays, remove candidates, then export.", tip: "Rank is loudness ordered within this file. It is not a probability and names no event." },
   ],
 };

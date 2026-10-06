@@ -11,7 +11,7 @@ Branch `feat/inference-and-model-v3`, started from `main` at `af14fa0` on 2026-1
 | Data on disk | `bdb2026` 824 MB, `nflverse` 473 MB (schedule + play-by-play 1999–2026), `svhighlights` 2.9 GB (features and annotations, no video) |
 | Not on disk | Kaggle CLI or credentials; BDB 2026 Prediction release; Helmet Assignment data; any authorized video (`data/local_media/` is empty) |
 | Models | 21 real model files with hashes in the inventory; v3 adds `models/highlights/v3/` and `models/pregame/v3/` |
-| Tests at the start | 28 pytest tests passing. Now 74 pass (`.venv/bin/python -m pytest -q`), ruff clean, web lint and build pass, 18 browser tests pass on the public build (1 skipped: the live YouTube probe) |
+| Tests at the start | 28 pytest tests passing. Now 77 pass (`.venv/bin/python -m pytest -q`), ruff clean, web lint and build pass, 18 browser tests pass on the public build (1 skipped: the live YouTube probe) |
 
 ### Saved-model reproduction (measured: `reports/v3/reproduction.json`)
 
@@ -36,7 +36,22 @@ Old results and logs were not rewritten. The one legacy forecast file is publish
 
 ## 1. Coverage
 
-**Fresh-season validation: missing.** No Kaggle client or credentials here, so the BDB 2026 Prediction files could not be listed or audited. Whether its 2024 data has compatible coverage labels is unknown. Exact owner action and the audit protocol are in `reports/v3/coverage_fresh_data.json`. Weeks 15–18 were not reused as development data and were not scored in v3.
+**Fresh-season validation: a small sample scored once; a full season is still blocked.** The owner supplied the BDB 2026 Prediction archive on 2026-10-06. Audit (`reports/v3/coverage_prediction_archive_audit.json`, read from the ZIP, SHA-256 `18259140…364e`): 36 training files covering 2023 weeks 1–18, all 272 games already in our data and the 18 input files byte-identical to ours; `test_input.csv` with 143 plays from three 2024-season games; **no man/zone or coverage-family column in any CSV and no label table**. "Defensive Coverage" is a player role. `output_*.csv` holds future player coordinates and was never read.
+
+What the audit also turned up: the label table already on disk from the Analytics release (`supplementary_data.csv`) lists 3,901 plays from the 2024 season with released coverage labels and no tracking, so they had never been trained on, tuned on or scored. All 143 test-input plays are among them (108 zone, 35 man). Tracking from one release and labels from the other make 143 labelled plays from a season no model here had seen.
+
+The evaluation was registered in `docs/experiments/coverage_fresh_2024.md` and committed before any prediction was paired with a label. Frozen: seed 42 primary, three-seed average secondary, saved calibrators, 0.5 threshold. Inputs through the upload contract; `num_frames_output`, `ball_land_x/y`, `player_to_predict` and the Targeted Receiver role were not read. Result (`reports/v3/coverage_fresh_2024.json`):
+
+| Cutoff | Plays | Accuracy (95% Wilson) | Man recall | Man precision | Log loss | Always-zone accuracy |
+|---|---:|---|---:|---:|---:|---:|
+| Snap | 143 | 0.937 (0.885–0.967) | 0.886 | 0.861 | 0.160 | 0.755 |
+| +0.5 s | 143 | 0.951 (0.902–0.976) | 0.943 | 0.868 | 0.126 | 0.755 |
+| +1.0 s | 143 | 0.958 (0.911–0.981) | 0.943 | 0.892 | 0.099 | 0.755 |
+| +1.5 s | 142 | 0.979 (0.940–0.993) | 0.912 | 1.000 | 0.067 | 0.761 |
+
+The three-seed average at +1.5 s: 0.972 (0.930–0.989), log loss 0.071. Per game at +1.5 s: 47 of 49, 49 of 49, 43 of 44.
+
+How to read it: 142 plays, 3 games, weeks 14, 15 and 18, one look. It is consistent with the 2023 benchmark and does not replace it: **the 95.2% figure remains a comparison on the previously examined weeks 15–18 of 2023.** The release format and the post-play selection of tracked players are the same as in 2023, so this tests a new season, not new tracking or a new player selection. The sample is now examined. Validation on a full unseen season stays blocked: the other 3,758 labelled 2024 plays have no public tracking, and this archive cannot supply more.
 
 **Development error slices (measured: `reports/v3/coverage_error_slices.json`).** Control model, out-of-fold on weeks 7–12, 4,510 plays. Error rate falls from 11.0% at the snap to 6.1% at +1.5 s. Man plays are missed far more often than zone (11.9% vs 3.7% error); Cover 2 man is the weakest family (19.7%, 61 plays). By defence the error rate ranges from about 1% to 15%. Plays with 5 or 6 tracked defenders are harder than those with 7 (8% vs 5%). Crossing routes, bunches, motion and early throws show no clear difference. These are associations on slices, not causes.
 
@@ -94,7 +109,9 @@ The strict decoder removes the overshoot and does not find more highlights. In d
 
 **2C inference bundle (measured: `reports/v3/highlights_bundle_parity.json`).** Transforms refitted on the 28 training games reproduce the cached inputs (max difference 4e-9) and the bundle reproduces saved scores on all 40 games (6e-8); chunked inference equals a single pass (4e-6). Rebuild: `python -m gridiron_lens.highlights.bundle`. Test: `tests/test_highlights_bundle.py`.
 
-**Trained multimodal inference on new media: not complete.** The bundle has no CLIP, SlowFast or PANN extractor; the upstream extractors were not installed or parity-checked. **Commentary mode: not built** (no local speech-to-text installed or profiled). Only the loudness baseline scores a new file.
+**Trained multimodal inference on new media: still incomplete.** Investigated on 2026-10-06 (`docs/HIGHLIGHT_EXTRACTORS.md`). The release does not document checkpoints, frame sampling or preprocessing, and no benchmark source video is available to compare against, so no extractor can be verified frame for frame. The CLIP stream was re-created (OpenAI ViT-B/32, one frame per 2 s) and checked by fingerprint: same scale and model family as the benchmark features (mean-vector cosine 0.70 against a shuffled control near 0), but further from the benchmark games than they are from each other (0.93), with 3.8% of standardized inputs beyond 3 standard deviations against 0.8%. SlowFast and PANN were not built. With released features, H3 limited to CLIP plus loudness scores 0.466 on the examined test games against 0.619 with all four streams. **No uploaded-video result is equivalent to benchmark H3.**
+
+**Commentary mode: built, experimental (2026-10-06).** Local speech-to-text with word timing through whisper.cpp (base.en, 148 MB model, no Python dependency), in 10-minute chunks. Measured: 5 minutes of audio in 14 s at 404 MB; the 110-minute game in 156 s at 890 MB. The transcript feeds the v2 commentary word model and is shown on the upload page as a speech track on the timeline and a "heard near the playhead" list that seeks the video. The owner's recording has a stadium announcer and crowd, not broadcast commentary; the mode says so.
 
 **2D event detection: unchanged.** No reviewed event labels or source-to-play anchors exist, so there are no event metrics. The existing review page records annotations; nothing new was built for anchors.
 
@@ -106,14 +123,14 @@ The strict decoder removes the overshoot and does not find more highlights. In d
 |---|---|---|
 | Working mode | v2 temporal model, release-compatible and broader (experimental) | loudness baseline (H0) only |
 | Input | one play, CSV or JSON, 10 Hz, schema `coverage-upload-v1` (template served by the API); ≤ 2 MB | any container ffprobe reads with audio; 10 s–20 min and ≤ 600 MB by upload, longer from the CLI |
-| Parity | a real release play through the upload path gives the offline tensors and probabilities within 1e-3 (20+ plays, `tests/test_coverage_upload.py`) | cut durations verified with ffprobe; selected seconds never exceed the budget; the rendered file can be up to one audio frame (about 64 ms) longer |
+| Parity | a real release play through the upload path gives the offline tensors and probabilities within 1e-3 (20+ plays, `tests/test_coverage_upload.py`) | cut durations verified with ffprobe; the exported reel's container, video and audio durations are each at or under the budget (checked with ffprobe); single cut files may run one frame over their own span |
 | Measured cost | about 4 s from the command line including model load; 0.1–0.4 s per job inside the running service (3 runs) | 64 s test clip: about 1.0 s per job end to end (3 runs), 346 MB peak |
 | Refuses | mixed plays, duplicate rows, out-of-range coordinates, too many players, missing line of scrimmage, missing orientation (unless experimental); disables cutoffs the play does not reach or where a frame is missing | unreadable or truncated files, no audio, over-long or oversized uploads |
 
 - Jobs: `queued → validating → extracting → inferring → rendering → complete | failed | cancelled`. Stages only, no invented percentage. A restart marks running jobs failed. Tokens are per job; another job's token gets 404. Delete removes the files. Retention 24 hours.
 - The API binds to 127.0.0.1 and allows only the local frontends by CORS. The public build has no service address, makes no request to the visitor's machine, shows the setup steps and has no file input.
 - **Real-media smoke test: done on 2026-10-06** with a game video the owner supplied (high-school game, 1080p, 112 min 25 s, 3.48 GB; input SHA-256 `3da9c23c…5438c`). It stays in `data/local_media/`; no frame, cut or screenshot of it is published.
-  - Full game from the command line, loudness baseline, 180 s reel: 35.7 s of processing, 352 MB peak in the worker (514 MB for the whole process), 12 clips, selected 180.0 s, rendered reel 180.2 s by ffprobe.
+  - Full game from the command line, loudness baseline, 180 s reel: about 36 s with separate cuts, about 63 s now that the reel is encoded in one pass; 352 MB peak in the worker (514 MB for the whole process).
   - **It found a real bug.** Two picks whose padding overlapped were cut separately, so their shared seconds played twice and the first rendered reel ran 188.2 s. Fixed by cutting merged spans; regression test `test_overlapping_padding_does_not_play_twice_in_the_reel`.
   - The file's audio track ends 145 s before its video; the timeline covers the audio.
   - What the baseline picked: the third-ranked moment is the halftime marching band. Loudness finds loud things, not plays. That is the baseline's known limit, now seen on real footage.
@@ -158,7 +175,7 @@ v3 against Elo: −0.0062 to −0.0008. Against frozen v2: −0.0030 to +0.0030.
 
 | Check | Result |
 |---|---|
-| pytest | 74 passed |
+| pytest | 77 passed |
 | ruff | clean |
 | Web lint, type check, build | pass (20 routes) |
 | Web unit tests | 6 passed |
@@ -171,17 +188,46 @@ v3 against Elo: −0.0062 to −0.0008. Against frozen v2: −0.0030 to +0.0030.
 | Browser: tracking upload, clip upload, playhead and seek sync, clip stop at end, export, errors, keyboard cutoffs, 390 px | pass, against the local service |
 | Real authorized media smoke test | pass after one fix (reel overshoot from duplicated overlap) |
 | Calibration on real paired video and tracking | measured (table in section 3) |
-| Fresh-season coverage validation | **blocked: dataset not downloaded** |
+| Fresh-season coverage validation | one registered look at 142 labelled 2024 plays done; a full unseen season is still blocked |
+| Exported reel duration rule (container, video and audio at or under the budget) | pass on generated and real media |
+| Speech-to-text and commentary mode | pass; browser-tested on the real excerpt at 1440 and 390 px |
 | Screen-reader pass | not done |
+
+## Real-video highlight review (2026-10-06)
+
+Report: `reports/v3/highlights_real_video_review.json`. One owner-supplied high-school game, 112 minutes, one press-box camera. No NFL benchmark figure applies to it.
+
+**Duration rule.** The earlier status allowed "about 64 ms" and then reported a 180.2 s reel for a 180 s budget. Measured cause: each separately encoded cut ended on a whole video frame and a whole AAC frame, and 12 cuts added up (container 180.203 s, video 180.147 s, audio 180.193 s). The reel is now encoded in one pass and cut one frame short of the budget, and a reel whose longest stream exceeds the budget is refused. Real game: container 179.980 s, video 179.946 s, audio 179.967 s for 180 s. Excerpt at 60 s: 59.993 / 59.993 / 59.967. Tests check the exported file with ffprobe.
+
+**Review.** Sample fixed before looking: every clip in each ranker's 180-second reel, 12 random 10-second windows and the 4 quietest moments. Three still frames per clip, judged by the assistant from the frames, without sound. "Live action" means a play or kick in progress is visible; it does not mean a highlight.
+
+| Clips from | Clips | With live action | Halftime band | Dead ball, timeout or pre-snap |
+|---|---:|---:|---:|---:|
+| Loudness baseline (H0) | 16 | 4 | 4 | 8 |
+| Commentary words (H1, experimental) | 12 | 6 | 0 | 5 (1 unclear) |
+| Partial H3: CLIP + loudness (experimental, not an upload mode) | 13 | 6 | 4 | 3 |
+| Random windows | 12 | 3 | 2 | 6 (1 unclear) |
+
+Failures seen:
+- **Marching band.** The loudness baseline's third-ranked clip is the halftime band (3418–3442 s), and 4 of its 16 clips are band. The partial H3 run also took 4 band clips: with the audio-embedding and motion streams masked, loudness still dominates.
+- **Late clips.** 4 loudness clips show players standing after the whistle: the crowd peaks once the play is over.
+- **Loudness was no better than random here** at putting a play on screen (4 of 16 against 3 of 12).
+- **Commentary follows the announcer, not the play.** 4 of its 12 clips are timeouts or dead-ball periods where the announcer was speaking. It took no band clips.
+- **Quiet plays.** A kickoff is among the four quietest moments of the recording.
+- **Transcript errors.** Names and football terms are often misheard; crowd noise becomes sound tags.
+
+Counts this small differ by noise. They are failure examples, not metrics.
+
+Also found by the real excerpt in the browser: a job could be picked up by the worker before its upload had finished writing. Jobs now stay in an `uploading` state until the file is complete; tested.
 
 ## What the owner needs to do
 
 1. Done on 2026-10-06: a game video and the Helmet Assignment release were supplied.
-2. Still needed for fresh coverage validation: download the BDB 2026 Prediction archive into `data/raw/bdb2026_prediction/` (see `reports/v3/coverage_fresh_data.json`).
+2. Done on 2026-10-06: the BDB 2026 Prediction archive was supplied and audited. It has no labels of its own; do not download it again for that (see `reports/v3/coverage_fresh_data.json`).
 3. Decide whether to install the forecast schedule.
 
 The Helmet Assignment release is a different dataset from the BDB 2026 Prediction release; it cannot validate the coverage model.
 
-## Next smallest experiment
+## Next smallest useful task
 
-Score the saved three-seed coverage ensemble and the E2 robust model once on a labelled season the models have never seen. That single run answers the two open coverage questions (does the benchmark figure hold up, and is robustness training worth its clean-input cost) and needs only the download in item 2.
+Get permission for, and a copy of, one SVHighlights benchmark source video. With it each extractor can be compared clip by clip with the released features, which is the only way to turn "experimental" into "equivalent to benchmark H3" for uploads. Without it, the alternative is to retrain a ranker on features this project extracts itself and report it as a new version.

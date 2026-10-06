@@ -121,6 +121,9 @@ Read `docs/V3_EXECUTION_STATUS.md` first. New surfaces a design change must not 
 - `/predictions/forecasts`: roles are official, early preview, late and legacy; only official records are scored; the leaderboard must stay empty until official records have results.
 - The coverage explorer's model list carries each model's role; the default stays the preserved benchmark.
 - `components/V3Results.tsx` on `/research` reads the round-three reports. Keep the decisions and the unsuccessful rows visible.
+- The clip page has a ranking-mode choice. "Commentary words" is experimental and must stay labelled so; the trained multimodal mode must stay disabled until extractors are verified (`docs/HIGHLIGHT_EXTRACTORS.md`). The transcript panel and speech track follow the video's time; transcript times seek the player.
+- The research page shows the fresh 2024 coverage sample beside, never instead of, the 95.2% previously examined benchmark figure.
+- Exported reels must stay at or under the budget on the file itself (`duration_rule` in the result).
 - Local service: `bin/gridiron-api`, code in `src/gridiron_lens/service/`. Data in `data/jobs/` is private and ignored by Git.
 
 ## Unfinished

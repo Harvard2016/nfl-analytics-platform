@@ -23,10 +23,14 @@ Weeks 15–18 (3,178 plays at +1.5 s). **Previously examined benchmark, not a fr
 
 Full tables, intervals, reliability bins and policies: `reports/v2/coverage_benchmark_v2.json`. v3 development experiments and error slices: `reports/v3/coverage_v3_experiments.json`, `reports/v3/coverage_error_slices.json`.
 
+### A small fresh sample (2024 season, one registered look)
+
+142 plays from 3 games reaching +1.5 s: accuracy 0.979 (95% Wilson interval 0.940–0.993), man recall 0.912, log loss 0.067; always-zone accuracy on the same plays 0.761. Three-seed average: 0.972. Protocol: `docs/experiments/coverage_fresh_2024.md`; report: `reports/v3/coverage_fresh_2024.json`. Same release format and player selection as 2023. Now examined.
+
 ## Limits
 
 - The tracked defenders were chosen by the release with knowledge of the play. Masks and geometry carry that selection. Results do not transfer to all-22 tracking or to video-derived coordinates.
-- 2023 season only. No external season has been scored (`reports/v3/coverage_fresh_data.json`).
+- Trained on 2023 only. Outside 2023 it has been scored on 142 plays from three 2024 games and nothing else (`reports/v3/coverage_fresh_data.json`).
 - Labels are the released labels; who charted them is not stated. Disagreement is not proof of a label error.
 - Ablation "explanations" are sensitivity checks, not causes, and not evidence of a defender's assignment.
 

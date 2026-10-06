@@ -3,7 +3,7 @@
 export const API_BASE = (process.env.NEXT_PUBLIC_GRIDIRON_API ?? "").replace(/\/$/, "");
 export const configured = API_BASE !== "";
 
-export type ModeInfo = { ready: boolean; reason?: string | null; experimental?: boolean };
+export type ModeInfo = { ready: boolean; reason?: string | null; experimental?: boolean; model?: string | null };
 export type Capabilities = {
   retention_hours: number; privacy: string; hosting: string;
   modules: {
@@ -12,12 +12,12 @@ export type Capabilities = {
     video_coverage: { ready: boolean; reason: string };
   };
 };
-export type JobState = "queued" | "validating" | "extracting" | "awaiting_review" | "inferring" | "rendering" | "complete" | "failed" | "cancelled";
+export type JobState = "uploading" | "queued" | "validating" | "extracting" | "awaiting_review" | "inferring" | "rendering" | "complete" | "failed" | "cancelled";
 export type Job = { id: string; state: JobState; stage: string | null; progress: number | null; warnings: string[]; error: string | null; result_available: boolean; expires_at: string; assets: string[] };
 export type Ticket = { id: string; access_token: string };
 export const TERMINAL: JobState[] = ["complete", "failed", "cancelled"];
 export const STATE_TEXT: Record<JobState, string> = {
-  queued: "Waiting for the worker", validating: "Checking the file", extracting: "Extracting signals", awaiting_review: "Waiting for your review",
+  uploading: "Receiving the file", queued: "Waiting for the worker", validating: "Checking the file", extracting: "Extracting signals", awaiting_review: "Waiting for your review",
   inferring: "Running the model", rendering: "Cutting clips", complete: "Done", failed: "Failed", cancelled: "Cancelled",
 };
 

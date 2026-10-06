@@ -15,7 +15,7 @@ from fastapi.responses import JSONResponse, Response, StreamingResponse
 
 from ..coverage import upload as cov_upload
 from ..highlights import bundle as hl_bundle
-from . import media
+from . import asr, media
 from .store import RETENTION_HOURS, TERMINAL, Store
 from .worker import LIMITS, Worker
 
@@ -37,7 +37,8 @@ def capabilities() -> dict:
                 "loudness_baseline": {"ready": ff, "reason": None if ff else "ffmpeg and ffprobe are not installed"},
                 "trained_multimodal": {"ready": False, "bundle_present": bundle_ok,
                                        "reason": "The H3 bundle reproduces cached scores, but the CLIP, SlowFast and PANN extractors that produce its inputs are not installed or parity-checked here. Without them the trained model cannot score a new file."},
-                "commentary_experimental": {"ready": False, "reason": "No local speech-to-text model is installed."}}},
+                "commentary_experimental": {"ready": ff and asr.available(), "experimental": True, "model": asr.MODEL_NAME if asr.available() else None,
+                                            "reason": None if ff and asr.available() else "whisper.cpp (whisper-cli) and its model file in models/asr/ are not installed"}}},
             "video_coverage": {"kind": "experimental video coverage", "ready": False,
                                "reason": "Player detection, tracking and the review tools are not built. Field calibration has been measured on labelled helmet positions from real sideline and end-zone video, but no clip can be processed end to end."},
         },
@@ -114,6 +115,7 @@ def create_app(store: Store | None = None, start_worker: bool = True) -> FastAPI
         if size == 0:
             st.delete(jid)
             raise HTTPException(422, "The file is empty.")
+        st.ready(jid)
         return {"id": jid, "access_token": token, "state": "queued", "status_url": f"/v1/jobs/{jid}", "retention_hours": RETENTION_HOURS}
 
     @app.get("/v1/jobs/{jid}")
@@ -125,13 +127,13 @@ def create_app(store: Store | None = None, start_worker: bool = True) -> FastAPI
         row = auth(jid, authorization, token)
         if row["state"] in TERMINAL:
             return public(row) | {"note": "The job had already finished; nothing was cancelled."}
-        st.update(jid, cancel=1, **({"state": "cancelled"} if row["state"] == "queued" else {}))
+        st.update(jid, cancel=1, **({"state": "cancelled"} if row["state"] in ("queued", "uploading") else {}))
         return public(st.get(jid)) | {"note": "Cancellation requested. A running stage stops at its next check."}
 
     @app.delete("/v1/jobs/{jid}")
     def delete(jid: str, authorization: str | None = Header(None), token: str | None = Query(None)):
         row = auth(jid, authorization, token)
-        if row["state"] not in TERMINAL and row["state"] != "queued":
+        if row["state"] not in TERMINAL and row["state"] not in ("queued", "uploading"):
             st.update(jid, cancel=1)
             return JSONResponse({"deleted": False, "note": "The job is running. Cancellation was requested; delete again once it has stopped."}, status_code=409)
         st.delete(jid)

@@ -13,8 +13,8 @@ from pathlib import Path
 
 from ..shared import config
 
-STATES = ("queued", "validating", "extracting", "awaiting_review", "inferring", "rendering", "complete", "failed", "cancelled")
-ACTIVE = ("validating", "extracting", "inferring", "rendering")
+STATES = ("uploading", "queued", "validating", "extracting", "awaiting_review", "inferring", "rendering", "complete", "failed", "cancelled")
+ACTIVE = ("uploading", "validating", "extracting", "inferring", "rendering")
 TERMINAL = ("complete", "failed", "cancelled")
 RETENTION_HOURS = float(os.environ.get("GRIDIRON_RETENTION_HOURS", "24"))
 
@@ -43,10 +43,14 @@ class Store:
         t = now()
         with self.lock:
             self.db.execute("insert into jobs (id, token_hash, module, mode, state, options, input_file, created_at, updated_at, expires_at) values (?,?,?,?,?,?,?,?,?,?)",
-                            (jid, hashlib.sha256(token.encode()).hexdigest(), module, mode, "queued", json.dumps(options), f"input{suffix}", t.isoformat(), t.isoformat(),
+                            (jid, hashlib.sha256(token.encode()).hexdigest(), module, mode, "uploading", json.dumps(options), f"input{suffix}", t.isoformat(), t.isoformat(),
                              (t + timedelta(hours=RETENTION_HOURS)).isoformat()))
             self.db.commit()
         return jid, token, d / f"input{suffix}"
+
+    def ready(self, jid: str) -> None:
+        """The upload is fully on disk: only now may the worker pick the job up."""
+        self.update(jid, state="queued")
 
     def get(self, jid: str) -> sqlite3.Row | None:
         with self.lock:
