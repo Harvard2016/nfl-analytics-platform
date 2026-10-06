@@ -1,6 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 import type { Capabilities, Job } from "../../lib/inference";
+import { HORIZONS } from "../../lib/demo";
 
 // Synthetic fixtures check UI mechanics only: no trained inference or football media is represented.
 const caps: Capabilities = {
@@ -26,7 +27,7 @@ function clipResult(id: string) {
 }
 
 function playResult(id: string) {
-  return { play_id: id, mode: "synthetic", scope: "Synthetic fixture", explanation_note: "No real model", horizons: Object.fromEntries(["snap", "post_0_5s", "post_1_0s", "post_1_5s"].map(h => [h, { available: false, reason: "synthetic" }])),
+  return { play_id: id, mode: "synthetic", scope: "Synthetic fixture", explanation_note: "No real model", horizons: Object.fromEntries(HORIZONS.map(h => [h.key, { available: false, reason: "synthetic" }])),
     model: { version: "synthetic", bundle_sha256: "none", input_schema: "synthetic", calibration: "none" },
     input_quality: { defenders: 0, route_runners: 0, frames_supplied: 1, frames_usable: 1, observed_orientation: false, warnings: [] }, comparison_label: null,
     playback: { frames: [0], los_x: 50, entities: [], note: "Synthetic" } };
@@ -84,6 +85,7 @@ test("shorter audio uses the video clock for chart, seeking and playhead", async
   const graph = page.getByTestId("clip-timeline");
   await expect(graph).toHaveAttribute("viewBox", "0 0 30 82");
   await expect(page.getByTestId("missing-audio")).toHaveAttribute("x", "20.6");
+  await graph.scrollIntoViewIfNeeded();
   const box = (await graph.boundingBox())!;
   await page.mouse.click(box.x + box.width / 3, box.y + box.height / 2);
   await expect.poll(() => page.getByTestId("clip-player").evaluate((v: HTMLVideoElement) => v.currentTime)).toBeCloseTo(10, 1);
