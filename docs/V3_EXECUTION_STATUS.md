@@ -11,7 +11,7 @@ Branch `feat/inference-and-model-v3`, started from `main` at `af14fa0` on 2026-1
 | Data on disk | `bdb2026` 824 MB, `nflverse` 473 MB (schedule + play-by-play 1999–2026), `svhighlights` 2.9 GB (features and annotations, no video) |
 | Not on disk | Kaggle CLI or credentials; BDB 2026 Prediction release; Helmet Assignment data; any authorized video (`data/local_media/` is empty) |
 | Models | 21 real model files with hashes in the inventory; v3 adds `models/highlights/v3/` and `models/pregame/v3/` |
-| Tests at the start | 28 pytest tests passing. Now 73 pass (`.venv/bin/python -m pytest -q`), ruff clean, web lint and build pass, 18 browser tests pass on the public build (1 skipped: the live YouTube probe) |
+| Tests at the start | 28 pytest tests passing. Now 74 pass (`.venv/bin/python -m pytest -q`), ruff clean, web lint and build pass, 18 browser tests pass on the public build (1 skipped: the live YouTube probe) |
 
 ### Saved-model reproduction (measured: `reports/v3/reproduction.json`)
 
@@ -112,8 +112,25 @@ The strict decoder removes the overshoot and does not find more highlights. In d
 
 - Jobs: `queued → validating → extracting → inferring → rendering → complete | failed | cancelled`. Stages only, no invented percentage. A restart marks running jobs failed. Tokens are per job; another job's token gets 404. Delete removes the files. Retention 24 hours.
 - The API binds to 127.0.0.1 and allows only the local frontends by CORS. The public build has no service address, makes no request to the visitor's machine, shows the setup steps and has no file input.
-- **Real-media smoke test: blocked.** No authorized footage was supplied. Mechanics were exercised with a generated test tone and colour bars, which is not football and proves nothing about highlight quality. The clip-upload screenshots in `docs/screenshots/upload-highlights-*.jpg` show that test pattern.
-- **Video to coverage: partial.** `src/gridiron_lens/videocov/geometry.py` fits and validates a field homography on held-out landmarks, maps reviewed tracks with visibility masks, derives causal velocity and applies gates that return `insufficient evidence` with reasons. **Not built:** player detection, tracking, the review interface, any run on real footage. No labelled video evaluation exists. The API reports this capability as not ready.
+- **Real-media smoke test: done on 2026-10-06** with a game video the owner supplied (high-school game, 1080p, 112 min 25 s, 3.48 GB; input SHA-256 `3da9c23c…5438c`). It stays in `data/local_media/`; no frame, cut or screenshot of it is published.
+  - Full game from the command line, loudness baseline, 180 s reel: 35.7 s of processing, 352 MB peak in the worker (514 MB for the whole process), 12 clips, selected 180.0 s, rendered reel 180.2 s by ffprobe.
+  - **It found a real bug.** Two picks whose padding overlapped were cut separately, so their shared seconds played twice and the first rendered reel ran 188.2 s. Fixed by cutting merged spans; regression test `test_overlapping_padding_does_not_play_twice_in_the_reel`.
+  - The file's audio track ends 145 s before its video; the timeline covers the audio.
+  - What the baseline picked: the third-ranked moment is the halftime marching band. Loudness finds loud things, not plays. That is the baseline's known limit, now seen on real footage.
+  - A 5-minute excerpt went through the upload page in Chrome at 1440 and 390 px: the job completed, a candidate seeks to its start and stops at its end, the playhead follows, clicking the graph seeks, export and delete work.
+  - The clip-upload screenshots in `docs/screenshots/upload-highlights-*.jpg` still show the generated test pattern, because the real footage is not published.
+- **Video to coverage: partial.** `src/gridiron_lens/videocov/geometry.py` fits and validates a field homography on held-out landmarks, maps reviewed tracks with visibility masks, derives causal velocity and applies gates that return `insufficient evidence` with reasons. **Not built:** player detection, tracking, the review interface. No clip has been processed end to end, and no labelled video evaluation of coverage exists. The API reports this capability as not ready.
+- **Calibration measured on real footage (2026-10-06, `reports/v3/videocov_helmet_eval.json`).** The owner supplied the NFL Helmet Assignment release: 60 plays, sideline and end-zone views, labelled helmet boxes and 10 Hz tracking for all 22 players. Only its tables and one sample play were extracted. For 3,600 frames in the 3 s after the snap, a homography was fitted from helmet centres to tracked positions on three quarters of the players and scored on the rest:
+
+  | View | Median error | 90th percentile | Within 1 yard | Frames passing the 1-yard gate |
+  |---|---:|---:|---:|---:|
+  | Sideline | 0.48 yd | 1.19 yd | 85.7% | 75% |
+  | End zone | 0.60 yd | 1.77 yd | 74.4% | 50% |
+
+  - **One calibration goes stale fast.** Fitted at the snap and reused, the median error is 0.6 yd at the snap, 1.0 yd after 1 s, 1.3 yd after 1.5 s and 3.1 yd after 3 s (sideline). A play needs re-calibration at least every half second, or camera-motion tracking.
+  - **Timing.** The release's stated alignment is close but not the best fit: shifting the video by about 6 frames (0.1 s) lowers the error from 0.85 to 0.81 yd. Nothing was tuned to it.
+  - **What this does not show.** Helmet identities came from the released labels, not a detector. Points are helmet centres, not feet. These are fixed coaching cameras, not a broadcast. The release has no coverage labels and 2 of its 60 plays are passes, so it says nothing about coverage accuracy.
+  - The owner's game video is a single panning, zooming press-box camera. With no detector or tracker built, it could not be run through this path.
 - *Proposed:* container and cost estimate for hosting; private object storage with direct uploads. Nothing was provisioned.
 
 ## 4. Game prediction
@@ -141,7 +158,7 @@ v3 against Elo: −0.0062 to −0.0008. Against frozen v2: −0.0030 to +0.0030.
 
 | Check | Result |
 |---|---|
-| pytest | 73 passed |
+| pytest | 74 passed |
 | ruff | clean |
 | Web lint, type check, build | pass (20 routes) |
 | Web unit tests | 6 passed |
@@ -152,15 +169,18 @@ v3 against Elo: −0.0062 to −0.0008. Against frozen v2: −0.0030 to +0.0030.
 | Strict reel duration, incl. the 188 s case | pass (`tests/test_highlights_decode.py`) |
 | Forecast timing, DST, missing kickoff | pass (`tests/test_pregame_forecast_v3.py`) |
 | Browser: tracking upload, clip upload, playhead and seek sync, clip stop at end, export, errors, keyboard cutoffs, 390 px | pass, against the local service |
-| Real authorized media smoke test | **blocked: no media** |
+| Real authorized media smoke test | pass after one fix (reel overshoot from duplicated overlap) |
+| Calibration on real paired video and tracking | measured (table in section 3) |
 | Fresh-season coverage validation | **blocked: dataset not downloaded** |
 | Screen-reader pass | not done |
 
 ## What the owner needs to do
 
-1. Put one short clip with crowd and commentary audio, and one clear wide-view play, in `data/local_media/` (already ignored by Git).
-2. Download the BDB 2026 Prediction archive into `data/raw/bdb2026_prediction/` (see `reports/v3/coverage_fresh_data.json`).
+1. Done on 2026-10-06: a game video and the Helmet Assignment release were supplied.
+2. Still needed for fresh coverage validation: download the BDB 2026 Prediction archive into `data/raw/bdb2026_prediction/` (see `reports/v3/coverage_fresh_data.json`).
 3. Decide whether to install the forecast schedule.
+
+The Helmet Assignment release is a different dataset from the BDB 2026 Prediction release; it cannot validate the coverage model.
 
 ## Next smallest experiment
 

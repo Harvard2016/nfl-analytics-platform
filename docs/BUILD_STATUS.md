@@ -285,6 +285,7 @@ Branch `feat/inference-and-model-v3`. Full detail, commands and blocked items: `
 - Trained multimodal scoring of new video: the CLIP, SlowFast and PANN extractors are not installed or parity-checked.
 - Commentary mode for uploads: no local speech-to-text.
 - Video to coverage: calibration and gating library only; no detection, tracking or review interface; never run on footage.
-- Real-media smoke test: no authorized footage supplied.
+- Real-media smoke test: **done 2026-10-06** on an owner-supplied game video. It exposed a reel that ran 188 s for a 180 s budget when padded clips overlapped; fixed and tested. Detail in `docs/V3_EXECUTION_STATUS.md`.
+- Field calibration measured on real paired video and tracking (Helmet Assignment release): median error on held-out players 0.48 yd from the sideline view and 0.60 yd from the end zone; a calibration reused for 1.5 s drifts past 1 yd.
 - Event detection: no reviewed labels.
 - The public site has no inference service; the upload pages explain local operation there.

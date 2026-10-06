@@ -91,18 +91,20 @@ def run_highlights(store: Store, row, path: Path) -> dict:
     rank = np.empty(len(score), int)
     rank[order] = np.arange(len(score), 0, -1) * 100 // len(score)
     check(store, jid)
-    store.update(jid, state="rendering", stage_note=f"cutting {len(segs)} clips and the reel (re-encoded for exact durations)")
+    store.update(jid, state="rendering", stage_note="cutting clips and the reel (re-encoded for exact durations)")
     assets, cuts, parts = {}, [], []
     ext = ".mp4" if info["has_video"] else ".m4a"
-    for s in sorted(segs, key=lambda s: s.start_s):
+    # Cut merged spans, not individual segments: two segments whose padding overlaps become one clip, so no second plays twice.
+    for a, b in D.merge([(s.start_s, s.end_s) for s in segs]):
+        inside = sorted((s for s in segs if s.start_s >= a - 1e-9 and s.end_s <= b + 1e-9), key=lambda s: s.rank)
         name = f"cut_{len(cuts) + 1:02d}{ext}"
-        media.cut(path, d / "media" / name, s.start_s, s.end_s, info["has_video"], lambda: store.cancelled(jid))
+        media.cut(path, d / "media" / name, a, b, info["has_video"], lambda: store.cancelled(jid))
         got = media.probe(d / "media" / name)["duration_s"]
         assets[name] = name
         parts.append(d / "media" / name)
-        cuts.append({"asset": name, "rank_in_reel": s.rank, "candidate_moment_s": round(s.moment_s, 2), "clip_start_s": round(s.start_s, 3), "clip_end_s": round(s.end_s, 3),
-                     "requested_s": round(s.end_s - s.start_s, 3), "ffprobe_duration_s": round(got, 3), "loudness_above_background_db": round(float(s.score), 2),
-                     "sha256": sha256_file(d / "media" / name)})
+        cuts.append({"asset": name, "rank_in_reel": inside[0].rank, "candidate_moment_s": round(inside[0].moment_s, 2), "moments_s": [round(s.moment_s, 2) for s in inside],
+                     "clip_start_s": round(a, 3), "clip_end_s": round(b, 3), "requested_s": round(b - a, 3), "ffprobe_duration_s": round(got, 3),
+                     "loudness_above_background_db": round(float(inside[0].score), 2), "sha256": sha256_file(d / "media" / name)})
     reel = None
     if parts:
         media.concat(parts, d / "media" / f"reel{ext}", d / "media" / "concat.txt", lambda: store.cancelled(jid))
@@ -110,7 +112,7 @@ def run_highlights(store: Store, row, path: Path) -> dict:
         assets[f"reel{ext}"] = f"reel{ext}"
         reel = {"asset": f"reel{ext}", "ffprobe_duration_s": round(media.probe(d / "media" / f"reel{ext}")["duration_s"], 3), "budget_s": budget,
                 "decoder_output_s": round(D.output_seconds(segs), 3),
-                "render_tolerance": "The selected seconds never exceed the budget. The rendered container can be longer by up to one audio frame per file (about 64 ms at 16 kHz) because AAC is written in whole frames.", "sha256": sha256_file(d / "media" / f"reel{ext}")}
+                "render_tolerance": "The selected seconds never exceed the budget. The rendered file can be longer by a frame per cut (about 10 ms of video at 30 frames per second, up to 64 ms of audio) because video and AAC audio are written in whole frames.", "sha256": sha256_file(d / "media" / f"reel{ext}")}
     assets["source"] = path.name
     store.update(jid, assets=assets)
     short = len(vol) < HM.BACKGROUND_CLIPS

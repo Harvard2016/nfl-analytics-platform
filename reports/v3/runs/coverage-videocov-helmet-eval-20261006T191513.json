@@ -1,0 +1,88 @@
+{
+  "module": "coverage",
+  "run_id": "coverage-videocov-helmet-eval-20261006T191513",
+  "name": "videocov-helmet-eval",
+  "results_version": "v3",
+  "started_at": "2026-10-06T19:15:13+00:00",
+  "git_commit": "6fd50f2b04ec242c867867366fcca104979fb5c1+uncommitted",
+  "seed": 20261006,
+  "config": {},
+  "environment": {
+    "python": "3.13.9",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "device": "cpu",
+    "packages": {
+      "numpy": "2.5.3",
+      "polars": "1.44.2",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1",
+      "pandas": "3.0.6",
+      "duckdb": "1.5.6",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "data": {},
+  "split": {},
+  "target": "field position of held-out players (yards)",
+  "population": "60 plays x 2 views, frames 0-3 s after the snap",
+  "exclusions": null,
+  "input_cutoff": null,
+  "features": null,
+  "preprocessing": null,
+  "calibration": null,
+  "hyperparameters": null,
+  "metrics": {
+    "held_out": {
+      "Sideline": {
+        "player_errors": 38519,
+        "median_yards": 0.4797821168067309,
+        "mean_yards": 0.7460753392151824,
+        "p90_yards": 1.191715093814483,
+        "share_within_1_yard": 0.8572392845089436,
+        "share_within_2_yards": 0.9639398738285002
+      },
+      "Endzone": {
+        "player_errors": 32868,
+        "median_yards": 0.5996740379003691,
+        "mean_yards": 1.6949866060245873,
+        "p90_yards": 1.7735087528055866,
+        "share_within_1_yard": 0.7444018498235365,
+        "share_within_2_yards": 0.9160277473530486
+      }
+    },
+    "gate": {
+      "Sideline": {
+        "frames": 1800,
+        "median_frame_rms_yards": 0.7365000651564659,
+        "share_of_frames_passing_1_yard_gate": 0.75,
+        "share_of_frames_under_2_yards": 0.9577777777777777
+      },
+      "Endzone": {
+        "frames": 1800,
+        "median_frame_rms_yards": 1.0067591658491346,
+        "share_of_frames_passing_1_yard_gate": 0.4955555555555556,
+        "share_of_frames_under_2_yards": 0.7811111111111111
+      }
+    }
+  },
+  "uncertainty": {},
+  "ablations": {},
+  "outputs": {
+    "report": {
+      "path": "reports/v3/videocov_helmet_eval.json",
+      "sha256": "15b7c5230f74cf7624357a02c5b7d09ff1a6e8b4be14d05f7d78996fc882eb3d"
+    }
+  },
+  "notes": [],
+  "evidence_kinds": {
+    "inputs": "observed",
+    "labels": "released",
+    "outputs": "model prediction",
+    "explanations": "model-generated interpretation",
+    "summaries": "statistical association"
+  },
+  "finished_at": "2026-10-06T19:15:13+00:00",
+  "train_seconds": 0.2,
+  "peak_memory_mb": 550.3
+}

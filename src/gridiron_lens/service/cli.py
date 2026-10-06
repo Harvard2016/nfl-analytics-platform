@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import time
 from pathlib import Path
@@ -55,7 +56,10 @@ def main() -> None:
         return
     st = Store()
     jid, _tok, dest = st.create("highlights", "loudness_baseline", {"reel_seconds": a.reel, "lead_s": a.lead, "tail_s": a.tail, "local_cli": True}, a.file.suffix.lower() or ".bin")
-    shutil.copyfile(a.file, dest)
+    try:
+        os.link(a.file, dest)                       # same volume: no second copy of a multi-gigabyte file
+    except OSError:
+        shutil.copyfile(a.file, dest)
     process(st, st.get(jid))
     row = st.get(jid)
     if row["state"] != "complete":

@@ -2,6 +2,7 @@
 
 Media here is a generated test tone and colour bars (ffmpeg lavfi): it checks mechanics only and is not football footage.
 """
+import itertools
 import shutil
 import subprocess
 import time
@@ -139,6 +140,20 @@ def test_highlight_job_cuts_within_budget_and_serves_ranges_safely(client, tone)
     for evil in ("..%2F..%2Fjobs.sqlite", "%2Fetc%2Fpasswd", "input.mp4", "..%5Cx"):
         assert client.get(f"/v1/jobs/{j['id']}/media/{evil}", headers=h).status_code == 404
     assert media.probe(client.store.dir(j["id"]) / "media" / r["reel"]["asset"])["has_video"]
+
+
+@needs_ffmpeg
+def test_overlapping_padding_does_not_play_twice_in_the_reel(client, tone):
+    """Found on real footage: two picks 6 s apart with 4 s padding were cut separately and the reel ran 8 s over budget."""
+    j = _submit(client, "highlights", "clip.mp4", tone.read_bytes(), options='{"reel_seconds": 30, "lead_s": 5, "tail_s": 5}').json()
+    s = _wait(client, j["id"], j["access_token"])
+    assert s["state"] == "complete", s
+    r = client.get(f"/v1/jobs/{j['id']}/result", headers={"Authorization": f"Bearer {j['access_token']}"}).json()
+    spans = sorted((c["clip_start_s"], c["clip_end_s"]) for c in r["candidates"])
+    assert all(b1 < a2 for (_, b1), (a2, _) in itertools.pairwise(spans))                                       # rendered clips never overlap
+    assert abs(sum(b - a for a, b in spans) - r["reel"]["decoder_output_s"]) < 1e-6
+    assert r["reel"]["ffprobe_duration_s"] <= 30 + 0.1 * len(spans) + 0.1                                   # one audio frame of slack per file
+    assert any(len(c["moments_s"]) > 1 for c in r["candidates"]) or len(spans) >= 2
 
 
 @needs_ffmpeg

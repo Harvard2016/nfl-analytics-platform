@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-04",
+  "checked": "2026-10-06",
   "note": "One entry per source. 'display' says what the public site may show. Code licences are separate from data and media rights.",
   "sources": [
     {
@@ -36,6 +36,30 @@
       "licence_stated": "CC BY-NC 4.0 (dataset card), revision fdedf750",
       "processing": "local non-commercial research",
       "display": "derived scores, loudness curves, labels, timestamps, links to the public source videos, and short transcript excerpts (100 characters or fewer). No video, no audio, no full transcripts. The dataset licence does not grant rights to the broadcasts themselves.",
+      "independently_reviewed": false
+    },
+    {
+      "id": "helmet_assignment",
+      "module": "coverage (video research)",
+      "name": "NFL Health & Safety - Helmet Assignment (labelled helmet boxes, sideline and end-zone video, tracking for 60 plays)",
+      "url": "https://www.kaggle.com/competitions/nfl-health-and-safety-helmet-assignment/data",
+      "terms_url": "https://www.kaggle.com/competitions/nfl-health-and-safety-helmet-assignment/rules",
+      "attribution": "NFL / Kaggle",
+      "licence_stated": "competition rules; not reviewed here",
+      "processing": "local measurement of field calibration only; tables and one sample play extracted",
+      "display": "aggregate calibration error figures only. No video, frame, helmet box or tracking row is published",
+      "independently_reviewed": false
+    },
+    {
+      "id": "owner_media",
+      "module": "highlights (upload smoke test)",
+      "name": "Game video supplied by the project owner (high-school game, 2015)",
+      "url": null,
+      "terms_url": null,
+      "attribution": "supplied by the owner on 2026-10-06",
+      "licence_stated": "owner states it may be processed locally",
+      "processing": "local only, in data/local_media/ (ignored by Git)",
+      "display": "nothing: no frame, audio, cut or screenshot of it is published; only timings, durations and file hashes are reported",
       "independently_reviewed": false
     }
   ],

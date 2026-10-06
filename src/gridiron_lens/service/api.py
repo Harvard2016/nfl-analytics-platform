@@ -39,7 +39,7 @@ def capabilities() -> dict:
                                        "reason": "The H3 bundle reproduces cached scores, but the CLIP, SlowFast and PANN extractors that produce its inputs are not installed or parity-checked here. Without them the trained model cannot score a new file."},
                 "commentary_experimental": {"ready": False, "reason": "No local speech-to-text model is installed."}}},
             "video_coverage": {"kind": "experimental video coverage", "ready": False,
-                               "reason": "Detection, tracking and review tools are not built. Field calibration and trajectory mapping exist as a library only."},
+                               "reason": "Player detection, tracking and the review tools are not built. Field calibration has been measured on labelled helmet positions from real sideline and end-zone video, but no clip can be processed end to end."},
         },
     }
 

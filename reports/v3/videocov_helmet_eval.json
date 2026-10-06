@@ -1,0 +1,140 @@
+{
+  "module": "video-coverage (research)",
+  "version": "videocov-helmet-eval-v1",
+  "created_at_utc": "2026-10-06T19:16:11+00:00",
+  "source": "NFL Health & Safety - Helmet Assignment (Kaggle), training split: 60 plays x 2 views, labelled helmet boxes and 10 Hz tracking",
+  "files": {
+    "train_labels.csv": "204ad18caf62c1baf99f90719adce6dc73877c0a3e1be696140c98b8b716a04e",
+    "train_player_tracking.csv": "9d8b4e978175fc810e9f8eddff2e4b1ddb8f9cf3ddb31125fb58cb40f451fd46"
+  },
+  "what_is_measured": "Homography from helmet centres to tracked field positions, fitted on three quarters of the visible players in a frame and scored on the rest. Frames every 0.1 s for 3 s after the snap.",
+  "what_is_not_measured": [
+    "coverage accuracy (the release has no coverage labels; 2 of 60 plays are passes)",
+    "player detection or identity (helmet ids come from the released labels)",
+    "foot-point localisation (helmet centres are used)",
+    "broadcast footage (these are fixed all-22 style sideline and end-zone cameras)"
+  ],
+  "frames_used": 3600,
+  "videos": 120,
+  "held_out_player_error": {
+    "Sideline": {
+      "player_errors": 38519,
+      "median_yards": 0.4797821168067309,
+      "mean_yards": 0.7460753392151824,
+      "p90_yards": 1.191715093814483,
+      "share_within_1_yard": 0.8572392845089436,
+      "share_within_2_yards": 0.9639398738285002
+    },
+    "Endzone": {
+      "player_errors": 32868,
+      "median_yards": 0.5996740379003691,
+      "mean_yards": 1.6949866060245873,
+      "p90_yards": 1.7735087528055866,
+      "share_within_1_yard": 0.7444018498235365,
+      "share_within_2_yards": 0.9160277473530486
+    }
+  },
+  "frame_gate": {
+    "Sideline": {
+      "frames": 1800,
+      "median_frame_rms_yards": 0.7365000651564659,
+      "share_of_frames_passing_1_yard_gate": 0.75,
+      "share_of_frames_under_2_yards": 0.9577777777777777
+    },
+    "Endzone": {
+      "frames": 1800,
+      "median_frame_rms_yards": 1.0067591658491346,
+      "share_of_frames_passing_1_yard_gate": 0.4955555555555556,
+      "share_of_frames_under_2_yards": 0.7811111111111111
+    }
+  },
+  "timing_check": {
+    "note": "Held-out frame RMS when the video is shifted against the tracking by this many frames. The documented alignment (0) should be at or near the minimum.",
+    "median_frame_rms_yards_by_offset": {
+      "-12": 1.1441110952279532,
+      "-6": 0.9664278406794115,
+      "-3": 0.9022036982666748,
+      "0": 0.8472983391383768,
+      "3": 0.8219423649001683,
+      "6": 0.8126283096682883,
+      "12": 0.9037181825521448
+    }
+  },
+  "stale_calibration": {
+    "Sideline": {
+      "0.00s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 0.6056746288620437,
+        "p90_rms_yards": 0.8944007015767531
+      },
+      "0.25s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 0.5442798856947009,
+        "p90_rms_yards": 0.8043091301688567
+      },
+      "0.50s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 0.6561529556526959,
+        "p90_rms_yards": 0.8714127013859755
+      },
+      "1.00s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 1.0301318755566893,
+        "p90_rms_yards": 1.4193891599609378
+      },
+      "1.50s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 1.2880846412858953,
+        "p90_rms_yards": 2.5613718679531288
+      },
+      "2.00s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 1.8013141428422879,
+        "p90_rms_yards": 3.7814891657320513
+      },
+      "3.00s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 3.132510702488389,
+        "p90_rms_yards": 6.8751735714089905
+      }
+    },
+    "Endzone": {
+      "0.00s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 0.783356728706853,
+        "p90_rms_yards": 1.2294579455376573
+      },
+      "0.25s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 0.718639623858539,
+        "p90_rms_yards": 1.0491604520537396
+      },
+      "0.50s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 0.8879118956543521,
+        "p90_rms_yards": 1.3670059678047355
+      },
+      "1.00s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 1.3273932575556084,
+        "p90_rms_yards": 2.4332161755236403
+      },
+      "1.50s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 1.6688470932889812,
+        "p90_rms_yards": 4.153151660288056
+      },
+      "2.00s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 1.9193105169854228,
+        "p90_rms_yards": 5.728562107895835
+      },
+      "3.00s after the snap": {
+        "plays": 60,
+        "median_rms_yards": 3.3949519320201667,
+        "p90_rms_yards": 8.447179584506898
+      }
+    }
+  },
+  "stale_note": "One homography fitted at the snap and reused later in the same play. Error growth is camera motion (pan, zoom) plus players leaving the helmet plane."
+}

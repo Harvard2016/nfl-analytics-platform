@@ -1,34 +1,80 @@
 {
-  "checked": "2026-10-04",
+  "checked": "2026-10-06",
   "note": "One entry per source. 'display' says what the public site may show. Code licences are separate from data and media rights.",
   "sources": [
     {
-      "id": "bdb2026", "module": "coverage", "name": "NFL Big Data Bowl 2026 Analytics (2023 season tracking and coverage labels)",
-      "url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-analytics/data", "terms_url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-analytics/rules",
-      "attribution": "NFL / Kaggle Big Data Bowl 2026", "licence_stated": "CC BY-NC 4.0 on the data page (per the project handoff research; not re-read here)",
+      "id": "bdb2026",
+      "module": "coverage",
+      "name": "NFL Big Data Bowl 2026 Analytics (2023 season tracking and coverage labels)",
+      "url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-analytics/data",
+      "terms_url": "https://www.kaggle.com/competitions/nfl-big-data-bowl-2026-analytics/rules",
+      "attribution": "NFL / Kaggle Big Data Bowl 2026",
+      "licence_stated": "CC BY-NC 4.0 on the data page (per the project handoff research; not re-read here)",
       "processing": "local training and evaluation, under the rules the owner accepted",
       "display": "public website display confirmed by the project owner on 2026-10-04: compact per-play exports for a sample of test plays; raw files are never published",
       "independently_reviewed": false
     },
     {
-      "id": "nflverse", "module": "pregame", "name": "nflverse schedules/results (nfldata games.csv) and play-by-play",
-      "url": "https://github.com/nflverse/nflverse-data", "terms_url": "https://github.com/nflverse/nflverse-data",
-      "attribution": "nflverse", "licence_stated": "CC BY 4.0 on the nflverse-data repository; the nfldata schedule file has no separate licence statement",
-      "processing": "local feature building and backtests", "display": "derived per-game features, probabilities and final scores",
+      "id": "nflverse",
+      "module": "pregame",
+      "name": "nflverse schedules/results (nfldata games.csv) and play-by-play",
+      "url": "https://github.com/nflverse/nflverse-data",
+      "terms_url": "https://github.com/nflverse/nflverse-data",
+      "attribution": "nflverse",
+      "licence_stated": "CC BY 4.0 on the nflverse-data repository; the nfldata schedule file has no separate licence statement",
+      "processing": "local feature building and backtests",
+      "display": "derived per-game features, probabilities and final scores",
       "independently_reviewed": false
     },
     {
-      "id": "svhighlights", "module": "highlights", "name": "SVHighlights, American-football subset (features, labels, loudness, transcripts, shots)",
-      "url": "https://huggingface.co/datasets/idong1004/SVHighlights", "terms_url": "https://creativecommons.org/licenses/by-nc/4.0/",
-      "attribution": "Lee, Ki, Kang and Kim, SVHighlights, KDD 2026", "licence_stated": "CC BY-NC 4.0 (dataset card), revision fdedf750",
+      "id": "svhighlights",
+      "module": "highlights",
+      "name": "SVHighlights, American-football subset (features, labels, loudness, transcripts, shots)",
+      "url": "https://huggingface.co/datasets/idong1004/SVHighlights",
+      "terms_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "attribution": "Lee, Ki, Kang and Kim, SVHighlights, KDD 2026",
+      "licence_stated": "CC BY-NC 4.0 (dataset card), revision fdedf750",
       "processing": "local non-commercial research",
       "display": "derived scores, loudness curves, labels, timestamps, links to the public source videos, and short transcript excerpts (100 characters or fewer). No video, no audio, no full transcripts. The dataset licence does not grant rights to the broadcasts themselves.",
+      "independently_reviewed": false
+    },
+    {
+      "id": "helmet_assignment",
+      "module": "coverage (video research)",
+      "name": "NFL Health & Safety - Helmet Assignment (labelled helmet boxes, sideline and end-zone video, tracking for 60 plays)",
+      "url": "https://www.kaggle.com/competitions/nfl-health-and-safety-helmet-assignment/data",
+      "terms_url": "https://www.kaggle.com/competitions/nfl-health-and-safety-helmet-assignment/rules",
+      "attribution": "NFL / Kaggle",
+      "licence_stated": "competition rules; not reviewed here",
+      "processing": "local measurement of field calibration only; tables and one sample play extracted",
+      "display": "aggregate calibration error figures only. No video, frame, helmet box or tracking row is published",
+      "independently_reviewed": false
+    },
+    {
+      "id": "owner_media",
+      "module": "highlights (upload smoke test)",
+      "name": "Game video supplied by the project owner (high-school game, 2015)",
+      "url": null,
+      "terms_url": null,
+      "attribution": "supplied by the owner on 2026-10-06",
+      "licence_stated": "owner states it may be processed locally",
+      "processing": "local only, in data/local_media/ (ignored by Git)",
+      "display": "nothing: no frame, audio, cut or screenshot of it is published; only timings, durations and file hashes are reported",
       "independently_reviewed": false
     }
   ],
   "not_used": [
-    {"id": "bdb2025", "reason": "removed from Kaggle at the host's request"},
-    {"id": "sumersports_supplement", "reason": "another model's coverage predictions; never used as input or target"},
-    {"id": "broadcast_video", "reason": "no authorized footage; none downloaded"}
+    {
+      "id": "bdb2025",
+      "reason": "removed from Kaggle at the host's request"
+    },
+    {
+      "id": "sumersports_supplement",
+      "reason": "another model's coverage predictions; never used as input or target"
+    },
+    {
+      "id": "broadcast_video",
+      "reason": "no authorized footage; none downloaded"
+    }
   ]
 }
