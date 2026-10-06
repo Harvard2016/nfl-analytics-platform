@@ -33,7 +33,12 @@ def probe(path: Path) -> dict:
         duration = float(info["format"]["duration"])
     except (KeyError, ValueError) as e:
         raise MediaError("The file has no readable duration. It may be truncated.") from e
-    return {"duration_s": duration, "has_video": v is not None, "has_audio": a is not None, "width": v and v.get("width"), "height": v and v.get("height"),
+    sd = lambda st: float(st["duration"]) if st and st.get("duration") not in (None, "N/A") else None
+    fps = None
+    if v and v.get("r_frame_rate") and "/" in v["r_frame_rate"]:
+        n, d = v["r_frame_rate"].split("/")
+        fps = float(n) / float(d) if float(d) else None
+    return {"duration_s": duration, "video_duration_s": sd(v), "audio_duration_s": sd(a), "fps": fps, "has_video": v is not None, "has_audio": a is not None, "width": v and v.get("width"), "height": v and v.get("height"),
             "video_codec": v and v.get("codec_name"), "audio_codec": a and a.get("codec_name"), "format": info["format"].get("format_name")}
 
 
@@ -78,6 +83,22 @@ def cut(src: Path, dest: Path, start_s: float, end_s: float, has_video: bool, ca
     run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start_s:.3f}", "-i", str(src), "-t", f"{end_s - start_s:.3f}", *codec, str(dest)], cancelled)
 
 
-def concat(parts: list[Path], dest: Path, listing: Path, cancelled=None) -> None:
-    listing.write_text("".join(f"file '{p.name}'\n" for p in parts))
-    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(listing), "-c", "copy", "-movflags", "+faststart", str(dest)], cancelled)
+def reel(src: Path, dest: Path, spans: list[tuple[float, float]], budget_s: float, has_video: bool, fps: float | None, cancelled=None) -> None:
+    """One encode of all spans in order, hard-limited so that no stream of the exported file runs past the budget.
+
+    Concatenating separately encoded cuts adds a little per file (each cut ends on a whole video frame and a whole AAC frame),
+    which is how a 180 s selection once rendered as 180.2 s. Here the spans are joined inside one filter graph and the output
+    is cut one video frame short of the budget, so the container, video and audio durations are all at or under it.
+    """
+    cmd = ["ffmpeg", "-y", "-loglevel", "error"]
+    for a, b in spans:
+        cmd += ["-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", str(src)]
+    n = len(spans)
+    limit = budget_s - (1.0 / fps if has_video and fps else 0.03)
+    if has_video:
+        graph = "".join(f"[{i}:v:0][{i}:a:0]" for i in range(n)) + f"concat=n={n}:v=1:a=1[v][a]"
+        cmd += ["-filter_complex", graph, "-map", "[v]", "-map", "[a]", "-t", f"{limit:.3f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p", "-c:a", "aac", "-movflags", "+faststart", str(dest)]
+    else:
+        graph = "".join(f"[{i}:a:0]" for i in range(n)) + f"concat=n={n}:v=0:a=1[a]"
+        cmd += ["-filter_complex", graph, "-map", "[a]", "-t", f"{limit:.3f}", "-c:a", "aac", str(dest)]
+    run(cmd, cancelled)

@@ -131,7 +131,12 @@ def test_highlight_job_cuts_within_budget_and_serves_ranges_safely(client, tone)
     assert s["state"] == "complete", s
     r = client.get(f"/v1/jobs/{j['id']}/result", headers=h).json()
     assert r["mode"].startswith("loudness baseline") and r["evidence_streams_used"] == ["audio loudness"] and r["event_types"].startswith("none")
-    assert r["reel"]["decoder_output_s"] <= 12 and r["reel"]["ffprobe_duration_s"] <= 12 + 0.3               # strict budget, verified on the rendered file
+    reel = r["reel"]
+    assert reel["decoder_output_s"] <= 12 and reel["within_budget"]
+    for k in ("ffprobe_duration_s", "ffprobe_video_s", "ffprobe_audio_s"):                                   # the duration rule, checked on the exported file itself
+        assert 12 - 0.5 <= reel[k] <= 12, (k, reel[k])
+    again = media.probe(client.store.dir(j["id"]) / "media" / reel["asset"])
+    assert max(again["duration_s"], again["video_duration_s"], again["audio_duration_s"]) <= 12
     assert all(abs(c["ffprobe_duration_s"] - c["requested_s"]) < 0.25 for c in r["candidates"])
     assert any(11 <= c["candidate_moment_s"] % 15 <= 15 or c["candidate_moment_s"] % 15 <= 1 for c in r["candidates"])   # the loud bursts are found
     part = client.get(f"/v1/jobs/{j['id']}/media/{r['reel']['asset']}", headers=h | {"Range": "bytes=0-99"})
@@ -152,7 +157,7 @@ def test_overlapping_padding_does_not_play_twice_in_the_reel(client, tone):
     spans = sorted((c["clip_start_s"], c["clip_end_s"]) for c in r["candidates"])
     assert all(b1 < a2 for (_, b1), (a2, _) in itertools.pairwise(spans))                                       # rendered clips never overlap
     assert abs(sum(b - a for a, b in spans) - r["reel"]["decoder_output_s"]) < 1e-6
-    assert r["reel"]["ffprobe_duration_s"] <= 30 + 0.1 * len(spans) + 0.1                                   # one audio frame of slack per file
+    assert r["reel"]["within_budget"] and max(r["reel"]["ffprobe_duration_s"], r["reel"]["ffprobe_video_s"], r["reel"]["ffprobe_audio_s"]) <= 30   # never over, however many cuts
     assert any(len(c["moments_s"]) > 1 for c in r["candidates"]) or len(spans) >= 2
 
 

@@ -106,13 +106,19 @@ def run_highlights(store: Store, row, path: Path) -> dict:
                      "clip_start_s": round(a, 3), "clip_end_s": round(b, 3), "requested_s": round(b - a, 3), "ffprobe_duration_s": round(got, 3),
                      "loudness_above_background_db": round(float(inside[0].score), 2), "sha256": sha256_file(d / "media" / name)})
     reel = None
-    if parts:
-        media.concat(parts, d / "media" / f"reel{ext}", d / "media" / "concat.txt", lambda: store.cancelled(jid))
-        (d / "media" / "concat.txt").unlink(missing_ok=True)
+    if cuts:
+        spans = [(c["clip_start_s"], c["clip_end_s"]) for c in cuts]
+        media.reel(path, d / "media" / f"reel{ext}", spans, budget, info["has_video"], info.get("fps"), lambda: store.cancelled(jid))
         assets[f"reel{ext}"] = f"reel{ext}"
-        reel = {"asset": f"reel{ext}", "ffprobe_duration_s": round(media.probe(d / "media" / f"reel{ext}")["duration_s"], 3), "budget_s": budget,
-                "decoder_output_s": round(D.output_seconds(segs), 3),
-                "render_tolerance": "The selected seconds never exceed the budget. The rendered file can be longer by a frame per cut (about 10 ms of video at 30 frames per second, up to 64 ms of audio) because video and AAC audio are written in whole frames.", "sha256": sha256_file(d / "media" / f"reel{ext}")}
+        pr = media.probe(d / "media" / f"reel{ext}")
+        longest = max(x for x in (pr["duration_s"], pr["video_duration_s"], pr["audio_duration_s"]) if x is not None)
+        reel = {"asset": f"reel{ext}", "ffprobe_duration_s": round(pr["duration_s"], 3), "ffprobe_video_s": pr["video_duration_s"] and round(pr["video_duration_s"], 3),
+                "ffprobe_audio_s": pr["audio_duration_s"] and round(pr["audio_duration_s"], 3), "budget_s": budget, "decoder_output_s": round(D.output_seconds(segs), 3),
+                "within_budget": bool(longest <= budget + 1e-3),
+                "duration_rule": "The exported reel's container, video and audio durations are each at or under the budget. It is encoded in one pass and ends up to about a quarter of a second before the selected seconds do, never after. Individual cut files can each run one frame over their own span.",
+                "sha256": sha256_file(d / "media" / f"reel{ext}")}
+        if not reel["within_budget"]:
+            raise media.MediaError(f"The rendered reel is {longest:.3f} s for a {budget:.0f} s budget. It was not released.")
     assets["source"] = path.name
     store.update(jid, assets=assets)
     short = len(vol) < HM.BACKGROUND_CLIPS
