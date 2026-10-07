@@ -19,6 +19,10 @@ npm run dev
 | `public/art/` | Original decorative stadium and helmet illustrations |
 | `tests/` | Unit tests, public-browser checks and mocked configured-upload regressions |
 
+## TypeScript compiler and tooling API
+
+TypeScript 7 provides the native `tsc` command but no JavaScript compiler API. Following [Microsoft's migration guide](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/#running-side-by-side-with-typescript-6.0), `@typescript/native` aliases TypeScript 7 while `typescript` aliases the official TypeScript 6 compatibility package. Next's default CLI type checker uses `tsc` 7; typescript-eslint and other API consumers import TypeScript 6. Run `npx tsc --version` to check the CLI. The lint tests verify that TypeScript syntax and the existing rules still work.
+
 ## Checks
 
 ```sh
