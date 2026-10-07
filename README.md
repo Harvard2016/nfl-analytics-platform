@@ -19,7 +19,6 @@ One NFL analytics website. Three independently built ML systems. Evidence you ca
   <img src="docs/assets/readme/home.jpg" alt="The live Gridiron Lens homepage: stadium artwork, Read the Field headline and links into the three systems" width="100%">
 </a>
 
-*An actual screenshot of the deployed website. Click to explore.*
 
 </div>
 
