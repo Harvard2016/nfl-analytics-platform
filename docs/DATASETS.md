@@ -1,8 +1,8 @@
 # Dataset notes (v3)
 
-Rights and display terms: `data/manifests/rights.json`. Nothing raw is in Git.
+Rights and display terms: `data/manifests/rights.json`. Nothing raw is in Git. Start with the [data map](../data/README.md) and [source catalog](../data/catalog.json). A fresh clone does not include the files listed as present on the owner's machine.
 
-| Source | Local path | Used for | State on 2026-10-04 |
+| Source | Local path | Used for | Owner-local state reported through 2026-10-06 |
 |---|---|---|---|
 | NFL Big Data Bowl 2026 Analytics (2023 tracking, coverage labels) | `data/raw/bdb2026/` | coverage training and evaluation | present; 14,108 pass plays, 14,105 labelled (4,013 man, 10,092 zone) |
 | NFL Big Data Bowl 2026 Prediction | `data/raw/bdb2026_prediction/` (only `test_input.csv` and checksums extracted) | one-time fresh evaluation | supplied 2026-10-06. No coverage labels in the archive. Its 143 test plays (three 2024 games) are labelled in the Analytics `supplementary_data.csv`, which also lists 3,758 more labelled 2024 plays that have no public tracking |
@@ -13,7 +13,7 @@ Rights and display terms: `data/manifests/rights.json`. Nothing raw is in Git.
 
 ## Source snapshots (game prediction)
 
-`bin/pregame-lens snapshot` downloads the schedule and the current season's play-by-play, hard-links the earlier seasons' files, and writes `snapshot.json` with a SHA-256 per file, fetch times, the server's Last-Modified/ETag where sent, and what the data covers. A snapshot proves the bytes were on this machine at that time. It does not prove when each row was first published upstream, and historical rows may have been revised since the games were played.
+`bin/pregame-lens snapshot` downloads the schedule and the current season's play-by-play, copies earlier seasons' files as independent bytes, and writes `snapshot.json` with a SHA-256 per file, fetch times, the server's Last-Modified/ETag where sent, and what the data covers. File sizes and hashes are verified before forecasting and publication, including older snapshots referenced by forecast records. A snapshot proves the bytes were on the research machine at that time. It does not prove when each row was first published upstream, and historical rows may have been revised since the games were played.
 
 ## Splits (unchanged, frozen)
 

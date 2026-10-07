@@ -1,6 +1,8 @@
 # Build status
 
-Last updated 2026-10-04 (experiments v2). Everything below was run on this machine. Local git only, branch `experiments-v2`: nothing pushed or deployed.
+Delivery status checked 2026-10-06: the repository is public, `main` is deployed on Vercel, and PR #2 (v3 plus review fixes) merged as `b8e6713`. See [V3_EXECUTION_STATUS.md](V3_EXECUTION_STATUS.md) for the third round and [PR2_REVIEW_FIXES.md](PR2_REVIEW_FIXES.md) for its fixes.
+
+The experiment tables below preserve the v2 results recorded on 2026-10-04. They were measured on the owner's research machine; a fresh clone does not contain its private datasets or weights.
 
 **Location changed.** The repository now lives at `~/Developer/nfl-analytics-platform`. `~/Documents` is synced by iCloud, which evicted 13,000+ project files and stalled every read. The old copy in `~/Documents/nfl-analytics-platform` is stale and can be deleted.
 

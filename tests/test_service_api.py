@@ -40,7 +40,7 @@ def tracking_ready(monkeypatch):
 @pytest.fixture
 def queued_client(tmp_path, tracking_ready):
     app = create_app(Store(tmp_path / "jobs"), start_worker=False)
-    with TestClient(app) as c:
+    with TestClient(app, base_url="http://127.0.0.1:8765") as c:
         c.store = app.state.store
         yield c
 
@@ -48,7 +48,7 @@ def queued_client(tmp_path, tracking_ready):
 @pytest.fixture
 def client(tmp_path):
     app = create_app(Store(tmp_path / "jobs"))
-    with TestClient(app) as c:
+    with TestClient(app, base_url="http://127.0.0.1:8765") as c:
         c.store = app.state.store
         yield c
     app.state.worker.stop.set()
@@ -74,6 +74,29 @@ def test_capabilities_hide_paths_and_state_what_is_not_ready(client):
     assert "/Users/" not in text and "/home/" not in text
     assert caps["modules"]["highlights"]["modes"]["trained_multimodal"]["ready"] is False
     assert caps["modules"]["video_coverage"]["ready"] is False
+
+
+@pytest.mark.parametrize("origin", ["https://foreign.example", "null"])
+def test_foreign_browser_post_is_rejected_before_job_creation(queued_client, origin):
+    response = queued_client.post("/v1/jobs", headers={"Origin": origin},
+                                  data={"module": "coverage"}, files={"file": ("play.csv", b"x")})
+    assert response.status_code == 403
+    assert list(queued_client.store.root.glob("*/input*")) == []
+
+
+def test_known_local_origin_and_nonbrowser_client_still_work(queued_client):
+    assert queued_client.get("/v1/capabilities").status_code == 200
+    r = queued_client.options("/v1/jobs", headers={"Origin": "http://localhost:3000",
+                                                 "Access-Control-Request-Method": "POST"})
+    assert r.status_code == 200
+    assert r.headers["access-control-allow-origin"] == "http://localhost:3000"
+    assert queued_client.post("/v1/jobs", headers={"Origin": "http://localhost:3000"},
+                              data={"module": "coverage"}, files={"file": ("play.csv", b"x")}).status_code == 202
+
+
+@pytest.mark.parametrize("host", ["foreign.example:8765", "localhost.foreign.example", "localhost:bad", "foreign@localhost"])
+def test_nonloopback_hosts_are_rejected(queued_client, host):
+    assert queued_client.get("/v1/capabilities", headers={"Host": host}).status_code == 400
 
 
 def test_input_rejection(client, tracking_ready):
@@ -125,7 +148,7 @@ def test_restart_marks_interrupted_jobs_failed_and_retention_sweeps(tmp_path):
     assert st.next_queued()["id"] == jid
     st.update(jid, state="inferring")
     app = create_app(Store(tmp_path / "jobs"), start_worker=False)                                           # a new process finds the job mid-run
-    with TestClient(app) as c:
+    with TestClient(app, base_url="http://127.0.0.1:8765") as c:
         s = c.get(f"/v1/jobs/{jid}", headers={"Authorization": f"Bearer {tok}"}).json()
         assert s["state"] == "failed" and "restarted" in s["error"]
         app.state.store.update(jid, expires_at="2000-01-01T00:00:00+00:00")
@@ -134,7 +157,7 @@ def test_restart_marks_interrupted_jobs_failed_and_retention_sweeps(tmp_path):
 
 def test_cancel_before_start_is_reported_as_cancelled(tmp_path, tracking_ready):
     app = create_app(Store(tmp_path / "jobs"), start_worker=False)
-    with TestClient(app) as c:
+    with TestClient(app, base_url="http://127.0.0.1:8765") as c:
         j = _submit(c, "coverage", "a.csv", b"player_id,frame,side,x,y\n").json()
         h = {"Authorization": f"Bearer {j['access_token']}"}
         assert c.post(f"/v1/jobs/{j['id']}/cancel", headers=h).json()["state"] == "cancelled"

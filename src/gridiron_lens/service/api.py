@@ -16,6 +16,7 @@ from fastapi.responses import JSONResponse, Response, StreamingResponse
 from ..coverage import upload as cov_upload
 from ..highlights import bundle as hl_bundle
 from . import asr, media
+from .security import LOOPBACK_HOSTS, LocalBrowserGuard
 from .store import RETENTION_HOURS, TERMINAL, Store
 from .worker import LIMITS, Worker
 
@@ -49,6 +50,7 @@ def create_app(store: Store | None = None, start_worker: bool = True) -> FastAPI
     app = FastAPI(title="Gridiron Lens local inference", docs_url=None, redoc_url=None)
     app.add_middleware(CORSMiddleware, allow_origins=ORIGINS, allow_methods=["GET", "POST", "DELETE"], allow_headers=["Authorization", "Content-Type", "Range"],
                        expose_headers=["Content-Range", "Accept-Ranges", "Content-Length"])
+    app.add_middleware(LocalBrowserGuard, origins=ORIGINS)
     st = store or Store()
     st.recover()
     st.sweep()
@@ -183,4 +185,7 @@ def create_app(store: Store | None = None, start_worker: bool = True) -> FastAPI
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(create_app(), host=os.environ.get("GRIDIRON_API_HOST", "127.0.0.1"), port=int(os.environ.get("GRIDIRON_API_PORT", "8765")), log_level="warning", access_log=False)
+    host = os.environ.get("GRIDIRON_API_HOST", "127.0.0.1")
+    if host not in LOOPBACK_HOSTS:
+        raise SystemExit("The upload lab is local only. GRIDIRON_API_HOST must be a loopback host.")
+    uvicorn.run(create_app(), host=host, port=int(os.environ.get("GRIDIRON_API_PORT", "8765")), log_level="warning", access_log=False)
