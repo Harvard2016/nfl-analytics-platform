@@ -35,6 +35,10 @@ npm run test:inference
 
 Playwright needs Chromium installed first (`npx playwright install chromium`). The inference suite starts a separate development build at port 3112 and mocks the local API. It does not need private model weights or real media.
 
+### ESLint compatibility
+
+ESLint 10 removed methods still used by Next's bundled React, import and accessibility plugins. The official `@eslint/compat` adapter wraps those plugins in `eslint.config.mjs`; no rules are disabled or lowered. The lint tests check that React, accessibility and TypeScript findings still appear at their existing severities. Some plugins still advertise ESLint 9 peer ranges, so npm prints peer warnings despite this deliberate adapter. Remove the adapter only after the plugins support ESLint 10 and the lint tests pass.
+
 ## Optional local inference
 
 Start `bin/gridiron-api` from the repository root, then:
